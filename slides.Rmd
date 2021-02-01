@@ -1,0 +1,26 @@
+---
+title: "utilitR"
+subtitle: "Une documentation utile pour R"
+author: "Lino Galiana, Olivier Meslin"
+institute: "Insee"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    css: [default, default-fonts, custom.css]
+    includes:
+      after_body: insert-logo.html    
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Présentation du projet
+
+* Un site *web*: www.utilitr.org
+* Tout est *open-source* (sur [la page Github d'InseeFrLab](https://github.com/InseeFrLab/utilitR))
