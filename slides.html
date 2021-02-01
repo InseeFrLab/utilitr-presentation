@@ -31,70 +31,89 @@ class: center, middle, inverse, title-slide
 # Genèse du projet
 
 
-* Le projet UtilitR est parti de deux constats : 
+Le projet `utilitR` est parti de deux constats : 
 
-    1. Multiplicité d’obstacles dans la transition vers R :
-        + Diversité des environnements informatiques à l’Insee (poste local, AUS, plateforme innovation…) ;
-        + Difficultés à s’approprier les outils :
-        + Eclatement de la documentation ;
-        + Multiplicité de packages, de qualité variable et parfois redondants ;
-        + Barrière linguistique.
-    2. Il existe une documentation de référence sur SAS en français, rédigée par Axelle Chauvet, qui est largement diffusée à l’Insee et dans le SSP.
-
-* Il serait utile de rédiger une documentation de référence sur l’usage de R.
+1. Multiplicité d’obstacles dans la transition vers `R` :
+    + Diversité des environnements informatiques à l’Insee (poste local, AUS, plateforme innovation…) ;
+    + Difficultés à s’approprier les outils ou en utiliser tout le potentiel :
+    + Eclatement de la documentation ;
+    + Multiplicité de *packages*, de qualité variable et parfois redondants ;
+    + Barrière linguistique.
+2. Il n'existe pas de documentation de référence sur l'usage de `R` pour le statisticien
+    + Documentation de référence sur `SAS` en français, rédigée par
+Axelle Chauvet, largement diffusée à l’Insee et dans le SSP.
+        + Documentation sur `R` foisonnante mais utilise peu d'exemples sur données réelles
 
 ---
-
 # Objectif du projet
 
 
-Produire une documentation collaborative sur R, destinée principalement aux agents de l'Insee.
+Produire une documentation collaborative sur `R`, destinée principalement
+aux agents du SSP (mais pas seulement).
 
-La documentation vise à répondre à deux questions:
+* La documentation vise à répondre à deux questions:
+    1. Comment (bien) travailler avec `R` pour profiter de la richesse de son 
+écosystème ;
+    2. Comment réaliser des tâches élémentaires d'analyse de données avec `R`.
 
-  1. Comment (bien) travailler avec R à l’Insee ;
-  2. Comment réaliser des tâches élémentaires avec R.
 
-Public visé: tous les agents de l’Insee (quel que soit leur niveau en R), mais pas seulement.
-
-Points d’originalité du projet:
-  * Approche (légèrement) normative : la documentation formule des
+* Points d’originalité du projet:
+    + Approche (légèrement) normative : la documentation formule des
 recommandations sur les packages à utiliser ou à éviter, de façon à orienter
 les agents vers les outils adaptés;
-  * Fonctionnement collaboratif et open source.
+    + Fonctionnement collaboratif et *open source*.
+    + Tous les exemples sont sur données disponibles sur [insee.fr](www.insee.fr)
 
 ---
 
 
 # Positionnement du projet utilitR
 
-Le projet est l’une des multiples initiatives lancées pour faciliter la transition de l’Insee vers R : 
-Supports du groupe de travail USSR ;
-FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
-Guide à l'usage du statisticien débutant
-Formation Travail collaboratif avec R (en cours de développement).
+* Le projet est l’une des multiples initiatives lancées pour faciliter la
+transition de l’Insee vers `R` : 
+    + Supports du groupe de travail USSR ;
+    + FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
+    + Guide à l'usage du statisticien débutant ;
+    + Formation Travail collaboratif avec `R` (en cours de développement).
+* Les recommandations de *packages* sont cohérentes avec celles du COPS
+* Prise en compte de l'évolution de l’environnement informatique du statisticien :
+    + Tient compte de la modernisation des serveurs partagés (AUS) ;
+    + Présentation de la plateforme [SSP-cloud](https://datalab.sspcloud.fr/accueil) développée par la Diit ;
+    + Présente des manières simples d'utiliser les outils assurant la qualité des projets en `R` comme le contrôle de version avec `Git`
 
-Evolutions de l’environnement informatique de l’Insee:
-Développement de la plateforme innovation (plateforme Onyxia) par la Diit ;
-Modernisation des serveurs partagés (AUS).
 
 ---
 
 # Où en est le projet aujourd'hui ?
 
-* Un site *web*: www.utilitr.org
-* Tout est *open-source* (sur [la page Github d'InseeFrLab](https://github.com/InseeFrLab/utilitR))
+* Un portail d'accès sous forme de site *web*: &lt;www.utilitr.org&gt;:
+    + Documentation principale disponible sur &lt;www.book.utilitr.org&gt; ;
+    + Guide des bonnes pratiques en `R`: &lt;www.pratiques.utilitr.org&gt;
 
+S'il ne faut retenir qu'un lien:
+    + &lt;wwww.utilitr.org&gt;
+
+* Tout est *open-source*, disponible sur [la page Github d'InseeFrLab](https://github.com/InseeFrLab/utilitR)
+
+* Prochaines étapes:
+    + Version 1: Juin 2021
 
 ---
 
 # Comment est structurée la documentation ?
 
-1. Comment réaliser des tâches élémentaires du statisticien avec R (fiches thématiques) ;
-2. Comment configurer R pour tirer profit de l'écosystème disponible
+* Dans la documentation principale &lt;www.book.utilitr.org&gt;:
+1. Comment réaliser des tâches élémentaires du statisticien avec `R` (fiches thématiques) ;
+  * Import des données
+  * Manipuler des données
+  * Produire des représentations graphiques ou des rapports...
+2. Comment configurer `R` pour tirer profit de l'écosystème disponible
+  * 
 
+* Dans le guide des bonnes pratiques &lt;www.pratiques.utilitr.org&gt;:
+  * to be completed
+  
 
-Annexe: guides des bonnes pratiques
 
 
 ---
@@ -126,10 +145,6 @@ Nous développons en parallèle un package facilitant l’accès aux données pu
 
 Les exemples mobilisent des données issues du SSP (code officiel géographique, répertoire Filosofi, données du recensement…).
 
-
----
-
-# Prochaines étapes
 
 
 
