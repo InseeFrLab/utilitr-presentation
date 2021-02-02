@@ -58,6 +58,10 @@ aux agents du Service statistique public (mais pas seulement).
 
 La documentation ne prétend pas être exhaustive ou sans erreurs. **Elle est issuede la mise en commun des connaissances sur `R` que les agents de la statistique publique ont accumulées dans le cadre de leurs activités.**
 
+-- 
+
+Une seule chose à retenir : [www.utilitr.org](wwww.utilitr.org).
+
 
 ---
 # Contenu de la documentation
@@ -162,10 +166,10 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 * Un portail d'accès sous forme de site *web* :
     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
     + Guide des bonnes pratiques en `R` [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
-
-S'il ne faut retenir qu'un lien [www.utilitr.org](wwww.utilitr.org).
-
 * Tout est *open-source*, disponible sur [la page Github d'InseeFrLab](https ://github.com/InseeFrLab/utilitR).
+
+--
+
 * Prochaines étapes :
     + Mars 2021 : finalisation des contenus ;
     + Avril 2021 : finalisation de la mise en forme ;
