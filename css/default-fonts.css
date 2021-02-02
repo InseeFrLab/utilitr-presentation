@@ -1,0 +1,8 @@
+
+
+body { font-family: serif; }
+h1, h2, h3 {
+  font-family: serif;
+  font-weight: normal;
+}
+.remark-code, .remark-inline-code { font-family: Monaco, monospace; }
