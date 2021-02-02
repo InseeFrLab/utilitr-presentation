@@ -11,7 +11,13 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-    css: [default, default-fonts, custom.css]
+    self_contained: true
+    chakra: 
+      - ./libs/remark-latest.min.js
+    css: 
+    - css/default.css
+    - css/default-fonts.css
+    - custom.css
     includes:
       after_body: insert-logo.html    
 ---
