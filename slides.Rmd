@@ -5,7 +5,7 @@ author : "Lino Galiana, Olivier Meslin"
 institute : "Insee"
 date : "`r Sys.Date()`"
 output :
-  xaringan : :moon_reader :
+  xaringan::moon_reader :
     lib_dir : libs
     nature :
       highlightStyle : github
@@ -67,7 +67,7 @@ les agents vers les outils adaptés ;
 ---
 
 
-# Positionnement du projet utilitR
+# Positionnement du projet `utilitR`
 
 * Le projet est l’une des multiples initiatives lancées pour faciliter la
 transition de l’Insee vers `R` : 
@@ -121,7 +121,7 @@ S'il ne faut retenir qu'un lien [wwww.utilitr.org](wwww.utilitr.org)
 * Des parrains
 * Un groupe de contributeurs
 
-Le projet UtilitR est un projet collaboratif, horizontal, open source et ouvert à tous, auquel tous les agents peuvent contribuer. 
+Le projet `utilitR` est un projet collaboratif, horizontal, open source et ouvert à tous, auquel tous les agents peuvent contribuer. 
 Cinq principes  : transparence, ouverture, bienveillance, exigence et reproductibilité ;
 Le groupe de travail comprend environ 15 contributeurs. Tout le monde est bienvenu ;
 La coordination est assurée par Lino Galiana et Olivier Meslin.
@@ -131,9 +131,9 @@ La coordination est assurée par Lino Galiana et Olivier Meslin.
 
 # Une méthode de travail pour assurer la qualité de la documentation
 
-Le projet UtilitR est entièrement développé avec des outils collaboratifs :
+Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 Le projet est stocké sur un dépôt Github, sous licence libre ;
-La documentation est rédigée en Rmarkdown (sous forme de fiches modulaires) et déployée sous la forme d’un site html et d’un livret pdf ;
+La documentation est rédigée en Rmarkdown (sous forme de fiches modulaires) et déployée sous la forme d’un site html et d’une brochure pdf ;
 Les contributions prennent la forme de merge requests soumises à une relecture par les pairs et validées collégialement ;
 Quand elles existent, nous réutilisons des ressources existantes en français sous licence libre.
 
