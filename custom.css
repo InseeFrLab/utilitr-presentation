@@ -1,5 +1,5 @@
 .title-slide {
-  background-image: url(https://github.com/InseeFrLab/utilitR/raw/master/resources/logo-utilitr.png);
+  background-image: url('resources/logo-utilitr.png');
   background-size: cover;
   background-color: white;
 }
