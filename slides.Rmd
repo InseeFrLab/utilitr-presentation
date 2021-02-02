@@ -1,26 +1,26 @@
 ---
-title: "`utilitR`"
-subtitle: "Une documentation utile pour R"
-author: "Lino Galiana, Olivier Meslin"
-institute: "Insee"
-date: "`r Sys.Date()`"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-    self_contained: true
-    chakra: 
+title : "__`utilitR`__"
+subtitle : "Une documentation utile pour R"
+author : "Lino Galiana, Olivier Meslin"
+institute : "Insee"
+date : "`r Sys.Date()`"
+output :
+  xaringan : :moon_reader :
+    lib_dir : libs
+    nature :
+      highlightStyle : github
+      highlightLines : true
+      countIncrementalSlides : false
+    self_contained : true
+    chakra : 
       - ./libs/remark-latest.min.js
-    css: 
+    css : 
     - css/default.css
     - css/default-fonts.css
     - custom.css
     - css/metropolis.css
-    includes:
-      after_body: insert-logo.html    
+    includes :
+      after_body : insert-logo.html    
 ---
 
 ```{r setup, include=FALSE}
@@ -28,17 +28,15 @@ options(htmltools.dir.version = FALSE)
 ```
 
 
----
-
 # Genèse du projet
 
 
 Le projet `utilitR` est parti de deux constats : 
 
 1. Multiplicité d’obstacles dans la transition vers `R` :
-    + Diversité des environnements informatiques à l’Insee (poste local, AUS, plateforme innovation…) ;
+    + Diversité des environnements informatiques à l’Insee (poste local, AUS, plateforme innovation…)  ;
     + Difficultés à s’approprier les outils ou en utiliser tout le potentiel :
-    + Eclatement de la documentation ;
+    + Eclatement de la documentation  ;
     + Multiplicité de *packages*, de qualité variable et parfois redondants ;
     + Barrière linguistique.
 2. Il n'existe pas de documentation de référence sur l'usage de `R` pour le statisticien
@@ -53,16 +51,16 @@ Axelle Chauvet, largement diffusée à l’Insee et dans le SSP.
 Produire une documentation collaborative sur `R`, destinée principalement
 aux agents du SSP (mais pas seulement).
 
-* La documentation vise à répondre à deux questions:
+* La documentation vise à répondre à deux questions :
     1. Comment (bien) travailler avec `R` pour profiter de la richesse de son 
 écosystème ;
     2. Comment réaliser des tâches élémentaires d'analyse de données avec `R`.
 
 
-* Points d’originalité du projet:
+* Points d’originalité du projet :
     + Approche (légèrement) normative : la documentation formule des
 recommandations sur les packages à utiliser ou à éviter, de façon à orienter
-les agents vers les outils adaptés;
+les agents vers les outils adaptés ;
     + Fonctionnement collaboratif et *open source*.
     + Tous les exemples sont sur données disponibles sur [insee.fr](www.insee.fr)
 
@@ -80,7 +78,7 @@ transition de l’Insee vers `R` :
 * Les recommandations de *packages* sont cohérentes avec celles du COPS
 * Prise en compte de l'évolution de l’environnement informatique du statisticien :
     + Tient compte de la modernisation des serveurs partagés (AUS) ;
-    + Présentation de la plateforme [SSP-cloud](https://datalab.sspcloud.fr/accueil) développée par la Diit ;
+    + Présentation de la plateforme [SSP-cloud](https ://datalab.sspcloud.fr/accueil) développée par la Diit  ;
     + Présente des manières simples d'utiliser les outils assurant la qualité des projets en `R` comme le contrôle de version avec `Git`
 
 
@@ -88,22 +86,22 @@ transition de l’Insee vers `R` :
 
 # Où en est le projet aujourd'hui ?
 
-* Un portail d'accès sous forme de site *web*: <www.utilitr.org>:
+* Un portail d'accès sous forme de site *web* : <www.utilitr.org> :
     + Documentation principale disponible sur <www.book.utilitr.org> ;
-    + Guide des bonnes pratiques en `R`: <www.pratiques.utilitr.org>
+    + Guide des bonnes pratiques en `R` : <www.pratiques.utilitr.org>
 
 S'il ne faut retenir qu'un lien [wwww.utilitr.org](wwww.utilitr.org)
 
-* Tout est *open-source*, disponible sur [la page Github d'InseeFrLab](https://github.com/InseeFrLab/utilitR)
+* Tout est *open-source*, disponible sur [la page Github d'InseeFrLab](https ://github.com/InseeFrLab/utilitR)
 
-* Prochaines étapes:
-    + Version 1: Juin 2021
+* Prochaines étapes :
+    + Version 1 : Juin 2021
 
 ---
 
 # Comment est structurée la documentation ?
 
-* Dans la documentation principale <www.book.utilitr.org>:
+* Dans la documentation principale <www.book.utilitr.org> :
 1. Comment réaliser des tâches élémentaires du statisticien avec `R` (fiches thématiques) ;
   * Import des données
   * Manipuler des données
@@ -111,7 +109,7 @@ S'il ne faut retenir qu'un lien [wwww.utilitr.org](wwww.utilitr.org)
 2. Comment configurer `R` pour tirer profit de l'écosystème disponible
   * 
 
-* Dans le guide des bonnes pratiques <www.pratiques.utilitr.org>:
+* Dans le guide des bonnes pratiques <www.pratiques.utilitr.org> :
   * to be completed
   
 
@@ -124,8 +122,8 @@ S'il ne faut retenir qu'un lien [wwww.utilitr.org](wwww.utilitr.org)
 * Un groupe de contributeurs
 
 Le projet UtilitR est un projet collaboratif, horizontal, open source et ouvert à tous, auquel tous les agents peuvent contribuer. 
-Cinq principes : transparence, ouverture, bienveillance, exigence et reproductibilité;
-Le groupe de travail comprend environ 15 contributeurs. Tout le monde est bienvenu;
+Cinq principes  : transparence, ouverture, bienveillance, exigence et reproductibilité ;
+Le groupe de travail comprend environ 15 contributeurs. Tout le monde est bienvenu ;
 La coordination est assurée par Lino Galiana et Olivier Meslin.
 
 
@@ -133,14 +131,14 @@ La coordination est assurée par Lino Galiana et Olivier Meslin.
 
 # Une méthode de travail pour assurer la qualité de la documentation
 
-Le projet UtilitR est entièrement développé avec des outils collaboratifs:
-Le projet est stocké sur un dépôt Github, sous licence libre;
-La documentation est rédigée en Rmarkdown (sous forme de fiches modulaires) et déployée sous la forme d’un site html et d’un livret pdf;
-Les contributions prennent la forme de merge requests soumises à une relecture par les pairs et validées collégialement;
+Le projet UtilitR est entièrement développé avec des outils collaboratifs :
+Le projet est stocké sur un dépôt Github, sous licence libre ;
+La documentation est rédigée en Rmarkdown (sous forme de fiches modulaires) et déployée sous la forme d’un site html et d’un livret pdf ;
+Les contributions prennent la forme de merge requests soumises à une relecture par les pairs et validées collégialement ;
 Quand elles existent, nous réutilisons des ressources existantes en français sous licence libre.
 
-La documentation est conçue pour être intégralement reproductible:
-Le déploiement est assuré par un dispositif d’intégration continue;
+La documentation est conçue pour être intégralement reproductible :
+Le déploiement est assuré par un dispositif d’intégration continue ;
 Nous développons en parallèle un package facilitant l’accès aux données publiées par l’Insee (doremifasol), qui contient notamment les données utilisées dans les exemples.
 
 Les exemples mobilisent des données issues du SSP (code officiel géographique, répertoire Filosofi, données du recensement…).
