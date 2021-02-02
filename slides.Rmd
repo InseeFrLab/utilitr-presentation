@@ -28,8 +28,7 @@ options(htmltools.dir.version = FALSE)
 ```
 
 
-# Genèse du projet `utilitR`
-
+# Genèse du projet
 
 Le projet `utilitR` est parti de deux constats : 
 
@@ -45,8 +44,7 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
     + La documentation sur `R` est foisonnante mais propose peu d'exemples sur données réelles.
 
 ---
-# Objectif du projet `utilitR`
-
+# Objectif du projet
 
 Produire une documentation collaborative sur `R`, destinée principalement
 aux agents du Service statistique public (mais pas seulement).
@@ -54,13 +52,15 @@ aux agents du Service statistique public (mais pas seulement).
 * La documentation vise à répondre à deux questions :
     1. Comment (bien) travailler avec `R` pour profiter de la richesse de son 
 écosystème ;
-    2. Comment réaliser des tâches élémentaires avec `R`.
+    2. Comment réaliser efficacement des tâches élémentaires avec `R`.
 
+--
 
+La documentation ne prétend pas être exhaustive ou sans erreurs. **Elle est issuede la mise en commun des connaissances sur `R` que les agents de la statistique publique ont accumulées dans le cadre de leurs activités.**
 
 
 ---
-# Contenu de la documentation `utilitR`
+# Contenu de la documentation
 
 La documentation est structurée en deux parties :
 
@@ -82,26 +82,26 @@ La documentation est structurée en deux parties :
 
 
 ---
-# Contenu de la documentation `utilitR`
+# Contenu de la documentation
 
 La documentation `utilitR` a deux particularités :
 
 --
 
-+ **Approche (légèrement) normative** :
++ **Une approche (légèrement) normative** :
     - recommandations sur les _packages_ à utiliser ou à éviter, de façon à orienter
 les agents vers les outils adaptés ;
     - conseils sur les bonnes pratiques à adopter ;
 
 --
 
-+ **Les exemples sont reproductibles** :
++ **Des exemples de code reproductibles** :
     - la plupart des exemples mobilisent des données disponibles sur [insee.fr](www.insee.fr) ;
     - les données utilisées dans les exemples sont mises à disposition sous forme d'un _package_ (`doremifasolData`).
 
     
 ---
-# Diffusion de la documentation `utilitR`
+# Diffusion de la documentation
 
 La documentation est diffusée sous deux formes :
 
@@ -114,25 +114,24 @@ Le site internet est actualisé en continu, tandis que la brochure pdf est publi
 
 ---
 
-# Positionnement du projet `utilitR`
+# Positionnement du projet à l'Insee
 
-* Le projet est l’une des multiples initiatives lancées pour faciliter la
-transition de l’Insee vers `R` : 
-    + Supports du groupe de travail USSR ;
-    + FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
-    + Guide à l'usage du statisticien débutant (Cédric Afsa) ;
-    + Formation Travail collaboratif avec `R` (en cours de développement).
-    
-* Les recommandations de *packages* sont cohérentes avec celles du Comité de certification des _packages_ `R` (COPS) ;
+Le projet est l’une des multiples initiatives lancées pour faciliter la
+transition vers `R` : 
++ Supports du groupe de travail USSR ;
++ FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
++ Guide à l'usage du statisticien débutant (Cédric Afsa) ;
++ Formation Travail collaboratif avec `R` (actuellement en rodage).
 
-* La documentation prend en compte l'évolution de l’environnement informatique du statisticien :
-    + Modernisation des serveurs partagés (AUSv3) ;
-    + Création de la plateforme [SSP-cloud](https ://datalab.sspcloud.fr/accueil) développée par la Diit ;
-    + Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab.
+Les recommandations de *packages* sont cohérentes avec celles du Comité de certification des _packages_ `R` (COPS).
 
+La documentation prend en compte l'évolution de l’environnement informatique du statisticien :
++ Modernisation des serveurs partagés (AUSv3) ;
++ Création de la plateforme [SSP-cloud](https ://datalab.sspcloud.fr/accueil) développée par la Diit ;
++ Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab.
 
 ---
-# Spécificités du projet `utilitR` : organisation
+# Spécificités du projet : organisation
 
 **Le projet `utilitR` est un projet collaboratif, horizontal, _open source_ et ouvert à tous, auquel tous les agents peuvent contribuer.**
 
@@ -140,15 +139,15 @@ transition de l’Insee vers `R` :
 
 Organisation sans hiérarchie :
 
-* Un groupe de contributeurs, avec deux coordinateurs (Lino Galiana et Olivier Meslin) ;
-* Un comité de parrainage composés de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
+* Un _groupe de contributeurs_, avec deux coordinateurs (Lino Galiana et Olivier Meslin) ;
+* Un _comité de parrainage_ composés de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
 
 --
 
 Cinq principes : transparence, ouverture, bienveillance, exigence et reproductibilité.
 
 ---
-# Spécificités du projet `utilitR` : méthode de travail
+# Spécificités du projet : méthode de travail
 
 Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
@@ -160,14 +159,13 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
 # Où en est le projet aujourd'hui ?
 
-* Un portail d'accès sous forme de site *web* : <www.utilitr.org> :
-    + La documentation principale est disponible sur <www.book.utilitr.org> ;
-    + Guide des bonnes pratiques en `R` : <www.pratiques.utilitr.org>
+* Un portail d'accès sous forme de site *web* :
+    + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
+    + Guide des bonnes pratiques en `R` [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
 
-S'il ne faut retenir qu'un lien [wwww.utilitr.org](wwww.utilitr.org).
+S'il ne faut retenir qu'un lien [www.utilitr.org](wwww.utilitr.org).
 
 * Tout est *open-source*, disponible sur [la page Github d'InseeFrLab](https ://github.com/InseeFrLab/utilitR).
-
 * Prochaines étapes :
     + Mars 2021 : finalisation des contenus ;
     + Avril 2021 : finalisation de la mise en forme ;
@@ -179,4 +177,3 @@ background-size: 7cm
 background-position: 8.5cm 3cm
 
 # Merci !
-
