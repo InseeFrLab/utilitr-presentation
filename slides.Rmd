@@ -1,5 +1,5 @@
 ---
-title: "utilitR"
+title: "`utilitR`"
 subtitle: "Une documentation utile pour R"
 author: "Lino Galiana, Olivier Meslin"
 institute: "Insee"
