@@ -18,6 +18,7 @@ output:
     - css/default.css
     - css/default-fonts.css
     - custom.css
+    - css/metropolis.css
     includes:
       after_body: insert-logo.html    
 ---
