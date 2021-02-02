@@ -1,6 +1,6 @@
 ---
 title : "__`utilitR`__"
-subtitle : "Une documentation utile pour R"
+subtitle : "Une documentation sur `R` à l’usage des statisticiens publics"
 author : "Lino Galiana, Olivier Meslin"
 institute : "Insee"
 date : "`r Sys.Date()`"
@@ -93,7 +93,7 @@ La documentation `utilitR` a deux particularités :
 les agents vers les outils adaptés ;
     - conseils sur les bonnes pratiques à adopter ;
 
--- 
+--
 
 + **Les exemples sont reproductibles** :
     - la plupart des exemples mobilisent des données disponibles sur [insee.fr](www.insee.fr) ;
@@ -108,7 +108,7 @@ La documentation est diffusée sous deux formes :
 - un site internet ([www.utilitr.org]) déjà disponible ;
 - une brochure pdf imprimable (en cours d'élaboration).
 
--- 
+--
 
 Le site internet est actualisé en continu, tandis que la brochure pdf est publiée de façon ponctuelle et millésimée.
 
@@ -122,11 +122,13 @@ transition de l’Insee vers `R` :
     + FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
     + Guide à l'usage du statisticien débutant (Cédric Afsa) ;
     + Formation Travail collaboratif avec `R` (en cours de développement).
-* Les recommandations de *packages* sont cohérentes avec celles du COPS
-* Prise en compte de l'évolution de l’environnement informatique du statisticien :
-    + Tient compte de la modernisation des serveurs partagés (AUS) ;
-    + Présentation de la plateforme [SSP-cloud](https ://datalab.sspcloud.fr/accueil) développée par la Diit ;
-    + Présente des manières simples d'utiliser les outils assurant la qualité des projets en `R` comme le contrôle de version avec `git` et Gitlab.
+    
+* Les recommandations de *packages* sont cohérentes avec celles du Comité de certification des _packages_ `R` (COPS) ;
+
+* La documentation prend en compte l'évolution de l’environnement informatique du statisticien :
+    + Modernisation des serveurs partagés (AUSv3) ;
+    + Création de la plateforme [SSP-cloud](https ://datalab.sspcloud.fr/accueil) développée par la Diit ;
+    + Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab.
 
 
 ---
@@ -172,9 +174,9 @@ S'il ne faut retenir qu'un lien [wwww.utilitr.org](wwww.utilitr.org).
     + Juin 2021 : diffusion de la V1 de la brochure pdf.
 
 ---
-class: center
-background-image: url('resources/logo-utilitr.png');
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
 
-
-<!-- ![:scale 10%](./resources/logo-utilitr.png) -->
+# Merci !
 
