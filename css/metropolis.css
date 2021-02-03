@@ -14,13 +14,19 @@ table caption {
 .remark-slide-content > p:first-of-type {
   margin-right: 3cm;
 }
+
+/* Taille des codes inline dans le texte  */
+li code.remark-inline-code, p code.remark-inline-code {
+  font-size: 18px;
+}
+
 /* Fin ajouts OM */
 
 
 .remark-slide-content {
   background-color: #FAFAFA;
   border-top: 80px solid #23373B;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 300;
   line-height: 1.5;
   padding: 1em 2em 1em 2em
@@ -89,7 +95,7 @@ h2, h3, h4 {
   text-shadow: none;
   font-weight: 400;
   text-align: left;
-  font-size: 250%;
+  font-size: 240%;
   margin-left: 15px;
   padding-top: 250px;
 }

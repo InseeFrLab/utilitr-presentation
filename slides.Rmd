@@ -49,16 +49,16 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 Produire une documentation collaborative sur `R`, destinée principalement
 aux agents du Service statistique public (mais pas seulement).
 
-* La documentation vise à répondre à deux questions :
-    1. Comment (bien) travailler avec `R` pour profiter de la richesse de son 
+La documentation vise à répondre à deux questions :
+- Comment (bien) travailler avec `R` pour profiter de la richesse de son 
 écosystème ;
-    2. Comment réaliser efficacement des tâches élémentaires avec `R`.
+- Comment réaliser efficacement des tâches élémentaires avec `R`.
 
 --
 
-La documentation ne prétend pas être exhaustive ou sans erreurs. **Elle est issuede la mise en commun des connaissances sur `R` que les agents de la statistique publique ont accumulées dans le cadre de leurs activités.**
+La documentation ne prétend pas être exhaustive ou sans erreurs. **Elle est issue de la mise en commun des connaissances sur `R` que les agents de la statistique publique ont accumulées dans le cadre de leurs activités.**
 
--- 
+--
 
 Une seule chose à retenir : [www.utilitr.org](wwww.utilitr.org).
 
@@ -68,21 +68,20 @@ Une seule chose à retenir : [www.utilitr.org](wwww.utilitr.org).
 
 La documentation est structurée en deux parties :
 
-* Travailler avec `R` à l'Insee :
-    - Présentation des espaces de travail informatiques (AUSv3 et SSP Cloud) ;
-    - Comment configurer sa session `R` ;
-    - Comment installer et utiliser des _packages_ `R` ;
-    - Comment utiliser RStudio et les `RProject` ;
-    - Comment utiliser `git` et Gilab avec RStudio...
-
-* Réaliser des tâches standard avec `R` : 
-    - Importer des données (SAS, csv, txt, odt, xlsx...) ;
-    - Manipuler des tables de données ;
-    - Faire des graphiques ;
-    - Manipuler des données textuelles ;
-    - Manipuler des données spatiales ;
-    - Rédiger des documents avec `R Markdown` ;
-    - Utiliser des bases de données PostgreSQL et Oracle...
+1. Travailler avec `R` à l'Insee :
+    + Présentation des espaces de travail informatiques (AUSv3 et SSP Cloud) ;
+    + Comment configurer sa session `R` ;
+    + Comment installer et utiliser des _packages_ `R` ;
+    + Comment utiliser RStudio et les `RProject` ;
+    + Comment utiliser `git` et Gilab avec RStudio...
+2. Réaliser des tâches standard avec `R` : 
+    + Importer des données (SAS, csv, txt, odt, xlsx...) ;
+    + Manipuler des tables de données ;
+    + Faire des graphiques ;
+    + Manipuler des données textuelles ;
+    + Manipuler des données spatiales ;
+    + Rédiger des documents avec `R Markdown` ;
+    + Utiliser des bases de données PostgreSQL et Oracle...
 
 
 ---
@@ -109,7 +108,7 @@ les agents vers les outils adaptés ;
 
 La documentation est diffusée sous deux formes :
 
-- un site internet ([www.utilitr.org]) déjà disponible ;
+- un site internet ([www.utilitr.org](www.utilitr.org)) déjà disponible ;
 - une brochure pdf imprimable (en cours d'élaboration).
 
 --
@@ -140,22 +139,21 @@ La documentation prend en compte l'évolution de l’environnement informatique 
 **Le projet `utilitR` est un projet collaboratif, horizontal, _open source_ et ouvert à tous, auquel tous les agents peuvent contribuer.**
 
 --
-
-Organisation sans hiérarchie :
-
-* Un _groupe de contributeurs_, avec deux coordinateurs (Lino Galiana et Olivier Meslin) ;
-* Un _comité de parrainage_ composés de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
-
+* Cinq principes détaillés dans le [manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparence, ouverture, bienveillance, exigence et reproductibilité.
 --
+* Organisation sans hiérarchie :
+    * Un _groupe de contributeurs_, avec deux coordinateurs (Lino Galiana et Olivier Meslin) ;
+    * Un _comité de parrainage_ composés de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
+--
+* La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
 
-Cinq principes : transparence, ouverture, bienveillance, exigence et reproductibilité.
 
 ---
 # Spécificités du projet : méthode de travail
 
 Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
-- Tous les codes du projet sont stockés sur un dépôt Github ([https://github.com/InseeFrLab/utilitR]) et disponibles sous licence libre ;
+- Tous les codes du projet sont stockés sur un dépôt Github ([https://github.com/InseeFrLab/utilitR](lien)) et disponibles sous licence libre ;
 - Les travaux sont menés selon les méthodes de développement logiciel (_pull requests_, _issues_) ;
 - Toutes les contributions sont soumises à une relecture par les pairs et validées collégialement.
 
@@ -165,9 +163,8 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
 * Un portail d'accès sous forme de site *web* :
     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
-    + Guide des bonnes pratiques en `R` [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
-* Tout est *open-source*, disponible sur [la page Github d'InseeFrLab](https ://github.com/InseeFrLab/utilitR).
-
+    + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
+    
 --
 
 * Prochaines étapes :

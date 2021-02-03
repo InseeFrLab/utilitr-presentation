@@ -31,14 +31,18 @@
     src: url('https://fonts.cdnfonts.com/s/282/LinLibertineC_Re-4.0_.1_.woff') format('woff');
 }
 
+@import 'https://fonts.googleapis.com/css?family=Source+Code+Pro';
+
 /* Définir les polices */
 body {
   font-family: "Linux Libertine", serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
 }
 h1, h2, h3 {
   font-family: "Linux Libertine", serif;
   font-weight: 900;
 }
-.remark-code, .remark-inline-code { font-family: Monaco, monospace; }
+.remark-code, .remark-inline-code {
+  font-family: 'Source Code Pro', Monaco, monospace;
+}
