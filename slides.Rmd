@@ -101,9 +101,11 @@ Chaque fiche :
 <!-- IL FAUDRAIT METTRE UNE BOITE RECOMMANDATION ICI -->
 
 --
+
 + présente en détail les outils les plus adaptés pour réaliser la tâche considérée ;
 
 --
+
 + contient des conseils et des remarques sur les bonnes pratiques à adopter ;
 
 <!-- IL FAUDRAIT METTRE DEUX BOITES CONSEIL ET REMARQUE ICI -->
