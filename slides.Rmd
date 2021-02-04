@@ -93,22 +93,23 @@ La documentation est structurée en fiches regroupées en deux parties :
 ---
 # Contenu de la documentation
 
-+ Chaque fiche commence par quelques **recommandations** sur les outils et les _packages_ à utiliser ou à éviter ;
+Chaque fiche :
+--
++ commence par quelques **recommandations** sur les outils et les _packages_ à utiliser ou à éviter ;
 
 <!-- IL FAUDRAIT METTRE UNE BOITE RECOMMANDATION ICI -->
 
 --
++ présente en détail les outils les plus adaptés pour réaliser la tâche considérée ;
 
-+ Chaque fiche présente en détail les outils les plus adaptés pour réaliser la tâche considérée ;
-
--- 
-+ Chaque fiche contient des conseils et des remarques sur les bonnes pratiques à adopter ;
+--
++ contient des conseils et des remarques sur les bonnes pratiques à adopter ;
 
 <!-- IL FAUDRAIT METTRE DEUX BOITES CONSEIL ET REMARQUE ICI -->
 
 --
 
-+ Les fiches comportent des **exemples de code reproductibles et proches des cas d'usage**. 
++ comporte des **exemples de code reproductibles et proches des cas d'usage**. 
     - Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples ;
     - les exemples utilisent des données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
     - les données utilisées dans les exemples sont mises à disposition sous forme d'un _package_ (`doremifasolData`).
