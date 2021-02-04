@@ -19,6 +19,9 @@ output :
     - css/default-fonts.css
     - custom.css
     - css/metropolis.css
+    # Cet argument fait planter la compilation
+    # extra_dependencies:
+    # - !expr rmarkdown::html_dependency_font_awesome()
     includes :
       after_body : insert-logo.html    
 ---
@@ -90,20 +93,27 @@ La documentation est structurée en fiches regroupées en deux parties :
 ---
 # Contenu de la documentation
 
-Chaque fiche d'`utilitR` a deux particularités :
++ Chaque fiche commence par quelques **recommandations** sur les outils et les _packages_ à utiliser ou à éviter ;
+
+<!-- IL FAUDRAIT METTRE UNE BOITE RECOMMANDATION ICI -->
 
 --
 
-+ **Une approche (légèrement) normative** :
-    - recommandations sur les _packages_ à utiliser ou à éviter, de façon à orienter
-les agents vers les outils adaptés ;
-    - conseils sur les bonnes pratiques à adopter ;
++ Chaque fiche présente en détail les outils les plus adaptés pour réaliser la tâche considérée ;
+
+-- 
++ Chaque fiche contient des conseils et des remarques sur les bonnes pratiques à adopter ;
+
+<!-- IL FAUDRAIT METTRE DEUX BOITES CONSEIL ET REMARQUE ICI -->
 
 --
 
-+ **Des exemples de code reproductibles et proches des cas d'usage**. Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples :
++ Les fiches comportent des **exemples de code reproductibles et proches des cas d'usage**. 
+    - Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples ;
     - les exemples utilisent des données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
     - les données utilisées dans les exemples sont mises à disposition sous forme d'un _package_ (`doremifasolData`).
+
+<!-- IL FAUDRAIT METTRE UN EXEMPLE DE CODE -->
 
     
 ---
