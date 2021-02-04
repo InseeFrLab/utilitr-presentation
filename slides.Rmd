@@ -157,9 +157,10 @@ L'articulation entre `utilitR` et l'offre de formation sur `R` n'est pas encore 
 * Cinq principes détaillés dans le [manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparence, ouverture, bienveillance, exigence et reproductibilité.
 
 --
+
 * Organisation sans hiérarchie :
     * Un _groupe de contributeurs_ (environ 15), parmi lesquels deux coordinateurs (Lino Galiana et Olivier Meslin) ;
-    * Un _comité de parrainage_ composés de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
+    * Un _comité de parrainage_ composé de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
 --
 * La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
 
