@@ -94,6 +94,7 @@ La documentation est structurée en fiches regroupées en deux parties :
 # Contenu de la documentation
 
 Chaque fiche :
+
 --
 + commence par quelques **recommandations** sur les outils et les _packages_ à utiliser ou à éviter ;
 
