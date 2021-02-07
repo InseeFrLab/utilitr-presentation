@@ -174,8 +174,8 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
     + Juin 2021 : diffusion de la V1 de la brochure pdf.
 
 ---
-background-image: url('resources/logo-utilitr.png')
-background-size: 7cm
-background-position: 8.5cm 3cm
+<!-- background-image: url('resources/logo-utilitr.png') -->
+<!-- background-size: 7cm -->
+<!-- background-position: 8.5cm 3cm -->
 
 # Merci !
