@@ -5,7 +5,7 @@ author : "Lino Galiana, Olivier Meslin"
 institute : "Insee"
 date : "`r Sys.Date()`"
 output :
-  xaringan::moon_reader :
+  xaringan::moon_reader:
     lib_dir : libs
     nature :
       highlightStyle : github
@@ -19,6 +19,9 @@ output :
     - css/default-fonts.css
     - custom.css
     - css/metropolis.css
+    # Cet argument fait planter la compilation
+    # extra_dependencies:
+    # - !expr rmarkdown::html_dependency_font_awesome()
     includes :
       after_body : insert-logo.html    
 ---
@@ -33,15 +36,14 @@ options(htmltools.dir.version = FALSE)
 Le projet `utilitR` est parti de deux constats : 
 
 1. **La transition des agents vers `R` est freinée par une multiplicité d’obstacles** :
-    + Diversité des environnements informatiques à l’Insee (poste local, AUS, plateforme innovation puis SSP-Cloud…) ;
-    + Difficultés à s’approprier les outils et à en utiliser tout le potentiel :
     + Eclatement de la documentation de l'écosystème `R` ;
     + Multiplicité de *packages*, de qualité variable et parfois redondants ;
-    + Barrière linguistique.
-2. **Il n'existe pas de documentation de référence sur l'usage de `R` pour le statisticien** :
+    + Barrière linguistique : la grande majorité de la documentation est en anglais ;
+    + Diversité des cas d'usage de `R` à l'Insee et dans le SSP ;
+2. **Face à ces difficultés, il n'existe pas de documentation de référence sur l'usage de `R` par les statisticiens** :
     +  La documentation de référence sur `SAS` en français, rédigée par
 Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'équivalent en `R` ;
-    + La documentation sur `R` est foisonnante mais propose peu d'exemples sur données réelles.
+    + La documentation sur `R` est riche mais propose peu d'exemples sur données réelles, proches des cas d'usage des agents.
 
 ---
 # Objectif du projet
@@ -56,7 +58,11 @@ La documentation vise à répondre à deux questions :
 
 --
 
-La documentation ne prétend pas être exhaustive ou sans erreurs. **Elle est issue de la mise en commun des connaissances sur `R` que les agents de la statistique publique ont accumulées dans le cadre de leurs activités.**
+Trois caractéristiques importantes :
+
+- Cette documentation ne prétend pas être exhaustive ou sans erreurs.
+- Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche _bottom-up_, sur le modèle de Wikipedia. 
+- Cette documentation n'est pas une introduction théorique au langage `R`, mais un aide-mémoire pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète.
 
 --
 
@@ -66,7 +72,7 @@ Une seule chose à retenir : [www.utilitr.org](wwww.utilitr.org).
 ---
 # Contenu de la documentation
 
-La documentation est structurée en deux parties :
+La documentation est structurée en fiches regroupées en deux parties :
 
 1. Travailler avec `R` à l'Insee :
     + Présentation des espaces de travail informatiques (AUSv3 et SSP Cloud) ;
@@ -74,7 +80,7 @@ La documentation est structurée en deux parties :
     + Comment installer et utiliser des _packages_ `R` ;
     + Comment utiliser RStudio et les `RProject` ;
     + Comment utiliser `git` et Gilab avec RStudio...
-2. Réaliser des tâches standard avec `R` : 
+2. Réaliser des tâches élémentaires avec `R` : 
     + Importer des données (SAS, csv, txt, odt, xlsx...) ;
     + Manipuler des tables de données ;
     + Faire des graphiques ;
@@ -87,20 +93,31 @@ La documentation est structurée en deux parties :
 ---
 # Contenu de la documentation
 
-La documentation `utilitR` a deux particularités :
+Chaque fiche :
+
+--
++ commence par quelques **recommandations** sur les outils et les _packages_ à utiliser ou à éviter ;
+
+<!-- IL FAUDRAIT METTRE UNE BOITE RECOMMANDATION ICI -->
 
 --
 
-+ **Une approche (légèrement) normative** :
-    - recommandations sur les _packages_ à utiliser ou à éviter, de façon à orienter
-les agents vers les outils adaptés ;
-    - conseils sur les bonnes pratiques à adopter ;
++ présente en détail les outils les plus adaptés pour réaliser la tâche considérée ;
 
 --
 
-+ **Des exemples de code reproductibles** :
-    - la plupart des exemples mobilisent des données disponibles sur [insee.fr](www.insee.fr) ;
++ contient des conseils et des remarques sur les bonnes pratiques à adopter ;
+
+<!-- IL FAUDRAIT METTRE DEUX BOITES CONSEIL ET REMARQUE ICI -->
+
+--
+
++ comporte des **exemples de code reproductibles et proches des cas d'usage**. 
+    - Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples ;
+    - les exemples utilisent des données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
     - les données utilisées dans les exemples sont mises à disposition sous forme d'un _package_ (`doremifasolData`).
+
+<!-- IL FAUDRAIT METTRE UN EXEMPLE DE CODE -->
 
     
 ---
@@ -133,6 +150,8 @@ La documentation prend en compte l'évolution de l’environnement informatique 
 + Création de la plateforme [SSP-cloud](https ://datalab.sspcloud.fr/accueil) développée par la Diit ;
 + Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab.
 
+L'articulation entre `utilitR` et l'offre de formation sur `R` n'est pas encore clairement établie.
+
 ---
 # Spécificités du projet : organisation
 
@@ -140,10 +159,11 @@ La documentation prend en compte l'évolution de l’environnement informatique 
 
 --
 * Cinq principes détaillés dans le [manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparence, ouverture, bienveillance, exigence et reproductibilité.
+
 --
 
 * Organisation sans hiérarchie :
-    * Un _groupe de contributeurs_, avec deux coordinateurs (Lino Galiana et Olivier Meslin) ;
+    * Un _groupe de contributeurs_ (environ 15), parmi lesquels deux coordinateurs (Lino Galiana et Olivier Meslin) ;
     * Un _comité de parrainage_ composé de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
 --
 * La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
@@ -156,7 +176,7 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
 - Tous les codes du projet sont stockés sur un dépôt Github ([https://github.com/InseeFrLab/utilitR](lien)) et disponibles sous licence libre ;
 - Les travaux sont menés selon les méthodes de développement logiciel (_pull requests_, _issues_) ;
-- Toutes les contributions sont soumises à une relecture par les pairs et validées collégialement.
+- Toutes les contributions sont soumises à une relecture par les pairs et validées collégialement (sur le modèle de Wikipedia).
 
 ---
 
