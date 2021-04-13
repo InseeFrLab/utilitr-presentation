@@ -1,3 +1,15 @@
 .title-slide {
   background-image: url('resources/logo-utilitr.png');
 }
+
+.indent{
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.sauterligne{
+  margin-top: 1em;
+}
+.laisserligne{
+  margin-bottom: 1em;
+}
