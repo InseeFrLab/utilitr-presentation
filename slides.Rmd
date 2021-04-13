@@ -78,29 +78,79 @@ La documentation est structurée en fiches regroupées en deux parties :
 ---
 # Contenu de la documentation
 
-Chaque fiche :
+Les fiches de la documentation partagent un certain nombre de caractéristiques.
 
 --
-+ commence par quelques **recommandations** sur les outils et les _packages_ à utiliser ou à éviter ;
-
-<!-- IL FAUDRAIT METTRE UNE BOITE RECOMMANDATION ICI -->
-
---
-
-+ présente en détail les outils les plus adaptés pour réaliser la tâche considérée ;
+.sauterligne[
+Les fiches commencent systématiquement par des **recommandations** sur les outils et les _packages_ à utiliser ou à éviter.
+]
 
 --
 
-+ contient des conseils et des remarques sur les bonnes pratiques à adopter ;
+.indent[
+.recommandation[
+* Pour importer des données de taille réduite (jusqu'à 1 Go), **il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du *package* `readr`** ;
+* Pour importer des données de taille plus importante (supérieure à 1 Go), **il est recommandé d'utiliser la fonction `fread()` du *package* `data.table`**.
+* **L'usage du *package* `csvread` est déconseillé**, de même que l'utilisation des fonctions natives de `R` `read.csv()` et `read.delim()`.
+]
+]
 
-<!-- IL FAUDRAIT METTRE DEUX BOITES CONSEIL ET REMARQUE ICI -->
+---
+# Contenu de la documentation
+
+
+Les fiches présentent en détail les outils et les _packages_ les plus adaptés pour réaliser la tâche considérée : fonctions, et options des fonctions.
 
 --
 
-+ comporte des **exemples de code reproductibles et proches des cas d'usage**. 
-    - Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples ;
-    - les exemples utilisent des données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
-    - les données utilisées dans les exemples sont mises à disposition sous forme d'un _package_ (`doremifasolData`).
+.sauterligne[
+Le *package* `data.table` permet d'importer des fichiers plats avec la fonction `fread()`. Cette fonction présente trois avantages [...]
+]
+
+--
+
+.laisserligne[
+.sauterligne[
+Les principales options de `fread()` sont les suivantes :
+]
+]
+
+| Argument         | Valeur par défaut                           | Fonction                                                              |
+|------------------|---------------------------------------------|-----------------------------------------------------------------------|
+| `file`             | Aucune                                      | Le chemin du fichier à importer                                       |
+| `nrows`            | `Inf`                                         | Nombre maximum de lignes à importer (pas de limite par défaut)        |
+| `select`           | `NULL`                                        | Sélectionner les colonnes à importer                                  |
+| `encoding`         | `"unknown"`                                   | Définir l'encodage du fichier (`"UTF-8"` ou `"Latin-1"`)                                        |
+
+
+---
+# Contenu de la documentation
+
+
+Les fiches contiennent des **conseils** et des **remarques** sur les bonnes pratiques à adopter.
+
+--
+
+.conseil[
+Il est conseillé d'utiliser `R` avec RStudio.
+]
+
+.remarque[
+Tous les codes sources du projet `utilitR` sont disponibles sur Github.
+]
+
+.specificite[
+La direction générale de l'Insee est située à Montrouge.
+]
+
+---
+# Contenu de la documentation
+
+Les fiches comportent des **exemples de code reproductibles et proches des cas d'usage**. 
+
+- Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples ;
+- les exemples utilisent des données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
+- les données utilisées dans les exemples sont mises à disposition sous forme du _package_ `doremifasolData` développé par Pierre Lamarche et Pierre-Yves Berrard.
 
 <!-- IL FAUDRAIT METTRE UN EXEMPLE DE CODE -->
 
