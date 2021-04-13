@@ -5,20 +5,8 @@ author : "Lino Galiana, Olivier Meslin"
 institute : "Insee"
 date : "`r Sys.Date()`"
 output :
-  xaringan::moon_reader :
-    lib_dir : libs
-    nature :
-      highlightStyle : github
-      highlightLines : true
-      countIncrementalSlides : false
-    self_contained : true
-    chakra : 
-      - ./libs/remark-latest.min.js
-    css : 
-    - css/default.css
-    - css/default-fonts.css
-    - custom.css
-    - css/metropolis.css
+  utilitr::utilitr_presentation:
+    css: custom.css
     includes :
       after_body : insert-logo.html    
 ---
