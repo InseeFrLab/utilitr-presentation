@@ -3,7 +3,7 @@ title : "__`utilitR`__"
 subtitle : "Une documentation sur `R` à l’usage des statisticiens publics"
 author : "Lino Galiana, Olivier Meslin"
 institute : "Insee"
-date : "`r Sys.Date()`"
+date : "`r format(Sys.time(), '%d %B %Y')`"
 output :
   utilitr::utilitr_presentation:
     css: custom.css
