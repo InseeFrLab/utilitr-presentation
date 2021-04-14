@@ -52,18 +52,20 @@ description_appariement <-
   as.data.table(
     data.frame(
       etape = c(
-        rep('Utiliser `R` à l’Insee', 3),
-        rep("Mener un projet statistique avec `R`", 6),
+        rep('Utiliser `R` à l’Insee', 4),
+        rep("Mener un projet statistique avec `R`", 5),
         rep("Importer des données", 2),
         rep("Manipuler des données", 2),
         rep("Produire des _outputs_", 2)),
       filtres_validation = 
         c(
-          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSPCloud", "Gérer les ressources informatiques avec `R`", "Personnaliser la configuration de `R`",
+          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
           "Configurer Git et Gitlab",
-          "Utiliser Git avec RStudio",
+          "Personnaliser la configuration de `R`",
+          "Gérer les ressources informatiques avec `R`",
           "Utiliser les projets RStudio",
-          "installer des packages et gérer les dépendances",
+          "Utiliser Git avec RStudio",
+          "Installer des packages et gérer les dépendances",
           "Choisir des packages",
           "Demander de l'aide et se documenter",
           "AAA",
