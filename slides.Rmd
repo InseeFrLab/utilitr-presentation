@@ -79,15 +79,14 @@ La documentation est structurée en fiches regroupées en deux parties :
     + Comment configurer sa session `R` ;
     + Comment installer et utiliser des _packages_ `R` ;
     + Comment utiliser RStudio et les `RProject` ;
-    + Comment utiliser `git` et Gitlab avec RStudio...
+    + Comment configurer et utiliser `git` et Gitlab avec RStudio ;
+    + Comment choisir un _package_
 2. Réaliser des tâches élémentaires avec `R` : 
     + Importer des données (SAS, csv, txt, odt, xlsx...) ;
-    + Manipuler des tables de données ;
+    + Manipuler des données (table des données, données textuelles, données spatiales) ;
+    + Utiliser des bases de données PostgreSQL et Oracle ;
     + Faire des graphiques ;
-    + Manipuler des données textuelles ;
-    + Manipuler des données spatiales ;
     + Rédiger des documents avec `R Markdown` ;
-    + Utiliser des bases de données PostgreSQL et Oracle...
 
 
 ---
@@ -97,7 +96,7 @@ Les fiches de la documentation ont un certain nombre de caractéristiques commun
 
 - Elles formulent des recommandations précises et présentent en détail les outils et _packages_ adaptés ;
 - Elles proposent des exemples reproductibles utilisant des données de l'Insee pour aider les agents à s'approprier les outils ;
-- Elles comportent des conseils et des remarques relatifs vers bonnes pratiques ;
+- Elles comportent des conseils et des remarques relatifs aux bonnes pratiques ;
 - Elles donnent des indications sur les spécificités informatiques de l'Insee.
 
 ---
