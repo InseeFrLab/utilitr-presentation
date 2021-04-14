@@ -8,7 +8,7 @@ output :
   utilitr::utilitr_presentation:
     css: custom.css
     includes :
-      after_body : insert-logo.html    
+      after_body : insert-logo.html
 ---
 # Introduction
 
@@ -16,17 +16,18 @@ output :
 options(htmltools.dir.version = FALSE)
 ```
 
-.sauterligne[
+.sauterligne3[
 Le projet `utilitR` vise à produire une documentation collaborative sur `R`, destinée principalement aux agents du Service statistique public (mais pas exclusivement).
 ]
 
 --
-.sauterligne[
-Plan de la présentation
+.sauterligne2[
+Plan de la présentation :
 ]
 
+- Genèse et objectif du projet ;
 - Contenu de la documentation ;
-- Support de diffusion de la documentation ;
+- Modes de diffusion de la documentation ;
 - Fonctionnement du projet `utilitR`.
 
 ---
