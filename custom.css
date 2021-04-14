@@ -1,3 +1,9 @@
+/* Contrôler la couleur du code inline */
+pre, code {
+    color: #c7254e;
+    background-color: #f9f2f4 !important;
+}
+
 .title-slide {
   background-image: url('resources/logo-utilitr.png');
 }
@@ -6,7 +12,6 @@
   margin-top: 30px;
   padding: 10px;
 }
-
 .sauterligne{
   margin-top: 1em;
 }
