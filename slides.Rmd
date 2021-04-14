@@ -10,11 +10,26 @@ output :
     includes :
       after_body : insert-logo.html    
 ---
+# Introduction
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
+.sauterligne[
+Le projet `utilitR` vise à produire une documentation collaborative sur `R`, destinée principalement aux agents du Service statistique public (mais pas exclusivement).
+]
+
+--
+.sauterligne[
+Plan de la présentation
+]
+
+- Contenu de la documentation ;
+- Support de diffusion de la documentation ;
+- Fonctionnement du projet `utilitR`.
+
+---
 
 # Genèse du projet
 
@@ -36,30 +51,26 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 ---
 # Objectif du projet
 
-Produire une documentation collaborative sur `R`, destinée principalement aux agents du Service statistique public (mais pas exclusivement).
-
+.sauterligne[
 La documentation vise à répondre à deux questions :
+]
+
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
 
 --
 
+.sauterligne[
 Trois caractéristiques importantes :
+]
 
-- Cette documentation ne prétend pas être exhaustive ou sans erreurs.
 - Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia. 
+- Cette documentation ne prétend pas être exhaustive ou sans erreurs.
 - Cette documentation n'est pas une introduction théorique au langage `R`, mais un aide-mémoire pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète.
 
 --
 
 Une seule chose à retenir : [www.utilitr.org](wwww.utilitr.org).
-
----
-# Plan de la présentation
-
-- Contenu de la documentation ;
-- Support de diffusion de la documentation ;
-- Fonctionnement du projet `utilitR`.
 
 ---
 # Contenu de la documentation
@@ -88,9 +99,7 @@ La documentation est structurée en fiches regroupées en deux parties :
 Les fiches de la documentation partagent un certain nombre de caractéristiques.
 
 --
-.sauterligne[
 Les fiches commencent systématiquement par des **recommandations** sur les outils et les _packages_ à utiliser ou à éviter.
-]
 
 --
 
@@ -110,16 +119,12 @@ Les fiches présentent en détail les outils et les _packages_ les plus adaptés
 
 --
 
-.sauterligne[
 Le *package* `data.table` permet d'importer des fichiers plats avec la fonction `fread()`. Cette fonction présente trois avantages [...]
-]
 
 --
 
 .laisserligne[
-.sauterligne[
 Les principales options de `fread()` sont les suivantes :
-]
 ]
 
 | Argument         | Valeur par défaut                           | Fonction                                                              |
