@@ -93,13 +93,23 @@ La documentation est structurée en fiches regroupées en deux parties :
 ---
 # Contenu de la documentation
 
-Les fiches de la documentation partagent un certain nombre de caractéristiques.
+Les fiches de la documentation ont un certain nombre de caractéristiques communes :
+
+- Elles formulent des recommandations précises et présentent en détail les outils et _packages_ adaptés ;
+- Elles proposent des exemples reproductibles utilisant des données de l'Insee pour aider les agents à s'approprier les outils ;
+- Elles comportent des conseils et des remarques relatifs vers bonnes pratiques ;
+- Elles donnent des indications sur les spécificités informatiques de l'Insee.
+
+---
+# Contenu de la documentation
+
+.sauterligne[
+Les fiches commencent systématiquement par des **recommandations** précises sur les outils et les _packages_ à utiliser ou à éviter.
+]
 
 --
-Les fiches commencent systématiquement par des **recommandations** sur les outils et les _packages_ à utiliser ou à éviter.
 
---
-
+.small90[
 .indent[
 .recommandation[
 * Pour importer des données de taille réduite (jusqu'à 1 Go), **il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du *package* `readr`** ;
@@ -107,10 +117,10 @@ Les fiches commencent systématiquement par des **recommandations** sur les outi
 * **L'usage du *package* `csvread` est déconseillé**, de même que l'utilisation des fonctions natives de `R` `read.csv()` et `read.delim()`.
 ]
 ]
+]
 
 ---
 # Contenu de la documentation
-
 
 Les fiches présentent en détail les outils et les _packages_ les plus adaptés pour réaliser la tâche considérée : fonctions, et options des fonctions.
 
