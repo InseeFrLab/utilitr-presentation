@@ -34,7 +34,17 @@ Plan de la présentation :
 
 Blabla
 
-```{r, echo = FALSE}
+
+<!-- | __Partie__ 	| __Fiches__ 	| -->
+<!-- |-	|-	| -->
+<!-- | Utiliser `R` à l’Insee 	| Fiches __AUSv3__, __SSPCloud__, gérer les ressources, personnaliser la configuration de `R`| -->
+<!-- | Mener un projet statistique avec `R` 	| Fiches __utiliser les projets `RStudio`__, installer des _packages_, choisir des _packages_, __gérer les dépendances__, __demander de l'aide__, __se documenter__	 	| -->
+<!-- | Importer des données 	| Fiches SAS, tableurs, fichiers plats, bases de données, __API__ 	| -->
+<!-- | Manipuler des données 	| Fiches `tidyverse`, `data.table`, joindre des données, données enquêtes, données textuelles, données spatiales 	| -->
+<!-- | Produire des _outputs_ 	| Fiches graphiques, R Markdown, __rapports paramétrés__, __cartographie__ 	| -->
+
+
+```{r, echo = FALSE, warning = FALSE}
 library(knitr)
 library(kableExtra)
 library(data.table)
@@ -42,29 +52,32 @@ description_appariement <-
   as.data.table(
     data.frame(
       etape = c(
-        rep("1", 2),
-        rep("2", 2),
-        rep("3", 2),
-        rep("4", 2),
-        rep("5", 2)),
+        rep('Utiliser `R` à l’Insee', 3),
+        rep("Mener un projet statistique avec `R`", 6),
+        rep("Importer des données", 2),
+        rep("Manipuler des données", 2),
+        rep("Produire des _outputs_", 2)),
       filtres_validation = 
         c(
-          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
-          "5000 : nom de conjoint très similaire",
-          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
-          "5000 : nom de conjoint très similaire",
-          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
-          "5000 : nom de conjoint très similaire",
-          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
-          "5000 : nom de conjoint très similaire",
-          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
-          "5000 : nom de conjoint très similaire")
+          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSPCloud", "Gérer les ressources informatiques avec `R`", "Personnaliser la configuration de `R`",
+          "Configurer Git et Gitlab",
+          "Utiliser Git avec RStudio",
+          "Utiliser les projets RStudio",
+          "installer des packages et gérer les dépendances",
+          "Choisir des packages",
+          "Demander de l'aide et se documenter",
+          "AAA",
+          "BBB",
+          "AAA",
+          "BBB",
+          "AAA",
+          "BBB")
     )
   )
 
 kbl(description_appariement, align = "cll",
-    col.names = c("Etape", 
-                  "Critères de validation et calcul du score")
+    col.names = c("Partie", 
+                  "Fiches")
 ) %>%
   kable_styling(full_width = TRUE) %>%
   row_spec(0, align = 'c') %>%
