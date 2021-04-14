@@ -69,10 +69,6 @@ Trois caractéristiques importantes :
 - Cette documentation ne prétend pas être exhaustive ou sans erreurs.
 - Cette documentation n'est pas une introduction théorique au langage `R`, mais un aide-mémoire pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète.
 
---
-
-Une seule chose à retenir : [www.utilitr.org](wwww.utilitr.org).
-
 ---
 # Contenu de la documentation
 
@@ -83,7 +79,7 @@ La documentation est structurée en fiches regroupées en deux parties :
     + Comment configurer sa session `R` ;
     + Comment installer et utiliser des _packages_ `R` ;
     + Comment utiliser RStudio et les `RProject` ;
-    + Comment utiliser `git` et Gilab avec RStudio...
+    + Comment utiliser `git` et Gitlab avec RStudio...
 2. Réaliser des tâches élémentaires avec `R` : 
     + Importer des données (SAS, csv, txt, odt, xlsx...) ;
     + Manipuler des tables de données ;
