@@ -25,6 +25,9 @@ Le projet `utilitR` est parti de deux constats :
     + Multiplicité de *packages*, de qualité variable et parfois redondants ;
     + Barrière linguistique : la grande majorité de la documentation est en anglais ;
     + Diversité des cas d'usage de `R` à l'Insee et dans le SSP ;
+    
+--
+
 2. **Face à ces difficultés, il n'existe pas de documentation de référence sur l'usage de `R` par les statisticiens** :
     +  La documentation de référence sur `SAS` en français, rédigée par
 Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'équivalent en `R` ;
@@ -33,12 +36,10 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 ---
 # Objectif du projet
 
-Produire une documentation collaborative sur `R`, destinée principalement
-aux agents du Service statistique public (mais pas seulement).
+Produire une documentation collaborative sur `R`, destinée principalement aux agents du Service statistique public (mais pas exclusivement).
 
 La documentation vise à répondre à deux questions :
-- Comment (bien) travailler avec `R` pour profiter de la richesse de son 
-écosystème ;
+- Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
 
 --
@@ -46,13 +47,19 @@ La documentation vise à répondre à deux questions :
 Trois caractéristiques importantes :
 
 - Cette documentation ne prétend pas être exhaustive ou sans erreurs.
-- Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche _bottom-up_, sur le modèle de Wikipedia. 
+- Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia. 
 - Cette documentation n'est pas une introduction théorique au langage `R`, mais un aide-mémoire pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète.
 
 --
 
 Une seule chose à retenir : [www.utilitr.org](wwww.utilitr.org).
 
+---
+# Plan de la présentation
+
+- Contenu de la documentation ;
+- Support de diffusion de la documentation ;
+- Fonctionnement du projet `utilitR`.
 
 ---
 # Contenu de la documentation
