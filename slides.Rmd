@@ -32,6 +32,52 @@ Plan de la présentation :
 
 ---
 
+Blabla
+
+```{r, echo = FALSE}
+library(knitr)
+library(kableExtra)
+library(data.table)
+description_appariement <- 
+  as.data.table(
+    data.frame(
+      etape = c(
+        rep("1", 2),
+        rep("2", 2),
+        rep("3", 2),
+        rep("4", 2),
+        rep("5", 2)),
+      filtres_validation = 
+        c(
+          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
+          "5000 : nom de conjoint très similaire",
+          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
+          "5000 : nom de conjoint très similaire",
+          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
+          "5000 : nom de conjoint très similaire",
+          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
+          "5000 : nom de conjoint très similaire",
+          "10000 : nom de conjoint très similaire et prénoms identiques dans le même ordre",
+          "5000 : nom de conjoint très similaire")
+    )
+  )
+
+kbl(description_appariement, align = "cll",
+    col.names = c("Etape", 
+                  "Critères de validation et calcul du score")
+) %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(0, align = 'c') %>%
+  column_spec(1, bold = TRUE, width = "6cm") %>%
+  column_spec(2, width = "12cm") %>% 
+  collapse_rows(columns = 1, 
+                valign = "middle", 
+                longtable_clean_cut = TRUE)
+```
+
+
+---
+
 # Genèse du projet
 
 Le projet `utilitR` est parti de deux constats : 
