@@ -30,10 +30,9 @@ Plan de la présentation :
 - Modes de diffusion de la documentation ;
 - Fonctionnement du projet `utilitR`.
 
----
-
-Blabla
-
+<!-- --- -->
+<!-- # Plan de la documentation -->
+<!-- ## Première partie -->
 
 <!-- | __Partie__ 	| __Fiches__ 	| -->
 <!-- |-	|-	| -->
@@ -44,7 +43,7 @@ Blabla
 <!-- | Produire des _outputs_ 	| Fiches graphiques, R Markdown, __rapports paramétrés__, __cartographie__ 	| -->
 
 
-```{r, echo = FALSE, warning = FALSE}
+```{r, echo = FALSE, warning = FALSE, eval = FALSE}
 library(knitr)
 library(kableExtra)
 library(data.table)
@@ -114,11 +113,13 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 # Objectif du projet
 
 .sauterligne[
-La documentation vise à répondre à deux questions :
+La documentation `utilitR` vise à répondre à deux questions :
 ]
 
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
+
+Les recommandations sont adaptées au contexte de travail des agents du service statistique public.
 
 --
 
@@ -126,8 +127,8 @@ La documentation vise à répondre à deux questions :
 Trois caractéristiques importantes :
 ]
 
-- Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia. 
-- Cette documentation ne prétend pas être exhaustive ou sans erreurs.
+- Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia ;
+- Cette documentation ne prétend pas être exhaustive ou sans erreurs ;
 - Cette documentation n'est pas une introduction théorique au langage `R`, mais un aide-mémoire pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète.
 
 ---
@@ -148,6 +149,7 @@ La documentation est structurée en fiches regroupées en deux parties :
     + Utiliser des bases de données PostgreSQL et Oracle ;
     + Faire des graphiques ;
     + Rédiger des documents avec `R Markdown` ;
+    + Produire des rapports automatisés avec `R Markdown`.
 
 
 ---
