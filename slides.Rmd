@@ -111,9 +111,7 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 ---
 # Objectif du projet
 
-.sauterligne[
 La documentation `utilitR` vise à répondre à deux questions :
-]
 
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
@@ -145,7 +143,7 @@ Trois caractéristiques importantes :
 <!--     + Produire des rapports automatisés avec `R Markdown`. -->
 
 ---
-# Plan de la documentation
+# Contenu de la documentation
 ## Première partie : comment (bien) travailler avec `R`
 
 .small90[
@@ -198,13 +196,13 @@ Trois caractéristiques importantes :
 ]
 
 ---
-# Plan de la documentation
+# Contenu de la documentation
 ## Première partie : comment (bien) travailler avec `R`
 
 __METTRE ICI DES ELEMENTS SUR LES TUTORIELS__
 
 ---
-# Plan de la documentation
+# Contenu de la documentation
 ## Seconde partie : réaliser les tâches élémentaires avec `R`
 
 .small90[
@@ -261,6 +259,7 @@ __METTRE ICI DES ELEMENTS SUR LES TUTORIELS__
 
 ---
 # Contenu de la documentation
+## Contenu des fiches
 
 Les fiches de la documentation ont un certain nombre de caractéristiques communes :
 
@@ -299,7 +298,8 @@ Voici les recommandations de la fiche "Importer des fichiers plats":
 # Contenu de la documentation
 ## Une présentation détaillée des outils recommandés
 
-Les fiches présentent en détail les outils et les _packages_ recommandés. 
+Les fiches présentent en détail les outils et les _packages_ recommandés (cas d'usage, principales options).
+
 --
 
 .sauterligne[
@@ -329,7 +329,7 @@ La documentation comporte de nombreux exemples. Ces exemples ont trois particula
 
 - Les exemples sont **reproductibles** : les agents peuvent reproduire la plupart des exemples de la documentation en en exécutant le code ;
 - Les exemples sont **proches des cas d'usages de `R` dans le SSP** : les jeux de données utilisés dans les exemples sont issus de données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
-- Les jeux d'exemple sont **disponibles dans tous les environnements de travail**. Ils sont mis à disposition dans le _package_ `doremifasolData` développé par Pierre Lamarche et Pierre-Yves Berrard.
+- Les jeux d'exemple sont **disponibles dans tous les environnements de travail** (SSP Cloud, AUSv3, poste local). Ils sont mis à disposition dans le _package_ `doremifasolData` développé par Pierre Lamarche et Pierre-Yves Berrard.
 
 ---
 # Contenu de la documentation
@@ -343,7 +343,7 @@ options(dplyr.print_min  = 6)
 options(dplyr.print_max  = 6)
 ```
 
-```{r, echo = TRUE, warning = FALSE, message = FALSE,}
+```{r, echo = TRUE, warning = FALSE, message = FALSE, eval = FALSE}
 library(doremifasolData)
 library(magrittr)
 library(dplyr)
@@ -356,9 +356,20 @@ nombre <- doremifasolData::bpe_ens_2018 %>%
 nombre
 ```
 
+--
 
+```{r, echo = FALSE, warning = FALSE, message = FALSE, eval = TRUE}
+library(doremifasolData)
+library(magrittr)
+library(dplyr)
 
-
+nombre <- doremifasolData::bpe_ens_2018 %>%
+  as_tibble() %>%
+  filter(TYPEQU == "B316") %>% 
+  group_by(DEP) %>% 
+  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE)) 
+nombre
+```
 
 ---
 # Contenu de la documentation
@@ -393,37 +404,43 @@ Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'ave
 ---
 # Diffusion de la documentation
 
-La documentation est diffusée sous deux formes :
+La documentation est diffusée sous trois formes :
 
-- un site internet ([www.utilitr.org](www.utilitr.org)) déjà disponible ;
-- une brochure pdf imprimable (en cours d'élaboration).
+- un site internet ([www.utilitr.org](www.utilitr.org)) ;
+- chaque fiche est disponible sous un format A4 sur le site internet ;
+- l'intégralité de la documentation en format pdf. 
+
+<!-- -- -->
+
+<!-- Le site internet est actualisé en continu, tandis que la brochure pdf est publiée de façon ponctuelle et millésimée. -->
+
+---
+# Fonctionnement du projet
+## Positionnement du projet `utilitR` à l'Insee
+
+- Le projet est l’une des multiples initiatives lancées pour faciliter la transition vers `R` : 
+  + Supports du groupe de travail USSR ;
+  + FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
+  + Guide à l'usage du statisticien débutant (rédigé par Cédric Afsa) ;
+  + Formation Travail collaboratif avec `R` (en cours de test avant déploiement).
 
 --
 
-Le site internet est actualisé en continu, tandis que la brochure pdf est publiée de façon ponctuelle et millésimée.
+- Les recommandations de *packages* sont cohérentes avec celles du Comité de certification des _packages_ `R` (COPS).
+
+--
+
+- La documentation est adaptée à l’environnement informatique du statisticien :
+  + Description des environnements de travail (AUSv3 et SSP Cloud] ;
+  + Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab.
+
+--
+
+- L'articulation entre `utilitR` et l'offre de formation sur `R` n'est pas encore clairement établie.
 
 ---
-
-# Positionnement du projet à l'Insee
-
-Le projet est l’une des multiples initiatives lancées pour faciliter la
-transition vers `R` : 
-+ Supports du groupe de travail USSR ;
-+ FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
-+ Guide à l'usage du statisticien débutant (Cédric Afsa) ;
-+ Formation Travail collaboratif avec `R` (actuellement en rodage).
-
-Les recommandations de *packages* sont cohérentes avec celles du Comité de certification des _packages_ `R` (COPS).
-
-La documentation prend en compte l'évolution de l’environnement informatique du statisticien :
-+ Modernisation des serveurs partagés (AUSv3) ;
-+ Création de la plateforme [SSP-cloud](https ://datalab.sspcloud.fr/accueil) développée par la Diit ;
-+ Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab.
-
-L'articulation entre `utilitR` et l'offre de formation sur `R` n'est pas encore clairement établie.
-
----
-# Spécificités du projet : organisation
+# Fonctionnement du projet
+## Organisation du projet
 
 **Le projet `utilitR` est un projet collaboratif, horizontal, _open source_ et ouvert à tous, auquel tous les agents peuvent contribuer.**
 
@@ -440,7 +457,8 @@ L'articulation entre `utilitR` et l'offre de formation sur `R` n'est pas encore 
 
 
 ---
-# Spécificités du projet : méthode de travail
+# Fonctionnement du projet
+## Méthode de travail
 
 Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
@@ -449,10 +467,8 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 - Toutes les contributions sont soumises à une relecture par les pairs et validées collégialement (sur le modèle de Wikipedia).
 
 ---
-
----
-# Spécificités du projet : méthode de travail
-
+# Fonctionnement du projet
+## Méthode de travail
 Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de l'art :
 
 ```{r, echo = FALSE}
