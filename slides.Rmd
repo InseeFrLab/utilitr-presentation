@@ -407,8 +407,20 @@ Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'ave
 La documentation est diffusée sous trois formes :
 
 - un site internet ([www.utilitr.org](www.utilitr.org)) ;
-- chaque fiche est disponible sous un format A4 sur le site internet ;
+- chaque fiche est disponible en format A4 sur le site internet ;
 - l'intégralité de la documentation en format pdf. 
+
+--
+
+.sauterligne2[
+Questions :
+
+- Quel format de diffusion préférez-vous ?
+- La version intégrale de la documentation vous semble-t-elle utile, vu que chaque fiche est déjà disponible en format A4 imprimable ?
+- Pensez-vous qu'une version imprimée de la brochure (300 pages) soit utile ?
+
+]
+
 
 <!-- -- -->
 
