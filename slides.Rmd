@@ -297,7 +297,9 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 ---
 
 ---
-# Des méthodes d'intégration continue à l'état de l'art
+# Spécificités du projet : méthode de travail
+
+Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de l'art :
 
 ```{r, echo = FALSE}
 knitr::include_graphics("./resources/githubCI.png")
