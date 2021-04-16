@@ -296,6 +296,14 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
 ---
 
+---
+# Des méthodes d'intégration continue à l'état de l'art
+
+```{r, echo = FALSE}
+knitr::include_graphics("./resources/githubCI.png")
+```
+---
+
 # Où en est le projet aujourd'hui ?
 
 * Un portail d'accès sous forme de site *web* :
