@@ -410,6 +410,8 @@ La documentation est diffusée sous trois formes :
 - chaque fiche est disponible en format A4 sur le site internet ;
 - l'intégralité de la documentation en format pdf. 
 
+Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée.
+
 --
 
 .sauterligne2[
@@ -421,10 +423,6 @@ Questions :
 
 ]
 
-
-<!-- -- -->
-
-<!-- Le site internet est actualisé en continu, tandis que la brochure pdf est publiée de façon ponctuelle et millésimée. -->
 
 ---
 # Fonctionnement du projet
