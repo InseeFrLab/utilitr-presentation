@@ -30,17 +30,6 @@ Plan de la présentation :
 - Modes de diffusion de la documentation ;
 - Fonctionnement du projet `utilitR`.
 
-<!-- --- -->
-<!-- # Plan de la documentation -->
-<!-- ## Première partie -->
-
-<!-- | __Partie__ 	| __Fiches__ 	| -->
-<!-- |-	|-	| -->
-<!-- | Utiliser `R` à l’Insee 	| Fiches __AUSv3__, __SSPCloud__, gérer les ressources, personnaliser la configuration de `R`| -->
-<!-- | Mener un projet statistique avec `R` 	| Fiches __utiliser les projets `RStudio`__, installer des _packages_, choisir des _packages_, __gérer les dépendances__, __demander de l'aide__, __se documenter__	 	| -->
-<!-- | Importer des données 	| Fiches SAS, tableurs, fichiers plats, bases de données, __API__ 	| -->
-<!-- | Manipuler des données 	| Fiches `tidyverse`, `data.table`, joindre des données, données enquêtes, données textuelles, données spatiales 	| -->
-<!-- | Produire des _outputs_ 	| Fiches graphiques, R Markdown, __rapports paramétrés__, __cartographie__ 	| -->
 
 
 ```{r, echo = FALSE, warning = FALSE, eval = FALSE}
@@ -53,9 +42,10 @@ description_appariement <-
       etape = c(
         rep('Utiliser `R` à l’Insee', 4),
         rep("Mener un projet statistique avec `R`", 5),
-        rep("Importer des données", 2),
-        rep("Manipuler des données", 2),
-        rep("Produire des _outputs_", 2)),
+        rep("Importer des données", 3),
+        rep("Manipuler des données", 3),
+        rep("Produire des _outputs_", 3)
+        ),
       filtres_validation = 
         c(
           "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
@@ -67,12 +57,21 @@ description_appariement <-
           "Installer des packages et gérer les dépendances",
           "Choisir des packages",
           "Demander de l'aide et se documenter",
-          "AAA",
+          "Importer des données (SAS, csv, txt, odt, xlsx...)",
+          "Utiliser une API",
+          "Utiliser des bases de données",
+          "Manipuler des données avec `data.table`",
+    # + Manipuler des données (table des données, données textuelles, données spatiales) ;
+    # + Utiliser des bases de données PostgreSQL et Oracle ;
+    # + Faire des graphiques ;
+    # + Rédiger des documents avec `R Markdown` ;
+    # + Produire des rapports automatisés avec `R Markdown`.
           "BBB",
           "AAA",
           "BBB",
           "AAA",
-          "BBB")
+          "BBB"
+        )
     )
   )
 
@@ -136,21 +135,129 @@ Trois caractéristiques importantes :
 
 La documentation est structurée en fiches regroupées en deux parties :
 
-1. Travailler avec `R` à l'Insee :
-    + Présentation des espaces de travail informatiques (AUSv3 et SSP Cloud) ;
-    + Comment configurer sa session `R` ;
-    + Comment installer et utiliser des _packages_ `R` ;
-    + Comment utiliser RStudio et les `RProject` ;
-    + Comment configurer et utiliser `git` et Gitlab avec RStudio ;
-    + Comment choisir un _package_
-2. Réaliser des tâches élémentaires avec `R` : 
-    + Importer des données (SAS, csv, txt, odt, xlsx...) ;
-    + Manipuler des données (table des données, données textuelles, données spatiales) ;
-    + Utiliser des bases de données PostgreSQL et Oracle ;
-    + Faire des graphiques ;
-    + Rédiger des documents avec `R Markdown` ;
-    + Produire des rapports automatisés avec `R Markdown`.
+<!-- 1. Travailler avec `R` à l'Insee : -->
+<!--     + Présentation des espaces de travail informatiques (AUSv3 et SSP Cloud) ; -->
+<!--     + Comment configurer sa session `R` ; -->
+<!--     + Comment installer et utiliser des _packages_ `R` ; -->
+<!--     + Comment utiliser RStudio et les `RProject` ; -->
+<!--     + Comment configurer et utiliser `git` et Gitlab avec RStudio ; -->
+<!--     + Comment choisir un _package_ -->
+<!-- 2. Réaliser des tâches élémentaires avec `R` :  -->
+<!--     + Importer des données (SAS, csv, txt, odt, xlsx...) ; -->
+<!--     + Manipuler des données (table des données, données textuelles, données spatiales) ; -->
+<!--     + Utiliser des bases de données PostgreSQL et Oracle ; -->
+<!--     + Faire des graphiques ; -->
+<!--     + Rédiger des documents avec `R Markdown` ; -->
+<!--     + Produire des rapports automatisés avec `R Markdown`. -->
 
+---
+# Plan de la documentation
+## Première partie : comment (bien) travailler avec `R`
+
+.small90[
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;text-align: center;"> Partie </th>
+   <th style="text-align:left;text-align: center;"> Fiches </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="4"> Utiliser <code class="remark-inline-code">R</code> à l’Insee </td>
+   <td style="text-align:left;width: 12cm; "> Les environnements de travail avec <code class="remark-inline-code">R</code> à l'Insee : AUSv3 et SSP Cloud </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Configurer <code class="remark-inline-code">Git</code> et Gitlab </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Personnaliser la configuration de <code class="remark-inline-code">R</code> </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Gérer les ressources informatiques avec <code class="remark-inline-code">R</code> </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="5"> Mener un projet statistique avec <code class="remark-inline-code">R</code> </td>
+   <td style="text-align:left;width: 12cm; "> Utiliser les projets RStudio </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Utiliser <code class="remark-inline-code">Git</code> et Gitlab avec RStudio </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Installer des packages et gérer les dépendances </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Choisir des packages </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Demander de l'aide et se documenter </td>
+  </tr>
+</tbody>
+</table>
+]
+
+---
+# Plan de la documentation
+## Seconde partie : réaliser les tâches élémentaires avec `R`
+
+.small90[
+<table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;text-align: center;"> Partie </th>
+   <th style="text-align:left;text-align: center;"> Fiches </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="3"> Importer des données </td>
+   <td style="text-align:left;width: 12cm; "> Importer des données (SAS, csv, txt, odt, xlsx...) </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Utiliser une API </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Utiliser des bases de données </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="5"> Manipuler des données </td>
+   <td style="text-align:left;width: 12cm; "> Manipuler des données avec <code class="remark-inline-code">data.table</code> </td>
+  </tr>
+   <tr>
+   <td style="text-align:left;width: 12cm; "> Manipuler des données avec le <code class="remark-inline-code">tidyverse</code> </td>
+   <tr>
+   <td style="text-align:left;width: 12cm; "> Manipuler des données textuelles </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 12cm; "> Manipuler des données spatiales</td>
+   </tr>
+  <tr>
+   <td style="text-align:left;width: 12cm; "> Utiliser des données d'enquête </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="3"> Produire des <em>outputs</em> </td>
+   <td style="text-align:left;width: 12cm; "> Réaliser des graphiques </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Rédiger des documents avec <code class="remark-inline-code">R Markdown</code>  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:left;width: 12cm; "> Produire des rapports automatisés </td>
+  </tr>
+</tbody>
+</table>
+]
 
 ---
 # Contenu de la documentation
@@ -220,11 +327,34 @@ Les principales options de `fread()` sont les suivantes :
 # Contenu de la documentation
 ## Des exemples de code reproductibles et proches des cas d'usage
 
-Les fiches comportent des **exemples de code reproductibles et proches des cas d'usage**. 
+La documentation comporte de nombreux exemples. Ces exemples ont trois particularités :
 
 - Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples ;
 - les exemples utilisent des données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
 - les données utilisées dans les exemples sont mises à disposition sous forme du _package_ `doremifasolData` développé par Pierre Lamarche et Pierre-Yves Berrard.
+
+---
+# Contenu de la documentation
+## Des exemples de code reproductibles et proches des cas d'usage
+
+
+```{r, echo = TRUE, warning = FALSE, message = FALSE}
+library(doremifasolData)
+library(magrittr)
+library(dplyr)
+
+nombre <- bpe_ens_2018 %>%
+  as_tibble() %>%
+  filter(TYPEQU == "B316") %>% 
+  group_by(DEP) %>% 
+  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE)) 
+nombre
+```
+
+
+
+**exemples de code reproductibles et proches des cas d'usage**. 
+
 
 
 
