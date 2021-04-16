@@ -164,13 +164,17 @@ Les fiches de la documentation ont un certain nombre de caractéristiques commun
 
 ---
 # Contenu de la documentation
+## Des recommandations précises
 
 .sauterligne[
-Les fiches commencent systématiquement par des **recommandations** précises sur les outils et les _packages_ à utiliser ou à éviter.
+
+- Les fiches commencent systématiquement par des **recommandations** précises sur les outils et les _packages_ à utiliser ou à éviter. 
+- Ces recommandations sont cohérentes avec celles du COPS (Comité de certification des _packages_ `R`).
 ]
 
 --
 
+.sauterligne2[
 .small90[
 .indent[
 .recommandation[
@@ -180,58 +184,76 @@ Les fiches commencent systématiquement par des **recommandations** précises su
 ]
 ]
 ]
+]
 
 ---
 # Contenu de la documentation
+## Une présentation détaillée des outils recommandés
 
-Les fiches présentent en détail les outils et les _packages_ les plus adaptés pour réaliser la tâche considérée : fonctions, et options des fonctions.
+Les fiches présentent en détail les outils et les _packages_ les plus adaptés pour réaliser la tâche considérée : 
+
+- cas d'usage précis
+- utilisation des fonctions, et de leurs options.
 
 --
 
+.sauterligne[
 Le *package* `data.table` permet d'importer des fichiers plats avec la fonction `fread()`. Cette fonction présente trois avantages [...]
-
---
-
-.laisserligne[
-Les principales options de `fread()` sont les suivantes :
 ]
 
+--
+
+
+.sauterligne[
+Les principales options de `fread()` sont les suivantes :
+]
+.small90[
 | Argument         | Valeur par défaut                           | Fonction                                                              |
 |------------------|---------------------------------------------|-----------------------------------------------------------------------|
 | `file`             | Aucune                                      | Le chemin du fichier à importer                                       |
 | `nrows`            | `Inf`                                         | Nombre maximum de lignes à importer (pas de limite par défaut)        |
 | `select`           | `NULL`                                        | Sélectionner les colonnes à importer                                  |
 | `encoding`         | `"unknown"`                                   | Définir l'encodage du fichier (`"UTF-8"` ou `"Latin-1"`)                                        |
-
-
----
-# Contenu de la documentation
-
-
-Les fiches contiennent des **conseils** et des **remarques** sur les bonnes pratiques à adopter.
-
---
-
-.conseil[
-Il est conseillé d'utiliser `R` avec RStudio.
-]
-
-.remarque[
-Tous les codes sources du projet `utilitR` sont disponibles sur Github.
-]
-
-.specificite[
-La direction générale de l'Insee est située à Montrouge.
 ]
 
 ---
 # Contenu de la documentation
+## Des exemples de code reproductibles et proches des cas d'usage
 
 Les fiches comportent des **exemples de code reproductibles et proches des cas d'usage**. 
 
 - Les agents peuvent reproduire presque tous les exemples de la documentation sur leur poste (ou dans AUSv3 ou sur le SSP) en recopiant le code des exemples ;
 - les exemples utilisent des données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
 - les données utilisées dans les exemples sont mises à disposition sous forme du _package_ `doremifasolData` développé par Pierre Lamarche et Pierre-Yves Berrard.
+
+
+
+---
+# Contenu de la documentation
+## Conseils et remarques
+
+Les fiches contiennent des **conseils** et des **remarques** avec trois objectifs :
+- orienter les agents en fonction de leur niveau en `R` ;
+- aider les agents à s'approprier l'environnement `R` ;
+- indiquer les bonnes pratiques à adopter.
+
+--
+
+.small90[
+.indent[
+.conseil[
+Si vous êtes complètement débutants en `R`, il est recommandé d'utiliser l'utilitaire d'importation de ` RStudio`. Une fois que les données sont correctement importées, vous pourrez copier-coller le code dans votre script `R` et vous familiariser avec les fonctions du *package* `readr`.
+]
+
+.remarque[
+Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'avec les fonctions du *package* `readr`. Il est donc recommandé d'utiliser `fread()` lorsque vous souhaitez sélectionner facilement les colonnes à importer.
+]
+
+<!-- .specificite[ -->
+<!-- La direction générale de l'Insee est située à Montrouge. -->
+<!-- ] -->
+]
+]
 
 <!-- IL FAUDRAIT METTRE UN EXEMPLE DE CODE -->
 
