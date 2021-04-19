@@ -131,38 +131,40 @@ Les recommandations sont donc adaptées au contexte de travail des agents du ser
 
 
 ---
-# Introduction: apports du projet
-## Une organisation efficace au service de la reproductibilité
+# Introduction : apports du projet
+## Une démarche collaborative et _open source_
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
-* Démarche collaborative impliquant __plus de 15 contributeurs__ :
-    + des agents géographiquement dispersés ;
-    + des agents issus de plusieurs institutions du SSP.
-* Modèle `Wikipedia`:
+* Démarche collaborative impliquant __plus de 20 contributeurs__ :
+    + dispersés dans toute la France ;
+    + issus de plusieurs institutions du SSP.
+* Organisation horizontale, sur le modèle de `Wikipedia` :
     + relecture par les pairs ;
     + validation collégiale ;
-* Acculturation à des outils favorisant la **reproductibilité** et la **pérennité**, au-delà de `r fontawesome::fa("fab fa-r-project")` :
+* Acculturation à des outils favorisant la **reproductibilité** et la **pérennité**, au-delà de l'usage de `r fontawesome::fa("fab fa-r-project")` :
     + `Docker` `r fontawesome::fa("fab fa-docker")` ;
     + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
     + `Github` `r fontawesome::fa("fab fa-github")`.
 
 ---
-# Introduction: apports du projet
+# Introduction : apports du projet
 ## Des choix techniques au service de la qualité
 
-* Une documentation pensée pour le statisticien:
-    + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce à [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)) ;
-    + Documentation entièrement reproductible 
+* Une documentation pensée pour le statisticien :
+    + Recommandations adaptées au contexte de travail des agents du service statistique public ;
+    + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce au _package_ [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)) ;
+    + Documentation entièrement reproductible.
 
 * Processus de publication à l'état de l'art :
-    + Plusieurs _outputs_ (site web, livre PDF) avec les mêmes codes sources
-    + Publication automatique à chaque modification des fichiers sources
+    + Plusieurs _outputs_ (site web, livre PDF) avec les mêmes codes sources ;
+    + Publication automatique à chaque modification des fichiers sources.
 
 * Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
-    + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`:
+    + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`.
 
 <br>
-__Le projet `utilitR` est un laboratoire de la manière dont les évolutions récentes de l'écosystème `R` peuvent bénéficier au travail du statisticien__
+
+__Le projet `utilitR` est un laboratoire qui préfigure les évolutions des méthodes de travail des statisticiens.__
 
 ---
 # Contenu de la documentation
@@ -563,7 +565,7 @@ L'automatisation de ces processus présente de multiples avantages :
 * Un portail d'accès sous forme de site *web* :
     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
     + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
-    
+
 --
 
 * Prochaines étapes :
