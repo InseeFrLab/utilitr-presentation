@@ -575,10 +575,9 @@ Le dépôt Github d'`utilitR` propose :
 
 L'automatisation de ces processus présente de multiples avantages :
 
-+ elle facilite le travail des coordinateurs et des contributeurs ;
++ elle allège le travail des coordinateurs et des contributeurs ;
 + elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
-+ elle permet de se concentrer sur le fond ;
-+ elle n'oblige pas à connaître tous les détails de la production de la documentation (on peut ne pas connaître `R` et contribuer).
++ elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de se concentrer uniquement sur le fond.
 
 ---
 # Où en est le projet aujourd'hui ?
