@@ -495,6 +495,7 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 ---
 # Fonctionnement du projet
 ## Méthode de travail
+
 Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de l'art :
 
 ```{r, echo = FALSE}
@@ -519,7 +520,7 @@ knitr::include_graphics("./resources/githubCI.png")
 
 --
 
-* Projet novateur :
+* Multiples avantages :
     + le livre et le site web sont générés à partir des mêmes codes sources ;
     + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
     + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
@@ -530,19 +531,19 @@ knitr::include_graphics("./resources/githubCI.png")
 
 Le dépôt Github d'`utilitR` propose :
 
-* Une image `Docker` qui fournit un environnement complet et reproductible pour produire la documentation ;
-* Des tests automatique qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles (intégration continue) ;
+* Un environnement informatique complet et reproductible pour produire la documentation (image `Docker`) ;
+* Des tests automatiques qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles (intégration continue) ;
 * Des scripts automatiques qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` (déploiement continu) ;
 * Un site de prévisualisation (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
 
 --
 
-L'automatisation de ces processus permet :
+L'automatisation de ces processus présente de multiples avantages :
 
-+ facilite le travail des coordinateurs et des contributeurs ;
-+ assure un environnement plus reproductible ;
-+ permet de se concentrer sur le fond ;
-+ n'oblige pas à connaître tous les détails de la production de la documentation (on peut ne pas connaître `R` et contribuer).
++ elle facilite le travail des coordinateurs et des contributeurs ;
++ elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
++ elle permet de se concentrer sur le fond ;
++ elle n'oblige pas à connaître tous les détails de la production de la documentation (on peut ne pas connaître `R` et contribuer).
 
 ---
 # Où en est le projet aujourd'hui ?
