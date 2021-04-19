@@ -566,10 +566,10 @@ knitr::include_graphics("./resources/githubCI.png")
 
 Le dépôt Github d'`utilitR` propose :
 
-* Un environnement informatique complet et reproductible pour produire la documentation (image `Docker`) ;
-* Des scripts automatiques qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles (intégration continue) ;
-* Des scripts automatiques qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` (déploiement continu) ;
-* Un site de prévisualisation (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
+* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker`) ;
+* Des scripts d'**intégration continue** qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+* Des scripts de **déploiement continu** qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
+* Un **site de prévisualisation** (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
 
 --
 
