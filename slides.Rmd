@@ -484,7 +484,7 @@ Questions :
 
 ---
 # Fonctionnement du projet
-## Méthode de travail
+## Méthode de travail : une démarche collaborative et _open source_
 
 Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
@@ -507,35 +507,42 @@ knitr::include_graphics("./resources/githubCI.png")
 <!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
 <!-- liens entre fiches, etc.) -->
 
+<!-- (`.Rmd` ➜ `.md` ➜ `.html`) ; -->
+<!-- (`.md` ➜ `.html` ➜ `.pdf`) ; -->
+
 * Les codes sources de la documentation prennent la forme de fichiers `R Markdown` ;
 * `R` compile ces codes sources de deux manières :
-    + Production d'un site internet grâce au _package_ `blogdown` (`.Rmd` -> `.md` -> `.html`) ;
-    + Production d'un livre en format A4 grâce au _package_ `pagedown` (`.md` -> `.html` -> `.pdf`) ;
-    + L'utilisation de `paged.js` permet de transformer chaque page du site internet en un chapitre paginé propre à être imprimé.
+    + Production d'un site internet grâce au _package_ `blogdown` ;
+    + Production d'un livre en format A4 grâce au _package_ `pagedown` ;
+    + De plus, l'utilisation de `paged.js` permet de transformer chaque page du site internet en un chapitre paginé prêt à être imprimé.
 * Les modèles de document reposent sur les technologies Web standards (CSS et Javascript) et sont organisés sous la forme d'un _package_.
 
+--
+
 * Projet novateur :
-    + les mêmes fichiers sources (contenu et CSS) permettent de générer un livre de 400 pages et un site web ;
+    + le livre et le site web sont générés à partir des mêmes codes sources ;
     + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
     + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
 
 ---
 # Fonctionnement du projet
-## Méthode de travail: la reproductibilité avant tout
+## Méthode de travail : reproductibilité et qualité
 
-* Chaque interaction avec le dépôt Github lance des scripts génériques (intégration continue) :
-    + construction d'une image `Docker` qui fournit un environnement autosuffisant pour exécuter
-les exemples de la documentation ;
-    + test dans cet environnement des exemples ;
-* Le résultat de ces scripts est continuellement disponible (déploiement en continu):
-    + Technologie `Netlify` pour faire la passerelle entre le livre HTML et notre site web ;
-    + Version HTML `master` est déployée sur `www.book.utilitr.org`. Autres branches sur un site de prévisualiation ;
+Le dépôt Github d'`utilitR` propose :
 
-* L'automatisation de ces processus permet :
-    + facilite le travail de maintenance ;
-    + assure un environnement plus reproductible ;
-    + permet de se concentrer sur le fond ;
-    + n'oblige pas à connaître tous les détails (on peut même ne pas connaître `R` et contribuer)
+* Une image `Docker` qui fournit un environnement complet et reproductible pour produire la documentation ;
+* Des tests automatique qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles (intégration continue) ;
+* Des scripts automatiques qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` (déploiement continu) ;
+* Un site de prévisualisation (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
+
+--
+
+L'automatisation de ces processus permet :
+
++ facilite le travail des coordinateurs et des contributeurs ;
++ assure un environnement plus reproductible ;
++ permet de se concentrer sur le fond ;
++ n'oblige pas à connaître tous les détails de la production de la documentation (on peut ne pas connaître `R` et contribuer).
 
 ---
 # Où en est le projet aujourd'hui ?
