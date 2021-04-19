@@ -242,8 +242,10 @@ La documentation présente `R` et RStudio, mais également tout l'écosystème i
 
 Les spécificités informatique de l'Insee sont signalées dans des boîtes colorées.
 
+.small90[
 .specificite[
 Une forge interne `GitLab` est accessible depuis AUS. Son adresse, ainsi que des éléments complémentaires à cette fiche, sont disponibles dans la documentation AUS (`Y:/Documentation/AUSV3/`).
+]
 ]
 
 --
