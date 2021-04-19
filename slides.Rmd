@@ -494,7 +494,7 @@ liens entre fiches, etc.) :
     + package `blogdown` pour `.Rmd` -> `.md` -> `.html` ;
     + construction d'un package `utilitR` fournissant un modèle (*template*) pour formatter
 le HTML
-    + package `pagedown` pour `.md` -> `.pdf`
+    + package `pagedown` pour `.md` -> `.html` -> `.pdf` ;
     + `pagedJS` pour transformer une fiche `.html` en un chapitre paginé propre à être imprimé 
 * Projet novateur:
     + permet des évolutions de l'écosystème `R Markdown` bénéficiant à des milliers d'utilisateurs
