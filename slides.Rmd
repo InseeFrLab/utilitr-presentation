@@ -248,7 +248,9 @@ Une forge interne `GitLab` est accessible depuis AUS. Son adresse, ainsi que des
 
 --
 
-SSM
+.sauterligne[
+Les éléments spécifiques à l'Insee sont bien isolés du reste de la documentation, de façon à ce que les services statistiques ministériels puissent se l'approprier aisément.
+]
 
 
 ---
@@ -332,7 +334,7 @@ Les fiches de la documentation ont un certain nombre de caractéristiques commun
 --
 
 .sauterligne[
-Voici les recommandations de la fiche "Importer des fichiers plats":
+Voici les recommandations de la fiche "Importer des fichiers plats" :
 .small90[
 .indent[
 .recommandation[
