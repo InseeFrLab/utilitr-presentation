@@ -521,6 +521,9 @@ Questions :
 --
 * La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
 
+--
+
+**Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
 
 ---
 # Fonctionnement du projet
