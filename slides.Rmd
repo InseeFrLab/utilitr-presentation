@@ -110,15 +110,17 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 ---
 # Introduction
 
-La documentation `utilitR` vise à répondre à deux questions :
+Le projet `utilitR` a pour objectif de produire une documentation qui réponde à deux questions :
 
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
 
-A COMPLETER
+Cette documentation cherche par ailleurs à respecter trois exigences :
 
-Documentation qui prend plusieurs formes (site internet, et brochure).
-Les recommandations sont adaptées au contexte de travail des agents du service statistique public.
+- exister en différents formats pour s'adapter aux besoins des agents ;
+- être proche des cas d'usage de `R` dans la statistique publique ;
+- proposer des recommandations adaptées au contexte de travail des agents du service statistique public.
+
 
 
 
