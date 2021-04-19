@@ -555,9 +555,9 @@ L'automatisation de ces processus présente de multiples avantages :
 --
 
 * Prochaines étapes :
-    + Mars 2021 : finalisation des contenus ;
-    + Avril 2021 : finalisation de la mise en forme ;
-    + Juin 2021 : diffusion de la V1 de la brochure pdf.
+    + Mai 2021 : finalisation des contenus ;
+    + 8 juin 2021 : lancement officiel d'`utilitR` ;
+    + Septembre 2021 : diffusion de la version 1 de la brochure pdf.
 
 ---
 # Remerciements
