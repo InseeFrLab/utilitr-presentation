@@ -579,15 +579,23 @@ L'automatisation de ces processus présente de multiples avantages :
 <!-- Le projet `utilitR` est un projet collaboratif qui a bénéficié des contributions de :  -->
 <!-- r paste0(paste(format(Filter(function(x) !("cph" %in% x$role), desc::desc_get_authors()), include = c("given", "family")), collapse = ", "), ".") -->
 
+.small90[
 .auteurs[
-La coordination est assurée par Lino Galiana et Olivier Meslin.
 
-Le logo du projet a été réalisé par Anna Schlaifer.
+Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel Cacheux, Arthur Cazaubiel, Sylvain Daubrée, Arlindo Dos Santos, Alexis Eidelman, Marie-Emmanuelle Faure, Gilles Fidani, Lino Galiana, Gaëlle Genin, Pierre Lamarche, Claire Legroux, Romain Lesur, Jean-Daniel Lomenède, Pascal Mercier, Olivier Meslin, Géraldine Rochambeau, Milena Suarez Castillo, Cédric Tassart.
 
-Les contributeurs remercient Julien Taquet et Marc Hufschmitt pour leur
-aide précieuse sur la mise en forme du site et de la brochure.
+<br>
+Coordination : Lino Galiana et Olivier Meslin.
 
-Les contributeurs remercient Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux pour leur soutien.
+<br>
+Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux pour leur soutien.
+
+<br>
+Logo : Anna Schlaifer.
+
+<br>
+Les contributeurs remercient Julien Taquet et Marc Hufschmitt pour leur aide précieuse sur la mise en forme du site et de la brochure.
+]
 ]
 
 ---
