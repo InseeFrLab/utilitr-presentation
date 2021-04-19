@@ -406,7 +406,7 @@ Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'ave
 
 La documentation est diffusée sous trois formes :
 
-- un site internet ([www.utilitr.org](www.utilitr.org)) ;
+- un site internet ([www.utilitr.org](https://www.utilitr.org)) ;
 - chaque fiche est disponible en format A4 sur le site internet ;
 - l'intégralité de la documentation en format pdf. 
 
