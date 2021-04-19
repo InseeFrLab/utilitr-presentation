@@ -502,20 +502,22 @@ knitr::include_graphics("./resources/githubCI.png")
 ```
 ---
 # Fonctionnement du projet
-## Méthode de travail: structuration du projet
+## Méthode de travail : structuration du projet
 
-* Le livre se présente sous la forme d'un ensemble de fichiers `R Markdown`
-* `R` transforme tout cela en un site web ou un PDF cohérent (gestion des numéros de chapitre, des
-liens entre fiches, etc.) :
-    + package `blogdown` pour `.Rmd` -> `.md` -> `.html` ;
-    + construction d'un package `utilitR` fournissant un modèle (*template*) pour formatter
-le HTML
-    + package `pagedown` pour `.md` -> `.html` -> `.pdf` ;
-    + `pagedJS` pour transformer une fiche `.html` en un chapitre paginé propre à être imprimé 
-* Projet novateur:
-    + permet des évolutions de l'écosystème `R Markdown` bénéficiant à des milliers d'utilisateurs
-    + approche *HTML only* plus fiable que `LaTeX`
-    + les mêmes fichiers sources (contenu et CSS) permettent de générer un livre de 400 pages et un site web
+<!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
+<!-- liens entre fiches, etc.) -->
+
+* Les codes sources de la documentation prennent la forme de fichiers `R Markdown` ;
+* `R` compile ces codes sources de deux manières :
+    + Production d'un site internet grâce au _package_ `blogdown` (`.Rmd` -> `.md` -> `.html`) ;
+    + Production d'un livre en format A4 grâce au _package_ `pagedown` (`.md` -> `.html` -> `.pdf`) ;
+    + L'utilisation de `paged.js` permet de transformer chaque page du site internet en un chapitre paginé propre à être imprimé.
+* Les modèles de document reposent sur les technologies Web standards (CSS et Javascript) et sont organisés sous la forme d'un _package_.
+
+* Projet novateur :
+    + les mêmes fichiers sources (contenu et CSS) permettent de générer un livre de 400 pages et un site web ;
+    + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
+    + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
 
 ---
 # Fonctionnement du projet
