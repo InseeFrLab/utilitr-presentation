@@ -120,7 +120,6 @@ A COMPLETER
 Documentation qui prend plusieurs formes (site internet, et brochure).
 Les recommandations sont donc adaptées au contexte de travail des agents du service statistique public
 
---
 
 <!-- .sauterligne[ -->
 <!-- Trois caractéristiques importantes : -->
@@ -132,25 +131,38 @@ Les recommandations sont donc adaptées au contexte de travail des agents du ser
 
 
 ---
-# Introduction
-## Les apports du projet `utilitR` (1)
+# Introduction: apports du projet
+## Une organisation efficace au service de la reproductibilité
 
-- Sur le plan de l'organisation :
-    - entièrement _open source_ ;
-    - Démarche collaborative à grande échelle et au niveau du SSP entier ;
-    - Outils collaboratifs (Git/Github) ;
+* Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
+* Démarche collaborative impliquant __plus de 15 contributeurs__ :
+    + des agents géographiquement dispersés ;
+    + des agents issus de plusieurs institutions du SSP.
+* Modèle `Wikipedia`:
+    + relecture par les pairs ;
+    + validation collégiale ;
+* Acculturation à des outils favorisant la **reproductibilité** et la **pérennité**, au-delà de `r fontawesome::fa("fab fa-r-project")` :
+    + `Docker` `r fontawesome::fa("fab fa-docker")` ;
+    + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
+    + `Github` `r fontawesome::fa("fab fa-github")`.
 
 ---
-# Introduction
-## Les apports du projet `utilitR` (2)
+# Introduction: apports du projet
+## Des choix techniques au service de la qualité
 
-- Sur le plan technique :
-    - Entièrement reproductible et sur données réelles ;
-    - Chaîne de production intégrée avec `R` : plusieurs _outputs_ avec les mêmes codes sources ;
-    - Infrastructure technique à l'état de l'art :
-    - permet des évolutions de l'écosystème `R Markdown` bénéficiant à des milliers d'utilisateurs
-    
-__Le projet `utilitR` est un laboratoire de nouvelles méthodes de travail pour les statisticiens.__
+* Une documentation pensée pour le statisticien:
+    + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce à [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)) ;
+    + Documentation entièrement reproductible 
+
+* Processus de publication à l'état de l'art :
+    + Plusieurs _outputs_ (site web, livre PDF) avec les mêmes codes sources
+    + Publication automatique à chaque modification des fichiers sources
+
+* Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
+    + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`:
+
+<br>
+__Le projet `utilitR` est un laboratoire de la manière dont les évolutions récentes de l'écosystème `R` peuvent bénéficier au travail du statisticien__
 
 ---
 # Contenu de la documentation
