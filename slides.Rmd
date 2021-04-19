@@ -168,8 +168,9 @@ __Le projet `utilitR` est un laboratoire qui préfigure les évolutions des mét
 
 ---
 # Contenu de la documentation
+## Une documentation en deux grandes parties
 
-COMPLETER SUR LES DEUX GRANDES PARTIES
+
 
 ---
 # Contenu de la documentation
@@ -448,8 +449,8 @@ Il est envisagé que le site internet soit actualisé en continu, tandis que la 
 Questions :
 
 - Quel format de diffusion préférez-vous ?
-- La version intégrale de la documentation vous semble-t-elle utile, vu que chaque fiche est déjà disponible en format A4 imprimable ?
-- Pensez-vous qu'une version imprimée de la brochure (300 pages) soit utile ?
+- La version intégrale de la documentation vous serait-t-elle utile, sachant que chaque fiche est déjà disponible en format A4 imprimable ?
+- Une version __imprimée et millésimée__ de la brochure (350 pages) vous serait-elle utile ?
 
 ]
 
@@ -534,6 +535,7 @@ knitr::include_graphics("./resources/githubCI.png")
 
 --
 
+<br>
 * Multiples avantages :
     + le livre et le site web sont générés à partir des mêmes codes sources ;
     + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
@@ -546,7 +548,7 @@ knitr::include_graphics("./resources/githubCI.png")
 Le dépôt Github d'`utilitR` propose :
 
 * Un environnement informatique complet et reproductible pour produire la documentation (image `Docker`) ;
-* Des tests automatiques qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles (intégration continue) ;
+* Des scripts automatiques qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles (intégration continue) ;
 * Des scripts automatiques qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` (déploiement continu) ;
 * Un site de prévisualisation (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
 
