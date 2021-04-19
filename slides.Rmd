@@ -410,6 +410,8 @@ La documentation est diffusée sous trois formes :
 - chaque fiche est disponible en format A4 sur le site internet ;
 - l'intégralité de la documentation en format pdf. 
 
+Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée.
+
 --
 
 .sauterligne2[
@@ -421,10 +423,6 @@ Questions :
 
 ]
 
-
-<!-- -- -->
-
-<!-- Le site internet est actualisé en continu, tandis que la brochure pdf est publiée de façon ponctuelle et millésimée. -->
 
 ---
 # Fonctionnement du projet
@@ -462,7 +460,7 @@ Questions :
 --
 
 * Organisation sans hiérarchie :
-    * Un _groupe de contributeurs_ (environ 15), parmi lesquels deux coordinateurs (Lino Galiana et Olivier Meslin) ;
+    * Un _groupe de contributeurs_ (environ 20), parmi lesquels deux coordinateurs (Lino Galiana et Olivier Meslin) ;
     * Un _comité de parrainage_ composé de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
 --
 * La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
@@ -522,9 +520,6 @@ les exemples de la documentation ;
     + n'oblige pas à connaître tous les détails (on peut même ne pas connaître `R` et contribuer)
 
 ---
-
-
-
 # Où en est le projet aujourd'hui ?
 
 * Un portail d'accès sous forme de site *web* :
@@ -537,6 +532,23 @@ les exemples de la documentation ;
     + Mars 2021 : finalisation des contenus ;
     + Avril 2021 : finalisation de la mise en forme ;
     + Juin 2021 : diffusion de la V1 de la brochure pdf.
+
+---
+# Remerciements
+
+<!-- Le projet `utilitR` est un projet collaboratif qui a bénéficié des contributions de :  -->
+<!-- r paste0(paste(format(Filter(function(x) !("cph" %in% x$role), desc::desc_get_authors()), include = c("given", "family")), collapse = ", "), ".") -->
+
+.auteurs[
+La coordination est assurée par Lino Galiana et Olivier Meslin.
+
+Le logo du projet a été réalisé par Anna Schlaifer.
+
+Les contributeurs remercient Julien Taquet et Marc Hufschmitt pour leur
+aide précieuse sur la mise en forme du site et de la brochure.
+
+Les contributeurs remercient Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux pour leur soutien.
+]
 
 ---
 background-image: url('resources/logo-utilitr.png')
