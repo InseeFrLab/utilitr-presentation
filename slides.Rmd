@@ -485,6 +485,41 @@ Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de 
 knitr::include_graphics("./resources/githubCI.png")
 ```
 ---
+# Fonctionnement du projet
+## Méthode de travail: structuration du projet
+
+* Le livre se présente sous la forme d'un ensemble de fichiers `R Markdown`
+* `R` transforme tout cela en un site web ou un PDF cohérent (gestion des numéros de chapitre, des
+liens entre fiches, etc.) :
+    + package `blogdown` pour `.Rmd` -> `.md` -> `.html` ;
+    + construction d'un package `utilitR` fournissant un modèle (*template*) pour formatter
+le HTML
+    + package `pagedown` pour `.md` -> `.pdf`
+    + `pagedJS` pour transformer une fiche `.html` en un chapitre paginé propre à être imprimé 
+* Projet novateur:
+    + permet des évolutions de l'écosystème `R Markdown` bénéficiant à des milliers d'utilisateurs
+    + approche *HTML only* plus fiable que `LaTeX`
+    + les mêmes fichiers sources (contenu et CSS) permettent de générer un livre de 400 pages et un site web
+
+---
+# Fonctionnement du projet
+## Méthode de travail: la reproductibilité avant tout
+
+* Chaque interaction avec le dépôt Github lance des scripts génériques (intégration continue) :
+    + construction d'une image `Docker` qui fournit un environnement autosuffisant pour exécuter
+les exemples de la documentation ;
+    + test dans cet environnement des exemples ;
+* Le résultat de ces scripts est continuellement disponible (déploiement en continu):
+    + Technologie `Netlify` pour faire la passerelle entre le livre HTML et notre site web ;
+    + Version HTML `master` est déployée sur `www.book.utilitr.org`. Autres branches sur un site de prévisualiation ;
+
+* L'automatisation de ces processus permet:
+    + facilite le travail de maintenance ;
+    + assure un environnement plus reproductible ;
+    + permet de se concentrer sur le fond ;
+    + n'oblige pas à connaître tous les détails (on peut même ne pas connaître `R` et contribuer)
+
+---
 # Où en est le projet aujourd'hui ?
 
 * Un portail d'accès sous forme de site *web* :
