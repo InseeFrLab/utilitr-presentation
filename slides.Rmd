@@ -25,7 +25,7 @@ Le projet `utilitR` vise à produire une documentation collaborative sur `R`, de
 Plan de la présentation :
 ]
 
-- Genèse et objectif du projet ;
+- Objectif et spécificités du projet ;
 - Contenu de la documentation ;
 - Modes de diffusion de la documentation ;
 - Fonctionnement du projet `utilitR`.
@@ -90,8 +90,7 @@ kbl(description_appariement, align = "cll",
 
 
 ---
-
-# Genèse du projet
+# Introduction
 
 Le projet `utilitR` est parti de deux constats : 
 
@@ -107,43 +106,60 @@ Le projet `utilitR` est parti de deux constats :
     +  La documentation de référence sur `SAS` en français, rédigée par
 Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'équivalent en `R` ;
     + La documentation sur `R` est riche mais propose peu d'exemples sur données réelles, proches des cas d'usage des agents.
-
+    
 ---
-# Objectif du projet
+# Introduction
 
 La documentation `utilitR` vise à répondre à deux questions :
 
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
 
+A COMPLETER
+
+Documentation qui prend plusieurs formes (site internet, et brochure).
+Les recommandations sont donc adaptées au contexte de travail des agents du service statistique public
 
 --
 
-.sauterligne[
-Trois caractéristiques importantes :
-]
+<!-- .sauterligne[ -->
+<!-- Trois caractéristiques importantes : -->
+<!-- ] -->
 
-- Cette documentation est principalement destinée aux agents du Service statistique public (mais pas exclusivement). Les recommandations sont donc adaptées au contexte de travail des agents du service statistique public ;
-- Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia ;
-- Cette documentation n'est pas une introduction théorique au langage `R`, mais un guide pratique pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète.
+<!-- - Cette documentation est principalement destinée aux agents du Service statistique public (mais pas exclusivement). Les recommandations sont donc adaptées au contexte de travail des agents du service statistique public ; -->
+<!-- - Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia ; -->
+<!-- - Cette documentation n'est pas une introduction théorique au langage `R`, mais un guide pratique pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète. -->
 
-<!-- 1. Travailler avec `R` à l'Insee ; -->
-<!--     + Présentation des espaces de travail informatiques (AUSv3 et SSP Cloud) ; -->
-<!--     + Comment configurer sa session `R` ; -->
-<!--     + Comment installer et utiliser des _packages_ `R` ; -->
-<!--     + Comment utiliser RStudio et les `RProject` ; -->
-<!--     + Comment configurer et utiliser `git` et Gitlab avec RStudio ; -->
-<!--     + Comment choisir un _package_ -->
-<!-- 2. Réaliser des tâches élémentaires avec `R` : -->
-<!--     + Importer des données (SAS, csv, txt, odt, xlsx...) ; -->
-<!--     + Manipuler des données (table des données, données textuelles, données spatiales) ; -->
-<!--     + Utiliser des bases de données PostgreSQL et Oracle ; -->
-<!--     + Faire des graphiques ; -->
-<!--     + Rédiger des documents avec `R Markdown` ; -->
-<!--     + Produire des rapports automatisés avec `R Markdown`. -->
+
+---
+# Introduction
+## Les apports du projet `utilitR` (1)
+
+- Sur le plan de l'organisation :
+    - entièrement _open source_ ;
+    - Démarche collaborative à grande échelle et au niveau du SSP entier ;
+    - Outils collaboratifs (Git/Github) ;
+
+---
+# Introduction
+## Les apports du projet `utilitR` (2)
+
+- Sur le plan technique :
+    - Entièrement reproductible et sur données réelles ;
+    - Chaîne de production intégrée avec `R` : plusieurs _outputs_ avec les mêmes codes sources ;
+    - Infrastructure technique à l'état de l'art :
+    - permet des évolutions de l'écosystème `R Markdown` bénéficiant à des milliers d'utilisateurs
+    
+__Le projet `utilitR` est un laboratoire de nouvelles méthodes de travail pour les statisticiens.__
 
 ---
 # Contenu de la documentation
+
+COMPLETER SUR LES DEUX GRANDES PARTIES
+
+---
+# Contenu de la documentation
+
 ## Première partie : comment (bien) travailler avec `R`
 
 .small90[
@@ -430,7 +446,7 @@ Questions :
 
 - Le projet est l’une des multiples initiatives lancées pour faciliter la transition vers `R` : 
   + Supports du groupe de travail USSR ;
-  + FunCamp dévéloppé par la Division Innovation et Instruction Technique (Diit) ;
+  + FunCamp développé par la Division Innovation et Instruction Technique (Diit) ;
   + Guide à l'usage du statisticien débutant (rédigé par Cédric Afsa) ;
   + Formation Travail collaboratif avec `R` (en cours de test avant déploiement).
 
@@ -513,7 +529,7 @@ les exemples de la documentation ;
     + Technologie `Netlify` pour faire la passerelle entre le livre HTML et notre site web ;
     + Version HTML `master` est déployée sur `www.book.utilitr.org`. Autres branches sur un site de prévisualiation ;
 
-* L'automatisation de ces processus permet:
+* L'automatisation de ces processus permet :
     + facilite le travail de maintenance ;
     + assure un environnement plus reproductible ;
     + permet de se concentrer sur le fond ;
