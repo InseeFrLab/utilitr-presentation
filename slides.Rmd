@@ -608,16 +608,12 @@ L'automatisation de ces processus présente de multiples avantages :
 
 Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel Cacheux, Arthur Cazaubiel, Sylvain Daubrée, Arlindo Dos Santos, Alexis Eidelman, Marie-Emmanuelle Faure, Gilles Fidani, Lino Galiana, Gaëlle Genin, Pierre Lamarche, Claire Legroux, Romain Lesur, Jean-Daniel Lomenède, Pascal Mercier, Olivier Meslin, Géraldine Rochambeau, Milena Suarez Castillo, Cédric Tassart.
 
-<br>
 Coordination : Lino Galiana et Olivier Meslin.
 
-<br>
 Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux pour leur soutien.
 
-<br>
 Logo : Anna Schlaifer.
 
-<br>
 Les contributeurs remercient Julien Taquet et Marc Hufschmitt pour leur aide précieuse sur la mise en forme du site et de la brochure.
 ]
 ]

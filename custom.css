@@ -9,6 +9,9 @@ pre > code[class="r hljs remark-code"] {
 pre > code[class="remark-code"] > div[class="remark-code-line"] {
     background-color: #f6f6f6 !important;
 }
+.auteurs p {
+  margin-top: 10px;
+}
 .remark-code {
   font-size: 16px;
 }
