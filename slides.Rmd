@@ -90,7 +90,7 @@ kbl(description_appariement, align = "cll",
 
 
 ---
-# Introduction
+# Introduction : origine du projet
 
 Le projet `utilitR` est parti de deux constats : 
 
@@ -108,7 +108,7 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
     + La documentation sur `R` est riche mais propose peu d'exemples sur données réelles, proches des cas d'usage des agents.
     
 ---
-# Introduction
+# Introduction : objectif du projet
 
 Le projet `utilitR` a pour objectif de produire une documentation qui réponde à deux questions :
 
