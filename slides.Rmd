@@ -463,11 +463,9 @@ Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'ave
 
 La documentation est diffusée sous trois formes :
 
-- un site internet ([www.utilitr.org](https://www.utilitr.org)) ;
-- chaque fiche est disponible en format A4 sur le site internet ;
-- l'intégralité de la documentation en format pdf. 
-
-Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée.
+- `r fontawesome::fa("fab fa-firefox")` un site internet ([www.utilitr.org](https://www.utilitr.org)) ;
+- `r fontawesome::fa("fas fa-print")` chaque fiche est disponible en format A4 sur le site internet ;
+- `r fontawesome::fa("fas fa-file-pdf")` l'intégralité de la documentation en format pdf. 
 
 --
 
