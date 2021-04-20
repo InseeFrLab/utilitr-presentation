@@ -467,6 +467,8 @@ La documentation est diffusée sous trois formes :
 - `r fontawesome::fa("fas fa-print")` chaque fiche est disponible en format A4 sur le site internet ;
 - `r fontawesome::fa("fas fa-file-pdf")` l'intégralité de la documentation en format pdf. 
 
+<br> Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée.
+
 --
 
 .sauterligne2[
