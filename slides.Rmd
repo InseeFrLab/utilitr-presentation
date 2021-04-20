@@ -115,6 +115,7 @@ Le projet `utilitR` a pour objectif de produire une documentation qui réponde �
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
 
+<br>
 Cette documentation cherche par ailleurs à respecter trois exigences :
 
 - exister en différents formats pour s'adapter aux besoins des agents ;
@@ -155,7 +156,7 @@ Cette documentation cherche par ailleurs à respecter trois exigences :
     + Documentation entièrement reproductible.
 
 * Processus de publication à l'état de l'art :
-    + Plusieurs _outputs_ (site web, livre PDF) avec les mêmes codes sources ;
+    + Plusieurs _outputs_ (site web `r fontawesome::fa("fab fa-firefox")`, livre PDF `r fontawesome::fa("fas fa-file-pdf")`) avec les mêmes codes sources ;
     + Publication automatique à chaque modification des fichiers sources.
 
 * Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
