@@ -1,0 +1,46 @@
+---
+title: "utilitR: une documentation utile pour R"
+author:
+- Lino Galiana^[Insee, lino.galiana@insee.fr]
+- Olivier Meslin^[Insee, olivier.meslin@insee.fr]
+output: pdf_document
+indent: true
+#bibliography: ref.bib
+---
+
+\begin{center}
+\textbf{Résumé}
+\end{center}
+La documentation `utilitR` est un projet opensource, collaboratif, destiné à
+tout utilisateur de `R` dans le cadre d'un usage courant d'analyse de données.
+Le projet `utilitR` se distingue d'une documentation classique en proposant
+une approche par tâche  (importer, manipuler des données, réaliser des
+graphiques, cartes, etc.) avec des recommandations précises sur les packages
+à privilégier et des conseils sur les bonnes pratiques ou la démarche à adopter.
+
+Les fonctionnalités les plus avancées de l'écosystème `R Markdown`
+(principalement `bookdown`, `blogdown` et `pagedown`)
+sont mobilisées afin de produire, avec les mêmes fichiers
+sources, un site *web* actualisé en continu (<https://www.utilitr.org>),
+une version paginée de chaque chapitre pour une impression simplifiée et 
+une version complète de la documentation dans un PDF de plus de 350 pages. 
+
+`utilitR` sert également de laboratoire aux méthodes d'intégration et
+de déploiements continus à l'Insee. En acculturant une vingtaine de contributeurs
+à mener un projet opensource, `utilitR` préfigure les futures méthodes
+de diffusion des travaux statistiques.
+
+
+\noindent \textbf{Mots-clefs} : Documentation -- Open Source -- R Markdown
+
+## Développement 
+
+La soumission doit contenir :
+
+6. le développement,
+
+7. d'éventuelles références (@chiquet2018variational).
+
+La soumission de deux pages maximum devra être déposée au format PDF sur le site web de la conférence.
+
+## Références
