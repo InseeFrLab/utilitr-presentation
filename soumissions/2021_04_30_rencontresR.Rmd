@@ -15,7 +15,8 @@ La documentation `utilitR` est un projet opensource, collaboratif, destiné à
 tout utilisateur de `R` dans le cadre d'un usage courant d'analyse de données.
 Le projet `utilitR` se distingue d'une documentation classique en proposant
 une approche par tâche  (importer, manipuler des données, réaliser des
-graphiques, cartes, etc.) avec des recommandations précises sur les packages
+graphiques, cartes, etc.), sur données réelles,
+avec des recommandations précises sur les packages
 à privilégier et des conseils sur les bonnes pratiques ou la démarche à adopter.
 
 Les fonctionnalités les plus avancées de l'écosystème `R Markdown`
@@ -35,12 +36,35 @@ de diffusion des travaux statistiques.
 
 ## Développement 
 
-La soumission doit contenir :
+Pour accompagner la transition vers des langages *opensource* du
+Système Statistique Public, le projet `utilitR` a émergé de manière
+spontanée afin de proposer une documentation à partir de cas
+d'usages. L'objectif de la documentation est de proposer un ensemble
+de recommandations et de conseils pour l'usage de `R` sur données réelles
+dans un cadre de travail collectif. Pour cela, un package facilitant
+l'accès aux données du site <insee.fr>, à savoir `doremifasol`, a
+vu le jour. Ce dernier permet que l'ensemble des
+des tâches évoquées (importer des données, manipuler celles-ci avec le `tidyverse` ou
+`data.table`, communiquer avec `ggplot` ou `R Markdown`...) soient illustrées avec
+des données communément utilisées par les statisticiens ou *data scientists*. 
 
-6. le développement,
+Dans le champ de la statistique publique, la démarche `utilitR` est originale.
+Il s'agit d'une démarche spontanée, collaborative et ouverte.
+Outre les contenus, 
+l'ensemble des débats ont lieu sur `Github`. Les recommandations et orientations
+stratégiques sont discutées dans le dépôt et 
+ouvertes à des contributeurs au-delà du système statistique public. 
+Au sein de l'Insee, l'approche est originale car elle ne repose pas sur 
+une organisation hiérarchique. Au sein de l'Insee, des chefs peuvent
+soutenir l'initiative, ses valeurs et l'aider à disposer de moyens ou d'une publicité 
+interne. Ces sponsors ne contrôlent cependant pas le contenu de la documentation
+et ses orientations stratégiques qui sont du ressort du groupe des contributeurs.
 
-7. d'éventuelles références (@chiquet2018variational).
+Github CI
 
-La soumission de deux pages maximum devra être déposée au format PDF sur le site web de la conférence.
+
+
+R markdown
+
 
 ## Références
