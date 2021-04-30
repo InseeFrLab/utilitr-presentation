@@ -48,6 +48,26 @@ des tâches évoquées (importer des données, manipuler celles-ci avec le `tidy
 `data.table`, communiquer avec `ggplot` ou `R Markdown`...) soient illustrées avec
 des données communément utilisées par les statisticiens ou *data scientists*. 
 
+La documentation s'organise autour de quatre axes principaux :
+
+* Mener un projet statistique avec `R` ;
+* Importer des données avec `R` ;
+* Manipuler des données avec `R` ;
+* Produire des sorties avec `R`.
+
+La première partie présente l'écosystème `R` et `RStudio` favorisant la
+conduite d'un projet d'analyse avec `R` dans un cadre collaboratif. En 
+particulier, elle comporte une présentation extensive de `Git`. La deuxième
+partie se focalise sur l'import de données à partir de diverses
+formats (CSV, SAS, Excel, bases de données...). La troisième partie présente
+les deux paradigmes de manipulation de données (`data.table`, 
+`tidyverse`, données spatiales)
+et se focalise sur des tâches courantes dans la manipulation
+des données (nettoyage de données textuelles, jointures, statistiques
+sur données d'enquêtes...). La dernière partie se concentre sur la 
+valorisation du travail de données: visualisation, production de sorties
+`R Markdown`...
+
 Dans le champ de la statistique publique, la démarche `utilitR` est originale.
 Il s'agit d'une démarche spontanée, collaborative et ouverte.
 Outre les contenus, 
