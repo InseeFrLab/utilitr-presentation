@@ -28,18 +28,18 @@ jobs:
           name: Slides
           path: public/index.html
           retention-days: 3
-#      - name: Install npm
-#        if: ${{ github.repository == 'inseefrlab/utilitr' }}
-#        uses: actions/setup-node@v1
-#      - name: Deploy to Netlify
-#        if: ${{ github.repository == 'inseefrlab/utilitr' }}
-#        # NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID added in the repo's secrets
-#        env:
-#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-#        run: |
-#          npm install --unsafe-perm=true netlify-cli -g
-#          netlify init
-#          netlify deploy --prod --dir="public" --message "Deploy master"
+      - name: Install npm
+        if: ${{ github.repository == 'inseefrlab/utilitr' }}
+        uses: actions/setup-node@v1
+      - name: Deploy to Netlify
+        if: ${{ github.repository == 'inseefrlab/utilitr' }}
+        # NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID added in the repo's secrets
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          npm install --unsafe-perm=true netlify-cli -g
+          netlify init
+          netlify deploy --prod --dir="public" --message "Deploy master"
 
 
