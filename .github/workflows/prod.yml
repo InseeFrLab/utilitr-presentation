@@ -19,9 +19,11 @@ jobs:
       - name: Render
         run: |
           Rscript -e 'rmarkdown::render("slides.Rmd")'
+          mkdir .public
+          cp -r  ./slides.html public/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
-          path: slides.html
+          path: public/index.html
 
 
