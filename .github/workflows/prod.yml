@@ -21,7 +21,7 @@ jobs:
           Rscript -e 'rmarkdown::render("slides.Rmd")'
       - uses: actions/upload-artifact@v2
         with:
-          name: _public
-          path: _public/
+          name: Slides
+          path: slides.html
 
 
