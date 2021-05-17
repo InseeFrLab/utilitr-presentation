@@ -21,9 +21,8 @@ jobs:
           Rscript -e "install.packages(c('xaringan'))"
       - name: Render
         run: |
-          Rscript -e 'rmarkdown::render("slides.Rmd")'
           mkdir .public
-          cp -r  ./slides.html public/index.html
+          Rscript -e 'rmarkdown::render("slides.Rmd", output_file = "public/index.html")'
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
@@ -41,6 +40,6 @@ jobs:
 #        run: |
 #          npm install --unsafe-perm=true netlify-cli -g
 #          netlify init
-#          netlify deploy --prod --dir="_public" --message "Deploy master"
+#          netlify deploy --prod --dir="public" --message "Deploy master"
 
 
