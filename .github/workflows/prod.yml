@@ -1,6 +1,9 @@
 name: Example output
 
-on: master
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   bookdown-prod:
