@@ -1,0 +1,27 @@
+name: Example output
+
+on: master
+
+jobs:
+  bookdown-prod:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    container: inseefrlab/utilitr:latest
+    steps:
+      - name: Checkout Repository
+        env:
+          GITHUB_PAT: ${{ secrets.PAT }}
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: |
+          Rscript -e "install.packages('xfun')"
+          Rscript -e "install.packages(c('xaringan'))"
+      - name: Render
+        run: |
+          Rscript -e 'rmarkdown::render("slides.Rmd")'
+      - uses: actions/upload-artifact@v2
+        with:
+          name: _public
+          path: _public/
+
+
