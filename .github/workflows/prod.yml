@@ -29,10 +29,10 @@ jobs:
           path: public/index.html
           retention-days: 3
       - name: Install npm
-        if: ${{ github.repository == 'inseefrlab/utilitr' }}
+        if: ${{ github.repository == 'inseefrlab/utilitr-prez' }}
         uses: actions/setup-node@v1
       - name: Deploy to Netlify
-        if: ${{ github.repository == 'inseefrlab/utilitr' }}
+        if: ${{ github.repository == 'inseefrlab/utilitr-prez' }}
         # NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID added in the repo's secrets
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
