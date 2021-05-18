@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
-
 libs/*
 slides_files
+slides.html
+*.gitignore
+*.Rproj
