@@ -6,5 +6,6 @@
 
 Dépôt des présentations du projet `utilitR`
 
-
+Les slides sont visualisables à l'adresse
+https://ecstatic-minsky-96c002.netlify.app
 
