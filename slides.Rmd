@@ -177,6 +177,16 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
 
 ---
 # Contenu de la documentation
+## Première partie : comment (bien) travailler avec `R`
+
+La première partie de la documentation présente non seulement l'usage de `R` et de RStudio, mais également tout l'écosystème informatique autour de `R`, afin d'aider les agents à être autonomes :
+
+- Présentation des environnements informatiques d'usage disponibles à l'Insee (AUSv3 et SSP Cloud) ;
+- Tutoriels détaillés sur l'usage des projets RStudio, la configuration de `Git` et l'utilisation de `Git` avec RStudio ;
+- Fiches-conseils sur comment choisir un _package_, chercher de l'aide et se documenter.
+
+---
+# Contenu de la documentation
 
 ## Première partie : comment (bien) travailler avec `R`
 
@@ -228,16 +238,6 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
 </tbody>
 </table>
 ]
-
----
-# Contenu de la documentation
-## Première partie : comment (bien) travailler avec `R`
-
-La documentation présente `R` et RStudio, mais également tout l'écosystème informatique autour de `R`, afin d'aider les agents à être autonomes :
-
-- Présentation des environnements informatiques d'usage disponibles à l'Insee (AUSv3 et SSP Cloud) ;
-- Tutoriels détaillés sur l'usage des projets RStudio, la configuration de `Git` et l'utilisation de `Git` avec RStudio ;
-- Fiches-conseils sur comment choisir un _package_, chercher de l'aide et se documenter.
 
 ---
 # Contenu de la documentation
