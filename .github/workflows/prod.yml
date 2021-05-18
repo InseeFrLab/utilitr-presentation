@@ -26,7 +26,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
-          path: public/index.html
+          path: public/
           retention-days: 3
       - name: Install npm
         if: ${{ github.repository == 'inseefrlab/utilitr-prez' }}
