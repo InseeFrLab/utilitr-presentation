@@ -11,6 +11,7 @@ output :
       after_body : insert-logo.html
     self_contained: false
     copy_resources: true
+    lib_dir: "public"
 ---
 # Introduction
 
