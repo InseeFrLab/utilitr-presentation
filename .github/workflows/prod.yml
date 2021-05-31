@@ -19,6 +19,7 @@ jobs:
         run: |
           Rscript -e "install.packages('xfun')"
           Rscript -e "install.packages(c('xaringan'))"
+          Rscript -e "install.packages(c('fontawesome'))"
       - name: Render
         run: |
           mkdir -p public
