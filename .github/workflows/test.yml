@@ -35,7 +35,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '12'
-        uses: actions/setup-node@v1
       - name: Deploy to Netlify
         if: ${{ github.repository == 'inseefrlab/utilitr-prez' }}
         # NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID added in the repo's secrets
