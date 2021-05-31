@@ -26,74 +26,12 @@ Le projet `utilitR` vise à produire une documentation collaborative sur `R`, de
 Plan de la présentation :
 ]
 
-<!-----
-- Objectif et spécificités du projet ;
-- Contenu de la documentation ;
-- Modes de diffusion de la documentation ;
-- Fonctionnement du projet `utilitR`.
------>
-
-
-```{r, echo = FALSE, warning = FALSE, eval = FALSE}
-library(knitr)
-library(kableExtra)
-library(data.table)
-description_appariement <- 
-  as.data.table(
-    data.frame(
-      etape = c(
-        rep('Utiliser `R` à l’Insee', 4),
-        rep("Mener un projet statistique avec `R`", 5),
-        rep("Importer des données", 3),
-        rep("Manipuler des données", 3),
-        rep("Produire des _outputs_", 3)
-        ),
-      filtres_validation = 
-        c(
-          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
-          "Configurer Git et Gitlab",
-          "Personnaliser la configuration de `R`",
-          "Gérer les ressources informatiques avec `R`",
-          "Utiliser les projets RStudio",
-          "Utiliser Git avec RStudio",
-          "Installer des packages et gérer les dépendances",
-          "Choisir des packages",
-          "Demander de l'aide et se documenter",
-          "Importer des données (SAS, csv, txt, odt, xlsx...)",
-          "Utiliser une API",
-          "Utiliser des bases de données",
-          "Manipuler des données avec `data.table`",
-    # + Manipuler des données (table des données, données textuelles, données spatiales) ;
-    # + Utiliser des bases de données PostgreSQL et Oracle ;
-    # + Faire des graphiques ;
-    # + Rédiger des documents avec `R Markdown` ;
-    # + Produire des rapports automatisés avec `R Markdown`.
-          "BBB",
-          "AAA",
-          "BBB",
-          "AAA",
-          "BBB"
-        )
-    )
-  )
-
-kbl(description_appariement, align = "cll",
-    col.names = c("Partie", 
-                  "Fiches")
-) %>%
-  kable_styling(full_width = TRUE) %>%
-  row_spec(0, align = 'c') %>%
-  column_spec(1, bold = TRUE, width = "6cm") %>%
-  column_spec(2, width = "12cm") %>% 
-  collapse_rows(columns = 1, 
-                valign = "middle", 
-                longtable_clean_cut = TRUE)
-```
+- Présentation du projet ; 
 
 
 
 ---
-# Introduction : apports du projet
+# Présentation du projet
 ## Une démarche collaborative et _open source_
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
@@ -123,6 +61,7 @@ kbl(description_appariement, align = "cll",
 
 * Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
     + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`.
+    + Sur `r fontawesome::fa("fab fa-github")`: [rstudio/rmarkdown#2146](https://github.com/rstudio/rmarkdown/pull/2146), [rstudio/rmarkdown#2145](https://github.com/rstudio/rmarkdown/issues/2145), [rstudio/bookdown#1101](https://github.com/rstudio/bookdown/issues/1101), [rstudio/bookdown#1117](https://github.com/rstudio/bookdown/issues/1117)
 
 <br>
 
@@ -208,7 +147,7 @@ knitr::include_graphics("./resources/githubCI.png")
     + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
 
 ---
-# Fonctionnement du projet
+# Intégration continue
 ## Méthode de travail : reproductibilité et qualité
 
 Le dépôt Github d'`utilitR` propose :
@@ -217,6 +156,28 @@ Le dépôt Github d'`utilitR` propose :
 * Des scripts d'**intégration continue** qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
 * Des scripts de **déploiement continu** qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
 * Un **site de prévisualisation** (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
+
+---
+# Intégration continue
+## Pourquoi adopter Git ?
+
+```{r, echo = FALSE}
+knitr::include_graphics("https://linogaliana.gitlab.io/collaboratif/pics/03_git/fichiers_multiples.png")
+```
+---
+# Intégration continue
+
+## Pourquoi faire de l'intégration continue ?
+
+```{r, echo = FALSE, out.width="50%", fig.show="hold"}
+knitr::include_graphics("https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg")
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
+
+Sources :
+
+* `https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
+* `https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
 
 --
 
