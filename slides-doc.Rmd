@@ -4,11 +4,14 @@ subtitle : "Une documentation sur `R` à l’usage des statisticiens publics"
 author : "Lino Galiana, Olivier Meslin"
 institute : "Insee"
 date : "`r format(Sys.time(), '%d %B %Y')`"
-output :
+output:
   utilitr::utilitr_presentation:
+    new_session: yes
     css: custom.css
-    includes :
-      after_body : insert-logo.html
+    includes:
+      after_body: insert-logo.html
+    self_contained: true
+    lib_dir: "public"
 ---
 # Introduction
 
@@ -630,3 +633,5 @@ background-size: 7cm
 background-position: 8.5cm 3cm
 
 # Merci !
+
+

@@ -19,6 +19,7 @@ jobs:
         run: |
           Rscript -e "install.packages('xfun')"
           Rscript -e "install.packages(c('xaringan'))"
+          Rscript -e "install.packages(c('fontawesome'))"
       - name: Render
         run: |
           mkdir -p public
@@ -26,7 +27,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
-          path: public/index.html
+          path: public/
           retention-days: 3
       - name: Install npm
         if: ${{ github.repository == 'inseefrlab/utilitr-prez' }}
