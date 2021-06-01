@@ -18,7 +18,8 @@ options(htmltools.dir.version = FALSE)
 ```
 
 .sauterligne3[
-Le projet `utilitR` vise à produire une documentation collaborative sur `R`, destinée principalement aux agents du Service statistique public (mais pas exclusivement).
+Le projet `utilitR` vise à produire une documentation collaborative sur `R`,
+destinée principalement aux agents du Service statistique public (mais pas exclusivement).
 ]
 
 --
@@ -26,12 +27,19 @@ Le projet `utilitR` vise à produire une documentation collaborative sur `R`, de
 Plan de la présentation :
 ]
 
-- Présentation du projet ; 
+- Présentation du projet ;
+- Fonctionnement du projet: panorama ;
+- Nos conclusions ;
+- Quelques définitions ;
+- Pourquoi mettre en place ce type d'approche ;
+- Fonctionnement collaboratif d'utilitR ;
+    + Git & Github
+    + CI/CD
 
 
 
 ---
-# Présentation du projet
+# 1. Présentation du projet
 ## Une démarche collaborative et _open source_
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
@@ -47,7 +55,7 @@ Plan de la présentation :
     + `Github` `r fontawesome::fa("fab fa-github")`.
 
 ---
-# Introduction : apports du projet
+# 1. Présentation du projet
 ## Des choix techniques au service de la qualité
 
 * Une documentation pensée pour le statisticien :
@@ -67,9 +75,21 @@ Plan de la présentation :
 
 __Le projet `utilitR` est un laboratoire qui préfigure les évolutions des méthodes de travail des statisticiens.__
 
+---
+# 1. Présentation du projet
+## Méthode de travail : reproductibilité et qualité
+
+Le dépôt `Github` `r fontawesome::fa("fab fa-github")` d'`utilitR` propose :
+
+* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker`) ;
+* Des scripts d'**intégration continue** qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+* Des scripts de **déploiement continu** qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
+* Un **site de prévisualisation** (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
+
 
 ---
-# Diffusion de la documentation
+# 1. Présentation du projet
+## Diffusion de la documentation
 
 La documentation est diffusée sous trois formes :
 
@@ -80,9 +100,23 @@ La documentation est diffusée sous trois formes :
 <br> Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée.
 
 
----
-# Fonctionnement du projet
 
+---
+# 1. Présentation du projet
+## Diffusion de la documentation
+
+La documentation est diffusée sous trois formes :
+
+- `r fontawesome::fa("fab fa-firefox")` un site internet ([www.utilitr.org](https://www.utilitr.org)) ;
+- `r fontawesome::fa("fas fa-print")` chaque fiche est disponible en format A4 sur le site internet ;
+- `r fontawesome::fa("fas fa-file-pdf")` l'intégralité de la documentation en format pdf. 
+
+<br> Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée.
+
+<!---- PARTIE XXX ---------------->
+
+---
+# 2. Fonctionnement du projet
 ## Organisation du projet
 
 **Le projet `utilitR` est un projet collaboratif, horizontal, _open source_ et ouvert à tous, auquel tous les agents peuvent contribuer.**
@@ -103,7 +137,7 @@ La documentation est diffusée sous trois formes :
 **Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
 
 ---
-# Fonctionnement du projet
+# 2. Fonctionnement du projet
 ## Méthode de travail : une démarche collaborative et _open source_
 
 Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
@@ -113,7 +147,7 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 - Toutes les contributions sont soumises à une relecture par les pairs et validées collégialement (sur le modèle de Wikipedia).
 
 ---
-# Fonctionnement du projet
+# 2. Fonctionnement du projet
 ## Méthode de travail
 
 Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de l'art :
@@ -121,9 +155,110 @@ Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de 
 ```{r, echo = FALSE}
 knitr::include_graphics("./resources/githubCI.png")
 ```
+
+
 ---
-# Fonctionnement du projet
-## Méthode de travail : structuration du projet
+# 3. Quelles sont nos conclusions ?
+## Git `r fontawesome::fa("fab fa-git-alt")` + Github `r fontawesome::fa("fab fa-github")`: un **écosystème efficace**
+
+* une __unique source de vérité__ avec au même endroit:
+    + le contenu validé ;
+    + le contenu en cours de rédaction ;
+* **pas de mail** pour s'échanger des fichiers ou des informations ;
+* organiser le travail collaboratif de façon **ouverte** et **transparente** :
+    + tout le monde peut proposer des modifications (de la correction de coquille à la rédaction d'une fiche) ;
+    + tout le monde peut donner son avis.
+
+* **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif
+    + Besoin d'un ou deux facilitateurs ou coach `Git` ;
+    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
+    + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
+    + Informations importantes à archiver dans le projet, pas dans une boîte mail
+
+---
+# 3. Quelles sont nos conclusions ?
+## Git `r fontawesome::fa("fab fa-git-alt")` + Github `r fontawesome::fa("fab fa-github")`: **cela ne suffit pas**
+
+* Il faut de la **communication**.
+* Besoin d'un outil de communication collaboratif en parallèle
+    + Tchap
+* Permet de faire circuler l'information :
+    + publication nouvelle fiche
+    + besoin relecteur ou rédacteur+
+    + *debug*
+    + blagues...
+
+    
+---
+# 3. Quelles sont nos conclusions ?
+## Résultats
+
+* traçabilité parfaite ;
+* simplicité de mise à jour ;
+* ouverture ;
+* collaboration renforcée ;
+* fiabilité du processus de publication ;
+* projet plus pérenne
+
+<br>
+__On peut faire des trucs de fou avec Rmardown associé à Git + Github/Gitlab : un site web et un livre de 350 pages avec les mêmes fichiers sources__
+
+
+<!---- PARTIE XXX ---------------->
+
+
+<!---- PARTIE XXX ---------------->
+
+
+---
+# 3. Quelques définitions
+## Définitions
+
+|                        |  |
+|------------------------|--|
+| Git                    |  |
+| Github                 |  |
+| Branches               |  |
+| Pull request           |  |
+| Github Flow            |  |
+| Conteneur              |  |
+| Intégration continue   |  |
+| CI/CD                  |  |
+| devops                 |  |
+
+
+
+
+---
+# 5. Quelle collaboration sur Github ?
+
+---
+# 6. Intégration continue
+
+## Pourquoi faire de l'intégration continue ?
+
+```{r, echo = FALSE, out.width="50%", fig.show="hold"}
+knitr::include_graphics("https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg")
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
+
+Sources :
+
+* `https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
+* `https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
+
+--
+
+L'automatisation de ces processus présente de multiples avantages :
+
++ elle allège le travail des coordinateurs et des contributeurs ;
++ elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
++ elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de se concentrer uniquement sur le fond.
+
+
+---
+# 6. Intégration continue
+## `R Markdown`, *un langage pour les gouverner tous*
 
 <!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
 <!-- liens entre fiches, etc.) -->
@@ -146,46 +281,7 @@ knitr::include_graphics("./resources/githubCI.png")
     + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
     + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
 
----
-# Intégration continue
-## Méthode de travail : reproductibilité et qualité
 
-Le dépôt Github d'`utilitR` propose :
-
-* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker`) ;
-* Des scripts d'**intégration continue** qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
-* Des scripts de **déploiement continu** qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
-* Un **site de prévisualisation** (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
-
----
-# Intégration continue
-## Pourquoi adopter Git ?
-
-```{r, echo = FALSE}
-knitr::include_graphics("https://linogaliana.gitlab.io/collaboratif/pics/03_git/fichiers_multiples.png")
-```
----
-# Intégration continue
-
-## Pourquoi faire de l'intégration continue ?
-
-```{r, echo = FALSE, out.width="50%", fig.show="hold"}
-knitr::include_graphics("https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg")
-knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
-```
-
-Sources :
-
-* `https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
-* `https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
-
---
-
-L'automatisation de ces processus présente de multiples avantages :
-
-+ elle allège le travail des coordinateurs et des contributeurs ;
-+ elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
-+ elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de se concentrer uniquement sur le fond.
 
 ---
 # Où en est le projet aujourd'hui ?
@@ -194,13 +290,7 @@ L'automatisation de ces processus présente de multiples avantages :
     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
     + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
 
---
-
-* Prochaines étapes :
-    + Mai 2021 : finalisation des contenus ;
-    + 8 juin 2021 : lancement officiel d'`utilitR` ;
-    + Septembre 2021 : diffusion de la version 1 de la brochure pdf.
-
+* Un point d'entrée: <https://www.utilitr.org>
 ---
 # Remerciements
 
