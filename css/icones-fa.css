@@ -1,0 +1,28 @@
+/*
+CSS minimal qui définit les icônes Font Awesome
+*/
+
+.glyphicon-print:before {
+  position: relative;
+  top: 2px;
+}
+
+.auteurs:after {
+  content: "\f007";
+}
+
+.recommandation:after {
+  content: "\f0a4";
+}
+
+.conseil:after {
+  content: "\f0eb";
+}
+
+.remarque:after {
+  content: "\f05a";
+}
+
+.specificite:after {
+  content: "\f015";
+}
