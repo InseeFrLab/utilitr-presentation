@@ -226,11 +226,66 @@ __On peut faire des trucs de fou avec Rmardown associé à Git + Github/Gitlab :
 | CI/CD                  |  |
 | devops                 |  |
 
+---
+# 5. Quelle collaboration sur Github ?
+## Les 5 valeurs du projet `utilitR`
 
+
+* __Transparence__: l'ensemble du projet est librement accessible sur le dépôt Github, sous licence libre;
+* __Ouverture__: tout agent de l'Insee qui le souhaite peut rejoindre le projet à tout moment. Les modalités de contribution peuvent prendre différentes formes, détaillées dans le guide des contributeurs;
+* __Bienveillance__: toutes les idées, initiatives et propositions sont les bienvenues, et les contributeurs veillent à se soutenir les uns les autres;
+* __Exigence__: les modifications de la documentation sont systématiquement soumises à une revue par les contributeurs du projet et ne sont acceptées que lorsqu'elles rencontrent une large approbation;
+* __Reproductibilité__: les exemples développés dans la documentation doivent être reproductibles.
+
+Ces valeurs sont exposées dans un
+[Manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md)
+exposant la philosophie du projet
+
+---
+# 5. Quelle collaboration sur Github ?
+## Adapter la contribution au type
+
+* Plusieurs modalités de contribution proposées pour offrir de la légèreté
+et de la flexibilité aux contributions les moins lourdes 
+* Les modalités les plus simples sont possibles via une interface graphique:
+    + *Issues* : espace de débat et d'échanges: signaler un *bug*, proposer 
+une nouvelle fiche, un nouvel exemple, participer à un débat sur un package...
+    + Un bouton *Edit source files* pour utiliser l'interface visuelle Github
+afin d'éditer la dernière version de la fiche (la source de vérité) et proposer
+un changmeent (pull request)
+* Des *pull request* pour ajouter des éléments plus substanciels (nouvelles 
+fiches, ajout de paragrpahe, évolution de la tuyauterie...)
+
+Objectif implicite de la méthode `utilitR`: acculturer aux méthodes de l'open
+source qui renforcent la fiabilité des projets
+
+---
+# 5. Quelle collaboration sur Github ?
+## L'adoption du *Github Flow* 
+
+```{r, echo = FALSE}
+knitr::include_graphics("https://www.johnnybehague.fr/wp-content/uploads/2018/09/githubflow.png")
+```
+
+Crédit: [Johnny Behague](https://www.johnnybehague.fr) à partir de la
+[documentation Github](https://guides.github.com/introduction/flow/)
 
 
 ---
 # 5. Quelle collaboration sur Github ?
+## Le *Github Flow* en pratique
+
+* On a choisi le mode de travail léger ;
+* Cependant, les seuls personnes ayant droit d'écriture sur
+[InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont Olivier Meslin et Lino Galiana
+
+```{r, echo = FALSE}
+knitr::include_graphics("resources/git-tree.png")
+```
+
+* Les contributeurs utilisent des `forks` (des copies du dépôt principal) et soumettent les changements à partir de ces copies
+
+
 
 ---
 # 6. Intégration continue
