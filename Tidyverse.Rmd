@@ -17,86 +17,136 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+library(dplyr)
+
 ```
 
-.sauterligne3[
+.sauterligne2[
 Le contenu de cette présentation sera : 
 
-* _semi_-applicatif : je vais alterner entre considérations générales (sur ce document), et lancer du code `R`
-* _semi_-participatif : ceux qui le souhaitent peuvent réaliser des tests sur la documentation en parallèle de mon intervention, ou 
+* _semi_-applicatif : je vais alterner entre considérations générales (sur ce document), et lancer du code `R` via la plateforme datalab.
+* _semi_-participatif : ceux qui le souhaitent peuvent réaliser des tests sur la documentation en parallèle de mon intervention, ou lancer *n'importe quelle partie de la documentation* !
 ]
 
 --
+
+Comment utiliser `utilitR` ?
+
+- [Le Chapitre 1](https://www.book.utilitr.org/presentation-utilitr.html#presentation-utilitr) de la documentation explicite comment l'utiliser ;
+- Les chapitres 2 à 5 donnent des informations additionnelles intéressantes spécifiques à l'Insee, notamment sur le SSP Cloud.
+- Les chapitres suivants traitent de **besoins concrets** et proposent des manières de procéder.
+
 .sauterligne2[
-  Plan de la présentation :
+  Je vais spécifiquement parler du [`tidyverse`](https://www.book.utilitr.org/tidyverse.html) en travaillant sur la bpe
 ]
 
-- Partie 1: introduction;
-- Partie 2: entrée;
-- Partie 3: plat de résistance;
-- Partie 4: dessert.
-
-
----
-# Introduction
-
-Voici comment faire des listes, numérotées ou pas.
-Le projet `utilitR` est parti de deux constats :
-
-1. Premier point :
-  + Sous-point;
-    + sous-sous-point 1;
-    + sous-sous-point 2;
-
---
-
-Mettre `--` sur une ligne permet d'afficher progressivement les éléments d'un slide.
-
-2. Deuxième point.
-
----
-# Utiliser ce modèle de présentation
-
-Voici comment exécuter des _chunks_ en affichant le code:
 
 ```{r, echo = TRUE, warning = FALSE, eval = TRUE}
-1+1
+library(doremifasolData) #un package pour travailler sur des exemples
+bpe_ens_2018 <- doremifasolData::bpe_ens_2018
 ```
 
-Voici comment exécuter des _chunks_ en cachant le code:
+---
+# Tidyverse, kesako ?
 
-```{r, echo = FALSE, warning = FALSE, eval = TRUE}
-1+1
-```
+Le `tidyverse` est un ensemble de _packages_ `R` qui présentent un cadre de codage "homogène" et de nombreux avantages : 
+* La syntaxe est structurée autour de verbes, ce qui la rend très lisible ;
+* Les opérations par groupe sont facilitées par l'instruction `group_by()` ;
+* Les noms des colonnes peuvent être appelés directement;
+* L'opérateur `%>%` (pipe) qui permet d'enchaîner les instructions ;
 
-Voici comment montrer un code sans l'exécuter:
+Dans cette présentation, j'aborderai deux packages :`dplyr`et `tidyr`.
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
-1+1
+library(dplyr)
+bpe_ens_2018 %>%
+  filter(REG=="32") %>%
+  group_by(DEP) %>%
+  summarize(sum_nb_equip=sum(NB_EQUIP))
+```
+
+--
+
+```{r, echo = FALSE, warning = FALSE, eval = TRUE}
+bpe_ens_2018 %>%
+  filter(REG=="32") %>%
+  group_by(DEP) %>%
+  summarize(sum_nb_equip=sum(NB_EQUIP))
+```
+---
+# Comprendre `%>%`
+
+Le _pipe_ `%>%`est un opérateur permettant d'enchainer élégamment des opérations :
+* le terme qui précède `%>%` est utilisé comme premier argument de ce qui suit ;
+* les opérations peuvent être enchaînées en enchaînant les opérateurs pipe.
+
+
+Par exemple : 
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+mean(c(1,3,pi,10,-50))
+
+c(1,3,pi,10,-50) %>% mean()
+```
+--
+
+Mais encore : 
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+round(abs(mean(c(1,3,pi,10,-50))),digits=4)
+
+c(1,3,pi,10,-50) %>%
+  mean() %>%
+  abs() %>%
+  round(digits=4)
+```
+
+
+---
+# Comprendre `dplyr`
+
+`dplyr`est **LE** _package_ central du `tidyverse` pour manipuler les données via des verbes comme `select`, `filter`, `summarise`, etc.
+
+.sauterligne2[Ces verbes/fonctions ont les propriétés suivantes : 
+
+* Elles prennent toujours une base en entrée et renvoient toujours une base en sortie ;
+* Elles ont toujours la table de données pour premier argument : verbe(base,...) ; 
+* Elles renvoient toujours une copie de la table de données fournie en entrée ;
+* Les noms de variables peuvent être cités sans guillemets.
+]
+
+
+Par exemple, pour filtrer les observations de la ville d'Abscon (59002) :
+
+--
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+bpe_ens_2018[bpe_ens_2018$REG=="32",]
+```
+--
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+filter(bpe_ens_2018,REG=="32")
+```
+--
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+bpe_ens_2018 %>% 
+  filter(REG=="32")
 ```
 
 ---
-# Utiliser ce modèle de présentation
+# Les principaux verbes disponibles ?
 
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
 
-.small90[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
+* select() : sélectionner des variables par leur nom;
+* rename() : renommer des variables;
+* filter() : sélectionner des observations selon une ou plusieurs conditions;
+* arrange() : trier la table selon une ou plusieurs variables;
+* mutate() : ajouter des variables qui sont fonction d’autres variables;
+* summarise() : calculer une statistique à partir de données;
+* group_by() : faire des opérations par groupe.
 
-.small80[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
-
-.small70[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
-
-.small60[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
 
 ---
+
 # Utiliser ce modèle de présentation
 
 Les boîtes colorées sont également disponibles (et combinales avec les boîtes `smallXX[]`) :
