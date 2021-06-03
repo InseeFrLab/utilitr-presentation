@@ -47,21 +47,51 @@ Dans la documentation `utilitR`, ces deux parties correspondent à 2 fiches dist
 # Reproduire les exemples
 
 .sauterligne3[
-Maintenant ou plus tard
+### Maintenant, mais aussi plus tard
 ]
 
 .sauterligne2[
-Pas une obligation, juste une suggestion
+### [Lien vers service SSPCloud](https://auth.lab.sspcloud.fr/auth/realms/sspcloud/protocol/openid-connect/auth?client_id=onyxia&redirect_uri=https%3A%2F%2Fdatalab.sspcloud.fr%2Flauncher%2Finseefrlab-helm-charts-datascience%2Frstudio%3Fonyxia.friendlyName%3D%25C2%25ABrstudio-utilitr%25C2%25BB%26init.personnalInit%3D%25C2%25ABhttps%253A%252F%252Fraw.githubusercontent.com%252FInseeFrLab%252FutilitR%252Fmaster%252Fresources%252Finit_9juin.sh%25C2%25BB%26r.version%3D%25C2%25ABinseefrlab%252Futilitr%253A0.7.0%25C2%25BB&state=29ec218a-93ef-4ec3-8072-beff09879771&response_mode=query&response_type=code&scope=openid&nonce=ad6c2bf1-c186-4200-a5eb-6b7479d886d9&powerhooks_useGlobalState_lng=%5B%22fr%22%5D&powerhooks_useGlobalState_isDarkModeEnabled=%5Btrue%5D&powerhooks_useGlobalState_lastDelayedTime=%5B1622756583698%5D&powerhooks_useGlobalState_isExpanded=%5Btrue%5D) (dans la discussion Zoom)
 ]
 
 .sauterligne2[
-(parler du lien pour service SSPCloud)
+### Pas une obligation, juste une suggestion
 ]
 
 ---
 
 # Importer des fichiers plats
 
+.sauterligne3[
+
+.recommandation[
+
+.sauterligne2[
+* **données < 1 Go** <br/>→ *package* `{readr}` : fonctions `read_csv()` et `read_delim()`
+]
+.sauterligne2[
+* **données > 1 Go** <br/>→ *package* `{data.table}` : fonction `fread()`
+]
+.sauterligne2[
+* *package* `{csvread}` et fonctions natives de **R** `read.csv()` et `read.delim()` déconseillés
+]
+
+]
+
+]
+
+---
+
+# Importer des fichiers plats
+
+.sauterligne3[
+## Assistant d'importation RStudio
+]
+
+.sauterligne1[
+- Explorer interactivement le contenu du fichier
+- Obtenir le code
+]
 
 ---
 
