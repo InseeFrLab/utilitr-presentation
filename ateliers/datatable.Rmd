@@ -5,13 +5,24 @@ author : "Lino Galiana"
 institute : "Insee"
 date : "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  utilitr::utilitr_presentation:
+  xaringan::moon_reader:
     new_session: yes
-    css: ../custom.css
+    self_contained: false
+    css:
+    - ../css/default.css
+    - ../css/default-fonts.css
+    - ../css/style-utilitr.css
+    - ../css/icones-fa.css
+    - ../css/metropolis.css
+    - ../css/customize-slides.css
+    - ../custom.css
     includes:
       after_body: ../insert-logo.html
-    self_contained: true
-    lib_dir: "public"
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
 # Introduction
@@ -42,8 +53,8 @@ Plan de la présentation :
 
 - Présentation de `data.table` ;
 - Manipuler des données avec `data.table`: principe ;
+- L'opérateur `:=`: la magie de `data.table` ;
 - Manipuler des données avec `data.table`: illustration ;
-- L'opérateur `:=`: késako ? ;
 - Programmer des fonctions avec `data.table`.
 
 
@@ -99,7 +110,7 @@ knitr::include_graphics("https://linogaliana.netlify.app/img/headers/datatable.p
 Avant de travailler sur données réelles, un jeu de données d'exemple 
 
 ```{r}
-dt <- data.table(x = c("A", "B", "C"),
+dt <- data.table::data.table(x = c("A", "B", "C"),
                  y = 1:12,
                  z = 3:6)
 dt
@@ -157,6 +168,7 @@ dt[x > 3, sum(y), by = z]
 ## Enchaîner des opérations
 
 * il suffit d'accoler les opérateurs `[...]`
+* privilégier la lisibilité
 
 Exemple: moyenne d'une variable par groupe, puis on trie la table.
 
@@ -165,6 +177,370 @@ Exemple: moyenne d'une variable par groupe, puis on trie la table.
 ans <- dt[ , .(moyenne = mean(y, na.rm = TRUE)), by = x][order(moyenne)]
 ans
 ```
+
+---
+# Manipuler des données avec `data.table`: principe ;
+## Enchaîner des opérations
+
+
+```{r}
+dt[, total := y + z]
+dt[ ,
+    .(moyenne = mean(total, na.rm = TRUE)),
+    by = x
+    ][order(moyenne)]
+```
+
+* `:=` : késako ?
+
+---
+# `:=`
+## Dataframe utilisé
+
+```{r}
+library(data.table)
+# Charger la base permanente des équipements
+bpe_ens_2018 <- doremifasolData::bpe_ens_2018
+# Convertir ce data.frame en data.table
+bpe_ens_2018_dt <- as.data.table(bpe_ens_2018)
+bpe_ens_2018_dt[sample(.N,5)]
+```
+
+---
+# `:=`
+## Principe
+
+* assignation en `R base`: `<-`
+* problèmes:
+    + syntaxe peu pratique
+    + coûteux en mémoire
+* `:=`: assignation par référence
+    + modifier le data.frame en faisant référence à une colonne
+    + ne pas faire de copie mémoire des colonnes non utilisées
+* Equivalent à `dplyr::mutate` ?
+    + `:=` sert à créer une nouvelle colonne ou modifier une existante
+    + mais modifie directement dataframe sans duplication
+    
+|||
+|---|---- |
+| `r emo::ji("x")` | `dt <- dt[ , nouvelle_colonne := une_formule]`|
+| `r emo::ji("heavy_check_mark")` | `dt[ , nouvelle_colonne := une_formule]`|
+
+
+---
+# `:=`
+## Principe
+
+
+<div> 
+<table class='table'>
+<colgroup>
+   <col span="1" style="width: 10%;">
+   <col span="1" style="width: 50%;">
+   <col span="1" style="width: 40%;">
+</colgroup>
+<tr> <th> _Package_ </th> <th> Code </th> <th> Commentaire </th> </tr> <tr>
+<td>
+```{asis echo=TRUE}
+`dplyr`
+```
+</td> 
+<td>
+```{r eval=FALSE}
+bpe_ens_2018 <- 
+  bpe_ens_2018 %>%
+  dplyr::mutate(nouvelle_colonne =  NB_EQUIP * 10)
+```
+</td>
+<td>
+Il faut utiliser une assignation (`<-`) pour modifier la table.
+</td>
+</tr>
+<tr>
+<td>
+```{asis echo=TRUE}
+`data.table`
+```
+</td> 
+<td>
+```{r eval=FALSE}
+bpe_ens_2018_dt[ , nouvelle_colonne :=  NB_EQUIP * 10]
+```
+</td>
+<td>
+Il ne faut pas d'assignation pour modifier la table, qui est modifiée par référence.
+</td>
+</tr>
+</table>
+</div>
+
+
+---
+# `:=`
+## Exemple: créer de nouvelles colonnes par référence
+
+* Possible de faire plusieurs opérations simultanées
+
+```{r, eval = FALSE}
+bpe_ens_2018_dt[ , c("nouvelle_colonne1", "nouvelle_colonne2") :=  
+                   list(NB_EQUIP * 2, NB_EQUIP + 3)]
+```
+
+
+```{r, eval = FALSE}
+bpe_ens_2018_dt[ , `:=`(nouvelle_colonne1 = NB_EQUIP * 2,
+                        nouvelle_colonne2 = NB_EQUIP + 3)]
+```
+
+* `r emo::ji("warning")` attention à ne pas involontairement écraser une 
+colonne existante
+
+---
+# `:=`
+## Exemple: supprimer une colonne par référence
+
+```{r, eval = FALSE}
+bpe_ens_2018_dt[ , c("nouvelle_colonne1", "nouvelle_colonne2") := NULL]
+```
+
+---
+# `:=`
+## Exemple: faire un remplacement conditionnel
+
+* `:=` pour remplacer certaines lignes
+* beaucoup plus efficace que `dplyr::if_else()` ou `dplyr::case_when()`
+* depuis peu, existe mieux: `data.table::fifelse` et `data.table::fcase` (*f* pour *fast*)
+
+```{r}
+bpe_ens_2018_dt[ , NB_EQUIP_HORS_CHAUSS := NB_EQUIP]
+head(bpe_ens_2018_dt, 2)
+```
+
+```{r}
+bpe_ens_2018_dt[TYPEQU == "B304", NB_EQUIP_HORS_CHAUSS := NA_real_]
+```
+
+* Mieux:
+
+```{r}
+bpe_ens_2018_dt[,NB_EQUIP_HORS_CHAUSS := fifelse(TYPEQU == "B304",
+                                                 NA_real_,
+                                                 NB_EQUIP)]
+```
+
+
+---
+# Manipuler des données: illustration
+## Créer un `data.table`
+
+- la fonction `fread()` importe un fichier plat comme les `.csv` (voir la fiche [Importer des fichiers plats (`.csv`, `.tsv`, `.txt`)](https://www.book.utilitr.org/importcsv.html)) ;
+- Les fonctions `setDT()` et `as.data.table()` convertissent un `data.frame` en `data.table`.
+
+
+---
+# Manipuler des données: illustration
+## Rappel
+
+
+```{r, echo = FALSE}
+knitr::include_graphics("https://linogaliana.netlify.app/img/headers/datatable.png")
+```
+
+> on part du `data.table` `DT`, on sélectionne certaines lignes avec `i`, puis on calcule `j` pour chaque groupe défini par `by`. Si on fait un parallèle avec `SQL`, `i` correspond au `WHERE`, `j` au `SELECT` et `by` au `GROUP BY`
+
+
+---
+# Manipuler des données: illustration
+## Sélectionner des lignes (dimension `i`)
+
+sélectionne les magasins de chaussures (`TYPEQU == "B304"`) dans le premier arrondissement de Paris (`DEPCOM == "75101"`) dans la table `bpe_ens_2018_dt`
+
+```{r}
+bpe_ens_2018_dt[DEPCOM == "75101" & TYPEQU == "B304"]
+```
+
+---
+# Manipuler des données: illustration
+## Sélectionner des colonnes (dimension `j`)
+
+* Plusieurs méthodes:
+    + indiquer les colonnes à conserver sous forme de liste
+    + utiliser un mot-clé de `data.table`, `.SD` qui signifie `Subset of Data`
+    
+Méthode 1: 
+
+```{r}
+bpe_ens_2018_dt[ , .(DEPCOM, TYPEQU, NB_EQUIP)]
+```
+
+Méthode 2: 
+
+```{r}
+bpe_ens_2018_dt[ , .SD, .SDcols = c("DEPCOM", "TYPEQU", "NB_EQUIP")]
+```
+
+
+---
+# Manipuler des données: illustration
+## Note `.SD` et `.SDcols`
+
+* `.SDcols` permet de contrôler le comportement de `.SD`
+* Syntaxe très flexible (très utile avec des fonctions)
+* Mais plus lent que d'autres approches `data.table` (moins optimisée)
+
+
+---
+# Manipuler des données: illustration
+## Trier un `data.table`: `order`
+
+* Ajouter un signe `-` devant une variable pour trier par ordre décroissant
+
+```{r}
+bpe_ens_2018_dt[order(DEPCOM, -TYPEQU)]
+```
+
+
+---
+# Manipuler des données: illustration
+## Calculer des statistiques
+
+Requête sur la dimension `j`
+
+```{r}
+bpe_ens_2018_dt[ , 
+                 .(NB_EQUIP_TOT   = sum(NB_EQUIP, na.rm = TRUE),
+                   NB_BOULANG_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE))]
+```
+
+Ou statistiques sur un sous-champ (requête sur `i` et `j`)
+
+```{r}
+bpe_ens_2018_dt[TYPEQU == "B203", .(NB_BOULANG_TOT = sum(NB_EQUIP, na.rm = TRUE))]
+```
+
+---
+# Manipuler des données: illustration
+## Fonctions statistiques utiles de `data.table`
+
+Beaucoup de fonctions implémentées pour se faciliter la tâche
+
+| Fonction        | Opération                                         | Exemple     |
+|-----------------|---------------------------------------------------|-------------------------------------------------------------|
+|`.N`             | Nombre d'observations                             | `dt[ , .N, by = 'group_var']` |
+|`uniqueN()`      | Nombre de valeurs uniques de la variable `x`  | `dt[ , uniqueN(x), by = 'group_var']` |
+|`nafill`         | Remplit les valeurs manquantes d'une variable numérique, par exemple par `123` (pour plus d'options, voir l'aide `?nafill`)                            | `dt[ , nafill(y, fill = 123)]` |
+|`%chin%`         | Chaîne de caractères dans la liste                | `dt[x %chin% c("a", "b")]` |
+|`%between%`      | Valeur entre deux nombres                         | `dt[x %between% c(5,13)]` |
+| `%like%`        | Reconnaissance d'une chaîne de caractères (expression régulière)         | `dt[departement %like% "^Haute"]`
+
+---
+# Manipuler des données: illustration
+## Opérations par groupe (dimension `by`)
+
+* Equivalent du `group_by()` du _package_ `dplyr`
+* Mais plus efficace
+* 2 syntaxes possibles:
+    + `by = c("var1", "var2", "var3")`
+    + `by = .(var1, var2, var3)`
+    
+groupe les données de la BPE par département, `by = .(DEP)`, puis calcule le nombre total d’équipements, `sum(NB_EQUIP, na.rm = TRUE)` et le nombre total de boulangeries, `sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)`
+
+```{r}
+bpe_ens_2018_dt[ , 
+                 .(NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
+                   NB_BOULANG_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)), 
+                 by = .(DEP)]
+```
+
+* `by` fonctionne également avec l'opérateur `:=` (équivalent de `dplyr::group_by(...) %>% dplyr::mutate(...)` )
+
+---
+# Manipuler des données: illustration
+## Joindre des données
+
+* fonction `merge()` plus rapide que la fonction de base.
+
+| **Option**                                | **Signification**                                                        |
+|-------------------------------------------|--------------------------------------------------------------------------|
+| `by = var_jointure`                       | Joindre sur la variable `var_jointure` (présente dans `x` et dans `y`)   |
+| `by.x = "identx", by.y = "identy"`        | Joindre sur la condition `identx == identy`                              |
+|`all.x = TRUE`                             | *Left join* (garder toutes les lignes de `x`)                            |
+|`all.y = TRUE`                             | *Right join* (garder toutes les lignes de `y`)                           |
+|`all = TRUE`                               | *Full join* (garder toutes les lignes de `x` et de `y`)                  |
+
+jointures plus sophistiquées dans la [vignette sur le sujet](https://rstudio-pubs-static.s3.amazonaws.com/52230_5ae0d25125b544caab32f75f0360e775.html)
+
+---
+# Manipuler des données: illustration
+## Indexation d'une table (enjeu performance)
+
+* fonctionalité très puissante pour accélérer les opérations sur les lignes (filtres, jointures, etc.) en `data.table`
+    + `setkey(dt, a, b)`
+    + `setkeyv(dt, c("a","b"))`
+
+* algorithme de recherche sur les lignes sera ainsi beaucoup plus efficace (*diviser pour régner* = *binary search* vs *vector scan*)
+
+
+---
+# Manipuler des données: illustration
+## Réorganiser les données (*reshaping*)
+
+| **`melt()`**                                         | **`dcast()`**                                    |
+| :--------------------------------------------------: | :----------------------------------------------: |
+| Réorganiser les donnée dans un format `long`           | Réorganise les donnée dans un format `wide`       |
+|![](https://www.book.utilitr.org/pics/datatable/widetolong.png){width=85%}       |![](https://www.book.utilitr.org/pics/datatable/longtowide.png){width=93%}   |
+
+---
+# Manipuler des données: illustration
+## Réorganiser les données (*reshaping*): `melt`
+
+```{r}
+# Convertir la table en data.table
+filosofi_epci_2016_dt <- as.data.table(filosofi_epci_2016)
+# Sélectionner des colonnes
+filosofi_epci_2016_dt <- 
+  filosofi_epci_2016_dt[, .(CODGEO, TP6016, TP60AGE116, TP60AGE216, 
+                            TP60AGE316, TP60AGE416, TP60AGE516, TP60AGE616)]
+filosofi_epci_2016_dt[sample(.N,3)]
+```
+
+
+---
+# Manipuler des données: illustration
+## Réorganiser les données (*reshaping*): `melt`
+
+Obtenir une nouvelle table, avec une observation par EPCI et par tranche d’âge
+
+```{r}
+donnees_pauvrete_long <- 
+  melt(data = filosofi_epci_2016_dt, 
+       id.vars = c("CODGEO"), 
+       measure.vars = c("TP6016", "TP60AGE116", "TP60AGE216", 
+                        "TP60AGE316", "TP60AGE416", "TP60AGE516", "TP60AGE616"),
+       variable.name = "tranche_age",
+       value.name    = "taux_pauvrete"
+  )
+donnees_pauvrete_long
+```
+
+
+---
+# Manipuler des données: illustration
+## Réorganiser les données (*reshaping*): `dcast`
+
+réorganise la table `bpe_ens_2018_dt` de façon à obtenir une table qui contient une ligne par type d'équipement et une colonne par région (`TYPEQU ~ REG`). Ces colonnes vont contenir la somme (`fun.aggregate = sum`) du nombre d'équipements (`value.var = "NB_EQUIP"`)
+
+```{r}
+bpe_ens_2018_wide <- dcast(bpe_ens_2018_dt, 
+                           TYPEQU ~ REG, 
+                           value.var = "NB_EQUIP", 
+                           fun.aggregate = sum)
+head(bpe_ens_2018_wide)
+```
+
+
+
+
 
 
 ---
