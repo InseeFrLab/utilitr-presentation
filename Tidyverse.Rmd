@@ -130,8 +130,8 @@ bpe_ens_2018 %>%
 # Les principaux verbes disponibles ?
 
 
-* `select()` : sélectionner des variables par leur nom;
 * `rename()` : renommer des variables;
+* `select()` : sélectionner des variables par leur nom;
 * `filter()` : sélectionner des observations selon une ou plusieurs conditions;
 * `arrange()` : trier la table selon une ou plusieurs variables;
 * `mutate()` : ajouter des variables qui sont fonction d’autres variables;
@@ -140,54 +140,99 @@ bpe_ens_2018 %>%
 
 
 ---
+# `rename()` : renommer des variables
+
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+colnames(bpe_ens_2018)
+
+ma_base <- bpe_ens_2018 %>% 
+  rename(code_commune = DEPCOM)
+colnames(ma_base)
+```
+
+---
 # `select()` : sélectionner des variables
 
 On peut sélectionner des variables de différentes manières.
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
-colnames(bpe_ens_18)
+colnames(bpe_ens_2018)
 
-ma_base <- bpe_ens_18 %>% 
+ma_base <- bpe_ens_2018 %>% 
   select(DEPCOM, TYPEQU, NB_EQUIP)
 colnames(ma_base)
 
-ma_base <- bpe_ens_18 %>% 
+ma_base <- bpe_ens_2018 %>% 
   select(2:5)
 colnames(ma_base)
 
 
-ma_base <- bpe_ens_18 %>% 
+ma_base <- bpe_ens_2018 %>% 
   select(-REG)
 colnames(ma_base)
 
 ```
 
----
-# `rename()` : renommer des variables
+
+**Twist** : sélectionner et renommer en même temps !
 
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
-colnames(bpe_ens_18)
-
-ma_base <- bpe_ens_18 %>% 
-  select(DEPCOM, TYPEQU, NB_EQUIP)
-colnames(ma_base)
-
-ma_base <- bpe_ens_18 %>% 
-  select(2:5)
-colnames(ma_base)
-
-
-ma_base <- bpe_ens_18 %>% 
-  select(-REG)
+ma_base <- bpe_ens_2018 %>% 
+  select(departement=DEPCOM,
+         type_equi=TYPEQU, NB_EQUIP)
 colnames(ma_base)
 
 ```
 
 ---
+# `filter()` : sélectionner des obs.
 
 
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  filter(DEPCOM=="59002")
+```
+--
 
+.remarque[ Les fonctions de filtre suivantes sont très utiles  : 
+* `==` ,`>`, `>=`, etc.
+* `&`, `|`, `!`, `xor()`
+* `is.na()`
+* `between()`, `near()`
+]
+
+---
+# `arrange()` : trier les obs.
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  arrange(TYPEQU,desc(REG),DEP,NB_EQUIP)
+```
+* Les observations sont triées par ordre d'apparition des variables ;
+* Par défaut, l'ordre est croissant, mais il est possible de l'inverser via `desc()`
+
+---
+# Récapitulons !
+
+## Question
+Comment afficher les IRIS avec plus de 2 bureaux de poste en 2018 ?
+(code équip. : A206)
+
+--
+
+## Réponse
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  filter(TYPEQU=="A206" & NB_EQUIP>2) %>%
+  select(DCIRIS,NB_ETAB_POSTE=NB_EQUIP) %>%
+  arrange(desc(NB_ETAB_POSTE),DCIRIS)
+
+View(ma_base)
+```
+
+---
 # Utiliser ce modèle de présentation
 
 Les boîtes colorées sont également disponibles (et combinales avec les boîtes `smallXX[]`) :
