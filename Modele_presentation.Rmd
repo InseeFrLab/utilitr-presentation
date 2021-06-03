@@ -35,6 +35,14 @@ options(htmltools.dir.version = FALSE)
 La boîte `.sauterligne3[]` sert à sauter trois lignes avant le contenu de la boîte. Saurez-vous deviner à quoi servent les boîtes `.sauterligne[]` `.sauterligne2[]`?
 ]
 
+.test[
+
+]
+
+.test2[
+
+]
+
 --
 .sauterligne2[
   Plan de la présentation :
