@@ -2,36 +2,6 @@
 CSS minimal qui définit les icônes Font Awesome
 */
 
-.test, .test2 {
-  margin: 20px 0 20px 30px ;
-  padding: 0 0 3px 9px;
-  position: relative;
-  page-break-inside:avoid;
-  border-left:   3px solid;
-  border-color: 4px green solid;
-}
-
-.test:after, .test2:after {
-  content: "\f007 \f0a4 \f0eb \f05a \f015";
-  font-family: "FontAwesome", "Font Awesome 5 Free" ;
-  font-size: 200%;
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  left: -50px;
-  height: 40px;
-  width: 200px;
-  top: 0;
-}
-
-.test:after {
-  font-weight: 400;
-}
-.test2:after {
-  font-weight: 900;
-}
-
 .glyphicon-print:before {
   position: relative;
   top: 2px;
@@ -39,20 +9,25 @@ CSS minimal qui définit les icônes Font Awesome
 
 .auteurs:after {
   content: "\f007";
+  font-weight: 400;
 }
 
 .recommandation:after {
   content: "\f0a4";
+  font-weight: 400;
 }
 
 .conseil:after {
   content: "\f0eb";
+  font-weight: 400;
 }
 
 .remarque:after {
   content: "\f05a";
+  font-weight: 900;
 }
 
 .specificite:after {
   content: "\f015";
+  font-weight: 900;
 }
