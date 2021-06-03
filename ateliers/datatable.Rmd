@@ -63,12 +63,12 @@ Plan de la présentation :
 ## Principes structurants
 
 * Package existant depuis 2006
-    + L'un des plus utilisés: +700k téléchargements par mois sur le CRAN
-    + 3000 packages sur le CRAN en dépendent plus ou moins directement
++ L'un des plus utilisés: +700k téléchargements par mois sur le CRAN
++ 3000 packages sur le CRAN en dépendent plus ou moins directement
 * Très pérenne, très robuste mais en évolution permanente
-    + Ne dépend que de R-base (aucune autre dépendance)
-    + Grosse communauté de développeurs : plus de 100 contributeurs sur Github [Github](https://github.com/Rdatatable/data.table)
-    + Enormément de tests pour fiabiliser les évolutions (taux couverture : 99%)
++ Ne dépend que de R-base (aucune autre dépendance)
++ Grosse communauté de développeurs : plus de 100 contributeurs sur Github [Github](https://github.com/Rdatatable/data.table)
++ Enormément de tests pour fiabiliser les évolutions (taux couverture : 99%)
 
 ```{r, echo = FALSE}
 knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png")
@@ -111,8 +111,8 @@ Avant de travailler sur données réelles, un jeu de données d'exemple
 
 ```{r}
 dt <- data.table::data.table(x = c("A", "B", "C"),
-                 y = 1:12,
-                 z = 3:6)
+                             y = 1:12,
+                             z = 3:6)
 dt
 ```
 
@@ -122,10 +122,10 @@ dt
 
 * `R base`: les crochets `df[...]` servent uniquement à sélectionner des lignes ou des colonnes
 * `data.table`: crochets permettent de tout faire
-    + pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`
-    + apporte concision, donc lisibilité
-    + optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées
-    
++ pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`
++ apporte concision, donc lisibilité
++ optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées
+
 Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniquement sur les observations pour lesquelles `x` est supérieur à 3
 
 <table class='table' style = "width : 70%;">
@@ -188,7 +188,7 @@ dt[, total := y + z]
 dt[ ,
     .(moyenne = mean(total, na.rm = TRUE)),
     by = x
-    ][order(moyenne)]
+][order(moyenne)]
 ```
 
 * `:=` : késako ?
@@ -212,15 +212,15 @@ bpe_ens_2018_dt[sample(.N,5)]
 
 * assignation en `R base`: `<-`
 * problèmes:
-    + syntaxe peu pratique
-    + coûteux en mémoire
++ syntaxe peu pratique
++ coûteux en mémoire
 * `:=`: assignation par référence
-    + modifier le data.frame en faisant référence à une colonne
-    + ne pas faire de copie mémoire des colonnes non utilisées
++ modifier le data.frame en faisant référence à une colonne
++ ne pas faire de copie mémoire des colonnes non utilisées
 * Equivalent à `dplyr::mutate` ?
-    + `:=` sert à créer une nouvelle colonne ou modifier une existante
-    + mais modifie directement dataframe sans duplication
-    
++ `:=` sert à créer une nouvelle colonne ou modifier une existante
++ mais modifie directement dataframe sans duplication
+
 |||
 |---|---- |
 | `r emo::ji("x")` | `dt <- dt[ , nouvelle_colonne := une_formule]`|
@@ -235,9 +235,9 @@ bpe_ens_2018_dt[sample(.N,5)]
 <div> 
 <table class='table'>
 <colgroup>
-   <col span="1" style="width: 10%;">
-   <col span="1" style="width: 50%;">
-   <col span="1" style="width: 40%;">
+<col span="1" style="width: 10%;">
+<col span="1" style="width: 50%;">
+<col span="1" style="width: 40%;">
 </colgroup>
 <tr> <th> _Package_ </th> <th> Code </th> <th> Commentaire </th> </tr> <tr>
 <td>
@@ -364,9 +364,9 @@ bpe_ens_2018_dt[DEPCOM == "75101" & TYPEQU == "B304"]
 ## Sélectionner des colonnes (dimension `j`)
 
 * Plusieurs méthodes:
-    + indiquer les colonnes à conserver sous forme de liste
-    + utiliser un mot-clé de `data.table`, `.SD` qui signifie `Subset of Data`
-    
++ indiquer les colonnes à conserver sous forme de liste
++ utiliser un mot-clé de `data.table`, `.SD` qui signifie `Subset of Data`
+
 Méthode 1: 
 
 ```{r}
@@ -440,9 +440,9 @@ Beaucoup de fonctions implémentées pour se faciliter la tâche
 * Equivalent du `group_by()` du _package_ `dplyr`
 * Mais plus efficace
 * 2 syntaxes possibles:
-    + `by = c("var1", "var2", "var3")`
-    + `by = .(var1, var2, var3)`
-    
++ `by = c("var1", "var2", "var3")`
++ `by = .(var1, var2, var3)`
+
 groupe les données de la BPE par département, `by = .(DEP)`, puis calcule le nombre total d’équipements, `sum(NB_EQUIP, na.rm = TRUE)` et le nombre total de boulangeries, `sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)`
 
 ```{r}
@@ -475,8 +475,8 @@ jointures plus sophistiquées dans la [vignette sur le sujet](https://rstudio-pu
 ## Indexation d'une table (enjeu performance)
 
 * fonctionalité très puissante pour accélérer les opérations sur les lignes (filtres, jointures, etc.) en `data.table`
-    + `setkey(dt, a, b)`
-    + `setkeyv(dt, c("a","b"))`
++ `setkey(dt, a, b)`
++ `setkeyv(dt, c("a","b"))`
 
 * algorithme de recherche sur les lignes sera ainsi beaucoup plus efficace (*diviser pour régner* = *binary search* vs *vector scan*)
 
@@ -496,7 +496,7 @@ jointures plus sophistiquées dans la [vignette sur le sujet](https://rstudio-pu
 
 ```{r}
 # Convertir la table en data.table
-filosofi_epci_2016_dt <- as.data.table(filosofi_epci_2016)
+filosofi_epci_2016_dt <- as.data.table(doremifasolData::filosofi_epci_2016)
 # Sélectionner des colonnes
 filosofi_epci_2016_dt <- 
   filosofi_epci_2016_dt[, .(CODGEO, TP6016, TP60AGE116, TP60AGE216, 
@@ -539,9 +539,79 @@ head(bpe_ens_2018_wide)
 ```
 
 
+---
+# Ecrire des fonctions avec `data.table`
+## La fonction `get`
 
+* très facile d'écrire avec `data.table` des fonctions génériques faisant appel à des noms de variables en arguments
+* plus simple: utiliser la fonction `get`
 
+```{r}
+creation_var <- function(data, nom_variable, nouveau_nom){
+  data[, c(nouveau_nom) := get(nom_variable) + 1]
+}
+head(creation_var(filosofi_com_2016_dt, 
+                  nom_variable = "NBMENFISC16",
+                  nouveau_nom  = "nouvelle_variable"), 2)
+```
 
+---
+# Ecrire des fonctions avec `data.table`
+## La fonction `get`
+
+* Possible dans la dimension ligne
+
+```{r}
+filosofi_epci_2016_dt[(get("MED16") < 20000) & (get('NBMENFISC16') < 10000)]
+```
+
+---
+# Ecrire des fonctions avec `data.table`
+## Aller plus loin
+
+* Exemple: on veut le taux de pauvreté (`TP6016`) moyen pour les communes:
++ par tranches de revenu médian de 5000 euros
++ par département
+
+```{r}
+dt <- data.table::as.data.table(doremifasolData::filosofi_com_2016)
+dt[,`:=`("dep" = substr(get('CODGEO'), 0, 2),
+         "groupe_revenu" = 5000*floor(get('MED16')/5000))  ]
+new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
+                               xvar = "MED16", newname = "x"){
+  
+  datanew <- data.table::copy(data)
+  datanew <- datanew[, .(mean(get(xvar))),
+                     by = grouping_var]
+  data.table::setnames(datanew, old = "V1", new = newname)
+  return(datanew)
+}
+head(new_variable_group(dt, xvar = "TP6016",
+                        newname = "newvar"))
+```
+
+# Ecrire des fonctions avec `data.table`
+## Généraliser: le combo gagnant: `get` et `.SD`
+
+* Exemple: on veut les taux moyens de pauvreté (`TP6016`) et de pauvreté des moins de 30 ans (`TP60AGE116`)  pour les communes:
++ par tranches de revenu médian de 5000 euros
++ par département
+
+```{r}
+new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
+                               xvars = "MED16", newnames = "x"){
+  
+  datanew <- data.table::copy(data)
+  datanew <- datanew[, lapply(.SD, function(x) mean(x, na.omit = TRUE)),
+                     .SDcols = xvars,
+                     by = grouping_var]
+  data.table::setnames(datanew, old = xvars, new = newnames)
+
+  return(datanew)
+}
+head(na.omit(new_variable_group(dt, xvars = c("TP6016", "TP60AGE116"),
+                        newnames = c("taux_pauvrete_moyen", "taux_pauvrete_moyen_jeunes"))))
+```
 
 ---
 # Remerciements
