@@ -9,7 +9,6 @@ output:
     new_session: yes
     self_contained: false
     css:
-    - xaringan-themer.css
     - css/default.css
     - css/default-fonts.css
     - css/style-utilitr.css
