@@ -5,13 +5,24 @@ author : "Daffy Duck et Bugs Bunny"
 institute : "Insee"
 date : "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  utilitr::utilitr_presentation:
+  xaringan::moon_reader:
     new_session: yes
-    css: custom.css
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - custom.css
     includes:
       after_body: insert-logo.html
-    self_contained: true
-    lib_dir: "public"
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 # Introduction
 

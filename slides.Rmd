@@ -5,13 +5,18 @@ author : "Lino Galiana, Olivier Meslin"
 institute : "Insee"
 date : "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  utilitr::utilitr_presentation:
+  xaringan::moon_reader:
     new_session: yes
-    css: custom.css
+    self_contained: false
+    css: 
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - custom.css
+    lib_dir: public
     includes:
       after_body: insert-logo.html
-    self_contained: true
-    lib_dir: "public"
 ---
 # Introduction
 
