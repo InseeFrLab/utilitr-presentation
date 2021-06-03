@@ -62,17 +62,11 @@ library(dplyr)
 bpe_ens_2018 %>%
   filter(REG=="32") %>%
   group_by(DEP) %>%
-  summarize(sum_nb_equip=sum(NB_EQUIP))
+  summarize(sum_nb_equip=sum(NB_EQUIP)) %>%
+  arrange(desc(sum_nb_equip))
 ```
 
---
 
-```{r, echo = FALSE, warning = FALSE, eval = TRUE}
-bpe_ens_2018 %>%
-  filter(REG=="32") %>%
-  group_by(DEP) %>%
-  summarize(sum_nb_equip=sum(NB_EQUIP))
-```
 ---
 # Comprendre `%>%`
 
@@ -120,32 +114,79 @@ Par exemple, pour filtrer les observations de la ville d'Abscon (59002) :
 --
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
-bpe_ens_2018[bpe_ens_2018$REG=="32",]
+bpe_ens_2018[bpe_ens_2018$DEPCOM=="59002",]
 ```
 --
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
-filter(bpe_ens_2018,REG=="32")
+filter(bpe_ens_2018,DEPCOM=="59002")
 ```
 --
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 bpe_ens_2018 %>% 
-  filter(REG=="32")
+  filter(DEPCOM=="59002")
 ```
 
 ---
 # Les principaux verbes disponibles ?
 
 
-* select() : sélectionner des variables par leur nom;
-* rename() : renommer des variables;
-* filter() : sélectionner des observations selon une ou plusieurs conditions;
-* arrange() : trier la table selon une ou plusieurs variables;
-* mutate() : ajouter des variables qui sont fonction d’autres variables;
-* summarise() : calculer une statistique à partir de données;
-* group_by() : faire des opérations par groupe.
+* `select()` : sélectionner des variables par leur nom;
+* `rename()` : renommer des variables;
+* `filter()` : sélectionner des observations selon une ou plusieurs conditions;
+* `arrange()` : trier la table selon une ou plusieurs variables;
+* `mutate()` : ajouter des variables qui sont fonction d’autres variables;
+* `summarise()` : calculer une statistique à partir de données;
+* `group_by()` : faire des opérations par groupe.
 
 
 ---
+# `select()` : sélectionner des variables
+
+On peut sélectionner des variables de différentes manières.
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+colnames(bpe_ens_18)
+
+ma_base <- bpe_ens_18 %>% 
+  select(DEPCOM, TYPEQU, NB_EQUIP)
+colnames(ma_base)
+
+ma_base <- bpe_ens_18 %>% 
+  select(2:5)
+colnames(ma_base)
+
+
+ma_base <- bpe_ens_18 %>% 
+  select(-REG)
+colnames(ma_base)
+
+```
+
+---
+# `rename()` : renommer des variables
+
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+colnames(bpe_ens_18)
+
+ma_base <- bpe_ens_18 %>% 
+  select(DEPCOM, TYPEQU, NB_EQUIP)
+colnames(ma_base)
+
+ma_base <- bpe_ens_18 %>% 
+  select(2:5)
+colnames(ma_base)
+
+
+ma_base <- bpe_ens_18 %>% 
+  select(-REG)
+colnames(ma_base)
+
+```
+
+---
+
+
 
 # Utiliser ce modèle de présentation
 
