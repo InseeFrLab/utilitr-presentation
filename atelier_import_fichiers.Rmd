@@ -63,6 +63,33 @@ Dans la documentation `utilitR`, ces deux parties correspondent à 2 fiches dist
 # Importer des fichiers plats
 
 .sauterligne3[
+### Objectif : importer fichiers au format texte avec séparateurs de champs
+]
+
+.sauterligne2[
+Exemple :
+]
+
+```
+REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
+84;01;01001;01001;2019;A401;2
+84;01;01001;01001;2019;A404;4
+84;01;01001;01001;2019;A405;2
+84;01;01001;01001;2019;A504;1
+84;01;01001;01001;2019;A507;1
+84;01;01001;01001;2019;B203;1
+84;01;01001;01001;2019;C104;1
+84;01;01001;01001;2019;D233;1
+84;01;01001;01001;2019;F102;1
+84;01;01001;01001;2019;F111;1
+84;01;01001;01001;2019;F113;1
+```
+
+---
+
+# Importer des fichiers plats
+
+.sauterligne3[
 
 .recommandation[
 
@@ -82,15 +109,49 @@ Dans la documentation `utilitR`, ces deux parties correspondent à 2 fiches dist
 
 ---
 
-# Importer des fichiers plats
+# Importer des fichiers plats avec {readr}
+
+.sauterligne3[
+## Importer un fichier de taille limitée :<br>le package `{readr}`
+]
+
+### Plusieurs fonctions
+
+.sauterligne1[
+]
+
+|Fonction   |Séparateur<br>champ |Séparateur<br>décimal |
+|:----------|:-----|:----|
+|`read_csv` |","   |"."  |
+|`read_csv2`|";"   |","  |
+|`read_delim`|libre   |libre  |
+
+---
+
+# Importer des fichiers plats avec {readr}
 
 .sauterligne3[
 ## Assistant d'importation RStudio
 ]
 
+
 .sauterligne1[
-- Explorer interactivement le contenu du fichier
-- Obtenir le code
+Interface graphique très commode pour importer des fichiers plats avec le *package* `{readr}`
+]
+
+.small90[
+.conseil[
+- pour se familiariser avec `{readr}`
+- pour explorer les données
+]
+]
+
+Affiche le code correspondant au manipulations effectuées
+
+--
+
+.sauterligne2[
+→ démonstration
 ]
 
 ---
