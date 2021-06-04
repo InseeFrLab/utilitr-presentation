@@ -248,7 +248,19 @@ Elle présente trois avantages :
 
 ---
 
-# Syntaxe
+# Paramètres usuels pour `fread`
+
+| Argument    | Valeur défaut                             | Description                                    |
+|-------------|-------------------------------------------|------------------------------------------------|
+| `file`      |                                           | Chemin du fichier à importer                   |
+| `sep`       | `","` `"\t"` <code>"&#124;"</code> `";"` `":"` | Délimiteur du fichier                     |
+| `nrows`     | `Inf`                                     | Nombre maximum de lignes à importer            |
+| `skip`      | `0`                                       | Sauter les n premières lignes                  |
+| `select`    | `NULL`                                    | Colonnes à importer                            |
+| `drop`      | `NULL`                                    | Colonnes à ne pas importer                     |
+| `colClasses`| *essaie de deviner*                       | Type des variables                             |
+| `encoding`  | `"unknown"`                               | Encodage du fichier (`"UTF-8"` ou `"Latin-1"`) |
+| `dec`       | `"."`                                     | Marqueur décimal                               |
 
 ---
 
