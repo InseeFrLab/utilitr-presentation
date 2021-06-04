@@ -224,6 +224,31 @@ Un argument supplémentaire important par rapport à `read_csv(2)` :
 
 ---
 
+# Importer des fichiers plats volumineux
+
+.sauterligne2[
+## Importer un fichier de grande taille : `data.table::fread`
+]
+
+.sauterligne2[
+`{data.table}` est un package de manipulation de données
+]
+
+.sauterligne[
+  La fonction `fread` de ce *package* permet d'importer des fichiers plats
+]
+
+--
+
+.sauterligne2[
+Elle présente trois avantages :
+
+* rapiditié pour les gros volumes de données
+* sélection facile des colonnes à importer (paramètre `select`)
+* grand nombre de paramètres (usages avancés)
+]
+
+---
 
 # Importer des fichiers issus de tableurs
 
