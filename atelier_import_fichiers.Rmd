@@ -351,6 +351,51 @@ Il est déconseillé d'utiliser le _package_ `{xlsx}`.
 
 ---
 
+```{r, warning = FALSE}
+library(openxlsx)
+deces18 <- read.xlsx(xlsxFile = "base_deces_2018.xlsx", startRow = 6)
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+```{r}
+library(openxlsx)
+getSheetNames("base_deces_2018.xlsx")
+deces18 <-
+  read.xlsx(
+    xlsxFile = "base_deces_2018.xlsx",
+    startRow = 6,
+    sheet = "ARM"
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+```{r}
+library(openxlsx)
+deces18 <-
+  read.xlsx(
+    xlsxFile = "base_deces_2018.xlsx",
+    rows = c(6, 34250:34255),
+    cols = c(1:2, 10:16)
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+
+---
+
 background-image: url('resources/logo-utilitr.png')
 background-size: 7cm
 background-position: 8.5cm 3cm
