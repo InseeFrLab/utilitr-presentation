@@ -281,6 +281,23 @@ fread(
 
 ---
 
+# Importer des fichiers plats
+
+.sauterligne2[
+## Bonne pratiques :
+]
+
+.conseil[
+- Vérifier que votre machine peut charger les données
+- Tester votre code d’importation avec quelques lignes (`n_max`, `nrows`)
+- N'importer que les colonnes nécessaires
+- Avoir en tête le format en sortie :
+  * *tibble* (`{readr}`)
+  * *data.table* (`{data.table}`)
+]
+
+---
+
 # Importer des fichiers issus de tableurs
 
 ---
