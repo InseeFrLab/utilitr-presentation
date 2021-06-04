@@ -187,14 +187,14 @@ Utiliser cet assistant :
 ### Principaux paramètres de `read_csv` et de `read_csv2`
 ]
 
-| Argument  | Valeur par défaut | Fonction                                                       |
-|-----------|-------------------|----------------------------------------------------------------|
+| Argument    | Valeur par défaut | Fonction                                                       |
+|-------------|-------------------|----------------------------------------------------------------|
 | `file`      | Aucune            | Le chemin du fichier à importer                                |
-| `col_names` | `TRUE`              | La première ligne contient-elle les noms de colonne ?           |
-| `col_types` | `NULL`              | Définir le type des variables                                  |
-| `skip`      | `0`                 | Nombre de lignes à ignorer (aucune par défaut)              |
-| `n_max`     | `Inf`               | Nombre maximum de lignes à importer (pas de limite par défaut) |
-| `locale`    |                   | Réglages locaux (encodage, fuseau horaire, langue...)                |
+| `col_names` | `TRUE`            | La première ligne contient-elle les noms de colonne ?          |
+| `col_types` | `NULL`            | Définir le type des variables                                  |
+| `skip`      | `0`               | Nombre de lignes à ignorer (aucune par défaut)                 |
+| `n_max`     | `Inf`             | Nombre maximum de lignes à importer (pas de limite par défaut) |
+| `locale`    |                   | Réglages locaux (encodage, fuseau horaire, langue...)          |
 
 ---
 
