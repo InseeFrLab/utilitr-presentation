@@ -168,7 +168,7 @@ Utiliser cet assistant :
 ## Importer un fichier de taille limitée :<br>le package `{readr}`
 ]
 
-### Plusieurs fonctions
+### Les trois fonctions à connaître
 
 .sauterligne1[
 ]
@@ -205,10 +205,10 @@ library(readr)
 read_csv2(
   "bpe19_ensemble.csv",
   col_types = cols(REG = col_character(),
-                   NB_EQUIP = col_integer())
+                   NB_EQUIP = col_integer()),
+  locale = locale(encoding = "UTF-8")
 )
 ```
-
 
 ---
 
