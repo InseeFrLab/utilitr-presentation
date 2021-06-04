@@ -2,13 +2,26 @@
 title : "__`utilitR`__"
 subtitle : "Une documentation collaborative sur `R`"
 author : "Lino Galiana, Olivier Meslin"
-institute : "Insee"
 date : "`r format(Sys.time(), '%d %B %Y')`"
-output :
-  utilitr::utilitr_presentation:
-    css: custom.css
-    includes :
-      after_body : insert-logo.html
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
 # Introduction
