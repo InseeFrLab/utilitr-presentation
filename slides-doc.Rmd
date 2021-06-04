@@ -1,22 +1,27 @@
 ---
 title : "__`utilitR`__"
-subtitle : "Une documentation sur `R` à l’usage des statisticiens publics"
-author : "Lino Galiana, Olivier Meslin"
-institute : "Insee"
+subtitle : "Une documentation collaborative sur `R`"
+author : "Olivier Meslin"
 date : "`r format(Sys.time(), '%d %B %Y')`"
 output:
   xaringan::moon_reader:
     new_session: yes
     self_contained: false
-    css: 
+    css:
     - css/default.css
     - css/default-fonts.css
     - css/style-utilitr.css
     - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
     - custom.css
-    lib_dir: public
     includes:
       after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 # Introduction
 
@@ -35,8 +40,7 @@ Plan de la présentation :
 
 - Objectif et spécificités du projet ;
 - Contenu de la documentation ;
-- Modes de diffusion de la documentation ;
-- Fonctionnement du projet `utilitR`.
+- Modes de diffusion de la documentation.
 
 
 
@@ -48,7 +52,7 @@ description_appariement <-
   as.data.table(
     data.frame(
       etape = c(
-        rep('Utiliser `R` à l’Insee', 4),
+        rep('Utiliser `R` à l’Insee', 5),
         rep("Mener un projet statistique avec `R`", 5),
         rep("Importer des données", 3),
         rep("Manipuler des données", 3),
@@ -56,6 +60,7 @@ description_appariement <-
         ),
       filtres_validation = 
         c(
+          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
           "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
           "Configurer Git et Gitlab",
           "Personnaliser la configuration de `R`",
@@ -123,29 +128,34 @@ Le projet `utilitR` a pour objectif de produire une documentation qui réponde �
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
 - Comment réaliser efficacement des tâches élémentaires avec `R`.
 
-<br>
+--
+
+.sauterligne[
+Cette documentation est :
+
+- principalement destinée aux agents du Service statistique public (mais pas uniquement);
+- un guide pratique pour le statisticien, pas une introduction théorique à `R` ;
+- issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia.
+]
+
+--
+
+.sauterligne[
 Cette documentation cherche par ailleurs à respecter trois exigences :
+]
 
 - exister en différents formats pour s'adapter aux besoins des agents ;
 - être proche des cas d'usage de `R` dans la statistique publique ;
 - proposer des recommandations adaptées au contexte de travail des agents du service statistique public.
-
-
-
-
-<!-- - Cette documentation est principalement destinée aux agents du Service statistique public (mais pas exclusivement). Les recommandations sont donc adaptées au contexte de travail des agents du service statistique public ; -->
-<!-- - Cette documentation est issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia ; -->
-<!-- - Cette documentation n'est pas une introduction théorique au langage `R`, mais un guide pratique pour le statisticien. Elle ne se substitue donc pas à l'offre de formation existante sur `R`, mais la complète. -->
-
 
 ---
 # Introduction : apports du projet
 ## Une démarche collaborative et _open source_
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
-* Démarche collaborative impliquant __plus de 20 contributeurs__ :
+* Démarche collaborative impliquant __25 contributeurs__ :
     + dispersés dans toute la France ;
-    + issus de plusieurs institutions du SSP.
+    + issus de plusieurs institutions du SSP (et même hors SSP).
 * Organisation horizontale, sur le modèle de `Wikipedia` :
     + relecture par les pairs ;
     + validation collégiale ;
@@ -160,12 +170,12 @@ Cette documentation cherche par ailleurs à respecter trois exigences :
 
 * Une documentation pensée pour le statisticien :
     + Recommandations adaptées au contexte de travail des agents du service statistique public ;
-    + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce au _package_ [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)) ;
-    + Documentation entièrement reproductible.
+    + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce au _package_ [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)).
 
 * Processus de publication à l'état de l'art :
     + Plusieurs _outputs_ (site web `r fontawesome::fa("fab fa-firefox")`, livre PDF `r fontawesome::fa("fas fa-file-pdf")`) avec les mêmes codes sources ;
-    + Publication automatique à chaque modification des fichiers sources.
+    + Publication automatique à chaque modification des fichiers sources ;
+    + La documentation est entièrement reproductible.
 
 * Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
     + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`.
@@ -180,25 +190,47 @@ __Le projet `utilitR` est un laboratoire qui préfigure les évolutions des mét
 
 La documentation `utilitR` vise à répondre à deux grandes questions :
 
-- Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
-- Comment réaliser efficacement des tâches élémentaires avec `R`.
+- Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème :
+  - Utiliser `R` à l'Insee ;
+  - Mener un projet statistique avec `R` ;
+
+--
+
+- Comment réaliser efficacement des tâches élémentaires avec `R` :
+  - Importer des données avec `R` ;
+  - Manipuler des données avec `R` ;
+  - Produire des sorties avec `R`.
+
 
 ---
 # Contenu de la documentation
-## Première partie : comment (bien) travailler avec `R`
+## Une documentation en deux grandes parties
 
-La première partie de la documentation présente non seulement l'usage de `R` et de RStudio, mais également tout l'écosystème informatique autour de `R`, afin d'aider les agents à être autonomes :
+La documentation `utilitR` vise à répondre à deux grandes questions :
 
-- Présentation des environnements informatiques d'usage disponibles à l'Insee (AUSv3 et SSP Cloud) ;
-- Tutoriels détaillés sur l'usage des projets RStudio, la configuration de `Git` et l'utilisation de `Git` avec RStudio ;
-- Fiches-conseils sur comment choisir un _package_, chercher de l'aide et se documenter.
+.red[
+- Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème :
+  - Utiliser `R` à l'Insee ;
+  - Mener un projet statistique avec `R` ;
+]
+
+- Comment réaliser efficacement des tâches élémentaires avec `R` :
+  - Importer des données avec `R` ;
+  - Manipuler des données avec `R` ;
+  - Produire des sorties avec `R`.
+
+
 
 ---
-# Contenu de la documentation
+# Comment (bien) travailler avec `R` à l'Insee
 
-## Première partie : comment (bien) travailler avec `R`
+.sauterligne3[
+La première partie de la documentation présente non seulement l'usage de `R` et de RStudio, mais également tout l'écosystème informatique autour de l'usage de `R` à l'Insee, afin d'aider les agents à être autonomes.
+]
 
-.small90[
+--
+
+.small80[
 <table class="table" style="margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
@@ -208,8 +240,11 @@ La première partie de la documentation présente non seulement l'usage de `R` e
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="4"> Utiliser <code class="remark-inline-code">R</code> à l’Insee </td>
-   <td style="text-align:left;width: 12cm; "> Les environnements de travail avec <code class="remark-inline-code">R</code> à l'Insee : AUSv3 et SSP Cloud </td>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="5"> Utiliser <code class="remark-inline-code">R</code> à l’Insee </td>
+   <td style="text-align:left;width: 12cm; "> Utiliser <code class="remark-inline-code">R</code> sur les serveurs AUSv3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 12cm; "> Utiliser <code class="remark-inline-code">R</code> sur le SSP Cloud </td>
   </tr>
   <tr>
    
@@ -233,11 +268,11 @@ La première partie de la documentation présente non seulement l'usage de `R` e
   </tr>
   <tr>
    
-   <td style="text-align:left;width: 12cm; "> Installer des packages et gérer les dépendances </td>
+   <td style="text-align:left;width: 12cm; "> Utiliser des <i>packages</i> et gérer les dépendances </td>
   </tr>
   <tr>
    
-   <td style="text-align:left;width: 12cm; "> Choisir des packages </td>
+   <td style="text-align:left;width: 12cm; "> Choisir des <i>packages</i> </td>
   </tr>
   <tr>
    
@@ -247,30 +282,138 @@ La première partie de la documentation présente non seulement l'usage de `R` e
 </table>
 ]
 
+
 ---
-# Contenu de la documentation
-## Première partie : comment (bien) travailler avec `R`
+# Comment (bien) travailler avec `R` à l'Insee
+## Utiliser `R` à l'Insee
 
-Les spécificités informatique de l'Insee sont signalées dans des boîtes colorées.
+La documentation s'ouvre par une présentation de l'environnement informatique de travail :
 
+- Présentation des environnements informatiques de travail à l'Insee (AUSv3 et SSP Cloud) ;
+- Tutoriels détaillés sur la configuration de `R` et la configuration de Git et Gitlab ;
+- Fiche-conseil : comment utiliser `R` sans saturer les serveurs de l'Insee.
+
+.sauterligne2[
+Des captures d'écran guident les agents à toutes les étapes de l'utilisation des serveurs.
+]
+
+---
+# Comment (bien) travailler avec `R` à l'Insee
+
+.sauterligne[
+Comment lancer un service RStudio sur le SSP Cloud
+]
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/01_catalogue_services.png")
+```
+
+---
+# Comment (bien) travailler avec `R` à l'Insee
+
+.sauterligne[
+Comment configurer un service RStudio sur le SSP Cloud
+]
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/02b_lancer_rstudio_options.png")
+```
+---
+# Comment (bien) travailler avec `R` à l'Insee
+
+.sauterligne[
+Comment configurer un _token_ sur Gitlab
+]
+
+```{r, echo = FALSE, out.width= "78%"}
+knitr::include_graphics("./resources/config_pat_gitlab3.png")
+```
+---
+# Comment (bien) travailler avec `R` à l'Insee
+## Mener un projet statistique avec `R`
+
+La documentation décrit les outils et les méthodes permettant de mener efficacement des projets statistiques avec `R` :
+
+- l'usage des projets RStudio ;
+- Tutoriel détaillé sur l'utilisation de `Git` et Gitlab avec RStudio ;
+- Fiches-conseils :
+  - comment choisir un _package_ ;
+  - comment utiliser les _packages_ `R` ;
+  - comment gérer les dépendances des codes ;
+  - comment chercher de l'aide et se documenter sur `R`.
+
+---
+# Comment (bien) travailler avec `R` à l'Insee
+
+.sauterligne[
+Des captures d'écran sont là pour guider les agents.
+]
+
+
+```{r, echo = FALSE, out.width= "40%", out.extra= 'style = "position: absolute; left: 0.5cm; top: 4cm;"'}
+knitr::include_graphics("./resources/create_project_1.png")
+```
+```{r, echo = FALSE, out.width= "55%", out.extra= 'style = "position: absolute; left: 10.5cm; top: 4cm;"'}
+knitr::include_graphics("./resources/create_project_0.png")
+```
+```{r, echo = FALSE, out.width= "40%", out.extra= 'style = "position: absolute; top: 12cm; left: 0.5cm;"'}
+knitr::include_graphics("./resources/onglet_git1.png")
+```
+```{r, echo = FALSE, out.width= "50%", out.extra= 'style = "position: absolute; top: 12cm; left: 11cm;"'}
+knitr::include_graphics("./resources/onglet_git8.png")
+```
+
+---
+# Comment (bien) travailler avec `R` à l'Insee
+## Et quand on veut utiliser `R` ailleurs qu'à l'Insee?
+
+--
+
+.sauterligne2[
+Les éléments spécifiques à l'Insee sont bien isolés du reste de la documentation, de façon à ce que les autres utilisateurs de `R` puissent se l'approprier aisément.
+]
+
+.sauterligne2[
 .small90[
 .specificite[
-Une forge interne `GitLab` est accessible depuis AUS. Son adresse, ainsi que des éléments complémentaires à cette fiche, sont disponibles dans la documentation AUS (`Y:/Documentation/AUSV3/`).
+Les spécificités informatique de l'Insee sont signalées dans des boîtes colorées.
 ]
+]
+]
+
+.sauterligne[
+S'ils le souhaitent, les services statistiques ministériels peuvent adapter à moindre coût la documentation à leur propre environnement informatique.
+]
+
+---
+# Contenu de la documentation
+## Une documentation en deux grandes parties
+
+La documentation `utilitR` vise à répondre à deux grandes questions :
+
+- Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème :
+  - Utiliser `R` à l'Insee ;
+  - Mener un projet statistique avec `R` ;
+
+
+.red[
+- Comment réaliser efficacement des tâches élémentaires avec `R` :
+  - Importer des données avec `R` ;
+  - Manipuler des données avec `R` ;
+  - Produire des sorties avec `R`.
+]
+
+
+---
+# Réaliser des tâches élémentaires avec `R`
+
+.sauterligne3[
+La seconde partie de la documentation présente .
 ]
 
 --
 
-.sauterligne[
-Les éléments spécifiques à l'Insee sont bien isolés du reste de la documentation, de façon à ce que les services statistiques ministériels puissent se l'approprier aisément.
-]
-
-
----
-# Contenu de la documentation
-## Seconde partie : réaliser les tâches élémentaires avec `R`
-
-.small90[
+.small80[
 <table class="table" style="margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
