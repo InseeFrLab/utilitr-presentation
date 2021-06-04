@@ -1,6 +1,7 @@
 ---
 title : "Import de fichiers plats et tableurs"
-subtitle : "Ateliers `utilitR`"
+subtitle : "Matinées de découverte `utilitR`"
+author: Pierre-Yves Berrard
 institute : "Insee"
 date : "`r format(as.Date('2021-06-08'), '%d %B %Y')`"
 output:
@@ -24,13 +25,15 @@ output:
       countIncrementalSlides: false
 ---
 
-# Introduction
+# Atelier import de fichiers
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
+.sauterligne3[
 ## Objectif de cet atelier
+]
 
 .sauterligne2[
 Montrer comment on peut se servir de la documentation `utilitR` pour importer :
