@@ -42,7 +42,6 @@ Montrer comment on peut se servir de la documentation `utilitR` pour importer :
 - des fichiers plats (.csv, .tsv, .txt)
 - des fichiers issus de tableurs (Excel, Calc)
 
-
 --
 
 .sauterligne3[
@@ -147,7 +146,6 @@ REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
 ## Assistant d'importation RStudio
 ]
 
-
 .sauterligne1[
 Interface graphique très commode basée sur le *package* `{readr}`
 
@@ -161,7 +159,6 @@ Utiliser cet assistant :
 - pour explorer le contenu du fichier (premières lignes, séparateurs...)
 ]
 ]
-
 
 --
 
