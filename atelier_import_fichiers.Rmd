@@ -30,17 +30,26 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
---
+## Objectif de cet atelier
+
+Montrer comment on peut se servir de la documentation `utilitR` pour importer :
+
+.sauterligne2[]
+
+- des fichiers plats (.csv, .tsv, .txt)
+- des fichiers issus de tableurs (Excel, Calc)
+
 .sauterligne2[
-  Plan de la présentation :
+  _(ces 2 parties correspondent à 2 fiches distinctes)_
 ]
 
-- import de fichiers plats (.csv, .tsv, .txt) ;
-- importer des fichiers issus de tableurs (Excel, Calc) ;
-
 --
 
-Dans la documentation `utilitR`, ces deux parties correspondent à 2 fiches distinctes.
+.sauterligne3[
+   Cette présentation n'est qu'un aperçu des principaux éléments.
+]
+
+Se référer à la documentation elle-même pour beaucoup plus de détail !
 
 ---
 
