@@ -49,7 +49,7 @@ Montrer comment on peut se servir de la documentation `utilitR` pour importer :
 .remarque[
   Cette présentation n'est qu'un aperçu des principaux éléments.
   
-  Se référer à la documentation elle-même pour des informations détaillées !
+  Se référer à la [documentation elle-même](https://www.utilitr.org/) pour des informations détaillées !
   
   _(ces 2 parties correspondent à 2 fiches distinctes)_
 ]
