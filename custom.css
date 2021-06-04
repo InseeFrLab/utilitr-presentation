@@ -69,3 +69,10 @@ h2 {
 .red {
   color: red;
 }
+
+.extraitdoc {
+  -webkit-box-shadow: 5px 5px 15px 5px #999999 ;
+  box-shadow: 5px 5px 15px 5px #999999 ;
+  background-color: #EEF0E2;
+  padding: 10px 10px 1px 10px;
+}
