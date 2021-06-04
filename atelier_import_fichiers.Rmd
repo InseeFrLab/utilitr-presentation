@@ -205,10 +205,8 @@ Utiliser cet assistant :
 library(readr)
 read_csv2(
   "bpe19_ensemble.csv",
-  col_types = cols(
-    REG = col_character(), DEP = col_character(),
-    AN = col_integer(), NB_EQUIP = col_integer()
-  )
+  col_types = cols(REG = col_character(),
+                   NB_EQUIP = col_integer())
 )
 ```
 
