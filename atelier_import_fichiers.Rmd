@@ -106,13 +106,13 @@ REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
 .recommandation[
 
 .sauterligne2[
-* **données < 1 Go** <br/>→ *package* `{readr}` : fonctions `read_csv()` et `read_delim()`
+* **données < 1 Go** <br/>→ *package* `{readr}` : fonctions `read_csv` et `read_delim`
 ]
 .sauterligne2[
-* **données > 1 Go** <br/>→ *package* `{data.table}` : fonction `fread()`
+* **données > 1 Go** <br/>→ *package* `{data.table}` : fonction `fread`
 ]
 .sauterligne2[
-* *package* `{csvread}` et fonctions natives de **R** `read.csv()` et `read.delim()` déconseillés
+* *package* `{csvread}` et fonctions natives de **R** `read.csv` et `read.delim` déconseillés
 ]
 
 ]
@@ -127,16 +127,10 @@ REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
 ## Importer un fichier de taille limitée :<br>le package `{readr}`
 ]
 
-### Plusieurs fonctions
+### Deux manières d'utiliser ce package :
 
-.sauterligne1[
-]
-
-|Fonction   |Séparateur<br>champ |Séparateur<br>décimal |
-|:----------|:-----|:----|
-|`read_csv` |","   |"."  |
-|`read_csv2`|";"   |","  |
-|`read_delim`|libre   |libre  |
+- assistant d'importation RStudio
+- instructions `R`
 
 ---
 
@@ -165,6 +159,43 @@ Utiliser cet assistant :
 .sauterligne2[
 → démonstration
 ]
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+.sauterligne3[
+## Importer un fichier de taille limitée :<br>le package `{readr}`
+]
+
+### Plusieurs fonctions
+
+.sauterligne1[
+]
+
+|Fonction   |Séparateur<br>champ |Séparateur<br>décimal |
+|:----------|:-----|:----|
+|`read_csv` |`","`   |`"."`  |
+|`read_csv2`|`";"`   |`"," ` |
+|`read_delim`|libre   |libre  |
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+.sauterligne3[
+### Principaux paramètres de `read_csv` et de `read_csv2`
+]
+
+| Argument  | Valeur par défaut | Fonction                                                       |
+|-----------|-------------------|----------------------------------------------------------------|
+| `file`      | Aucune            | Le chemin du fichier à importer                                |
+| `col_names` | `TRUE`              | La première ligne contient-elle les noms de colonne ?           |
+| `col_types` | `NULL`              | Définir le type des variables                                  |
+| `cols_only` | Toutes les variables  | Sélectionner les variables          |
+| `skip`      | `0`                 | Nombre de lignes à ignorer (aucune par défaut)              |
+| `n_max`     | `Inf`               | Nombre maximum de lignes à importer (pas de limite par défaut) |
+| `locale`    |                   | Réglages locaux (encodage, fuseau horaire, langue...)                |
 
 ---
 
