@@ -248,6 +248,10 @@ Elle présente trois avantages :
 
 ---
 
+# Syntaxe
+
+---
+
 # Importer des fichiers plats volumineux
 
 ```{r, warning = FALSE}
