@@ -130,7 +130,7 @@ REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
 ### Deux manières d'utiliser ce package :
 
 - assistant d'importation RStudio
-- instructions `R`
+- instructions `R` dans un script
 
 ---
 
@@ -165,12 +165,10 @@ Utiliser cet assistant :
 # Importer des fichiers plats avec {readr}
 
 .sauterligne3[
-## Importer un fichier de taille limitée :<br>le package `{readr}`
+### Les trois fonctions de `{readr}` à connaître
 ]
 
-### Les trois fonctions à connaître
-
-.sauterligne1[
+.sauterligne[
 ]
 
 |Fonction   |Séparateur<br>champ |Séparateur<br>décimal |
