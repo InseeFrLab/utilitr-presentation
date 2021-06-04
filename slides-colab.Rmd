@@ -43,12 +43,11 @@ Plan de la présentation :
 
 - Présentation du projet ;
 - Fonctionnement du projet: panorama ;
-- Nos conclusions ;
+- Notre retour d'expérience ;
 - Pourquoi mettre en place ce type d'approche ;
 - Fonctionnement collaboratif d'utilitR ;
     + Git & Github
     + CI/CD
-
 
 
 ---
