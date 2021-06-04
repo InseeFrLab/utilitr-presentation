@@ -30,7 +30,6 @@ Plan de la présentation :
 - Présentation du projet ;
 - Fonctionnement du projet: panorama ;
 - Nos conclusions ;
-- Quelques définitions ;
 - Pourquoi mettre en place ce type d'approche ;
 - Fonctionnement collaboratif d'utilitR ;
     + Git & Github
@@ -42,17 +41,17 @@ Plan de la présentation :
 # 1. Présentation du projet
 ## Une démarche collaborative et _open source_
 
-* Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
-* Démarche collaborative impliquant __plus de 20 contributeurs__ :
+* Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) :
+    + licence ouverte, permissive (`Licence Ouverte 2.0`) ;
+    + un manifeste exprimant un certain nombre de valeurs dont la transparence.
+* Démarche collaborative impliquant __plus de 25 contributeurs__ :
     + dispersés dans toute la France ;
     + issus de plusieurs institutions du SSP.
+    + Un immense merci à eux ! `r emo::ji("applause")`
 * Organisation horizontale, sur le modèle de `Wikipedia` :
     + relecture par les pairs ;
     + validation collégiale ;
-* Acculturation à des outils favorisant la **reproductibilité** et la **pérennité**, au-delà de l'usage de `r fontawesome::fa("fab fa-r-project")` :
-    + `Docker` `r fontawesome::fa("fab fa-docker")` ;
-    + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
-    + `Github` `r fontawesome::fa("fab fa-github")`.
+    + discussions publiques, toutes contributions bienvenues. 
 
 ---
 # 1. Présentation du projet
@@ -61,7 +60,7 @@ Plan de la présentation :
 * Une documentation pensée pour le statisticien :
     + Recommandations adaptées au contexte de travail des agents du service statistique public ;
     + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce au _package_ [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)) ;
-    + Documentation entièrement reproductible.
+    + Documentation entièrement reproductible[![SSPcloud](https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R)](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB) (mais aussi sur AUS).
 
 * Processus de publication à l'état de l'art :
     + Plusieurs _outputs_ (site web `r fontawesome::fa("fab fa-firefox")`, livre PDF `r fontawesome::fa("fas fa-file-pdf")`) avec les mêmes codes sources ;
@@ -69,10 +68,18 @@ Plan de la présentation :
 
 * Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
     + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`.
-    + Sur `r fontawesome::fa("fab fa-github")`: [rstudio/rmarkdown#2146](https://github.com/rstudio/rmarkdown/pull/2146), [rstudio/rmarkdown#2145](https://github.com/rstudio/rmarkdown/issues/2145), [rstudio/bookdown#1101](https://github.com/rstudio/bookdown/issues/1101), [rstudio/bookdown#1117](https://github.com/rstudio/bookdown/issues/1117)
+    + Sur `r fontawesome::fa("fab fa-github")`: [rstudio/rmarkdown#2146](https://github.com/rstudio/rmarkdown/pull/2146), [rstudio/rmarkdown#2145](https://github.com/rstudio/rmarkdown/issues/2145), [rstudio/bookdown#1101](https://github.com/rstudio/bookdown/issues/1101), [rstudio/bookdown#1117](https://github.com/rstudio/bookdown/issues/1117), [rstudio/pagedown#217](https://github.com/rstudio/pagedown/issues/217), [rstudio/pagedown#217](https://github.com/rstudio/pagedown/issues/218), [rstudio/pagedown#224](https://github.com/rstudio/pagedown/pull/224)
+    
+---
+# 1. Présentation du projet
+## Une démarche collaborative et _open source_
 
-<br>
+* Acculturation à des outils favorisant la **reproductibilité** et la **pérennité**, au-delà de l'usage de `r fontawesome::fa("fab fa-r-project")` :
+    + `Docker` `r fontawesome::fa("fab fa-docker")` ;
+    + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
+    + `Github` `r fontawesome::fa("fab fa-github")`.
 
+<br><br>
 __Le projet `utilitR` est un laboratoire qui préfigure les évolutions des méthodes de travail des statisticiens.__
 
 ---
