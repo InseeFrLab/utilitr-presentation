@@ -547,6 +547,8 @@ head(bpe_ens_2018_wide)
 * plus simple: utiliser la fonction `get`
 
 ```{r}
+filosofi_com_2016_dt <- data.table::as.data.table(doremifasolData::filosofi_com_2016)
+
 creation_var <- function(data, nom_variable, nouveau_nom){
   data[, c(nouveau_nom) := get(nom_variable) + 1]
 }
@@ -562,7 +564,7 @@ head(creation_var(filosofi_com_2016_dt,
 * Possible dans la dimension ligne
 
 ```{r}
-filosofi_epci_2016_dt[(get("MED16") < 20000) & (get('NBMENFISC16') < 10000)]
+filosofi_com_2016_dt[(get("MED16") < 20000) & (get('NBMENFISC16') < 10000)]
 ```
 
 ---
@@ -574,8 +576,7 @@ filosofi_epci_2016_dt[(get("MED16") < 20000) & (get('NBMENFISC16') < 10000)]
 + par département
 
 ```{r}
-dt <- data.table::as.data.table(doremifasolData::filosofi_com_2016)
-dt[,`:=`("dep" = substr(get('CODGEO'), 0, 2),
+filosofi_com_2016_dt[,`:=`("dep" = substr(get('CODGEO'), 0, 2),
          "groupe_revenu" = 5000*floor(get('MED16')/5000))  ]
 new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
                                xvar = "MED16", newname = "x"){
@@ -586,7 +587,7 @@ new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
   data.table::setnames(datanew, old = "V1", new = newname)
   return(datanew)
 }
-head(new_variable_group(dt, xvar = "TP6016",
+head(new_variable_group(filosofi_com_2016_dt, xvar = "TP6016",
                         newname = "newvar"))
 ```
 
@@ -609,7 +610,7 @@ new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
 
   return(datanew)
 }
-head(na.omit(new_variable_group(dt, xvars = c("TP6016", "TP60AGE116"),
+head(na.omit(new_variable_group(filosofi_com_2016_dt, xvars = c("TP6016", "TP60AGE116"),
                         newnames = c("taux_pauvrete_moyen", "taux_pauvrete_moyen_jeunes"))))
 ```
 
