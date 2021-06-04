@@ -1,6 +1,6 @@
 ---
 title : "Import de fichiers plats et tableurs"
-subtitle : "Matinées de découverte `utilitR`"
+subtitle : "`utilitR<br>`Matinées de découverte"
 author: Pierre-Yves Berrard
 institute : "Insee"
 date : "`r format(as.Date('2021-06-08'), '%d %B %Y')`"
@@ -241,7 +241,7 @@ Un argument supplémentaire important par rapport à `read_csv(2)` :
 .sauterligne2[
 Elle présente trois avantages :
 
-* rapiditié pour les gros volumes de données
+* rapidité pour les gros volumes de données
 * sélection facile des colonnes à importer (paramètre `select`)
 * grand nombre de paramètres (usages avancés)
 ]
@@ -300,7 +300,7 @@ fread(
 # Importer des fichiers plats
 
 .sauterligne2[
-## Bonne pratiques :
+## Quelques bonnes pratiques :
 ]
 
 .conseil[
