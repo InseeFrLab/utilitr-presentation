@@ -304,6 +304,29 @@ fread(
 
 # Importer des fichiers issus de tableurs
 
+.sauterligne3[
+
+.recommandation[
+
+- fichiers **xlsx** <br/> → fonction `read.xlsx` du _package_ `{openxlsx}`
+- fichiers **xls** <br/> → fonction `read_excel` du _package_ `{readxl}` \*
+- fichiers **ods** <br/> → fonction `read_ods` du _package_ `{readODS}`
+
+.sauterligne[
+Il est déconseillé d'utiliser le _package_ `{xlsx}`.
+]
+
+]
+]
+
+--
+
+.sauterligne3[
+.small80[
+\* peut également importer des fichiers `xlsx`, mais moins rapide que `openxlsx::read.xlsx()`
+]
+]
+
 ---
 
 background-image: url('resources/logo-utilitr.png')
