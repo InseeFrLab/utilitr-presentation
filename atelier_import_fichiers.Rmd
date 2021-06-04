@@ -212,6 +212,19 @@ read_csv2(
 
 ---
 
+# Importer des fichiers plats avec {readr}
+
+## Fonction `read_delim`
+
+Plus puissante, mais plus difficile à utiliser.
+
+Un argument supplémentaire important par rapport à `read_csv(2)` :
+
+- `delim` : le délimiteur de champ du fichier (par exemple `"|"`)
+
+---
+
+
 # Importer des fichiers issus de tableurs
 
 ---
