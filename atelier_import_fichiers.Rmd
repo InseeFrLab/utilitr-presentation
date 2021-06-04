@@ -32,24 +32,25 @@ options(htmltools.dir.version = FALSE)
 
 ## Objectif de cet atelier
 
+.sauterligne2[
 Montrer comment on peut se servir de la documentation `utilitR` pour importer :
-
-.sauterligne2[]
+]
 
 - des fichiers plats (.csv, .tsv, .txt)
 - des fichiers issus de tableurs (Excel, Calc)
 
-.sauterligne2[
-  _(ces 2 parties correspondent à 2 fiches distinctes)_
-]
 
 --
 
 .sauterligne3[
-   Cette présentation n'est qu'un aperçu des principaux éléments.
+.remarque[
+  Cette présentation n'est qu'un aperçu des principaux éléments.
+  
+  Se référer à la documentation elle-même pour des informations détaillées !
+  
+  _(ces 2 parties correspondent à 2 fiches distinctes)_
 ]
-
-Se référer à la documentation elle-même pour beaucoup plus de détail !
+]
 
 ---
 
@@ -145,17 +146,19 @@ REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
 
 
 .sauterligne1[
-Interface graphique très commode pour importer des fichiers plats avec le *package* `{readr}`
+Interface graphique très commode basée sur le *package* `{readr}`
+
+Affiche le code correspondant au manipulations effectuées
 ]
 
 .small90[
 .conseil[
+Utiliser cet assistant :
 - pour se familiariser avec `{readr}`
-- pour explorer les données
+- pour explorer le contenu du fichier (premières lignes, séparateurs...)
 ]
 ]
 
-Affiche le code correspondant au manipulations effectuées
 
 --
 
