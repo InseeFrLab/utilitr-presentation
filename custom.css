@@ -56,7 +56,18 @@ h2 {
 .small90{
   font-size: 90%;
 }
-
+.small90 code {
+  font-size: 14px;
+}
+.small80{
+  font-size: 80%;
+}
+.small70{
+  font-size: 70%;
+}
+.small60{
+  font-size: 60%;
+}
 img {
   display: inline-block;
 }
