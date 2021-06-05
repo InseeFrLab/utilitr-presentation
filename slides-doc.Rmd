@@ -734,15 +734,6 @@ Questions :
 
 ]
 
-
-<!-- - La documentation est adaptée à l’environnement informatique du statisticien : -->
-<!--   + Description des environnements de travail (AUSv3 et SSP Cloud) ; -->
-<!--   + Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab. -->
-
---
-
-- L'articulation entre `utilitR` et l'offre de formation sur `R` n'est pas encore clairement établie.
-
 ---
 # Où en est le projet aujourd'hui ?
 
