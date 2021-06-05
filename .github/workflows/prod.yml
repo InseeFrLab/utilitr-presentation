@@ -20,7 +20,8 @@ jobs:
           Rscript -e "install.packages('xfun')"
           Rscript -e "install.packages(c('xaringan'))"
           Rscript -e "install.packages(c('fontawesome'))"
-          Rscript -e "install.packages(c('emo'))"
+          Rscript -e "install.packages(c('remotes'))"
+          Rscript -e "remotes::install_github('hadley/emo')"
       - name: Render
         run: |
           mkdir -p public
