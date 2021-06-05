@@ -130,7 +130,23 @@ Le projet `utilitR` a pour objectif de produire une documentation qui réponde �
 
 --
 
-.sauterligne2[
+.sauterligne[
+Historique du projet :
+]
+
+* Fin 2019 : premières évocations d'une documentation sur `R` ;
+* Mars 2020 : lancement du projet ;
+* Octobre 2020 : mise en ligne du site :
+* Mai 2021 : finalisation des contenus ;
+* 8-9 juin 2021 : lancement officiel d'`utilitR` ;
+
+.gray[
+* Septembre 2021 : diffusion de la version 1 de la brochure pdf.
+]
+
+--
+
+.sauterligne[
 Plan de la présentation :
 ]
 

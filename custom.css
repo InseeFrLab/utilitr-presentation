@@ -74,6 +74,14 @@ img {
 .red {
   color: red;
 }
+.gray {
+  color: gray;
+  margin-top: -5px;
+}
+.gray ul {
+  margin-top: 0;
+}
+
 .extraitdoc {
   -webkit-box-shadow: 5px 5px 15px 5px #999999 ;
   box-shadow: 5px 5px 15px 5px #999999 ;
