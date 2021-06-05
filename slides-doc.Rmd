@@ -30,18 +30,16 @@ options(htmltools.dir.version = FALSE)
 ```
 
 .sauterligne3[
-Le projet `utilitR` vise à produire une documentation collaborative sur `R`, destinée principalement aux agents du Service statistique public (mais pas exclusivement).
+Le projet `utilitR` vise à produire une documentation collaborative sur `R` et l'écosystème associé (RStudio, Git, Gitlab).
 ]
 
---
 .sauterligne2[
-Plan de la présentation :
+Cette documentation est :
+
+- un guide pratique, pas une introduction théorique à `R` ;
+- principalement destinée aux agents du Service statistique public (mais pas uniquement);
+- issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia.
 ]
-
-- Objectif et spécificités du projet ;
-- Contenu de la documentation ;
-- Modes de diffusion de la documentation.
-
 
 
 ```{r, echo = FALSE, warning = FALSE, eval = FALSE}
@@ -103,7 +101,7 @@ kbl(description_appariement, align = "cll",
 
 
 ---
-# Introduction : origine du projet
+# Introduction
 
 Le projet `utilitR` est parti de deux constats : 
 
@@ -111,7 +109,7 @@ Le projet `utilitR` est parti de deux constats :
     + Eclatement de la documentation de l'écosystème `R` ;
     + Multiplicité de *packages*, de qualité variable et parfois redondants ;
     + Barrière linguistique : la grande majorité de la documentation est en anglais ;
-    + Diversité des cas d'usage de `R` à l'Insee et dans le SSP ;
+    + Diversité des cas d'usage de `R` à l'Insee et dans le service statistique public ;
     
 --
 
@@ -121,35 +119,40 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
     + La documentation sur `R` est riche mais propose peu d'exemples sur données réelles, proches des cas d'usage des agents.
     
 ---
-# Introduction : objectif du projet
+# Introduction
 
-Le projet `utilitR` a pour objectif de produire une documentation qui réponde à deux questions :
+.sauterligne[
+Le projet `utilitR` a pour objectif de produire une documentation qui réponde à deux questions, dans le contexte des travaux de la statistique publique :
+]
 
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
-- Comment réaliser efficacement des tâches élémentaires avec `R`.
+- Comment réaliser efficacement des tâches standards avec `R`.
 
 --
 
-.sauterligne[
-Cette documentation est :
-
-- principalement destinée aux agents du Service statistique public (mais pas uniquement);
-- un guide pratique pour le statisticien, pas une introduction théorique à `R` ;
-- issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia.
+.sauterligne2[
+Plan de la présentation :
 ]
 
---
+- Spécificités du projet ;
+- Contenu de la documentation ;
+- Modes de diffusion de la documentation.
 
-.sauterligne[
-Cette documentation cherche par ailleurs à respecter trois exigences :
-]
 
-- exister en différents formats pour s'adapter aux besoins des agents ;
-- être proche des cas d'usage de `R` dans la statistique publique ;
-- proposer des recommandations adaptées au contexte de travail des agents du service statistique public.
 
 ---
-# Introduction : apports du projet
+# Spécificités du projet
+
+Le projet `utilitR` présente trois particularités :
+
+- Une démarche collaborative et _open source_ ;
+- Un exemple de publication reproductible ;
+- Une documentation adaptée aux besoins des agents.
+
+
+---
+# Spécificités du projet
+
 ## Une démarche collaborative et _open source_
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
@@ -165,12 +168,12 @@ Cette documentation cherche par ailleurs à respecter trois exigences :
     + `Github` `r fontawesome::fa("fab fa-github")`.
 
 ---
-# Introduction : apports du projet
-## Des choix techniques au service de la qualité
+# Spécificités du projet
+## Un exemple de publication reproductible
 
-* Une documentation pensée pour le statisticien :
-    + Recommandations adaptées au contexte de travail des agents du service statistique public ;
-    + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce au _package_ [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)).
+<!-- * Une documentation pensée pour le statisticien : -->
+<!--     + Recommandations adaptées au contexte de travail des agents du service statistique public ; -->
+<!--     + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce au _package_ [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)). -->
 
 * Processus de publication à l'état de l'art :
     + Plusieurs _outputs_ (site web `r fontawesome::fa("fab fa-firefox")`, livre PDF `r fontawesome::fa("fas fa-file-pdf")`) avec les mêmes codes sources ;
@@ -180,9 +183,60 @@ Cette documentation cherche par ailleurs à respecter trois exigences :
 * Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
     + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`.
 
-<br>
+.sauterligne[
+Le projet `utilitR` est un laboratoire qui préfigure les évolutions des méthodes de travail des statisticiens.
+]
 
-__Le projet `utilitR` est un laboratoire qui préfigure les évolutions des méthodes de travail des statisticiens.__
+---
+# Spécificités du projet
+## Une documentation adaptée aux besoins des agents
+
+La documentation formule des recommandations claires sur les outils et les _packages_ adaptés à chaque tâche, et comporte des conseils et des remarques relatifs aux bonnes pratiques et est illustrée par des exemples reproductibles utilisant des données de l'Insee.
+
+--
+
+.sauterligne2[
+.small80[
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(magrittr)
+library(fontawesome)
+texte_recommandation <- "Ce paragraphe présente succinctement les outils et les approches les plus adaptés à la tâche concernée. Chaque fiche ne comprend qu'un seul paragraphe de ce type, au début de la fiche."
+texte_conseil        <- "Ce paragraphe détaille les bonnes pratiques à adopter."
+texte_remarque       <- "Ce paragraphe donne des informations supplémentaires ou formule une mise en garde."
+texte_specificite    <- "Ce paragraphe porte sur une spécificité de l'Insee qui a un impact sur l'usage de <code>R</code>."
+
+symb <-
+  c(fa("hand-point-right", fill = "rgba(220, 53, 69, 1)", height = "30px"),
+    fa("lightbulb", fill = "rgba(255, 193, 7, 1)", height = "30px"),
+    fa("info-circle", fill = "rgba(0, 123, 255, 1)", height = "30px"),
+    fa("home", fill = "rgba(81, 81, 81, 1)", height = "30px"))
+
+dt <- 
+  as.data.frame(list(
+    Nom = c("Recommandation", 
+            "Conseil", 
+            "Remarque",
+            "Spécificité Insee"), 
+    Symbole = symb,
+    Signification = c(texte_recommandation, 
+                      texte_conseil, 
+                      texte_remarque,
+                      texte_specificite)
+  )
+  )
+
+
+output <- 
+  dt %>% 
+  knitr::kable(escape = F, position = "center", full_width = F, align="ccl") %>%
+  kableExtra::column_spec(1, width = "3cm", bold = TRUE) %>%
+  kableExtra::column_spec(2, width = "2cm") %>% 
+  kableExtra::column_spec(3, width = "12cm") %>% 
+  kableExtra::row_spec(0,bold=TRUE, align = "c")
+output
+```
+]
+]
 
 ---
 # Contenu de la documentation
@@ -196,11 +250,10 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
 
 --
 
-- Comment réaliser efficacement des tâches élémentaires avec `R` :
+- Comment réaliser efficacement des tâches standards avec `R` :
   - Importer des données avec `R` ;
   - Manipuler des données avec `R` ;
   - Produire des sorties avec `R`.
-
 
 ---
 # Contenu de la documentation
@@ -214,7 +267,7 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
   - Mener un projet statistique avec `R` ;
 ]
 
-- Comment réaliser efficacement des tâches élémentaires avec `R` :
+- Comment réaliser efficacement des tâches standards avec `R` :
   - Importer des données avec `R` ;
   - Manipuler des données avec `R` ;
   - Produire des sorties avec `R`.
@@ -350,22 +403,22 @@ Des captures d'écran sont là pour guider les agents.
 ]
 
 
-```{r, echo = FALSE, out.width= "40%", out.extra= 'style = "position: absolute; left: 0.5cm; top: 4cm;"'}
+```{r, echo = FALSE, out.width= "38%", out.extra= 'style = "position: absolute; left: 0.5cm; top: 3.7cm; padding: 0; border-width: 0 0 0 1px; border-color: black; border-style: solid;"'}
 knitr::include_graphics("./resources/create_project_1.png")
 ```
-```{r, echo = FALSE, out.width= "55%", out.extra= 'style = "position: absolute; left: 10.5cm; top: 4cm;"'}
+```{r, echo = FALSE, out.width= "50%", out.extra= 'style = "position: absolute; left: 10.8cm; top: 5.5cm; padding: 0; border-width: 0 1px 1px 1px; border-color: black; border-style: solid;"'}
 knitr::include_graphics("./resources/create_project_0.png")
 ```
-```{r, echo = FALSE, out.width= "40%", out.extra= 'style = "position: absolute; top: 12cm; left: 0.5cm;"'}
+```{r, echo = FALSE, out.width= "38%", out.extra= 'style = "position: absolute; top: 11cm; left: 0.5cm; padding: 0;"'}
 knitr::include_graphics("./resources/onglet_git1.png")
 ```
-```{r, echo = FALSE, out.width= "50%", out.extra= 'style = "position: absolute; top: 12cm; left: 11cm;"'}
+```{r, echo = FALSE, out.width= "50%", out.extra= 'style = "position: absolute; top: 13.5cm; left: 10.8cm; padding: 0;"'}
 knitr::include_graphics("./resources/onglet_git8.png")
 ```
 
 ---
 # Comment (bien) travailler avec `R` à l'Insee
-## Et quand on veut utiliser `R` ailleurs qu'à l'Insee?
+## Et quand on utilise `R` ailleurs qu'à l'Insee?
 
 --
 
@@ -397,7 +450,7 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
 
 
 .red[
-- Comment réaliser efficacement des tâches élémentaires avec `R` :
+- Comment réaliser efficacement des tâches standards avec `R` :
   - Importer des données avec `R` ;
   - Manipuler des données avec `R` ;
   - Produire des sorties avec `R`.
@@ -405,10 +458,10 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
 
 
 ---
-# Réaliser des tâches élémentaires avec `R`
+# Réaliser des tâches standards avec `R`
 
 .sauterligne3[
-La seconde partie de la documentation présente .
+La seconde partie de la documentation rassemble un ensemble de fiches thématiques qui expliquent comment réaliser des tâches standards avec `R`.
 ]
 
 --
@@ -424,7 +477,7 @@ La seconde partie de la documentation présente .
 <tbody>
   <tr>
    <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="3"> Importer des données </td>
-   <td style="text-align:left;width: 12cm; "> Importer des données (SAS, csv, txt, odt, xlsx...) </td>
+   <td style="text-align:left;width: 12cm; "> Importer des données (SAS, csv, txt, ods, xlsx...) </td>
   </tr>
   <tr>
    
@@ -450,7 +503,7 @@ La seconde partie de la documentation présente .
    <td style="text-align:left;width: 12cm; "> Utiliser des données d'enquête </td>
   </tr>
   <tr>
-   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="3"> Produire des <em>outputs</em> </td>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="3"> Produire des sorties </td>
    <td style="text-align:left;width: 12cm; "> Réaliser des graphiques </td>
   </tr>
   <tr>
@@ -466,78 +519,98 @@ La seconde partie de la documentation présente .
 ]
 
 ---
-# Contenu de la documentation
-## Contenu des fiches
-
-Les fiches de la documentation ont un certain nombre de caractéristiques communes :
-
-- Elles formulent des recommandations précises et présentent en détail les outils et _packages_ adaptés ;
-- Elles proposent des exemples reproductibles utilisant des données de l'Insee pour aider les agents à s'approprier les outils ;
-- Elles comportent des conseils et des remarques relatifs aux bonnes pratiques ;
-- Elles donnent des indications sur les spécificités informatiques de l'Insee.
-
----
-# Contenu de la documentation
+# Réaliser des tâches standards avec `R`
 ## Des recommandations précises
 
-.sauterligne[
+Les fiches orientent les agents vers les outils adaptés :
 
-- Les fiches commencent systématiquement par des **recommandations** sur les outils et les _packages_ à utiliser ou à éviter. 
-- Elles indiquent dans quelles situations et sous quelles conditions un _package_ doit être utilisé.
-- Ces recommandations sont cohérentes avec celles du COPS (Comité de certification des _packages_ `R`).
-]
+- Chaque fiche commence par des **recommandations** précises sur les outils et les _packages_ à utiliser ou à éviter ;
+- Ces recommandations indiquent dans quelles situations et sous quelles conditions un _package_ doit être utilisé ;
+- Les recommandations reposent sur l'expérience des contributeurs du projet et sont validées après une discussion collégiale.
 
---
+---
 
-.sauterligne[
-Voici les recommandations de la fiche "Importer des fichiers plats" :
+# Réaliser des tâches standards avec `R`
+## Des recommandations précises
+
+Voici la recommandation de la fiche _Importer des tables SAS®_ :
+
 .small90[
 .indent[
 .recommandation[
-* Pour importer des données de taille réduite (jusqu'à 1 Go), il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du *package* `readr` ;
-* Pour importer des données de taille plus importante (supérieure à 1 Go), il est recommandé d'utiliser la fonction `fread()` du *package* `data.table`.
-* L'usage du *package* `csvread` est déconseillé, de même que l'utilisation des fonctions natives de `R` `read.csv()` et `read.delim()`.
-]
+Deux méthodes sont recommandées pour importer des tables SAS avec `R` :
+
+* méthode en une étape : **utiliser la fonction `read_sas()` du *package* `haven`.**
+* méthode en deux étapes : **Exporter les données SAS en format `csv`, puis les importer en `R`**.
+
+Les particularités du format des tables SAS peuvent être source de difficultés lorsqu'on veut les importer avec `R`. **Il est fortement recommandé de tester la méthode d'importation choisie sur un petit échantillon de données avant d'importer les données**, en particulier lorsque celles-ci sont volumineuses. Il est également recommandé d'essayer l'autre méthode si la première ne fonctionne pas correctement.
+
+En revanche, il est **fortement déconseillé** d'utiliser les *packages*  suivants pour importer des données SAS : `sas7dbat`, `foreign`, `Hmisc`, `SASxport`.
 ]
 ]
 ]
 
 ---
-# Contenu de la documentation
-## Une présentation détaillée des outils recommandés
+# Réaliser des tâches standards avec `R`
+## Des recommandations précises
 
-Les fiches présentent en détail les outils et les _packages_ recommandés (cas d'usage, principales options).
+Les fiches présentent en détail les outils et les _packages_ recommandés :
+
+- avantages et éventuels inconvénients ;
+- utilisation de base et principales options.
 
 --
 
 .sauterligne[
-Le *package* `data.table` permet d'importer des fichiers plats avec la fonction `fread()`. Cette fonction présente trois avantages [...]
+Voici un extrait de la fiche _Importer des fichiers plats_ :
 ]
 
---
+.small80[
+.sauterligne2[
+.extraitdoc[
+Le *package* `data.table` permet d'importer des fichiers plats avec la fonction `fread()`. Cette fonction présente trois avantages :
 
+* Elle est très rapide pour importer de gros volumes de données (et nettement plus rapide que les fonctions du *package* `readr`) ;
+* Elle permet de sélectionner facilement les colonnes qu'on veut importer (option `select`) ;
+* Elle propose un grand nombre d'options, adaptées pour les usages avancés.
 
-.sauterligne[
+]
+]
+]
+
+---
+
+# Réaliser des tâches standards avec `R`
+## Des recommandations précises
+
+.extraitdoc[
+.small90[
 Les principales options de `fread()` sont les suivantes :
 ]
-.small90[
+.small80[
 | Argument         | Valeur par défaut                           | Fonction                                                              |
 |------------------|---------------------------------------------|-----------------------------------------------------------------------|
 | `file`             | Aucune                                      | Le chemin du fichier à importer                                       |
-| `nrows`            | `Inf`                                         | Nombre maximum de lignes à importer (pas de limite par défaut)        |
+| `sep`              | Le caractère le plus fréquent parmi `,\t ;:` | Le délimiteur du fichier                                              |
+| `header`           | `fread()` essaie de deviner                 | La première ligne contient-elle les noms de colonnes?                 |
+| `nrows`            | Pas de limite                                        | Nombre maximum de lignes à importer      |
+| `skip`             | `0`                                           | Sauter les n premières lignes (0 par défaut)                          |
 | `select`           | `NULL`                                        | Sélectionner les colonnes à importer                                  |
-| `encoding`         | `"unknown"`                                   | Définir l'encodage du fichier (`"UTF-8"` ou `"Latin-1"`)                                        |
+| `colClasses`       | `fread()` essaie de deviner                 | Définir le type des variables                                         |
+| `encoding`         | `"unknown"`                                   | Définir l'encodage du fichier (`"UTF-8"` ou `"Latin-1"`)                  |
+| `dec`              | Le point                                      | Définir le marqueur décimal                                        |
+]
 ]
 
 ---
-# Contenu de la documentation
+# Réaliser des tâches standards avec `R`
 ## Des exemples reproductibles et proches des cas d'usage
 
 La documentation comporte de nombreux exemples. Ces exemples ont trois particularités :
 
 - Les exemples sont **reproductibles** : les agents peuvent reproduire la plupart des exemples de la documentation en en exécutant le code ;
 - Les exemples sont **proches des cas d'usages de `R` dans le SSP** : les jeux de données utilisés dans les exemples sont issus de données disponibles sur [insee.fr](www.insee.fr) (code officiel géographique, base permanente des équipements, répertoire Filosofi) ;
-- Les jeux d'exemple sont **disponibles dans tous les environnements de travail** (SSP Cloud, AUSv3, poste local). Ils sont mis à disposition dans le _package_ `doremifasolData` développé par Pierre Lamarche et Pierre-Yves Berrard.
+- Les jeux d'exemple sont **disponibles dans tous les environnements de travail** (SSP Cloud, AUSv3, poste local). Ils sont mis à disposition dans le _package_ `doremifasolData` développé par des contributeurs du projet.
 
 ---
 # Contenu de la documentation
@@ -751,7 +824,7 @@ L'automatisation de ces processus présente de multiples avantages :
 
 * Prochaines étapes :
     + Mai 2021 : finalisation des contenus ;
-    + 8 juin 2021 : lancement officiel d'`utilitR` ;
+    + 8-9 juin 2021 : lancement officiel d'`utilitR` ;
     + Septembre 2021 : diffusion de la version 1 de la brochure pdf.
 
 ---
