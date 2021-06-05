@@ -728,120 +728,20 @@ La documentation est diffusée sous trois formes :
 .sauterligne2[
 Questions :
 
-- `r fontawesome::fa("fas fa-question")` Quel format de diffusion préférez-vous ?
-- `r fontawesome::fa("fas fa-question")` La version intégrale de la documentation vous serait-t-elle utile, sachant que chaque fiche est déjà disponible en format A4 imprimable ?
-- `r fontawesome::fa("fas fa-question")` Une version __imprimée et millésimée__ de la brochure (350 pages) vous serait-elle utile ?
+`r fontawesome::fa("fas fa-question")` Quel format de diffusion préférez-vous?
+`r fontawesome::fa("fas fa-question")` La version intégrale de la documentation vous serait-t-elle utile, sachant que chaque fiche est déjà disponible en format A4 imprimable?
+`r fontawesome::fa("fas fa-question")` Une version __imprimée et millésimée__ de la brochure (350 pages) vous serait-elle utile?
 
 ]
 
 
----
-# Fonctionnement du projet
-## Positionnement du projet `utilitR` à l'Insee
-
-- Le projet est l’une des multiples initiatives lancées pour faciliter la transition vers `R` : 
-  + Supports du groupe de travail USSR ;
-  + FunCamp développé par la Division Innovation et Instruction Technique (Diit) ;
-  + Guide à l'usage du statisticien débutant (rédigé par Cédric Afsa) ;
-  + Formation Travail collaboratif avec `R` (en cours de test avant déploiement).
-
---
-
-- Les recommandations de *packages* sont cohérentes avec celles du Comité de certification des _packages_ `R` (COPS).
-
---
-
-- La documentation est adaptée à l’environnement informatique du statisticien :
-  + Description des environnements de travail (AUSv3 et SSP Cloud) ;
-  + Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab.
+<!-- - La documentation est adaptée à l’environnement informatique du statisticien : -->
+<!--   + Description des environnements de travail (AUSv3 et SSP Cloud) ; -->
+<!--   + Présentation des outils assurant la qualité des programmes en `R` comme les `Rprojects` et le contrôle de version avec `git` et Gitlab. -->
 
 --
 
 - L'articulation entre `utilitR` et l'offre de formation sur `R` n'est pas encore clairement établie.
-
----
-# Fonctionnement du projet
-## Organisation du projet
-
-**Le projet `utilitR` est un projet collaboratif, horizontal, _open source_ et ouvert à tous, auquel tous les agents peuvent contribuer.**
-
---
-* Cinq principes détaillés dans le [manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparence, ouverture, bienveillance, exigence et reproductibilité.
-
---
-
-* Organisation sans hiérarchie :
-    * Un _groupe de contributeurs_ (environ 20), parmi lesquels deux coordinateurs (Lino Galiana et Olivier Meslin) ;
-    * Un _comité de parrainage_ composé de managers : Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
---
-* La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
-
---
-
-**Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
-
----
-# Fonctionnement du projet
-## Méthode de travail : une démarche collaborative et _open source_
-
-Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
-
-- Tous les codes du projet sont stockés sur un dépôt Github ([https://github.com/InseeFrLab/utilitR](lien)) et disponibles sous licence libre ;
-- Les travaux sont menés selon les méthodes de développement logiciel (_pull requests_, _issues_) ;
-- Toutes les contributions sont soumises à une relecture par les pairs et validées collégialement (sur le modèle de Wikipedia).
-
----
-# Fonctionnement du projet
-## Méthode de travail
-
-Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de l'art :
-
-```{r, echo = FALSE}
-knitr::include_graphics("./resources/githubCI.png")
-```
----
-# Fonctionnement du projet
-## Méthode de travail : structuration du projet
-
-<!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
-<!-- liens entre fiches, etc.) -->
-
-<!-- (`.Rmd` ➜ `.md` ➜ `.html`) ; -->
-<!-- (`.md` ➜ `.html` ➜ `.pdf`) ; -->
-
-* Les codes sources de la documentation prennent la forme de fichiers `R Markdown`, qui rassemblent les textes et les exemples de codes ;
-* `R` compile ces codes sources de deux manières :
-    + Production d'un site internet grâce au _package_ `blogdown` ;
-    + Production d'un livre en format A4 grâce au _package_ `pagedown` ;
-    + De plus, l'utilisation de `paged.js` permet de transformer chaque page du site internet en un chapitre paginé prêt à être imprimé.
-* Les modèles de document reposent sur les technologies Web standards (CSS et Javascript) et sont organisés sous la forme d'un _package_.
-
---
-
-<br>
-* Avantages :
-    + le livre et le site web sont générés à partir des mêmes codes sources ;
-    + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
-    + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
-
----
-# Fonctionnement du projet
-## Méthode de travail : reproductibilité et qualité
-
-Le dépôt Github d'`utilitR` propose :
-
-* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker`) ;
-* Des scripts d'**intégration continue** qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
-* Des scripts de **déploiement continu** qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
-* Un **site de prévisualisation** (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
-
---
-
-L'automatisation de ces processus présente de multiples avantages :
-
-+ elle allège le travail des coordinateurs et des contributeurs ;
-+ elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
-+ elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de se concentrer uniquement sur le fond.
 
 ---
 # Où en est le projet aujourd'hui ?
