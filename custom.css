@@ -33,7 +33,10 @@ h2 {
 .title-slide {
   background-image: url('resources/logo-utilitr.png');
 }
-
+.title-slide h2 {
+  text-align: center;
+  text-align-last: center;
+}
 .indent{
   padding: 10px;
   margin-right: 1cm;
