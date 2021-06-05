@@ -103,7 +103,9 @@ kbl(description_appariement, align = "cll",
 ---
 # Introduction
 
+.sauterligne2[
 Le projet `utilitR` est parti de deux constats : 
+]
 
 1. **La transition des agents vers `R` est freinée par une multiplicité d’obstacles** :
     + Eclatement de la documentation de l'écosystème `R` ;
@@ -121,7 +123,7 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 ---
 # Introduction
 
-.sauterligne[
+.sauterligne2[
 Le projet `utilitR` a pour objectif de produire une documentation qui réponde à deux questions, dans le contexte des travaux de la statistique publique :
 ]
 
@@ -130,7 +132,7 @@ Le projet `utilitR` a pour objectif de produire une documentation qui réponde �
 
 --
 
-.sauterligne[
+.sauterligne2[
 Historique du projet :
 ]
 
@@ -144,9 +146,19 @@ Historique du projet :
 * Septembre 2021 : diffusion de la version 1 de la brochure pdf.
 ]
 
+---
+# Introduction
+
+.sauterligne2[
+Deux présentations :
+]
+
+- 8 juin : le contenu de la documentation `utilitR` ;
+- 9 juin : le fonctionnement du projet `utilitR`.
+
 --
 
-.sauterligne[
+.sauterligne2[
 Plan de la présentation :
 ]
 
@@ -192,7 +204,7 @@ Le projet `utilitR` présente trois particularités :
 # Spécificités du projet
 ## Un exemple de publication reproductible
 
-* La documentation est rédigée à l'aide de R Markdown, outil qui permet de rassembler paragraphes textes et blocs de code en un seul code source ;
+* La documentation est rédigée entièrement avec `R` et les outils de l'écosystème `R Markdown` qui permettent de rassembler paragraphes textes et blocs de code en un seul code source ;
 * Processus de publication à l'état de l'art :
     + Plusieurs _outputs_ (site web `r fontawesome::fa("fab fa-firefox")`, livre PDF `r fontawesome::fa("fas fa-file-pdf")`) avec les mêmes codes sources ;
     + Publication automatique à chaque modification des fichiers sources ;
