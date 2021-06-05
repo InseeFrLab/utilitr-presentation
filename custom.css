@@ -71,7 +71,9 @@ h2 {
 img {
   display: inline-block;
 }
-
+.red {
+  color: red;
+}
 .extraitdoc {
   -webkit-box-shadow: 5px 5px 15px 5px #999999 ;
   box-shadow: 5px 5px 15px 5px #999999 ;
