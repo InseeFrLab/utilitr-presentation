@@ -136,7 +136,8 @@ Plan de la présentation :
 
 - Spécificités du projet ;
 - Contenu de la documentation ;
-- Modes de diffusion de la documentation.
+- Modes de diffusion de la documentation ;
+- Présentation des ateliers.
 
 
 
@@ -718,6 +719,8 @@ La documentation `utilitR` est un point d'entrée non exhaustif dans l'environne
 La documentation est diffusée sous trois formes :
 
 - `r fontawesome::fa("fab fa-firefox")` un site internet ([www.utilitr.org](https://www.utilitr.org)) ;
+    + Documentation principale sur [www.book.utilitr.org](www.book.utilitr.org) ;
+    + Guide des bonnes pratiques en `R` sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org) ;
 - `r fontawesome::fa("fas fa-print")` chaque fiche est disponible en format A4 sur le site internet ;
 - `r fontawesome::fa("fas fa-file-pdf")` l'intégralité de la documentation en format pdf. 
 
@@ -735,18 +738,35 @@ Questions :
 ]
 
 ---
-# Où en est le projet aujourd'hui ?
+# Présentation des ateliers
 
-* Un portail d'accès sous forme de site *web* :
-    + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
-    + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
+.sauterligne2[Nous vous proposons six ateliers pour découvrir plus en détail comment vous pouvez utiliser la documentation `utilitR` :
+]
 
---
+* Importer des fichiers plats et des fichiers issus de tableurs	(`csv`, `xlsx`, `ods`) ;
+* Manipuler des tables de données avec le `tidyverse`	;
+* Faire des graphiques avec `ggplot2`	;
+* Utiliser des _packages_, choisir ses _packages_ et gérer ses dépendances ;
+* Manipuler des tables de données avec `data.table`	;
+* Travailler avec des bases de données en `R` : les fichiers détails du Recensement de la Population.
 
-* Prochaines étapes :
-    + Mai 2021 : finalisation des contenus ;
-    + 8-9 juin 2021 : lancement officiel d'`utilitR` ;
-    + Septembre 2021 : diffusion de la version 1 de la brochure pdf.
+.sauterligne[
+Tous les liens Zoom vers les ateliers sont ici : https://www.utilitr.org/conferences/decouverte-utilitr/.
+]
+
+<!-- --- -->
+<!-- # Où en est le projet aujourd'hui ? -->
+
+<!-- * Un portail d'accès sous forme de site *web* : -->
+<!--     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ; -->
+<!--     + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org). -->
+
+<!-- -- -->
+
+<!-- * Prochaines étapes : -->
+<!--     + Mai 2021 : finalisation des contenus ; -->
+<!--     + 8-9 juin 2021 : lancement officiel d'`utilitR` ; -->
+<!--     + Septembre 2021 : diffusion de la version 1 de la brochure pdf. -->
 
 ---
 # Remerciements
