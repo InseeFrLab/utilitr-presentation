@@ -2,7 +2,7 @@
 title : "__`utilitR`__"
 subtitle : "Une documentation collaborative sur `R` pour les agents du service statistique public"
 author : "Olivier Meslin"
-date : "`r format(Sys.time(), '%d %B %Y')`"
+date : "8 juin 2021"
 output:
   xaringan::moon_reader:
     new_session: yes
@@ -692,7 +692,7 @@ Les fiches contiennent des **conseils** et des **remarques** avec trois objectif
 
 --
 
-.small90[
+.small80[
 .indent[
 .conseil[
 Si vous êtes complètement débutants en `R`, il est recommandé d'utiliser l'utilitaire d'importation de ` RStudio`. Une fois que les données sont correctement importées, vous pourrez copier-coller le code dans votre script `R` et vous familiariser avec les fonctions du *package* `readr`.

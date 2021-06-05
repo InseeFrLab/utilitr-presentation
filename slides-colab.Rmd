@@ -2,7 +2,7 @@
 title : "__`utilitR`__"
 subtitle : "Une documentation collaborative sur `R`"
 author : "Lino Galiana, Olivier Meslin"
-date : "`r format(Sys.time(), '%d %B %Y')`"
+date : "9 juin 2021"
 output:
   xaringan::moon_reader:
     new_session: yes
