@@ -1,6 +1,6 @@
 ---
 title : "__`utilitR`__"
-subtitle : "Une documentation collaborative sur `R`"
+subtitle : "Une documentation collaborative sur `R` pour les agents du service statistique public"
 author : "Olivier Meslin"
 date : "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -156,13 +156,13 @@ Le projet `utilitR` présente trois particularités :
 ## Une démarche collaborative et _open source_
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
-* Démarche collaborative impliquant __25 contributeurs__ :
+* Démarche collaborative impliquant 25 contributeurs :
     + dispersés dans toute la France ;
     + issus de plusieurs institutions du SSP (et même hors SSP).
 * Organisation horizontale, sur le modèle de `Wikipedia` :
     + relecture par les pairs ;
     + validation collégiale ;
-* Acculturation à des outils favorisant la **reproductibilité** et la **pérennité**, au-delà de l'usage de `r fontawesome::fa("fab fa-r-project")` :
+* Acculturation à des outils favorisant la *reproductibilité* et la *pérennité*, au-delà de l'usage de `r fontawesome::fa("fab fa-r-project")` :
     + `Docker` `r fontawesome::fa("fab fa-docker")` ;
     + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
     + `Github` `r fontawesome::fa("fab fa-github")`.
@@ -613,7 +613,7 @@ La documentation comporte de nombreux exemples. Ces exemples ont trois particula
 - Les jeux d'exemple sont **disponibles dans tous les environnements de travail** (SSP Cloud, AUSv3, poste local). Ils sont mis à disposition dans le _package_ `doremifasolData` développé par des contributeurs du projet.
 
 ---
-# Contenu de la documentation
+# Réaliser des tâches standards avec `R`
 ## Des exemples reproductibles et proches des cas d'usage
 
 ```{r, echo = FALSE}
@@ -624,11 +624,13 @@ options(dplyr.print_min  = 6)
 options(dplyr.print_max  = 6)
 ```
 
+.small90[
 ```{r, echo = TRUE, warning = FALSE, message = FALSE, eval = FALSE}
 library(doremifasolData)
 library(magrittr)
 library(dplyr)
 
+# Calculer le nombre de stations services par département
 nombre <- doremifasolData::bpe_ens_2018 %>%
   as_tibble() %>%
   filter(TYPEQU == "B316") %>% 
@@ -636,9 +638,11 @@ nombre <- doremifasolData::bpe_ens_2018 %>%
   summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE)) 
 nombre
 ```
+]
 
 --
 
+.small90[
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, eval = TRUE}
 library(doremifasolData)
 library(magrittr)
@@ -651,9 +655,10 @@ nombre <- doremifasolData::bpe_ens_2018 %>%
   summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE)) 
 nombre
 ```
+]
 
 ---
-# Contenu de la documentation
+# Réaliser des tâches standards avec `R`
 ## Conseils et remarques
 
 Les fiches contiennent des **conseils** et des **remarques** avec trois objectifs :
@@ -672,16 +677,17 @@ Si vous êtes complètement débutants en `R`, il est recommandé d'utiliser l'u
 .remarque[
 Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'avec les fonctions du *package* `readr`. Il est donc recommandé d'utiliser `fread()` lorsque vous souhaitez sélectionner facilement les colonnes à importer.
 ]
-
-<!-- .specificite[ -->
-<!-- La direction générale de l'Insee est située à Montrouge. -->
-<!-- ] -->
 ]
 ]
 
-<!-- IL FAUDRAIT METTRE UN EXEMPLE DE CODE -->
+---
+# Réaliser des tâches standards avec `R`
+## Références
 
-    
+
+A COMPLETER
+
+
 ---
 # Diffusion de la documentation
 
@@ -840,7 +846,7 @@ Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel C
 
 Coordination : Lino Galiana et Olivier Meslin.
 
-Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux pour leur soutien.
+Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux soutien.
 
 Logo : Anna Schlaifer.
 
