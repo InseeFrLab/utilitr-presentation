@@ -1,0 +1,190 @@
+---
+title : "Titre"
+subtitle : "Sous-titre"
+author : "Daffy Duck et Bugs Bunny"
+institute : "Insee"
+date : "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+# Introduction
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+.sauterligne3[
+La boîte `.sauterligne3[]` sert à sauter trois lignes avant le contenu de la boîte. Saurez-vous deviner à quoi servent les boîtes `.sauterligne[]` `.sauterligne2[]`?
+]
+
+--
+.sauterligne2[
+  Plan de la présentation :
+]
+
+- Partie 1: introduction;
+- Partie 2: entrée;
+- Partie 3: plat de résistance;
+- Partie 4: dessert.
+
+
+---
+# Introduction
+
+Voici comment faire des listes, numérotées ou pas.
+Le projet `utilitR` est parti de deux constats :
+
+1. Premier point :
+  + Sous-point;
+    + sous-sous-point 1;
+    + sous-sous-point 2;
+
+--
+
+Mettre `--` sur une ligne permet d'afficher progressivement les éléments d'un slide.
+
+2. Deuxième point.
+
+---
+# Utiliser ce modèle de présentation
+
+Voici comment exécuter des _chunks_ en affichant le code:
+
+```{r, echo = TRUE, warning = FALSE, eval = TRUE}
+1+1
+```
+
+Voici comment exécuter des _chunks_ en cachant le code:
+
+```{r, echo = FALSE, warning = FALSE, eval = TRUE}
+1+1
+```
+
+Voici comment montrer un code sans l'exécuter:
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+1+1
+```
+
+---
+# Utiliser ce modèle de présentation
+
+Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
+
+.small90[
+Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
+]
+
+.small80[
+Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
+]
+
+.small70[
+Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
+]
+
+.small60[
+Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
+]
+
+---
+# Utiliser ce modèle de présentation
+
+Les boîtes colorées sont également disponibles (et combinales avec les boîtes `smallXX[]`) :
+
+.recommandation[
+* Pour importer des données de taille réduite (jusqu'à 1 Go), il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du *package* `readr` ;
+* Pour importer des données de taille plus importante (supérieure à 1 Go), il est recommandé d'utiliser la fonction `fread()` du *package* `data.table`.
+* L'usage du *package* `csvread` est déconseillé, de même que l'utilisation des fonctions natives de `R` `read.csv()` et `read.delim()`.
+]
+
+
+.small90[
+.conseil[
+Si vous êtes complètement débutants en `R`, il est recommandé d'utiliser l'utilitaire d'importation de ` RStudio`. Une fois que les données sont correctement importées, vous pourrez copier-coller le code dans votre script `R` et vous familiariser avec les fonctions du *package* `readr`.
+]
+]
+
+
+---
+# Utiliser ce modèle de présentation
+
+.small80[
+.remarque[
+Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'avec les fonctions du *package* `readr`. Il est donc recommandé d'utiliser `fread()` lorsque vous souhaitez sélectionner facilement les colonnes à importer.
+]
+]
+
+.small70[
+.specificite[
+Une forge interne `GitLab` est accessible depuis AUS. Son adresse, ainsi que des éléments complémentaires à cette fiche, sont disponibles dans la documentation AUS (`Y:/Documentation/AUSV3/`).
+]
+]
+
+---
+# Utiliser ce modèle de présentation
+
+Voici comment afficher le code d'un chunk puis son résultat, en deux temps.
+
+```{r, echo = FALSE}
+# On augmente le nombre de lignes imprimées pour faire apparaître deux catégories
+options(tibble.print_min = 6)
+options(tibble.print_max = 6)
+options(dplyr.print_min  = 6)
+options(dplyr.print_max  = 6)
+```
+
+```{r, echo = TRUE, warning = FALSE, message = FALSE, eval = FALSE}
+library(doremifasolData)
+library(magrittr)
+library(dplyr)
+
+nombre <- doremifasolData::bpe_ens_2018 %>%
+  as_tibble() %>%
+  filter(TYPEQU == "B316") %>%
+  group_by(DEP) %>%
+  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE))
+nombre
+```
+
+--
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, eval = TRUE}
+library(doremifasolData)
+library(magrittr)
+library(dplyr)
+
+nombre <- doremifasolData::bpe_ens_2018 %>%
+  as_tibble() %>%
+  filter(TYPEQU == "B316") %>%
+  group_by(DEP) %>%
+  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE))
+nombre
+```
+
+---
+
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !
+
+
