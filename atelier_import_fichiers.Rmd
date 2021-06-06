@@ -439,6 +439,62 @@ deces18
 
 ---
 
+# Importer un fichier xls(x) avec {readxl}
+
+On essaie d'importer le même fichier que précédemment :
+
+```{r, warning = FALSE}
+library(readxl)
+deces18 <-
+  read_excel(
+    path = "base_deces_2018.xlsx",
+    skip = 5,
+    n_max = 6
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+# Importer un fichier xls(x) avec {readxl}
+
+Définir une région :
+
+```{r, warning = FALSE}
+excel_sheets("base_deces_2018.xlsx")
+deces18 <-
+  read_excel(
+    path = "base_deces_2018.xlsx",
+    sheet = "ARM",
+    range = "B6:F10" # prend le pas sur skip et n_max
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+# Importer un fichier xls(x) avec {readxl}
+
+.sauterligne3[
+## Assistant d'importation RStudio
+]
+
+.sauterligne2[
+Interface graphique très commode basée sur le *package* `{readxl}`
+]
+
+.sauterligne[
+Affiche le code correspondant au manipulations effectuées
+]
+
+---
+
 background-image: url('resources/logo-utilitr.png')
 background-size: 7cm
 background-position: 8.5cm 3cm
