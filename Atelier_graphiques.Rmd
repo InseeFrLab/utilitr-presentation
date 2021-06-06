@@ -1,0 +1,128 @@
+---
+title : "Réaliser des grahiques avec `R`"
+subtitle : "`utilitR<br>`Matinées de découverte"
+author: Olivier Meslin
+institute : "Insee"
+date : "`r format(as.Date('2021-06-08'), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+params:
+  eval: true
+---
+
+# Atelier réaliser des graphiques
+## Objectif de cet atelier
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(eval = params$eval)
+```
+
+
+.sauterligne2[
+Cet atelier vise à montrer comment on peut utiliser de la documentation `utilitR` pour réaliser des graphiques avec `R`.
+]
+
+
+.sauterligne3[
+.small90[
+.remarque[
+  Cette présentation n'aborde que les principaux éléments. Vous pouvez vous référer à la [documentation elle-même](https://www.utilitr.org/) pour des informations détaillées !
+  
+]
+]
+]
+
+---
+# Atelier réaliser des graphiques
+## Reproduire les exemples
+
+.sauterligne3[
+### Maintenant, mais aussi plus tard
+]
+
+.sauterligne2[
+### [Lien vers service SSPCloud](https://auth.lab.sspcloud.fr/auth/realms/sspcloud/protocol/openid-connect/auth?client_id=onyxia&redirect_uri=https%3A%2F%2Fdatalab.sspcloud.fr%2Flauncher%2Finseefrlab-helm-charts-datascience%2Frstudio%3Fonyxia.friendlyName%3D%25C2%25ABrstudio-utilitr%25C2%25BB%26init.personnalInit%3D%25C2%25ABhttps%253A%252F%252Fraw.githubusercontent.com%252FInseeFrLab%252FutilitR%252Fmaster%252Fresources%252Finit_9juin.sh%25C2%25BB%26r.version%3D%25C2%25ABinseefrlab%252Futilitr%253A0.7.0%25C2%25BB&state=29ec218a-93ef-4ec3-8072-beff09879771&response_mode=query&response_type=code&scope=openid&nonce=ad6c2bf1-c186-4200-a5eb-6b7479d886d9&powerhooks_useGlobalState_lng=%5B%22fr%22%5D&powerhooks_useGlobalState_isDarkModeEnabled=%5Btrue%5D&powerhooks_useGlobalState_lastDelayedTime=%5B1622756583698%5D&powerhooks_useGlobalState_isExpanded=%5Btrue%5D) (→ discussion Zoom)
+]
+
+.sauterligne[
+### *(pas une obligation, juste une suggestion)*
+]
+
+.sauterligne2[
+### Données existant sur insee.fr
+]
+
+---
+
+# Importer des fichiers plats
+
+.sauterligne3[
+### Objectif : importer fichiers au format texte avec séparateurs de champs
+]
+
+.sauterligne2[
+Exemple :
+]
+
+```
+REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
+84;01;01001;01001;2019;A401;2
+84;01;01001;01001;2019;A404;4
+84;01;01001;01001;2019;A405;2
+84;01;01001;01001;2019;A504;1
+84;01;01001;01001;2019;A507;1
+84;01;01001;01001;2019;B203;1
+84;01;01001;01001;2019;C104;1
+84;01;01001;01001;2019;D233;1
+84;01;01001;01001;2019;F102;1
+84;01;01001;01001;2019;F111;1
+84;01;01001;01001;2019;F113;1
+```
+
+---
+
+# Importer des fichiers plats
+
+.sauterligne3[
+
+.recommandation[
+
+.sauterligne2[
+* **données < 1 Go** <br/>→ *package* `{readr}` : fonctions `read_csv` et `read_delim`
+]
+.sauterligne2[
+* **données > 1 Go** <br/>→ *package* `{data.table}` : fonction `fread`
+]
+.sauterligne2[
+* *package* `{csvread}` et fonctions natives de **R** `read.csv` et `read.delim` déconseillés
+]
+
+]
+
+]
+
+---
+
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !
