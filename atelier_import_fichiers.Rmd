@@ -23,13 +23,15 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+params:
+  eval: true
 ---
 
 # Atelier import de fichiers
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(eval = TRUE)
+knitr::opts_chunk$set(eval = params$eval)
 ```
 
 .sauterligne3[
