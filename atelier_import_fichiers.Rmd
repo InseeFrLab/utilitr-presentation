@@ -167,6 +167,7 @@ Utiliser cet assistant :
 - pour explorer le contenu du fichier (premières lignes, séparateurs...)
 ]
 ]
+]
 
 --
 
