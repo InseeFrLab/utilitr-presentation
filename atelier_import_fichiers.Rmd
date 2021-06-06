@@ -48,12 +48,14 @@ Montrer comment on peut se servir de la documentation `utilitR` pour importer :
 --
 
 .sauterligne3[
+.small90[
 .remarque[
   Cette présentation n'est qu'un aperçu des principaux éléments.
   
   Se référer à la [documentation elle-même](https://www.utilitr.org/) pour des informations détaillées !
   
   _(ces 2 parties correspondent à 2 fiches distinctes)_
+]
 ]
 ]
 
@@ -147,12 +149,17 @@ REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
 ## Assistant d'importation RStudio
 ]
 
-.sauterligne1[
+.sauterligne2[
 Interface graphique très commode basée sur le *package* `{readr}`
+]
 
+.sauterligne[
 Affiche le code correspondant au manipulations effectuées
 ]
 
+--
+
+.sauterligne2[
 .small90[
 .conseil[
 Utiliser cet assistant :
