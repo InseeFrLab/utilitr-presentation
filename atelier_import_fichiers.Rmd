@@ -283,12 +283,11 @@ Elle présente trois avantages :
 ```{r, warning = FALSE}
 library(data.table)
 fread(
- "bpe19_ensemble.csv",
+  "bpe19_ensemble.csv",
   colClasses = c(
     REG = "character",
     NB_EQUIP = "integer"
-  ),
-  encoding = "UTF-8"
+  )
 )
 ```
 
@@ -299,13 +298,12 @@ fread(
 ```{r, warning = FALSE}
 library(data.table)
 fread(
- "bpe19_ensemble.csv",
- select = c("DEPCOM", "TYPEQU", "NB_EQUIP"), # colonnes gardées
+  "bpe19_ensemble.csv",
   colClasses = c(
     REG = "character",
     NB_EQUIP = "integer"
   ),
-  encoding = "UTF-8"
+  select = c("DEPCOM", "TYPEQU", "NB_EQUIP"), # colonnes gardées
 )
 ```
 
