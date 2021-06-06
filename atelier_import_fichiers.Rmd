@@ -324,6 +324,19 @@ fread(
 # Importer des fichiers issus de tableurs
 
 .sauterligne3[
+## Même principe que pour les fichiers plats
+]
+
+## Différences notables :
+- pas de notion de séparateur
+- présences d'onglets
+- possibilité de sélectionner une "région"
+
+---
+
+# Importer des fichiers issus de tableurs
+
+.sauterligne3[
 
 .recommandation[
 
