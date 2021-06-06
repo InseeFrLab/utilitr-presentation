@@ -114,21 +114,61 @@ L'interface graphique d'`esquisse` est assez gourmande en ressources, il est don
 ---
 # Découvrir `ggplot2` avec l'_add-in_ `esquisse`
 
-```{r}
+Cette section illustre l'utilisation d'`esquisse` avec la table `data_iris_paris_2017` du _package_ `doremifasolData`, qui contient des données économiques et sociales sur les iris de la ville de Paris en 2017. Il faut donc charger ces données dans `R` :
 
+```{r, message = FALSE}
+library(doremifasolData)
+data_iris_paris2017 <- doremifasolData::data_iris_paris_2017
 ```
 
 
+---
+# Découvrir `ggplot2` avec l'_add-in_ `esquisse`
+
+Cette section illustre l'utilisation d'`esquisse` avec la table `data_iris_paris_2017` du _package_ `doremifasolData`, qui contient des données économiques et sociales sur les iris de la ville de Paris en 2017. Il faut donc charger ces données dans `R` :
+
+sauterligne2[
+```{r, message = FALSE}
+library(doremifasolData)
+data_iris_paris2017 <- doremifasolData::data_iris_paris_2017
+```
+]
 
 
 ---
 # Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
 
+Vous pouvez accéder à cet _add-in_ en cliquant sur *'ggplot2' builder* dans le menu _Addins_ de  RStudio.
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/addin_rstudio.png")
+```
+
+---
+# Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/addin_rstudio2.png")
+```
+
+---
+# Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
 
 
+Dans la première boîte de dialogue, vous devez sélectionner le `data.frame` qui contient les données que vous voulez représenter sur le graphique. Vous pouvez éventuellement sélectionner certaines variables, et modifier le type de certaines variables.
 
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/choix_dataframe.png")
+```
 
+---
+# Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
 
+Une nouvelle boîte de dialoque s'affiche, grâce à laquelle vous pouvez contruire un graphique. Les variables présentes dans vos données sont listées en haut.
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/esquisse_vide.png")
+```
 
 
 
