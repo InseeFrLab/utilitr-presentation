@@ -373,9 +373,14 @@ Il est déconseillé d'utiliser le _package_ `{xlsx}`.
 
 ---
 
+# Importer un fichier xlsx avec {openxlsx}
+
+Import du 1er onglet, en commençant à lire à la 6e ligne :
+
 ```{r, warning = FALSE}
 library(openxlsx)
-deces18 <- read.xlsx(xlsxFile = "base_deces_2018.xlsx", startRow = 6)
+deces18 <- read.xlsx(xlsxFile = "base_deces_2018.xlsx",
+                     startRow = 6)
 ```
 --
 ```{r, echo = FALSE}
@@ -384,22 +389,39 @@ deces18
 
 ---
 
+# Importer un fichier xlsx avec {openxlsx}
+
+.sauterligne3[
+.remarque[
+Pour récupérer les noms des onglets du fichier sans l'ouvrir :
 ```{r}
-library(openxlsx)
 getSheetNames("base_deces_2018.xlsx")
+```
+]
+]
+
+---
+
+# Importer un fichier xlsx avec {openxlsx}
+
+```{r}
 deces18 <-
   read.xlsx(
     xlsxFile = "base_deces_2018.xlsx",
     startRow = 6,
-    sheet = "ARM"
+    sheet = "ARM" # nom de l'onglet
   )
 ```
 --
 ```{r, echo = FALSE}
 deces18
 ```
-
+  
 ---
+
+# Importer un fichier xlsx avec {openxlsx}
+
+Définir une région :
 
 ```{r}
 library(openxlsx)
@@ -414,7 +436,6 @@ deces18 <-
 ```{r, echo = FALSE}
 deces18
 ```
-
 
 ---
 
