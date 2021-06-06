@@ -94,40 +94,32 @@ Plan de la présensation :
 - utiliser directement `ggplot2`.
 
 ---
-# Découvrir `ggplot2` avec l'_add-in_ `esquisse`
+# Découvrir `ggplot2` avec `esquisse`
 
 Le _package_ `esquisse` propose une interface graphique qui facilite la construction de graphiques avec `ggplot2`. L'objectif de ce *package* est de vous aider à construire rapidement un code `ggplot2` pour faire le graphique que vous voulez.
 
 --
 
+.small80[
 .remarque[
-**l'utilisation d'`esquisse` ne remplace pas l'écriture d'un code `ggplot2`, et cet _add-in_ ne doit pas être utilisé pour réaliser et exporter un graphique sans sauvegarder le code qui le produit** (sinon vous ne pourrez ni reproduire ni modifier votre graphique par la suite).
+**L'utilisation d'`esquisse` ne remplace pas l'écriture d'un code `ggplot2`, et cet _add-in_ ne doit pas être utilisé pour réaliser et exporter un graphique sans sauvegarder le code qui le produit** (sinon vous ne pourrez ni reproduire ni modifier votre graphique par la suite).
+]
 ]
 
 --
 
+.small80[
 .conseil[
 L'interface graphique d'`esquisse` est assez gourmande en ressources, il est donc déconseillé de l'utiliser avec des données volumineuses (plus de 100 000 observations). Si vous êtes dans cette situation, **il est fortement conseillé d'utiliser `esquisse` sur une petite partie de vos données** (les 1 000 ou 10 000 premières lignes par exemple).
 ]
-
+]
 
 ---
-# Découvrir `ggplot2` avec l'_add-in_ `esquisse`
+# Découvrir `ggplot2` avec `esquisse`
 
 Cette section illustre l'utilisation d'`esquisse` avec la table `data_iris_paris_2017` du _package_ `doremifasolData`, qui contient des données économiques et sociales sur les iris de la ville de Paris en 2017. Il faut donc charger ces données dans `R` :
 
-```{r, message = FALSE}
-library(doremifasolData)
-data_iris_paris2017 <- doremifasolData::data_iris_paris_2017
-```
-
-
----
-# Découvrir `ggplot2` avec l'_add-in_ `esquisse`
-
-Cette section illustre l'utilisation d'`esquisse` avec la table `data_iris_paris_2017` du _package_ `doremifasolData`, qui contient des données économiques et sociales sur les iris de la ville de Paris en 2017. Il faut donc charger ces données dans `R` :
-
-sauterligne2[
+.sauterligne2[
 ```{r, message = FALSE}
 library(doremifasolData)
 data_iris_paris2017 <- doremifasolData::data_iris_paris_2017
@@ -136,41 +128,59 @@ data_iris_paris2017 <- doremifasolData::data_iris_paris_2017
 
 
 ---
-# Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
+# Découvrir `ggplot2` avec `esquisse`
 
+.sauterligne2[
 Vous pouvez accéder à cet _add-in_ en cliquant sur *'ggplot2' builder* dans le menu _Addins_ de  RStudio.
+]
 
-```{r, echo = FALSE, out.width= "95%"}
-knitr::include_graphics("./resources/addin_rstudio.png")
+```{r, echo = FALSE, out.width= "50%", out.extra= 'style = "position: absolute; top: 5cm; left: 2cm; padding: 0;"'}
+knitr::include_graphics("./resources/intro_graphiques/addin_rstudio.png")
+```
+
+```{r, echo = FALSE, out.width= "25%", out.extra= 'style = "position: absolute; top: 5cm; left: 15cm; padding: 0;"'}
+knitr::include_graphics("./resources/intro_graphiques/addin_rstudio2.png")
 ```
 
 ---
-# Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
-
-```{r, echo = FALSE, out.width= "95%"}
-knitr::include_graphics("./resources/addin_rstudio2.png")
-```
-
----
-# Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
+# Découvrir `ggplot2` avec `esquisse`
 
 
 Dans la première boîte de dialogue, vous devez sélectionner le `data.frame` qui contient les données que vous voulez représenter sur le graphique. Vous pouvez éventuellement sélectionner certaines variables, et modifier le type de certaines variables.
 
-```{r, echo = FALSE, out.width= "95%"}
-knitr::include_graphics("./resources/choix_dataframe.png")
+```{r, echo = FALSE, out.width= "75%"}
+knitr::include_graphics("./resources/intro_graphiques/choix_dataframe.png")
 ```
 
 ---
-# Réaliser des graphiques avec `R` avec l'_add-in_ `esquisse`
+# Découvrir `ggplot2` avec `esquisse`
 
 Une nouvelle boîte de dialoque s'affiche, grâce à laquelle vous pouvez contruire un graphique. Les variables présentes dans vos données sont listées en haut.
 
 ```{r, echo = FALSE, out.width= "95%"}
-knitr::include_graphics("./resources/esquisse_vide.png")
+knitr::include_graphics("./resources/intro_graphiques/esquisse_vide.png")
 ```
 
+---
+# Découvrir `ggplot2` avec `esquisse`
 
+Vous pouvez déplacer les variables dans les différentes catégories (dans le cadre vert) : `x` pour les abscisses, `y` pour les ordonnées, `color` et `size` pour la couleur et la taille des éléments graphiques...
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/intro_graphiques/esquisse_champs.png")
+```
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+Il est possible de modifier l'apparence du graphique (titres des axes, légende...) avec les menus en bas.
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/intro_graphiques/esquisse_options.png")
+```
+
+---
+# Apprendre les bases de `ggplot2`
 
 
 
