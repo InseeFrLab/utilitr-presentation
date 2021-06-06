@@ -495,6 +495,22 @@ Affiche le code correspondant au manipulations effectuées
 
 ---
 
+# Importer un fichier ods avec {readODS}
+
+## Principale fonction `read_ods()` :
+
+| Argument            | Valeur défaut     | Fonction                                                                                   |
+|---------------------|-----------------------|--------------------------------------------------------------------------------------------|
+| `path`              |                 | Le chemin du fichier `ods` à importer                                                        |
+| `sheet`             | 1                     | Onglet à importer (nom de l'onglet ou numéro |
+| `col_names`         | `TRUE`                  | Indique si la première ligne de l'onglet contient les noms des variables               |
+| `col_types`         | `NULL`                  | `NULL` ou même syntaxe que `readr` | 
+| `na`                | `""`                    | Vecteur donnant les chaîne de caractères interprétées comme des valeurs manquantes.|
+| `skip`              | `0`                     | Le nombre de lignes du fichier de données à ignorer avant de commencer à importer les données  |
+| `range`             |  `NULL`                 | Sélection d'un rectangle à l'aide d'une plage de cellules de type Excel, comme `range = "D12:F15"` |
+
+---
+
 background-image: url('resources/logo-utilitr.png')
 background-size: 7cm
 background-position: 8.5cm 3cm
