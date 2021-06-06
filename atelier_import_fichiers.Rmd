@@ -335,7 +335,7 @@ fread(
 
 ## Différences notables :
 - pas de notion de séparateur
-- présences d'onglets
+- présence d'onglets
 - possibilité de sélectionner une "région"
 
 ---
