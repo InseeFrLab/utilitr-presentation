@@ -681,6 +681,7 @@ head(bpe_ens_2018_wide)
 
 ```{r}
 creation_var <- function(data, nom_variable, nouveau_nom){
+  setDT(data)
   data[, c(nouveau_nom) := get(nom_variable) + 1]
 }
 ```
