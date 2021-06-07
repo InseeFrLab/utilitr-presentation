@@ -69,14 +69,14 @@ Plan de la présentation :
 knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png")
 ```
 
-* Package existant depuis 2006
+* Package existant depuis 2006.
 * L'un des plus utilisés:
-    + 700k téléchargements par mois sur le CRAN
-    + 3000 packages sur le CRAN en dépendent plus ou moins directement
+    + 700k téléchargements par mois sur le CRAN ;
+    + 3000 packages sur le CRAN en dépendent plus ou moins directement.
 
 --
-* Très pérenne, très robuste mais en évolution permanente
-+ Ne dépend que de R-base (aucune autre dépendance)
+* Très pérenne, très robuste mais en évolution permanente ;
++ Ne dépend que de R-base (aucune autre dépendance).
 
 --
 + Grosse communauté de développeurs : plus de 100 contributeurs sur [Github `r fontawesome::fa("fab fa-github")`](https://github.com/Rdatatable/data.table)
@@ -88,22 +88,22 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
 ## Pourquoi `data.table` ?
 
 * Pour la vitesse:
-    + Package beaucoup plus rapide que `tidyverse`
-    + Optimise l'usage mémoire: avantageux pour les grosses données
+    + Package beaucoup plus rapide que `tidyverse`;
+    + Optimise l'usage mémoire: avantageux pour les grosses données.
 
 --
 * Pour la stabilité:
-    + peu de risques que le code casse
+    + peu de risques que le code casse.
 
 --
 * Pour la flexibilité:
-    + Enormément de fonctions pré-implémentées
-    + Programmation et automatisation avec des fonctions facile
+    + Grand nombre de fonctions pré-implémentées;
+    + Programmation et automatisation avec des fonctions facile.
 
 --
 * Pour la lisibilité:
-    + Codes concis, plus lisible
-    + facilite ses évolutions
+    + Codes concis, plus lisible;
+    + facilite ses évolutions/
 --
 
 .center[**`data.table` n'est pas réservé aux grosses données ou aux utilisateurs avancés ! **]
