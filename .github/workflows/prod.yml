@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  bookdown-prod:
+  xaringan-prez:
     if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     container: inseefrlab/utilitr:latest
@@ -22,7 +22,8 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          Rscript -e 'rmarkdown::render("slides-colab.Rmd", output_file = "public/index.html")'
+          Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
+          mv slides-colab.html public/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
