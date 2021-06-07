@@ -48,8 +48,18 @@ Comment utiliser `utilitR` ?
 - Les chapitres suivants traitent de **besoins concrets** et proposent des manières de procéder.
 
 .sauterligne2[
-  Je vais spécifiquement parler du [`tidyverse`](https://www.book.utilitr.org/tidyverse.html) en travaillant sur la bpe
+  Je vais spécifiquement parler du [`tidyverse`](https://www.book.utilitr.org/tidyverse.html)]
+
+---
+# Quand faire du tidyverse ?
+
+.recommandation[
+* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser les *packages* `tibble`, `dplyr` et `tidyr` qui font l'objet de la présente fiche ;
+* Pour des tables de données de grande taille (plus de 1 Go ou plus d'un million d'observations), il est recommandé d'utiliser le _package_ `data.table` qui fait l'objet d'une fiche (et d'un atelier) !
 ]
+
+--
+Ici, je travaillerai sur l'exemple de la bpe :
 
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
@@ -213,6 +223,15 @@ ma_base <- bpe_ens_2018 %>%
 * `is.na()`
 * `between()`, `near()`
 ]
+
+--
+
+On peut également utiliser `slice()` qui sélectionne les observations selon leur "ordre".
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  slice(2:4)
+```
 
 ---
 # `arrange()` : trier les obs.
