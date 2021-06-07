@@ -1,0 +1,814 @@
+---
+title : "Manipuler des données avec `data.table`"
+subtitle : "Atelier __`utilitR`__"
+author : "Lino Galiana"
+institute : "Insee"
+date : "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Introduction
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+dir.create(here::here('ateliers/css'))
+file.copy(here::here('css'), here::here('ateliers'), recursive = TRUE)
+```
+
+.sauterligne[
+Voici les recommandations de [la fiche](https://www.book.utilitr.org/datatable.html#datatable) :
+.small90[
+.indent[
+.recommandation[
+* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser le package `dplyr` ;
+* Pour des tables de données de grande taille (plus de 1 Go ou plus d'un million d'observations), il est recommandé d'utiliser le package `data.table` qui fait l'objet de la présente fiche.
+]
+]
+]
+]
+
+* Tous les exemples présentés sont reproductibles sur une instance [![SSPcloud](https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R)](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB)
+* Certains exemples de cette présentation utilisent les données disponibles dans le package `doremifasolData` ; vous ne pourrez reproduire ces exemples que si ce package est installé sur la machine sur laquelle vous travaillez (cf. [Comment utiliser la documentation utilitR](https://www.book.utilitr.org/presentation-utilitr.html#presentation-utilitr) )
+
+```{r, eval = FALSE}
+remotes::install_github("inseefrlab/doremifasoldata")
+```
+
+---
+.sauterligne2[
+Plan de la présentation :
+]
+
+- Présentation de `data.table` ;
+- Manipuler des données avec `data.table`: principe ;
+- L'opérateur `:=`: la magie de `data.table` ;
+- Manipuler des données avec `data.table`: illustration ;
+- Programmer des fonctions avec `data.table`.
+
+
+---
+# Présentation de `data.table`
+## Principes structurants
+
+
+```{r, echo = FALSE, out.width="20%"}
+knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png")
+```
+
+* Package existant depuis 2006.
+* L'un des plus utilisés:
+    + 700k téléchargements par mois sur le CRAN ;
+    + 3000 packages sur le CRAN en dépendent plus ou moins directement.
+
+--
+* Très pérenne, très robuste mais en évolution permanente ;
++ Ne dépend que de R-base (aucune autre dépendance).
+
+--
++ Grosse communauté de développeurs : plus de 100 contributeurs sur [Github `r fontawesome::fa("fab fa-github")`](https://github.com/Rdatatable/data.table)
++ Enormément de tests pour fiabiliser les évolutions (taux couverture : 99%)
+
+
+---
+# Présentation de `data.table`
+## Pourquoi `data.table` ?
+
+* Pour la vitesse:
+    + Package beaucoup plus rapide que `tidyverse` ;
+    + Optimise l'usage mémoire: avantageux pour les grosses données.
+
+--
+* Pour la stabilité:
+    + peu de risques que le code casse.
+
+--
+* Pour la flexibilité:
+    + Grand nombre de fonctions pré-implémentées ;
+    + Programmation et automatisation avec des fonctions facile.
+
+--
+* Pour la lisibilité:
+    + Codes concis, plus lisible ;
+    + facilite ses évolutions/
+--
+
+.center[**`data.table` n'est réservé ni aux données volumineuses ni aux utilisateurs avancés ! **]
+
+
+---
+# Présentation de `data.table`
+## Tout se passe dans les crochets `[...]`
+
+* `data.table` un package dont l'objet central est le... `data.table`.
+* version améliorée du `data.frame` de base : le `data.table`.
+* syntaxe particulière associée à cette évolution: tout se passe dans l'opérateur crochets: `[...]` ;
+* syntaxe largement inspirée de SQL.
+
+```{r, echo = FALSE}
+knitr::include_graphics("https://linogaliana.netlify.app/img/headers/datatable.png")
+```
+
+> on part du `data.table` `DT`, on sélectionne certaines lignes avec `i`, puis on calcule `j` pour chaque groupe défini par `by`. Si on fait un parallèle avec `SQL`, `i` correspond au `WHERE`, `j` au `SELECT` et `by` au `GROUP BY`
+
+---
+# Présentation de `data.table`
+## Premier jeu de données d'exemple
+
+Avant de travailler sur données réelles, un jeu de données d'exemple [![SSPcloud](https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R)](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB)
+
+
+```{r, eval = FALSE}
+dt <- data.table::data.table(x = c("A", "B", "C"),
+                             y = 1:12,
+                             z = 3:6)
+dt
+```
+
+
+--
+
+```{r, echo = FALSE}
+dt <- data.table::data.table(x = c("A", "B", "C"),
+                             y = 1:12,
+                             z = 3:6)
+dt
+```
+
+---
+# Présentation de `data.table`
+## Tout se passe dans les crochets `[...]`
+
+.small90[
+* Avec `R base`, l'opérateur crochets `df[...]` sert uniquement à sélectionner des lignes ou des colonnes ;
+* Avec `data.table`, l'opérateur crochets permet de tout faire:
+    + rend les codes beaucoup plus concis, donc plus lisibles ;
+    + optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées.
+* Il n'est pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]` ;
+]
+
+---
+# Présentation de `data.table`
+## Tout se passe dans les crochets `[...]`
+
+Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniquement sur les observations pour lesquelles `x` est supérieur à 3
+
+<div class="inline-table"><table class="table" style="width : 70%">
+<tr>
+<td>
+<strong><code>Base R</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>
+  <span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">y</span>,
+  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>,
+  FUN = sum) </code></pre></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong><code>dplyr</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dt</span> <span class="op">%&gt%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">%&gt%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(sum(y))
+</code></pre></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong><code>data.table</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R">dt[z > 3, sum(y), by = x]
+</code></pre></div>
+</td>
+</tr>
+</table></div>
+
+
+---
+# .small90[Manipuler des données avec `data.table`]
+## Enchaîner des opérations
+
+* il suffit d'accoler les opérateurs `[...]`
+* privilégier la lisibilité
+
+--
+
+Exemple: moyenne d'une variable par groupe, puis on trie la table.
+
+```{r}
+# En chaînant
+ans <- dt[ , .(moyenne = mean(y, na.rm = TRUE)), by = x][order(moyenne)]
+ans
+```
+
+---
+# Manipuler des données avec `data.table`: principe ;
+## Enchaîner des opérations
+
+* Accoler les `[...]`
+
+--
+
+```{r}
+dt[, total := y + z]
+dt[ ,
+    .(moyenne = mean(total, na.rm = TRUE)),
+    by = x
+][order(moyenne)]
+```
+
+--
+
+* _Il est temps de présenter `:=`_ `r emo::ji("relieved")`
+
+---
+# L'opérateur `:=`
+## Dataframes utilisé
+
+* On va utiliser la _Base Publique des Equipements_ (BPE)
+
+```{r}
+library(data.table)
+# Charger la base permanente des équipements
+bpe_ens_2018 <- doremifasolData::bpe_ens_2018
+# Convertir ce data.frame en data.table
+bpe_ens_2018_dt <- as.data.table(bpe_ens_2018)
+```
+
+--
+
+```{r}
+bpe_ens_2018_dt[sample(.N,5)]
+```
+
+
+---
+# L'opérateur `:=`
+## Dataframes utilisé
+
+* On va aussi utiliser les données Filosofi (EPCI) 
+
+```{r}
+# Convertir la table en data.table
+filosofi_epci_2016_dt <- as.data.table(doremifasolData::filosofi_epci_2016)
+# Sélectionner des colonnes
+filosofi_epci_2016_dt <- 
+  filosofi_epci_2016_dt[, .(CODGEO, TP6016, TP60AGE116, TP60AGE216, 
+                            TP60AGE316, TP60AGE416, TP60AGE516, TP60AGE616)]
+```
+
+
+--
+
+```{r}
+filosofi_epci_2016_dt[sample(.N,3)]
+```
+
+
+
+---
+# L'opérateur `:=`
+## Dataframes utilisé
+
+* On va aussi utiliser les données Filosofi (communes) 
+
+```{r}
+filosofi_com_2016_dt <- as.data.table(doremifasolData::filosofi_com_2016)
+filosofi_com_2016_dt[,
+                     `:=`(
+                       dep = substr(get('CODGEO'), 0, 2),
+                       groupe_revenu = 5000*floor(get('MED16')/5000)
+                       )  
+                     ]
+```
+
+--
+
+```{r}
+filosofi_com_2016_dt[sample(.N,2)]
+```
+
+
+---
+# L'opérateur `:=`
+## Principe
+
+* L'assignation en `R base` est la fonction `<-` ;
+* Problèmes:
+    + sa syntaxe est peu pratique ;
+    + son usage est coûteux en mémoire.
+
+--
+* `data.table` propose une autre approche: l'assignation par référence (`:=`), qui permet de :
+    + modifier l'objet `data.table` en faisant référence à une colonne ;
+    + ne pas faire de copie mémoire des colonnes non utilisées.
+
+--
+* Equivalent à `dplyr::mutate` ?
+    + comme `mutate`, `:=` sert à créer une nouvelle colonne ou modifier une existante ;
+    + mais modifie directement le `data.table` sans duplication.
+
+|||
+|---|---- |
+| `r emo::ji("x")` | `dt <- dt[ , nouvelle_colonne := une_formule]`|
+| `r emo::ji("heavy_check_mark")` | `dt[ , nouvelle_colonne := une_formule]`|
+
+
+---
+# L'opérateur `:=`
+## Principe
+
+.small90[
+<div class="inline-table"><table class="table">
+<colgroup>
+<col span="1" style="width: 10%;">
+<col span="1" style="width: 50%;">
+<col span="1" style="width: 40%;">
+</colgroup>
+<tr>
+<th>
+<em>Package</em>
+</th>
+<th>
+Code
+</th>
+<th>
+Commentaire
+</th>
+</tr>
+<tr>
+<td>
+<code>dplyr</code>
+</td>
+<td>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">bpe_ens_2018</span> <span class="op">&lt;-</span> 
+  <span class="va">bpe_ens_2018</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">mutate</a></span>(nouvelle_colonne = <span class="va">NB_EQUIP</span> * 10)
+</code></pre></div>
+</td>
+<td>
+Il faut utiliser une assignation (<code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>) pour modifier la table.
+</td>
+</tr>
+<tr>
+<td>
+<code>data.table</code>
+</td>
+<td>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r"><code class="sourceCode R">
+<span class="va">bpe_ens_2018</span>[, nouvelle_colonne := <span class="va">NB_EQUIP</span> * 10]
+</code></pre></div>
+</td>
+<td>
+Il ne faut pas d’assignation pour modifier la table, qui est modifiée par référence.
+</td>
+</tr>
+</table></div>
+]
+
+---
+# L'opérateur `:=`
+## Exemple 1: créer de nouvelles colonnes par référence
+
+* Possible de faire plusieurs opérations simultanées
+    + La syntaxe ` `:=` ` est pratique dans ce cas
+
+```{r, eval = FALSE}
+bpe_ens_2018_dt[ , c("nouvelle_colonne1", "nouvelle_colonne2") :=  
+                   list(NB_EQUIP * 2, NB_EQUIP + 3)]
+```
+
+
+```{r, eval = FALSE}
+bpe_ens_2018_dt[ , `:=`(nouvelle_colonne1 = NB_EQUIP * 2,
+                        nouvelle_colonne2 = NB_EQUIP + 3)]
+```
+
+--
+
+`r emo::ji("warning")` attention à ne pas involontairement écraser une 
+colonne existante
+
+---
+# L'opérateur `:=`
+## Exemple 2: supprimer une colonne par référence
+
+* Il suffit d'assigner la valeur `NULL` à la colonne 
+
+```{r, eval = FALSE}
+bpe_ens_2018_dt[ , c("nouvelle_colonne1", "nouvelle_colonne2") := NULL]
+```
+
+---
+# L'opérateur `:=`
+## Exemple 3: faire un remplacement conditionnel
+
+* `:=` pour remplacer certaines lignes
+* beaucoup plus efficace que `dplyr::if_else()` ou `dplyr::case_when()`
+
+```{r}
+bpe_ens_2018_dt[ , NB_EQUIP_HORS_CHAUSS := NB_EQUIP]
+head(bpe_ens_2018_dt, 2)
+```
+
+```{r}
+bpe_ens_2018_dt[TYPEQU == "B304", NB_EQUIP_HORS_CHAUSS := NA_real_]
+rbind(
+  head(bpe_ens_2018_dt[TYPEQU == "B304"], 1),
+  head(bpe_ens_2018_dt[TYPEQU != "B304"], 1)
+)
+```
+
+---
+# L'opérateur `:=`
+## Exemple 3: faire un remplacement conditionnel
+
+* depuis peu, existe mieux: `data.table::fifelse` et `data.table::fcase`
+    + *f* pour *fast*
+
+```{r}
+bpe_ens_2018_dt[,NB_EQUIP_HORS_CHAUSS := fifelse(TYPEQU == "B304",
+                                                 NA_real_,
+                                                 NB_EQUIP)]
+```
+
+
+---
+# Manipuler des données: illustration
+## Créer un `data.table`
+
+- la fonction `fread()` importe un fichier plat comme les `.csv`
+    + cf. fiche [Importer des fichiers plats (`.csv`, `.tsv`, `.txt`)](https://www.book.utilitr.org/importcsv.html) ;
+
+--
+- Les fonctions `setDT()` et `as.data.table()` convertissent un `data.frame` en `data.table`.
+    + Règle en `data.table`: s'il existe une fonction `set*`, la privilégier
+
+---
+# Manipuler des données: illustration
+## Rappel
+
+
+```{r, echo = FALSE}
+knitr::include_graphics("https://linogaliana.netlify.app/img/headers/datatable.png")
+```
+
+> on part du `data.table` `DT`, on sélectionne certaines lignes avec `i`, puis on calcule `j` pour chaque groupe défini par `by`. Si on fait un parallèle avec `SQL`, `i` correspond au `WHERE`, `j` au `SELECT` et `by` au `GROUP BY`
+
+
+---
+# Manipuler des données: illustration
+## Sélectionner des lignes (dimension `i`)
+
+Sélectionne les magasins de chaussures (`TYPEQU == "B304"`) dans le premier arrondissement de Paris (`DEPCOM == "75101"`) dans la table `bpe_ens_2018_dt`
+
+--
+
+```{r}
+bpe_ens_2018_dt[DEPCOM == "75101" & TYPEQU == "B304"]
+```
+
+---
+# Manipuler des données: illustration
+## Sélectionner des colonnes (dimension `j`)
+
+* Plusieurs méthodes:
+    + indiquer les colonnes à conserver sous forme de liste
+    + utiliser un mot-clé de `data.table`, `.SD` qui signifie `Subset of Data`
+
+--
+
+* __Méthode 1__ (liste): 
+
+```{r}
+bpe_ens_2018_dt[ , .(DEPCOM, TYPEQU, NB_EQUIP)]
+```
+
+---
+# Manipuler des données: illustration
+## Sélectionner des colonnes (dimension `j`)
+
+* Plusieurs méthodes:
+    + indiquer les colonnes à conserver sous forme de liste
+    + utiliser un mot-clé de `data.table`, `.SD` qui signifie `Subset of Data`
+
+--
+
+* __Méthode 2__ (.SD): 
+
+```{r}
+bpe_ens_2018_dt[ , .SD, .SDcols = c("DEPCOM", "TYPEQU", "NB_EQUIP")]
+```
+
+
+---
+# Manipuler des données: illustration
+## Note sur `.SD` et `.SDcols`
+
+* `.SDcols` permet de contrôler le comportement de `.SD`
+* Syntaxe très flexible (très utile avec des fonctions)
+* Mais plus lent que d'autres approches `data.table` (moins optimisée)
+
+
+---
+# Manipuler des données: illustration
+## Trier un `data.table`: `order`
+
+* Ajouter un signe `-` devant une variable pour trier par ordre décroissant
+
+```{r}
+bpe_ens_2018_dt[order(DEPCOM, -TYPEQU)]
+```
+
+
+---
+# Manipuler des données: illustration
+## Calculer des statistiques
+
+Requête sur la dimension `j`
+
+```{r}
+bpe_ens_2018_dt[ , 
+                 .(NB_EQUIP_TOT   = sum(NB_EQUIP, na.rm = TRUE),
+                   NB_BOULANG_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE))]
+```
+
+--
+
+Ou statistiques sur un sous-champ (requête sur `i` et `j`)
+
+```{r}
+bpe_ens_2018_dt[TYPEQU == "B203", .(NB_BOULANG_TOT = sum(NB_EQUIP, na.rm = TRUE))]
+```
+
+---
+# Manipuler des données: illustration
+## Des fonctions implémentées facilitent la vie
+
+
+| Fonction        | Opération                                         | Exemple     |
+|-----------------|---------------------------------------------------|-------------------------------------------------------------|
+|`.N`             | Nombre d'observations                             | `dt[ , .N, by = 'group_var']` |
+|`uniqueN()`      | Nombre de valeurs uniques de la variable `x`  | `dt[ , uniqueN(x), by = 'group_var']` |
+|`nafill`         | Remplit les valeurs manquantes d'une variable numérique, par exemple par `123` (pour plus d'options, voir l'aide `?nafill`)                            | `dt[ , nafill(y, fill = 123)]` |
+|`%chin%`         | Chaîne de caractères dans la liste                | `dt[x %chin% c("a", "b")]` |
+|`%between%`      | Valeur entre deux nombres                         | `dt[x %between% c(5,13)]` |
+| `%like%`        | Reconnaissance d'une chaîne de caractères (expression régulière)         | `dt[departement %like% "^Haute"]`
+
+---
+# Manipuler des données: illustration
+## Opérations par groupe (dimension `by`)
+
+* Equivalent du `group_by()` du _package_ `dplyr`
+    + Mais plus efficace
+    
+--
+
+* 2 syntaxes possibles:
+    + `by = c("var1", "var2", "var3")`
+    + `by = .(var1, var2, var3)`
+
+---
+# Manipuler des données: illustration
+## Opérations par groupe (dimension `by`)
+
+> Statistiques par département, `by = .(DEP)` pour calculer le nombre total d’équipements, `sum(NB_EQUIP, na.rm = TRUE)` et le nombre total de boulangeries, `sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)`
+
+```{r}
+bpe_ens_2018_dt[ , 
+                 .(NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
+                   NB_BOULANG_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)), 
+                 by = .(DEP)]
+```
+
+* `by` fonctionne également avec l'opérateur `:=` (équivalent de `dplyr::group_by(...) %>% dplyr::mutate(...)` )
+
+---
+# Manipuler des données: illustration
+## Joindre des données
+
+* Fonction `merge()` plus rapide que la fonction de base.
+
+| **Option**                                | **Signification**                                                        |
+|-------------------------------------------|--------------------------------------------------------------------------|
+| `by = var_jointure`                       | Joindre sur la variable `var_jointure` (présente dans `x` et dans `y`)   |
+| `by.x = "identx", by.y = "identy"`        | Joindre sur la condition `identx == identy`                              |
+|`all.x = TRUE`                             | *Left join* (garder toutes les lignes de `x`)                            |
+|`all.y = TRUE`                             | *Right join* (garder toutes les lignes de `y`)                           |
+|`all = TRUE`                               | *Full join* (garder toutes les lignes de `x` et de `y`)                  |
+
+jointures plus sophistiquées dans la [vignette sur le sujet](https://rstudio-pubs-static.s3.amazonaws.com/52230_5ae0d25125b544caab32f75f0360e775.html)
+
+---
+# Manipuler des données: illustration
+## Indexation d'une table
+
+
+* Fonctionalité très puissante pour accélérer les opérations sur les lignes (filtres, jointures, etc.) en `data.table`
+    + `setkey(dt, a, b)`
+    + `setkeyv(dt, c("a","b"))`
+
+* Algorithme de recherche sur les lignes sera ainsi beaucoup plus efficace
+    + *diviser pour régner* = *binary search*
+    + vs *vector scan*
+    
+--
+
+* Central pour la performance
+
+
+---
+# Manipuler des données: illustration
+## Réorganiser les données (*reshaping*)
+
+| **`melt()`**                                         | **`dcast()`**                                    |
+| :--------------------------------------------------: | :----------------------------------------------: |
+| Réorganiser les données dans un format `long`           | Réorganise les données dans un format `wide`       |
+|![](https://www.book.utilitr.org/pics/datatable/widetolong.png)      |![](https://www.book.utilitr.org/pics/datatable/longtowide.png)   |
+
+
+
+---
+# Manipuler des données: illustration
+## Réorganiser les données (*reshaping*): `melt`
+
+*Exemple: Obtenir une nouvelle table, avec une observation par EPCI et par tranche d’âge*
+
+--
+
+```{r}
+donnees_pauvrete_long <- 
+  melt(data = filosofi_epci_2016_dt, 
+       id.vars = c("CODGEO"), 
+       measure.vars = c("TP6016", "TP60AGE116", "TP60AGE216", 
+                        "TP60AGE316", "TP60AGE416", "TP60AGE516", "TP60AGE616"),
+       variable.name = "tranche_age",
+       value.name    = "taux_pauvrete"
+  )
+head(donnees_pauvrete_long, 3)
+```
+
+
+---
+# Manipuler des données: illustration
+## Réorganiser les données (*reshaping*): `dcast`
+
+*Exemple: réorganiser la table `bpe_ens_2018_dt` de façon à obtenir une table qui contient une ligne par type d'équipement et une colonne par région (`TYPEQU ~ REG`). Ces colonnes vont contenir la somme (`fun.aggregate = sum`) du nombre d'équipements (`value.var = "NB_EQUIP"`)*
+
+```{r}
+bpe_ens_2018_wide <- dcast(bpe_ens_2018_dt, 
+                           TYPEQU ~ REG, 
+                           value.var = "NB_EQUIP", 
+                           fun.aggregate = sum)
+head(bpe_ens_2018_wide)
+```
+
+
+---
+# Ecrire des fonctions avec `data.table`
+## La fonction `get`
+
+* facile d'écrire avec `data.table` des fonctions génériques faisant appel à des noms de variables en arguments
+* plus simple: utiliser la fonction `get`
+
+
+--
+
+```{r, eval = FALSE}
+creation_var <- function(data, nom_variable, nouveau_nom){
+  setDT(data)
+  data[, c(nouveau_nom) := get(nom_variable) + 1]
+}
+```
+
+```{r, eval = FALSE}
+head(creation_var(filosofi_com_2016_dt, 
+                  nom_variable = "NBMENFISC16",
+                  nouveau_nom  = "nouvelle_variable"), 2)
+```
+
+```{r, echo = FALSE, eval = FALSE}
+tempdf<- creation_var(filosofi_com_2016_dt, 
+                  nom_variable = "NBMENFISC16",
+                  nouveau_nom  = "nouvelle_variable")
+head(tempdf[,.(CODGEO, LIBGEO, NBMENFISC16, nouvelle_variable)])
+```
+
+---
+# Ecrire des fonctions avec `data.table`
+## La fonction `get`
+
+* Possible dans la dimension ligne (`i`)
+
+--
+
+```{r}
+head(filosofi_com_2016_dt[(get("MED16") < 20000) & (get('NBMENFISC16') < 10000), 1:5], 3)
+```
+
+---
+# Ecrire des fonctions avec `data.table`
+## Aller plus loin
+
+> Exemple: on veut le taux de pauvreté (`TP6016`) moyen pour les communes par tranches de revenu médian de 5000 euros et par département
+
+--
+
+```{r}
+new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
+                               xvar = "MED16", newname = "x"){
+  
+  datanew <- data.table::copy(data)
+  datanew <- datanew[, .(mean(get(xvar), na.rm=TRUE)), by = grouping_var]
+  data.table::setnames(datanew, old = "V1", new = newname)
+  return(datanew)
+}
+```
+
+```{r, eval = FALSE}
+head(new_variable_group(filosofi_com_2016_dt, xvar = "TP6016",
+                        newname = "newvar"))
+```
+
+```{r, echo = FALSE, eval = FALSE}
+head(new_variable_group(filosofi_com_2016_dt[,.SD,.SDcols = c(colnames(filosofi_com_2016_dt)[1:5],
+                                                "dep", "groupe_revenu", "TP6016")], xvar = "TP6016",
+                        newname = "newvar"))
+```
+
+---
+# Ecrire des fonctions avec `data.table`
+## Généraliser: le combo gagnant: `get` et `.SD`
+
+> Exemple: on veut les taux moyens de pauvreté (`TP6016`) et de pauvreté des moins de 30 ans (`TP60AGE116`)  pour les communes par tranches de revenu médian de 5000 euros, par département
+
+```{r, eval = FALSE}
+new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
+                               xvars = "MED16", newnames = "x"){
+  
+  datanew <- data.table::copy(data)
+  datanew <- datanew[, lapply(.SD, function(x) mean(x, na.omit = TRUE)), .SDcols = xvars, by = grouping_var]
+  data.table::setnames(datanew, old = xvars, new = newnames)
+
+  return(datanew)
+}
+head(na.omit(new_variable_group(filosofi_com_2016_dt, xvars = c("TP6016", "TP60AGE116"),
+                        newnames = c("taux_pauvrete_moyen", "taux_pauvrete_moyen_jeunes"))))
+```
+
+---
+# Remerciements
+
+
+<!-- Le projet `utilitR` est un projet collaboratif qui a bénéficié des contributions de :  -->
+<!-- r paste0(paste(format(Filter(function(x) !("cph" %in% x$role), desc::desc_get_authors()), include = c("given", "family")), collapse = ", "), ".") -->
+
+.small90[
+.auteurs[
+
+Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel Cacheux, Arthur Cazaubiel, Sylvain Daubrée, Arlindo Dos Santos, Alexis Eidelman, Marie-Emmanuelle Faure, Gilles Fidani, Lino Galiana, Gaëlle Genin, Pierre Lamarche, Claire Legroux, Romain Lesur, Jean-Daniel Lomenède, Pascal Mercier, Olivier Meslin, Géraldine Rochambeau, Milena Suarez Castillo, Cédric Tassart.
+
+Coordination : Lino Galiana et Olivier Meslin.
+
+Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux.
+
+Logo : Anna Schlaifer.
+
+Les contributeurs remercient Julien Taquet et Marc Hufschmitt pour leur aide précieuse sur la mise en forme du site et de la brochure.
+]
+]
+
+---
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !
+
+
