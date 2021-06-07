@@ -159,11 +159,11 @@ Vous pouvez accéder à cet _add-in_ en cliquant sur *'ggplot2' builder* dans le
 ]
 
 ```{r, echo = FALSE, out.width= "50%", out.extra= 'style = "position: absolute; top: 5cm; left: 2cm; padding: 0;"'}
-knitr::include_graphics("../resources/intro_graphiques/addin_rstudio.png")
+knitr::include_graphics("./resources/intro_graphiques/addin_rstudio.png")
 ```
 
 ```{r, echo = FALSE, out.width= "25%", out.extra= 'style = "position: absolute; top: 5cm; left: 15cm; padding: 0;"'}
-knitr::include_graphics("../resources/intro_graphiques/addin_rstudio2.png")
+knitr::include_graphics("./resources/intro_graphiques/addin_rstudio2.png")
 ```
 
 ---
@@ -173,7 +173,7 @@ knitr::include_graphics("../resources/intro_graphiques/addin_rstudio2.png")
 Dans la première boîte de dialogue, vous devez sélectionner le `data.frame` qui contient les données que vous voulez représenter sur le graphique. Vous pouvez éventuellement sélectionner certaines variables, et modifier le type de certaines variables.
 
 ```{r, echo = FALSE, out.width= "75%"}
-knitr::include_graphics("../resources/intro_graphiques/choix_dataframe.png")
+knitr::include_graphics("./resources/intro_graphiques/choix_dataframe.png")
 ```
 
 ---
@@ -182,7 +182,7 @@ knitr::include_graphics("../resources/intro_graphiques/choix_dataframe.png")
 Une nouvelle boîte de dialoque s'affiche, grâce à laquelle vous pouvez contruire un graphique. Les variables présentes dans vos données sont listées en haut.
 
 ```{r, echo = FALSE, out.width= "95%"}
-knitr::include_graphics("../resources/intro_graphiques/esquisse_vide.png")
+knitr::include_graphics("./resources/intro_graphiques/esquisse_vide.png")
 ```
 
 ---
@@ -191,7 +191,7 @@ knitr::include_graphics("../resources/intro_graphiques/esquisse_vide.png")
 Vous pouvez déplacer les variables dans les différentes catégories (dans le cadre vert) : `x` pour les abscisses, `y` pour les ordonnées, `color` et `size` pour la couleur et la taille des éléments graphiques...
 
 ```{r, echo = FALSE, out.width= "95%"}
-knitr::include_graphics("../resources/intro_graphiques/esquisse_champs.png")
+knitr::include_graphics("./resources/intro_graphiques/esquisse_champs.png")
 ```
 
 ---
@@ -200,7 +200,7 @@ knitr::include_graphics("../resources/intro_graphiques/esquisse_champs.png")
 Il est possible de modifier l'apparence du graphique (titres des axes, légende...) avec les menus en bas.
 
 ```{r, echo = FALSE, out.width= "95%"}
-knitr::include_graphics("../resources/intro_graphiques/esquisse_options.png")
+knitr::include_graphics("./resources/intro_graphiques/esquisse_options.png")
 ```
 
 ---
