@@ -54,7 +54,7 @@ Comment utiliser `utilitR` ?
 # Quand faire du tidyverse ?
 
 .recommandation[
-* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser les *packages* {dplyr} et {tidyr} qui font l'objet de la présente fiche ;
+* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser les _packages_ {dplyr} et {tidyr} qui font l'objet de la présente fiche ;
 * Pour des tables de données de grande taille (plus de 1 Go ou plus d'un million d'observations), il est recommandé d'utiliser le _package_ {data.table} qui fait l'objet d'une fiche (et d'un atelier) !
 ]
 
@@ -70,13 +70,13 @@ bpe_ens_2018 <- doremifasolData::bpe_ens_2018
 ---
 # Tidyverse, kesako ?
 
-Le `tidyverse` est un ensemble de _packages_ `R` qui présentent un cadre de codage "homogène" et de nombreux avantages : 
+Le {tidyverse} est un ensemble de _packages_ `R` qui présentent un cadre de codage "homogène" et de nombreux avantages : 
 * La syntaxe est structurée autour de verbes, ce qui la rend très lisible ;
 * Les opérations par groupe sont facilitées par l'instruction `group_by()` ;
 * Les noms des colonnes peuvent être appelés directement;
 * L'opérateur `%>%` (pipe) qui permet d'enchaîner les instructions ;
 
-Dans cette présentation, j'aborderai deux packages :{dplyr}et {tidyr}.
+Dans cette présentation, j'aborderai deux _packages_ :{dplyr}et {tidyr}.
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 library(dplyr)
@@ -119,7 +119,7 @@ c(1,3,pi,10,-50) %>%
 ---
 # Comprendre {dplyr}
 
-{dplyr}est **LE** _package_ central du `tidyverse` pour manipuler les données via des verbes comme `select`, `filter`, `summarise`, etc.
+{dplyr}est **LE** _package_ central du {tidyverse} pour manipuler les données via des verbes comme `select`, `filter`, `summarise`, etc.
 
 .sauterligne2[Ces verbes/fonctions ont les propriétés suivantes : 
 
@@ -399,8 +399,44 @@ print(
 ---
 # {tidyr} : pour ranger les données
 
-Le _package_ {tidyr} propose
+Le _package_ {tidyr} propose diverses fonctions pour ranger les données. Une fonctionnalité que j'apprécie particulièrement est celle de "pivoter" les données !
 
+
+* **Transformation *wide to long* ** : 
+
+![Transformation *wide to long*](pics/datatable/widetolong.png)
+
+* **Transformation *long to wide* ** : 
+
+![Transformation *long to wide*](pics/datatable/longtowide.png)
+---
+# Pivoter avec {tidyr}
+
+Pour pivoter, il faut utiliser : `pivot_longer` et `pivot_wider` !
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+base_a_pivoter <-bpe_ens_2018 %>%
+  mutate(TYPEQU1=substr(TYPEQU,1,1)) %>%
+  group_by(DCIRIS,DEPCOM,TYPEQU1) %>%
+  summarise(NB_EQUIP=sum(NB_EQUIP)) %>%
+  ungroup()
+
+```
+
+* Sous quel format est cette base : _wide_ ou _long_ ?
+
+--
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+library("tidyr")
+
+ma_base <-base_a_pivoter %>%
+  pivot_wider(id_cols=c(DCIRIS,DEPCOM), #OBLIGATOIRE
+              names_from=TYPEQU1, #OBLIGATOIRE
+              values_from=NB_EQUIP, #OBLIGATOIRE
+              names_prefix = "NB_EQUIP_", #FACULTATIF
+              values_fill = 0) #FACULTATIF
+```
 
 ---
 # Utiliser ce modèle de présentation
@@ -408,7 +444,7 @@ Le _package_ {tidyr} propose
 Les boîtes colorées sont également disponibles (et combinales avec les boîtes `smallXX[]`) :
 
 .recommandation[
-* Pour importer des données de taille réduite (jusqu'à 1 Go), il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du *package* `readr` ;
+* Pour importer des données de taille réduite (jusqu'à 1 Go), il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du  _package_ `readr` ;
 * Pour importer des données de taille plus importante (supérieure à 1 Go), il est recommandé d'utiliser la fonction `fread()` du *package* `data.table`.
 * L'usage du *package* `csvread` est déconseillé, de même que l'utilisation des fonctions natives de `R` `read.csv()` et `read.delim()`.
 ]
