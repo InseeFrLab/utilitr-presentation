@@ -108,6 +108,8 @@ install.packages("monBeauPackage")
 * Permet de mettre à jour le paquet
 ]
 
+--
+
 .recommandation[
 * Ne pas mettre `install.packages()` dans ses programmes
 * Utiliser une des méthodes qui suivront pour gérer les dépendances de son projet 
@@ -117,6 +119,9 @@ install.packages("monBeauPackage")
 
 # Parcourir ses bibliothèques dans RStudio
 
+```{r, out.height="100%", echo=FALSE}
+knitr::include_graphics("./resources/rstudio-packages-pane.png")
+```
 
 ---
 
@@ -277,7 +282,7 @@ La liste des logiciels libres utilisés dans la statistique publique :
 
 # Se rassurer
 
-### La qualité de la documentation
+La qualité de la documentation
 
 - les vignettes
 - les sites web associés
@@ -288,18 +293,17 @@ Une marque de soins
 
 --
 
+Facilité d'utilisation : à vous de juger !
+
+--
+
 .conseil[
   Ne pas utiliser de paquet n'ayant ni vignette ni site web associé
 ]
 
-
 --
 
-### Facilité d'utilisation
-
---
-
-A vous de juger !
+Exemple : trouver les vignettes et la documentation depuis RStudio
 
 ---
 
@@ -313,9 +317,13 @@ Les problèmes des packages confidentiels :
 - présence éventuelle de bugs non détectés
 - bonne adéquation à la tâche
 
+--
+
 .conseil[
 Ne pas utiliser de package qui paraisse trop confidentiel.
 ]
+
+--
 
 ```{r}
 with(
@@ -324,8 +332,13 @@ with(
 )
 ```
 
+--
 
 Enquêter sur internet, [StackOverflow](https://stackoverflow.com/), [GitHub](https://github.com)...
+
+--
+
+Exemple avec `ggplot2`
 
 ---
 
@@ -334,13 +347,32 @@ Enquêter sur internet, [StackOverflow](https://stackoverflow.com/), [GitHub](ht
 Réactivité de la maintenance :
 - le facteur d'autobus
 
+--
+
 Qualité des développements :
 - les tests
+
+--
+
 - les badges de qualimétrie
+
+--
 
 Réputation des auteurs
 
+--
+
+Comprendre où en est le package dans son cycle de vie
+
+```{r, out.height="100px", echo=FALSE}
+knitr::include_graphics("https://lifecycle.r-lib.org/articles/figures/lifecycle.svg")
+```
+
+--
+
 Enquêter sur le site de développement (GitHub ou GitLab)
+
+--
 
 .conseil[
 Ne pas utiliser de package qui présente de nombreuses issues restées sans réponse.
@@ -350,163 +382,48 @@ Se méfier très fortement des packages n’ayant qu’un seul contributeur.
 
 ---
 
-.sauterligne3[
-La boîte `.sauterligne3[]` sert à sauter trois lignes avant le contenu de la boîte. Saurez-vous deviner à quoi servent les boîtes `.sauterligne[]` `.sauterligne2[]`?
-]
+# Exemples 
 
+- le package [accSDA](https://cran.r-project.org/package=accSDA)
 
-
---
-.sauterligne2[
-  Plan de la présentation :
-]
-
-- Partie 1: introduction;
-- Partie 2: entrée;
-- Partie 3: plat de résistance;
-- Partie 4: dessert.
-
-
----
-# Introduction
-
-Voici comment faire des listes, numérotées ou pas.
-Le projet `utilitR` est parti de deux constats :
-
-1. Premier point :
-  + Sous-point;
-    + sous-sous-point 1;
-    + sous-sous-point 2;
+- le package [rcites](https://cran.r-project.org/package=rcites)
 
 --
 
-Mettre `--` sur une ligne permet d'afficher progressivement les éléments d'un slide.
-
-2. Deuxième point.
-
----
-# Utiliser ce modèle de présentation
-
-Voici comment exécuter des _chunks_ en affichant le code:
-
-```{r, echo = TRUE, warning = FALSE, eval = TRUE}
-1+1
-```
-
-Voici comment exécuter des _chunks_ en cachant le code:
-
-```{r, echo = FALSE, warning = FALSE, eval = TRUE}
-1+1
-```
-
-Voici comment montrer un code sans l'exécuter:
-
-```{r, echo = TRUE, warning = FALSE, eval = FALSE}
-1+1
-```
-
----
-# Utiliser ce modèle de présentation
-
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-
-.small90[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
-
-.small80[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
-
-.small70[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
-
-.small60[
-Les boîtes `.smallXX[]` permettent de changer facilement la taille des éléments.
-]
-
----
-# Utiliser ce modèle de présentation
-
-Les boîtes colorées sont également disponibles (et combinales avec les boîtes `smallXX[]`) :
-
-.recommandation[
-* Pour importer des données de taille réduite (jusqu'à 1 Go), il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du *package* `readr` ;
-* Pour importer des données de taille plus importante (supérieure à 1 Go), il est recommandé d'utiliser la fonction `fread()` du *package* `data.table`.
-* L'usage du *package* `csvread` est déconseillé, de même que l'utilisation des fonctions natives de `R` `read.csv()` et `read.delim()`.
-]
-
-
-.small90[
 .conseil[
-Si vous êtes complètement débutants en `R`, il est recommandé d'utiliser l'utilitaire d'importation de ` RStudio`. Une fois que les données sont correctement importées, vous pourrez copier-coller le code dans votre script `R` et vous familiariser avec les fonctions du *package* `readr`.
-]
-]
-
-
----
-# Utiliser ce modèle de présentation
-
-.small80[
-.remarque[
-Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'avec les fonctions du *package* `readr`. Il est donc recommandé d'utiliser `fread()` lorsque vous souhaitez sélectionner facilement les colonnes à importer.
-]
-]
-
-.small70[
-.specificite[
-Une forge interne `GitLab` est accessible depuis AUS. Son adresse, ainsi que des éléments complémentaires à cette fiche, sont disponibles dans la documentation AUS (`Y:/Documentation/AUSV3/`).
-]
+Les packages développés par une organisation privée ou publique (ROpenSci, RStudio...) présentent un risque moindre d’être abandonnés.
 ]
 
 ---
-# Utiliser ce modèle de présentation
 
-Voici comment afficher le code d'un chunk puis son résultat, en deux temps.
-
-```{r, echo = FALSE}
-# On augmente le nombre de lignes imprimées pour faire apparaître deux catégories
-options(tibble.print_min = 6)
-options(tibble.print_max = 6)
-options(dplyr.print_min  = 6)
-options(dplyr.print_max  = 6)
-```
-
-```{r, echo = TRUE, warning = FALSE, message = FALSE, eval = FALSE}
-library(doremifasolData)
-library(magrittr)
-library(dplyr)
-
-nombre <- doremifasolData::bpe_ens_2018 %>%
-  as_tibble() %>%
-  filter(TYPEQU == "B316") %>%
-  group_by(DEP) %>%
-  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE))
-nombre
-```
+# Gérer ses dépendances
 
 --
 
-```{r, echo = FALSE, warning = FALSE, message = FALSE, eval = TRUE}
-library(doremifasolData)
-library(magrittr)
-library(dplyr)
-
-nombre <- doremifasolData::bpe_ens_2018 %>%
-  as_tibble() %>%
-  filter(TYPEQU == "B316") %>%
-  group_by(DEP) %>%
-  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE))
-nombre
-```
+.sauterligne3[
+.recommandation[
+- ne pas écrire `install.packages()` au début de ses programmes ;
+- toujours utiliser l’organisation par projet ;
+- déclarer les dépendances du projet.
+]
+]
 
 ---
 
-background-image: url('resources/logo-utilitr.png')
-background-size: 7cm
-background-position: 8.5cm 3cm
+# Comment déclarer les dépendances ?
 
-# Merci !
+.sauterligne3[
+.recommandation[
+Utiliser une de ces deux méthodes
 
+- utiliser le package `renv`
+- utiliser un fichier `DESCRIPTION`
+
+Ces deux méthodes peuvent être combinées
+]
+]
+
+--
+
+Exemple : <https://github.com/InseeFrLab/lockdown-maps-R>
 
