@@ -17,7 +17,7 @@ output:
     - css/customize-slides.css
     - css/custom.css
     includes:
-      after_body: /insert-logo.html
+      after_body: insert-logo.html
     lib_dir: libs
     nature:
       highlightStyle: github
