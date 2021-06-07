@@ -143,7 +143,7 @@ Historique du projet :
 * 8-9 juin 2021 : lancement officiel d'`utilitR` ;
 
 .gray[
-* Septembre 2021 : diffusion éventuelle de la dpcumentation sous forme de brochure imprimée.
+* Septembre 2021 : diffusion éventuelle de la documentation sous forme de brochure imprimée.
 ]
 
 ---
