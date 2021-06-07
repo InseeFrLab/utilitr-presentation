@@ -1,5 +1,5 @@
 ---
-title : "Réaliser des grahiques avec `R`"
+title : "Réaliser des graphiques avec `R`"
 subtitle : "`utilitR<br>`Matinées de découverte"
 author: Olivier Meslin
 institute : "Insee"
@@ -360,7 +360,7 @@ ggplot(data_iris_paris_2017) +
 
 
 .leftcol[
-.small90[
+.small80[
 .sauterligne2[
 ```{r, warning = FALSE, eval = FALSE}
 ggplot(data_iris_paris_2017) + 
@@ -520,17 +520,13 @@ La fonction `labs()` permet de définir les titres :
 ```{r, warning = FALSE, eval = FALSE}
 ggplot(data_iris_paris_2017) +
   geom_point(
-    aes(
-      x = niveau_vie_median, 
-      y = taux_chomage, 
-      color = part_cadres
-    )
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
   ) +
-  labs(
+  labs(    #<<
     title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
     x="Taux de chômage",
     y="Niveau de vie médian",
-    color = "Part de cadres parmi les actifs",
+    color = "Part de cadres \nparmi les actifs",
     caption="Sources : Filosofi 2017, RP 2017")
 ```
 ]
@@ -542,34 +538,15 @@ ggplot(data_iris_paris_2017) +
 ```{r, warning = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
 ggplot(data_iris_paris_2017) +
   geom_point(
-    aes(
-      x = niveau_vie_median, 
-      y = taux_chomage, 
-      color = part_cadres
-    )
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
   ) +
   labs(
     title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
     x="Taux de chômage",
     y="Niveau de vie médian",
-    color = "Part de cadres parmi les actifs",
+    color = "Part de cadres \nparmi les actifs",
     caption="Sources : Filosofi 2017, RP 2017")
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ---
 # Apprendre les bases de `ggplot2`
@@ -582,23 +559,22 @@ Les fonctions _scales_ dans `ggplot2` permettent de modifier la manière dont un
 .small80[
 ```{r, warning = FALSE, eval = FALSE}
 library(scales)
+library(viridis)
 ggplot(data_iris_paris_2017) + 
   geom_point(
-    aes(
-      x = niveau_vie_median, 
-      y = taux_chomage, 
-      color = part_cadres
-    )
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
   ) +
-  scale_x_log10(
+  scale_x_log10(    #<<
     limits = c(10000, 70000), 
     breaks = seq(10000, 60000, 10000),
-    labels = dollar_format(prefix = "", suffix = " €", 
+    labels = scales::dollar_format(prefix = "", suffix = " €", 
                            big.mark = " ", accuracy = 1)) + 
-  scale_y_continuous(
+  scale_y_continuous(    #<<
     limits = c(0, 0.3), 
     breaks = seq(0, 0.3, 0.05), 
-    labels = percent_format(accuracy = 1))
+    labels = scales::percent_format(accuracy = 1)
+  ) +
+  scale_color_viridis(labels = scales::percent)    #<<
 ```
 ]
 
@@ -606,15 +582,12 @@ ggplot(data_iris_paris_2017) +
 # Apprendre les bases de `ggplot2`
 ## Personnaliser un graphique : les échelles
 
-```{r, warning = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
+```{r, warning = FALSE, message = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
 library(scales)
+library(viridis)
 ggplot(data_iris_paris_2017) + 
   geom_point(
-    aes(
-      x = niveau_vie_median, 
-      y = taux_chomage, 
-      color = part_cadres
-    )
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
   ) +
   scale_x_log10(
     limits = c(10000, 70000), 
@@ -624,23 +597,69 @@ ggplot(data_iris_paris_2017) +
   scale_y_continuous(
     limits = c(0, 0.3), 
     breaks = seq(0, 0.3, 0.05), 
-    labels = percent_format(accuracy = 1))
+    labels = percent_format(accuracy = 1)
+  ) +
+  scale_color_viridis(labels = scales::percent)
 ```
 
+---
+# Apprendre les bases de `ggplot2`
+## Un graphique complet
 
+.small80[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  scale_x_log10(
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = scales::dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = scales::percent_format(accuracy = 1)
+  ) +
+  scale_color_viridis(labels = scales::percent) +
+  labs(
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres \nparmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+]
 
+---
+# Apprendre les bases de `ggplot2`
+## Un graphique complet
 
-
-
-
-
-
-
-
-
-
-
-
+.small80[
+```{r, warning = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  scale_x_log10(
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = scales::dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = scales::percent_format(accuracy = 1)) +
+  scale_color_viridis(labels = scales::percent) +
+  labs(
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres \nparmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+]
 
 ---
 background-image: url('resources/logo-utilitr.png')
