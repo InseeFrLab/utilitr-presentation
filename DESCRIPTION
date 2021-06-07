@@ -19,6 +19,7 @@ Imports:
     emo,
     xaringan,
     fontawesome,
-    remotes
+    remotes,
+    here
 Remotes:
     hadley/emo
