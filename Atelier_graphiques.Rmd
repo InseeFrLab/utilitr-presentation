@@ -183,16 +183,64 @@ knitr::include_graphics("./resources/intro_graphiques/esquisse_options.png")
 # Apprendre les bases de `ggplot2`
 
 
+.sauterligne[
+Le *package* `ggplot2` présente plusieurs avantages :
+]
+
+- Il propose une approche unique pour produire quasiment toute représentation graphique de données ;
+- Il permet de personnaliser finement les graphiques ;
+- Il fait l'objet d'une documentation très riche.
+
+.sauterligne2[
+Il faut un temps d'adaptation pour bien comprendre la logique de `ggplot2`.
+]
+
+```{r, message = FALSE}
+library(ggplot2)
+library(doremifasolData)
+data_iris_paris_2017 <- doremifasolData::data_iris_paris_2017
+ggplot2::theme_set(theme_minimal())
+```
+
+---
+# Apprendre les bases de `ggplot2`
+## Les concepts clés de `ggplot2`
+
+**La fonction essentielle de `ggplot2` est `ggplot()`.** Il faut définir quatre éléments pour construire un graphique avec `ggplot()` : 
+
+- la **table de données** ;
+
+--
+
+- le ***mapping*** : on définit dans l'_aesthetic_ (ou `aes`) le lien entre les variables des données et ce que l'on veut représenter sur le graphique (quelle variable sur l'axe `x`, sur l'axe `y`, quelle variable pour définir une graduation de couleurs...) ;
+
+--
+
+- la **forme géométrique ou _geometry_ ** : on définit la représentation graphique qu'on souhaite utiliser. Les géométries ont toutes un nom qui commence par `geom_` ; par exemple, il faut utiliser la géométrie `geom_point()` pour réaliser un nuage de points ;
+
+--
 
 
+- les **paramètres** : on définit les autres paramètres qui dépendent de constantes (par exemple : je veux que toutes mes lignes soient rouges ou de taille 2 pixels).
 
 
+---
+# Apprendre les bases de `ggplot2`
+## Les concepts clés de `ggplot2`
 
+**La construction d'un graphique repose sur le principe de couches successives.** Les différentes couches graphiques se superposent et s'enchaînent grâce à l'**opérateur `+`**. Il est possible d'aller à la ligne dans une instruction `ggplot()`, il suffit que l'opérateur `+` figure à la fin de la ligne.
 
+--
 
-
-
-
+.sauterligne2[
+Voici un exemple de code qui crée un nuage de points (géométrie `geom_point()`) à partir des données `mes_donnees`, avec les variables `variable1` en abscisse et `variable2` en ordonnée :
+]
+.sauterligne[
+```{r, eval = FALSE}
+ggplot(data = mes_donnees) + 
+  geom_point(mapping = aes(x = variable1, y = variable2), ...)
+```
+]
 
 
 
