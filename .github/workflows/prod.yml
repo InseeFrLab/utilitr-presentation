@@ -17,10 +17,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: |
-          Rscript -e "install.packages('xfun')"
-          Rscript -e "install.packages(c('xaringan'))"
-          Rscript -e "install.packages(c('fontawesome'))"
-          Rscript -e "remotes::install_github('hadley/emo')"
+          Rscript -e "install.packages(c('remotes'))"
+          Rscript -e "remotes::install_deps(dependencies = TRUE)"
       - name: Render
         run: |
           mkdir -p public
