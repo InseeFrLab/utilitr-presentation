@@ -683,6 +683,7 @@ head(bpe_ens_2018_wide)
 creation_var <- function(data, nom_variable, nouveau_nom){
   data[, c(nouveau_nom) := get(nom_variable) + 1]
 }
+data.table::setDT(filosofi_com_2016_dt)
 ```
 
 ```{r, eval = FALSE}
