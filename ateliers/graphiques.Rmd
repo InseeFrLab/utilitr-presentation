@@ -9,15 +9,15 @@ output:
     new_session: yes
     self_contained: false
     css:
-    - ./css/default.css
-    - ./css/default-fonts.css
-    - ./css/style-utilitr.css
-    - ./css/icones-fa.css
-    - ./css/metropolis.css
-    - ./css/customize-slides.css
-    - ./custom.css
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
     includes:
-      after_body: ./insert-logo.html
+      after_body: insert-logo.html
     lib_dir: libs
     nature:
       highlightStyle: github

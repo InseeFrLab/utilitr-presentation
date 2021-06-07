@@ -15,7 +15,7 @@ output:
     - css/icones-fa.css
     - css/metropolis.css
     - css/customize-slides.css
-    - custom.css
+    - css/custom.css
     includes:
       after_body: insert-logo.html
     lib_dir: libs
