@@ -69,14 +69,14 @@ Plan de la présentation :
 knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png")
 ```
 
-* Package existant depuis 2006
+* Package existant depuis 2006.
 * L'un des plus utilisés:
-    + 700k téléchargements par mois sur le CRAN
-    + 3000 packages sur le CRAN en dépendent plus ou moins directement
+    + 700k téléchargements par mois sur le CRAN ;
+    + 3000 packages sur le CRAN en dépendent plus ou moins directement.
 
 --
-* Très pérenne, très robuste mais en évolution permanente
-+ Ne dépend que de R-base (aucune autre dépendance)
+* Très pérenne, très robuste mais en évolution permanente ;
++ Ne dépend que de R-base (aucune autre dépendance).
 
 --
 + Grosse communauté de développeurs : plus de 100 contributeurs sur [Github `r fontawesome::fa("fab fa-github")`](https://github.com/Rdatatable/data.table)
@@ -88,35 +88,35 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
 ## Pourquoi `data.table` ?
 
 * Pour la vitesse:
-    + Package beaucoup plus rapide que `tidyverse`
-    + Optimise l'usage mémoire: avantageux pour les grosses données
+    + Package beaucoup plus rapide que `tidyverse`;
+    + Optimise l'usage mémoire: avantageux pour les grosses données.
 
 --
 * Pour la stabilité:
-    + peu de risques que le code casse
+    + peu de risques que le code casse.
 
 --
 * Pour la flexibilité:
-    + Enormément de fonctions pré-implémentées
-    + Programmation et automatisation avec des fonctions facile
+    + Grand nombre de fonctions pré-implémentées;
+    + Programmation et automatisation avec des fonctions facile.
 
 --
 * Pour la lisibilité:
-    + Codes concis, plus lisible
-    + facilite ses évolutions
+    + Codes concis, plus lisible;
+    + facilite ses évolutions/
 --
 
-.center[**`data.table` n'est pas réservé aux grosses données ou aux utilisateurs avancés ! **]
+.center[**`data.table` n'est réservé ni aux données volumineuses ni aux utilisateurs avancés ! **]
 
 
 ---
 # Présentation de `data.table`
 ## Tout se passe dans les crochets `[...]`
 
-* `data.table` un package dont l'objet central est le... `data.table`
-* version améliorée du `data.frame` de base : le `data.table`
-* syntaxe particulière associée à cette évolution: tout se passe dans les crochets: `[...]`
-* très inspiré par SQL
+* `data.table` un package dont l'objet central est le... `data.table`.
+* version améliorée du `data.frame` de base : le `data.table`.
+* syntaxe particulière associée à cette évolution: tout se passe dans l'opérateur crochets: `[...]`;
+* syntaxe largement inspirée de SQL.
 
 ```{r, echo = FALSE}
 knitr::include_graphics("https://linogaliana.netlify.app/img/headers/datatable.png")
@@ -163,45 +163,46 @@ dt
 # Présentation de `data.table`
 ## Tout se passe dans les crochets `[...]`
 
-
 Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniquement sur les observations pour lesquelles `x` est supérieur à 3
 
-<div>
-
-<table class='table' style = "width : 70%;">
-<tr> <td>**`Base R`**</td> 
+<div class="inline-table"><table class="table" style="width : 70%;">
+<tr>
 <td>
-```{r, eval=FALSE}
-aggregate(
-  dt[dt[["z"]] > 3]$y,
-  by = list(dt[dt[["z"]] > 3]$x),
-  FUN = sum)
-```
+<strong><code>Base R</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>
+  <span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">y</span>,
+  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>,
+  FUN = sum) </code></pre></div>
 </td>
 </tr>
 <tr>
-<td>**`dplyr`**</td> 
 <td>
-```{r, eval=FALSE}
-dt %>%
-  dplyr::filter(z > 3) %>%
-  dplyr::group_by(x) %>%
-  dplyr::summarise(sum(y))
-```
+<strong><code>dplyr</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dt</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">%&gt;%</span>
+   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(sum(y))
+</code></pre></div>
 </td>
 </tr>
 <tr>
-<td>**`data.table`**</td> 
 <td>
-```{r, eval=FALSE}
-
-dt[z > 3, sum(z), by = x]
-```
+<strong><code>data.table</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R">dt[x > 3, sum(y), by = z]
+</code></pre></div>
 </td>
 </tr>
-</table>
+</table></div>
 
-</div>
 
 ---
 # Manipuler des données avec `data.table`: principe ;
@@ -214,11 +215,13 @@ dt[z > 3, sum(z), by = x]
 
 Exemple: moyenne d'une variable par groupe, puis on trie la table.
 
+.small90[
 ```{r}
 # En chaînant
 ans <- dt[ , .(moyenne = mean(y, na.rm = TRUE)), by = x][order(moyenne)]
 ans
 ```
+]
 
 ---
 # Manipuler des données avec `data.table`: principe ;
