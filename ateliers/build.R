@@ -1,4 +1,6 @@
 file.copy("insert-logo.html", "ateliers/insert-logo.html")
+file.copy(here::here('resources'), here::here('ateliers'), recursive = TRUE)
+
 
 setwd("./ateliers")
 
