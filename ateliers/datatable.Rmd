@@ -113,10 +113,10 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
 # Présentation de `data.table`
 ## Tout se passe dans les crochets `[...]`
 
-* `data.table` un package dont l'objet central est le... `data.table`
-* version améliorée du `data.frame` de base : le `data.table`
-* syntaxe particulière associée à cette évolution: tout se passe dans les crochets: `[...]`
-* très inspiré par SQL
+* `data.table` un package dont l'objet central est le... `data.table`.
+* version améliorée du `data.frame` de base : le `data.table`.
+* syntaxe particulière associée à cette évolution: tout se passe dans l'opérateur crochets: `[...]`;
+* syntaxe largement inspirée de SQL.
 
 ```{r, echo = FALSE}
 knitr::include_graphics("https://linogaliana.netlify.app/img/headers/datatable.png")
@@ -152,11 +152,11 @@ dt
 # Présentation de `data.table`
 ## Tout se passe dans les crochets `[...]`
 
-* `R base`: les crochets `df[...]` servent uniquement à sélectionner des lignes ou des colonnes
-* `data.table`: crochets permettent de tout faire
-    + pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`
-    + apporte concision, donc lisibilité
-    + optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées
+* `R base`: l'opérateur crochets `df[...]` sert uniquement à sélectionner des lignes ou des colonnes;
+* `data.table`: l'opérateur crochets permet de tout faire:
+    + pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`;
+    + rend les codes beaucoup plus concis, donc plus lisibles;
+    + optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées.
 
 --
 
