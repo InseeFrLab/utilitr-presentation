@@ -216,7 +216,7 @@ Utiliser cet assistant :
 ```{r, warning = FALSE}
 library(readr)
 read_csv2(
-  "../bpe19_ensemble.csv",
+  "bpe19_ensemble.csv",
   col_types = cols(REG = col_character(),
                    NB_EQUIP = col_integer()),
   locale = locale(encoding = "UTF-8")
@@ -284,7 +284,7 @@ Elle présente trois avantages :
 ```{r, warning = FALSE}
 library(data.table)
 fread(
-  "../bpe19_ensemble.csv",
+  "bpe19_ensemble.csv",
   colClasses = c(
     REG = "character",
     NB_EQUIP = "integer"
@@ -299,7 +299,7 @@ fread(
 ```{r, warning = FALSE}
 library(data.table)
 fread(
-  "../bpe19_ensemble.csv",
+  "bpe19_ensemble.csv",
   colClasses = c(
     REG = "character",
     NB_EQUIP = "integer"
@@ -379,7 +379,7 @@ Import du 1er onglet, en commençant à lire à la 6e ligne :
 
 ```{r, warning = FALSE}
 library(openxlsx)
-deces18 <- read.xlsx(xlsxFile = "../base_deces_2018.xlsx",
+deces18 <- read.xlsx(xlsxFile = "base_deces_2018.xlsx",
                      startRow = 6)
 ```
 --
@@ -395,7 +395,7 @@ deces18
 .remarque[
 Pour récupérer les noms des onglets du fichier sans l'ouvrir :
 ```{r}
-getSheetNames("../base_deces_2018.xlsx")
+getSheetNames("base_deces_2018.xlsx")
 ```
 ]
 ]
@@ -407,7 +407,7 @@ getSheetNames("../base_deces_2018.xlsx")
 ```{r}
 deces18 <-
   read.xlsx(
-    xlsxFile = "../base_deces_2018.xlsx",
+    xlsxFile = "base_deces_2018.xlsx",
     startRow = 6,
     sheet = "ARM" # nom de l'onglet
   )
@@ -427,7 +427,7 @@ Définir une région :
 library(openxlsx)
 deces18 <-
   read.xlsx(
-    xlsxFile = "../base_deces_2018.xlsx",
+    xlsxFile = "base_deces_2018.xlsx",
     rows = c(6, 34250:34255),
     cols = c(1:2, 10:16)
   )
@@ -447,7 +447,7 @@ On essaie d'importer le même fichier que précédemment :
 library(readxl)
 deces18 <-
   read_excel(
-    path = "../base_deces_2018.xlsx",
+    path = "base_deces_2018.xlsx",
     skip = 5,
     n_max = 6
   )
@@ -464,10 +464,10 @@ deces18
 Définir une région :
 
 ```{r, warning = FALSE}
-excel_sheets("../base_deces_2018.xlsx")
+excel_sheets("base_deces_2018.xlsx")
 deces18 <-
   read_excel(
-    path = "../base_deces_2018.xlsx",
+    path = "base_deces_2018.xlsx",
     sheet = "ARM",
     range = "B6:F10" # prend le pas sur skip et n_max
   )
