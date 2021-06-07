@@ -1,2 +1,4 @@
 setwd("./ateliers")
-rmarkdown::render("datatable.Rmd")
+
+rmd <- list.files(pattern = ".Rmd")
+rmarkdown::render(rmd)
