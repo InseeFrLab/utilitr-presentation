@@ -62,30 +62,49 @@ Plan de la présentation :
 # Présentation de `data.table`
 ## Principes structurants
 
+
+```{r, echo = FALSE, out.width="20%"}
+knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png")
+```
+
 * Package existant depuis 2006
-+ L'un des plus utilisés: +700k téléchargements par mois sur le CRAN
-+ 3000 packages sur le CRAN en dépendent plus ou moins directement
+* L'un des plus utilisés:
+    + 700k téléchargements par mois sur le CRAN
+    + 3000 packages sur le CRAN en dépendent plus ou moins directement
+
+--
 * Très pérenne, très robuste mais en évolution permanente
 + Ne dépend que de R-base (aucune autre dépendance)
+
+--
 + Grosse communauté de développeurs : plus de 100 contributeurs sur Github [Github](https://github.com/Rdatatable/data.table)
 + Enormément de tests pour fiabiliser les évolutions (taux couverture : 99%)
 
-```{r, echo = FALSE}
-knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png")
-```
 
 ---
 # Présentation de `data.table`
 ## Pourquoi `data.table` ?
 
-* Package beaucoup plus rapide que `tidyverse`
-* Optimise l'usage mémoire: avantageux pour les grosses données
-* Package stable: peu de risques que le code casse
-* Enormément de fonctions pré-implémentées
-* Programmation et automatisation avec des fonctions facile
-* Codes concis ce qui rend un code plus lisible et facilite ses évolutions
+* Pour la vitesse:
+    + Package beaucoup plus rapide que `tidyverse`
+    + Optimise l'usage mémoire: avantageux pour les grosses données
 
-`data.table` n'est pas réservé aux grosses données ou aux utilisateurs avancés ! 
+--
+* Pour la stabilité:
+    + peu de risques que le code casse
+
+--
+* Pour la flexibilité:
+    + Enormément de fonctions pré-implémentées
+    + Programmation et automatisation avec des fonctions facile
+
+--
+* Pour la lisibilité:
+    + Codes concis, plus lisible
+    + facilite ses évolutions
+--
+
+.center[**`data.table` n'est pas réservé aux grosses données ou aux utilisateurs avancés ! **]
 
 
 ---
@@ -109,7 +128,17 @@ knitr::include_graphics("https://linogaliana.netlify.app/img/headers/datatable.p
 
 Avant de travailler sur données réelles, un jeu de données d'exemple 
 
-```{r}
+```{r, eval = FALSE}
+dt <- data.table::data.table(x = c("A", "B", "C"),
+                             y = 1:12,
+                             z = 3:6)
+dt
+```
+
+
+--
+
+```{r, echo = FALSE}
 dt <- data.table::data.table(x = c("A", "B", "C"),
                              y = 1:12,
                              z = 3:6)
