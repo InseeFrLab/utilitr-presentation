@@ -244,7 +244,7 @@ ggplot(data = mes_donnees) +
 
 ---
 # Apprendre les bases de `ggplot2`
-## Les concepts clés de `ggplot2`
+## La notion de _mapping_
 
 Le *mapping* désigne dans `ggplot2` la relation entre un **attribut graphique** de la `geometry` (abscisse, ordonnée, couleur...) et **une variable** présente dans la table de données. On déclare le *mapping* grâce à la fonction `aes()` (pour _aesthetic_), qui sert donc à identifier les variables que l'on souhaite représenter sur le graphique. 
 
@@ -256,9 +256,10 @@ Le *mapping* désigne dans `ggplot2` la relation entre un **attribut graphique**
 
 ---
 # Apprendre les bases de `ggplot2`
-## Les concepts clés de `ggplot2`
+## La notion de _mapping_
 
-.leftcol40[
+
+.leftcol[
 .small90[
 Ce code permet de produire un nuage de points (`geom_point`), avec le niveau de vie médian en abscisse (`x = niveau_vie_median`) et le taux de chômage en ordonnée (`y = taux_chomage`). 
 .sauterligne2[
@@ -277,14 +278,358 @@ ggplot(data_iris_paris_2017) +
 
 --
 
-.rightcol60[
+.rightcol[
 .border[
 ```{r, warning = FALSE, echo = FALSE}
 ggplot(data_iris_paris_2017) + 
-  geom_point(aes(x = niveau_vie_median, y = taux_chomage))
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage
+    )
+  )
 ```
 ]
 ]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+.small90[
+La fonction `aes()` accepte d'autres arguments qui permettent de modifier l'apparence des attributs graphiques selon une troisième variable du jeu de données. Voici les arguments supplémentaires les plus courants :
+
+Attribut   |Description
+-----------------|------------------------------------
+**`color`**| Couleur des lignes ou des points
+**`shape`**| Forme des points
+**`size`**| Taille des points
+**`alpha`**| Transparence des points
+**`fill`**| Couleur des surfaces
+**`linetype`**| Type de ligne (continue, pointillée, ...)
+
+--
+
+.sauterligne[
+Il est également possible d'utiliser ces mêmes arguments pour modifier un attribut graphique sans le lier à une variable. En ce cas, on définit l'attribut **à l'extérieur de l'_aesthetic_** (donc à l'extérieur de `aes()`).
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+
+.leftcol[
+.small90[
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  )
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+
+.leftcol[
+.small90[
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+    ),
+    color = "red"
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+    ),
+    color = "red"
+  )
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Les géométries
+
+La forme géométrique ou _geometry_ désigne le type de représentation graphique utilisée (nuage de points, histogrammes...). On spécifie le type de représentation que l'on souhait en utilisant une fonction dont le nom commence par **`geom_`**. 
+
+--
+
+.small90[
+_geometry_         | Description              | Arguments 
+-------------------|--------------------------|------------------------------------
+`geom_point()`     |	Nuage de points 	      | `x`, `y`, `shape`, `fill`, `size`
+`geom_line()`	     | Ligne                    | `x`, `y`, `linetype`
+`geom_bar()`       |	Diagramme en barres 	  | `x`, `fill`, `linetype`, `weight`
+`geom_histogram()` |	Histogramme 	          | `x`, `fill`, `linetype`, `weight`
+`geom_boxplot()`	 | Boîte à moustaches 	    | `x`, `y`, `fill`, `weight`
+`geom_density()`	 | Courbe de densité        |	`x`, `y`, `fill`, `color`, `linetype`
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Les géométries
+
+Voici un exemple de graphique avec `geom_bar` :
+
+.leftcol[
+.small90[
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_bar(
+    aes(
+      x = categorie_arrondissement, 
+      fill = categorie_part_cadres
+    )
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_bar(
+    aes(
+      x = categorie_arrondissement, 
+      fill = categorie_part_cadres
+    )
+  )
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique
+
+.sauterligne[
+Il est possible de personnaliser un très grand nombre d'éléments dans un graphique `ggplot2`: les axes, les titres, les graduations, le quadrillage de fond, la légende (position, ordre, taille)... Chaque nouvel élément graphique est à rajouter à l'objet `ggplot` avec l’opérateur `+`.
+]
+
+--
+
+.sauterligne[Il y a deux façons de personnaliser un graphique :]
+
+- en modifiant les options une à une (titres du graphique et des axes, graduation des axe...) ;
+- en utilisant un `theme` prédéfini ou en le définissant soi-même => une sorte de modèle de graphique.
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les thèmes
+
+
+.leftcol[
+.small80[
+```{r, warning = FALSE, fig.height=4, fig.width=5}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  ) + theme_gray()    #<<
+```
+]
+
+]
+
+--
+
+.rightcol[
+.small80[
+```{r, warning = FALSE, fig.height=4, fig.width=5}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  ) + theme_classic()    #<<
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les titres
+
+.small90[
+La fonction `labs()` permet de définir les titres : 
+
+- le titre général du graphique (`title`), 
+- le sous-titre (`subtitle`), 
+- la note de bas de graphique (`caption`), 
+- les axes (`x`, `y`)...
+]
+
+.small80[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) +
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage, 
+      color = part_cadres
+    )
+  ) +
+  labs(
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres parmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les titres
+
+```{r, warning = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
+ggplot(data_iris_paris_2017) +
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage, 
+      color = part_cadres
+    )
+  ) +
+  labs(
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres parmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les échelles
+
+.small90[
+Les fonctions _scales_ dans `ggplot2` permettent de modifier la manière dont un attribut graphique est relié aux valeurs d’une variable, et dont la légende correspondante va être affichée. Par exemple, pour les attributs `x` et `y`, on peut définir la nature des variables (discrètes ou continues), les graduations, l'unité des étiquettes (pourcentage, euros...), et pour l'attribut `color` on peut contrôler la palette de couleur utilisée.
+]
+
+.small80[
+```{r, warning = FALSE, eval = FALSE}
+library(scales)
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage, 
+      color = part_cadres
+    )
+  ) +
+  scale_x_log10(
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = percent_format(accuracy = 1))
+```
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les échelles
+
+```{r, warning = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
+library(scales)
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage, 
+      color = part_cadres
+    )
+  ) +
+  scale_x_log10(
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = percent_format(accuracy = 1))
+```
+
+
+
+
 
 
 
