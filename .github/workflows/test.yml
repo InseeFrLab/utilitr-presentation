@@ -18,9 +18,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: |
-          Rscript -e "install.packages('xfun')"
-          Rscript -e "install.packages(c('xaringan'))"
-          Rscript -e "install.packages(c('fontawesome'))"
+          Rscript -e "install.packages(c('remotes'))"
+          Rscript -e "remotes::install_deps(dependencies = TRUE)"
       - name: Render
         run: |
           mkdir -p public
@@ -30,6 +29,9 @@ jobs:
           name: Slides
           path: public/
           retention-days: 3
+      - name: Les ateliers
+        run: |
+          Rscript -e 'ateliers/build.R'
       - name: Install npm
         if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
         uses: actions/setup-node@v2
@@ -46,5 +48,6 @@ jobs:
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
           netlify deploy --alias=${BRANCHE_REF} --dir="public" --message "Test deploy"
+          netlify deploy --alias=ateliers --dir="test-ateliers" --message "Deploy test ateliers"
 
 
