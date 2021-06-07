@@ -30,8 +30,9 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 dir.create(here::here('ateliers/css'))
-file.copy(here::here('css'), here::here('ateliers/css'), recursive = TRUE)
+file.copy(here::here('css'), here::here('ateliers'), recursive = TRUE)
 ```
+
 .sauterligne[
 Voici les recommandations de [la fiche](https://www.book.utilitr.org/datatable.html#datatable) :
 .small90[
