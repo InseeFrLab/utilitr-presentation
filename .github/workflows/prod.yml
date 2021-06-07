@@ -22,8 +22,11 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
+          mkdir -p publicdoc
           Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
+          Rscript -e 'rmarkdown::render("slides-doc.Rmd")'
           mv slides-colab.html public/index.html
+          mv slides-doc.html publicdoc/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
@@ -51,6 +54,7 @@ jobs:
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
           netlify deploy --prod --dir="public" --message "Deploy master"
+          netlify deploy --alias=mardi --dir="publicdoc" --message "Deploy prez mardi"
           netlify deploy --alias=ateliers --dir="ateliers" --message "Deploy ateliers"
 
 
