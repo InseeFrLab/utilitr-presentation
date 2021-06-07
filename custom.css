@@ -63,7 +63,7 @@ h2 {
   font-size: 14px;
 }
 .small80{
-  font-size: 80%;
+  font-size: 80% !important;
 }
 .small70{
   font-size: 70%;
@@ -265,4 +265,11 @@ img {
   width: 79%;
 }
 
+/* Background color for highlighted code */
+.remark-code-line-highlighted {
+  background-color: rgb(206, 233, 255);  /*light blue*/
+}
 
+pre {
+  margin: 0.5em 0;
+}
