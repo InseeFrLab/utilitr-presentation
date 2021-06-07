@@ -22,4 +22,5 @@ Imports:
     remotes,
     here
 Remotes:
-    hadley/emo
+    hadley/emo,
+    inseefrlab/doremifasol
