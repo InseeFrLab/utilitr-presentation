@@ -52,7 +52,7 @@ Comment utiliser `utilitR` ?
 ]
 
 
-```{r, echo = TRUE, warning = FALSE, eval = TRUE}
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 library(doremifasolData) #un package pour travailler sur des exemples
 bpe_ens_2018 <- doremifasolData::bpe_ens_2018
 ```
@@ -245,17 +245,99 @@ View(ma_base)
 
 
 ---
-# `mutate`et `summarize`
+# `mutate` et `summarise` 
 
- `mutate` permet de créer de nouvelles variables.
+`mutate` permet de créer de nouvelles variables.
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 ma_base <- bpe_ens_2018 %>% 
-    mutate(NB_EQUIP_3PLUS = (NB_EQUIP >= 3),
-           NB_EQUIP_CUM = cumsum(NB_EQUIP))
+  mutate(NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
+         NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"),
+                                   na.rm = TRUE))
+View(ma_base)
+```
+
+--
+La fonction `summarise()` permet de calculer une ou plusieurs statistiques à partir de la table de données.
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  summarize(NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
+            NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"),
+                                      na.rm = TRUE))
+View(ma_base)
+```
+
+
+---
+# `group_by` 
+
+ `group_by` permet de réaliser des opérations "par groupe". 
+ 
+ .small70[
+ .remarque[
+il est prudent d’appliquer la fonction `ungroup()` à vos données une fois que les opérations par groupe ont été réalisées, afin que les opérations suivantes ne soient pas effectuées par groupe par mégarde.
+]
+]
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  group_by(DEP) %>%
+  summarize( NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
+             NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"),
+                                       na.rm = TRUE)) %>%
+  ungroup()
 
 View(ma_base)
 ```
+
+---
+# `summarize`
+La fonction `summarise()` permet de calculer une ou plusieurs statistiques à partir de la table de données.
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  summarize( NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
+          NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)) %>%
+View(ma_base)
+```
+
+--
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  group_by(DEP) %>%
+  summarize( NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
+          NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)) %>%
+  ungroup()
+
+View(ma_base)
+```
+
+**Attention** : seules les variables du `summmarize` et du `group_by` sont conservées ! (c'est logique)
+
+---
+# Récapitulons !
+
+## Comment calculer la part des équipements départementaux présents dans une ville donnée ?
+
+--
+
+## Réponse :
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+  group_by(DEP,DEPCOM) %>%
+  summarize(NB_EQUIP_COMM = sum(NB_EQUIP, na.rm = TRUE)) %>%
+  ungroup() %>%
+  group_by(DEP) %>%
+  mutate(PROP_EQUIP_DEP=100*NB_EQUIP_COMM/sum(NB_EQUIP_COMM)) %>%
+  ungroup()
+
+View(ma_base)
+```
+
+
 
 ---
 # Utiliser ce modèle de présentation
@@ -274,6 +356,7 @@ Les boîtes colorées sont également disponibles (et combinales avec les boîte
 Si vous êtes complètement débutants en `R`, il est recommandé d'utiliser l'utilitaire d'importation de ` RStudio`. Une fois que les données sont correctement importées, vous pourrez copier-coller le code dans votre script `R` et vous familiariser avec les fonctions du *package* `readr`.
 ]
 ]
+
 
 
 ---
