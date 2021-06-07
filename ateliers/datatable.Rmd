@@ -735,7 +735,7 @@ head(new_variable_group(filosofi_com_2016_dt, xvar = "TP6016",
                         newname = "newvar"))
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, eval = FALSE}
 head(new_variable_group(filosofi_com_2016_dt[,.SD,.SDcols = c(colnames(filosofi_com_2016_dt)[1:5],
                                                 "dep", "groupe_revenu", "TP6016")], xvar = "TP6016",
                         newname = "newvar"))
