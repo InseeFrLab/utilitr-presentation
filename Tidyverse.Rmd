@@ -1,6 +1,6 @@
 ---
 title : "Présentation d'`utilitR`"
-subtitle : "Fiche `tidyverse`"
+subtitle : "Fiche {tidyverse}"
 author : "Arthur Cazaubiel"
 institute : "Insee"
 date : "8 juin 2021"
@@ -48,14 +48,14 @@ Comment utiliser `utilitR` ?
 - Les chapitres suivants traitent de **besoins concrets** et proposent des manières de procéder.
 
 .sauterligne2[
-  Je vais spécifiquement parler du [`tidyverse`](https://www.book.utilitr.org/tidyverse.html)]
+  Je vais spécifiquement parler du [{tidyverse}](https://www.book.utilitr.org/tidyverse.html)]
 
 ---
 # Quand faire du tidyverse ?
 
 .recommandation[
-* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser les *packages* `tibble`, `dplyr` et `tidyr` qui font l'objet de la présente fiche ;
-* Pour des tables de données de grande taille (plus de 1 Go ou plus d'un million d'observations), il est recommandé d'utiliser le _package_ `data.table` qui fait l'objet d'une fiche (et d'un atelier) !
+* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser les *packages* {dplyr} et {tidyr} qui font l'objet de la présente fiche ;
+* Pour des tables de données de grande taille (plus de 1 Go ou plus d'un million d'observations), il est recommandé d'utiliser le _package_ {data.table} qui fait l'objet d'une fiche (et d'un atelier) !
 ]
 
 --
@@ -76,7 +76,7 @@ Le `tidyverse` est un ensemble de _packages_ `R` qui présentent un cadre de cod
 * Les noms des colonnes peuvent être appelés directement;
 * L'opérateur `%>%` (pipe) qui permet d'enchaîner les instructions ;
 
-Dans cette présentation, j'aborderai deux packages :`dplyr`et `tidyr`.
+Dans cette présentation, j'aborderai deux packages :{dplyr}et {tidyr}.
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 library(dplyr)
@@ -117,9 +117,9 @@ c(1,3,pi,10,-50) %>%
 
 
 ---
-# Comprendre `dplyr`
+# Comprendre {dplyr}
 
-`dplyr`est **LE** _package_ central du `tidyverse` pour manipuler les données via des verbes comme `select`, `filter`, `summarise`, etc.
+{dplyr}est **LE** _package_ central du `tidyverse` pour manipuler les données via des verbes comme `select`, `filter`, `summarise`, etc.
 
 .sauterligne2[Ces verbes/fonctions ont les propriétés suivantes : 
 
@@ -311,14 +311,15 @@ View(ma_base)
 ```
 
 ---
-# `summarize`
+# `summarise`
 La fonction `summarise()` permet de calculer une ou plusieurs statistiques à partir de la table de données.
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 ma_base <- bpe_ens_2018 %>% 
   summarize( NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
-          NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)) %>%
-View(ma_base)
+             NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), 
+                                       na.rm = TRUE))
+  View(ma_base)
 ```
 
 --
@@ -327,7 +328,8 @@ View(ma_base)
 ma_base <- bpe_ens_2018 %>% 
   group_by(DEP) %>%
   summarize( NB_EQUIP_TOT = sum(NB_EQUIP, na.rm = TRUE),
-          NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"), na.rm = TRUE)) %>%
+             NB_BOULANGERIES_TOT = sum(NB_EQUIP * (TYPEQU == "B203"),
+                                       na.rm = TRUE)) %>%
   ungroup()
 
 View(ma_base)
@@ -369,6 +371,35 @@ ma_base <- bpe_ens_2018 %>%
 View(ma_base)
 ```
 
+---
+# Encore !
+
+## Quelle est la proportion de villes contenant une boulangerie ? (B203)
+
+--
+
+## Une réponse
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+proportion <- bpe_ens_2018 %>%
+  mutate(BOULANGERIE=(TYPEQU=="B203")) %>%
+  group_by(DEPCOM) %>%
+  summarize(A_UNE_BOULANGERIE = max(BOULANGERIE)) %>%
+  ungroup() %>%
+  summarize(A_UNE_BOULANGERIE = 100*mean(A_UNE_BOULANGERIE)) %>%
+  pull(A_UNE_BOULANGERIE ) %>% #pour extraire la valeur
+  round(digits=1)
+
+print(
+  paste(proportion, "% des communes de France ont une boulangerie en 2018.")
+)
+
+```
+
+---
+# {tidyr} : pour ranger les données
+
+Le _package_ {tidyr} propose
 
 
 ---
