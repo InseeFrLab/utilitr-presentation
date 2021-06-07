@@ -24,9 +24,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
-
----
-### Liste des ressources disponibles
+# Présentation des ateliers
 
 * [Présentation data.table](./datatable.html) (script uniquement [ici](./datatable.R))
+* [Présentation data.table](./graphiques.html) (script uniquement [ici](./graphiques.R))
