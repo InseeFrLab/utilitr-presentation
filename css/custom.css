@@ -31,7 +31,7 @@ h2 {
 }
 
 .title-slide {
-  background-image: url('resources/logo-utilitr.png');
+  background-image: url('logo-utilitr.png');
 }
 .title-slide h2 {
   text-align: center;
@@ -148,7 +148,7 @@ table caption {
   font-weight: 900 ;
   margin-top: 15px;
 
-  
+
 img {
   display: inline-block;
 }
