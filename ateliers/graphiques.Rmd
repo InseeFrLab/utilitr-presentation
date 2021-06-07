@@ -3,7 +3,7 @@ title : "Réaliser des graphiques avec `R`"
 subtitle : "`utilitR<br>`Matinées de découverte"
 author: Olivier Meslin
 institute : "Insee"
-date : "`r format(as.Date('2021-06-08'), '%d %B %Y')`"
+date : "8 juin 2021"
 output:
   xaringan::moon_reader:
     new_session: yes
