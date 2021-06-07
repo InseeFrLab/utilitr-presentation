@@ -23,7 +23,8 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          Rscript -e 'rmarkdown::render("slides-colab.Rmd", output_file = "public/index.html")'
+          Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
+          mv slides-colab.html public/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
