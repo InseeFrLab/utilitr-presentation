@@ -16,9 +16,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     xfun,
+    emo,
     xaringan,
     fontawesome,
-    emo,
     remotes
 Remotes:
     hadley/emo
