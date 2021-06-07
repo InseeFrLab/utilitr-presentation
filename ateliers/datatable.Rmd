@@ -38,7 +38,7 @@ Voici les recommandations de [la fiche](https://www.book.utilitr.org/datatable.h
 .small90[
 .indent[
 .recommandation[
-* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser le package `dplyr` ;
+* Pour des tables de données de taille petite et moyenne (inférieure à 1 Go ou moins d'un million d'observations), il est recommandé d'utiliser le package `dplyr` ;
 * Pour des tables de données de grande taille (plus de 1 Go ou plus d'un million d'observations), il est recommandé d'utiliser le package `data.table` qui fait l'objet de la présente fiche.
 ]
 ]
@@ -46,17 +46,17 @@ Voici les recommandations de [la fiche](https://www.book.utilitr.org/datatable.h
 ]
 
 * Tous les exemples présentés sont reproductibles sur une instance [![SSPcloud](https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R)](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB)
-* Certains exemples de cette présentation utilisent les données disponibles dans le package `doremifasolData` ; vous ne pourrez reproduire ces exemples que si ce package est installé sur la machine sur laquelle vous travaillez (cf. [Comment utiliser la documentation utilitR](https://www.book.utilitr.org/presentation-utilitr.html#presentation-utilitr) )
+* Certains exemples de cette présentation utilisent les données disponibles dans le package `doremifasolData` ; vous ne pourrez reproduire ces exemples que si ce package est installé sur la machine sur laquelle vous travaillez (cf. [Comment utiliser la documentation utilitR](https://www.book.utilitr.org/presentation-utilitr.html#presentation-utilitr) )
 
 ---
 .sauterligne2[
 Plan de la présentation :
 ]
 
-- Présentation de `data.table` ;
-- Manipuler des données avec `data.table`: principe ;
-- L'opérateur `:=`: la magie de `data.table` ;
-- Manipuler des données avec `data.table`: illustration ;
+- Présentation de `data.table` ;
+- Manipuler des données avec `data.table`: principe ;
+- L'opérateur `:=`: la magie de `data.table` ;
+- Manipuler des données avec `data.table`: illustration ;
 - Programmer des fonctions avec `data.table`.
 
 
@@ -71,11 +71,11 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
 
 * Package existant depuis 2006.
 * L'un des plus utilisés:
-    + 700k téléchargements par mois sur le CRAN ;
+    + 700k téléchargements par mois sur le CRAN ;
     + 3000 packages sur le CRAN en dépendent plus ou moins directement.
 
 --
-* Très pérenne, très robuste mais en évolution permanente ;
+* Très pérenne, très robuste mais en évolution permanente ;
 + Ne dépend que de R-base (aucune autre dépendance).
 
 --
@@ -88,7 +88,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
 ## Pourquoi `data.table` ?
 
 * Pour la vitesse:
-    + Package beaucoup plus rapide que `tidyverse`;
+    + Package beaucoup plus rapide que `tidyverse` ;
     + Optimise l'usage mémoire: avantageux pour les grosses données.
 
 --
@@ -97,12 +97,12 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
 
 --
 * Pour la flexibilité:
-    + Grand nombre de fonctions pré-implémentées;
+    + Grand nombre de fonctions pré-implémentées ;
     + Programmation et automatisation avec des fonctions facile.
 
 --
 * Pour la lisibilité:
-    + Codes concis, plus lisible;
+    + Codes concis, plus lisible ;
     + facilite ses évolutions/
 --
 
@@ -115,7 +115,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
 
 * `data.table` un package dont l'objet central est le... `data.table`.
 * version améliorée du `data.frame` de base : le `data.table`.
-* syntaxe particulière associée à cette évolution: tout se passe dans l'opérateur crochets: `[...]`;
+* syntaxe particulière associée à cette évolution: tout se passe dans l'opérateur crochets: `[...]` ;
 * syntaxe largement inspirée de SQL.
 
 ```{r, echo = FALSE}
@@ -153,10 +153,10 @@ dt
 ## Tout se passe dans les crochets `[...]`
 
 .small90[
-* Avec `R base`, l'opérateur crochets `df[...]` sert uniquement à sélectionner des lignes ou des colonnes;
+* Avec `R base`, l'opérateur crochets `df[...]` sert uniquement à sélectionner des lignes ou des colonnes ;
 * Avec `data.table`, l'opérateur crochets permet de tout faire:
-    + pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`;
-    + rend les codes beaucoup plus concis, donc plus lisibles;
+    + pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]` ;
+    + rend les codes beaucoup plus concis, donc plus lisibles ;
     + optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées.
 ]
 
@@ -164,7 +164,7 @@ dt
 
 Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniquement sur les observations pour lesquelles `x` est supérieur à 3
 
-<div class="inline-table"><table class="table" style="width : 70%;">
+<div class="inline-table"><table class="table" style="width : 70% ;">
 <tr>
 <td>
 <strong><code>Base R</code></strong>
@@ -172,8 +172,8 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 <td>
 <div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>
-  <span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">y</span>,
-  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>,
+  <span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt ;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">y</span>,
+  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt ;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>,
   FUN = sum) </code></pre></div>
 </td>
 </tr>
@@ -183,9 +183,9 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 </td>
 <td>
 <div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dt</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">dt</span> <span class="op">%&gt ;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt ;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt ;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">%&gt ;%</span>
    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(sum(y))
 </code></pre></div>
 </td>
@@ -203,7 +203,7 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 </table></div>
 
 ---
-# Manipuler des données avec `data.table`: principe ;
+# .small90[Manipuler des données avec `data.table`]
 ## Enchaîner des opérations
 
 * il suffit d'accoler les opérateurs `[...]`
@@ -213,16 +213,14 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 
 Exemple: moyenne d'une variable par groupe, puis on trie la table.
 
-.small90[
 ```{r}
 # En chaînant
 ans <- dt[ , .(moyenne = mean(y, na.rm = TRUE)), by = x][order(moyenne)]
 ans
 ```
-]
 
 ---
-# Manipuler des données avec `data.table`: principe ;
+# Manipuler des données avec `data.table`: principe ;
 ## Enchaîner des opérations
 
 * Accoler les `[...]`
@@ -293,9 +291,13 @@ filosofi_epci_2016_dt[sample(.N,3)]
 * On va aussi utiliser les données Filosofi (communes) 
 
 ```{r}
-filosofi_com_2016_dt <- data.table::as.data.table(doremifasolData::filosofi_com_2016)
-filosofi_com_2016_dt[,`:=`("dep" = substr(get('CODGEO'), 0, 2),
-         "groupe_revenu" = 5000*floor(get('MED16')/5000))  ]
+filosofi_com_2016_dt <- as.data.table(doremifasolData::filosofi_com_2016)
+filosofi_com_2016_dt[,
+                     `:=`(
+                       dep = substr(get('CODGEO'), 0, 2),
+                       groupe_revenu = 5000*floor(get('MED16')/5000)
+                       )  
+                     ]
 ```
 
 --
@@ -309,20 +311,20 @@ filosofi_com_2016_dt[sample(.N,2)]
 # L'opérateur `:=`
 ## Principe
 
-* Assignation en `R base`: `<-` ;
+* L'assignation en `R base` est la fonction `<-` ;
 * Problèmes:
-    + syntaxe peu pratique
-    + coûteux en mémoire
+    + sa syntaxe est peu pratique ;
+    + son usage est coûteux en mémoire.
 
 --
-* `:=`: assignation par référence
-    + modifier le data.frame en faisant référence à une colonne
-    + ne pas faire de copie mémoire des colonnes non utilisées
+* `data.table` propose une autre approche: l'assignation par référence (`:=`), qui permet de :
+    + modifier l'objet `data.table` en faisant référence à une colonne ;
+    + ne pas faire de copie mémoire des colonnes non utilisées.
 
 --
-* Equivalent à `dplyr::mutate` ?
-    + `:=` sert à créer une nouvelle colonne ou modifier une existante
-    + mais modifie directement dataframe sans duplication
+* Equivalent à `dplyr::mutate` ?
+    + comme `mutate`, `:=` sert à créer une nouvelle colonne ou modifier une existante ;
+    + mais modifie directement le `data.table` sans duplication.
 
 |||
 |---|---- |
@@ -338,9 +340,9 @@ filosofi_com_2016_dt[sample(.N,2)]
 <div> 
 <table class='table'>
 <colgroup>
-<col span="1" style="width: 10%;">
-<col span="1" style="width: 50%;">
-<col span="1" style="width: 40%;">
+<col span="1" style="width: 10% ;">
+<col span="1" style="width: 50% ;">
+<col span="1" style="width: 40% ;">
 </colgroup>
 <tr> <th> _Package_ </th> <th> Code </th> <th> Commentaire </th> </tr> <tr>
 <td>
@@ -450,7 +452,7 @@ bpe_ens_2018_dt[,NB_EQUIP_HORS_CHAUSS := fifelse(TYPEQU == "B304",
 ## Créer un `data.table`
 
 - la fonction `fread()` importe un fichier plat comme les `.csv`
-    + cf. fiche [Importer des fichiers plats (`.csv`, `.tsv`, `.txt`)](https://www.book.utilitr.org/importcsv.html) ;
+    + cf. fiche [Importer des fichiers plats (`.csv`, `.tsv`, `.txt`)](https://www.book.utilitr.org/importcsv.html) ;
 
 --
 - Les fonctions `setDT()` et `as.data.table()` convertissent un `data.frame` en `data.table`.
@@ -782,7 +784,7 @@ Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel C
 
 Coordination : Lino Galiana et Olivier Meslin.
 
-Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux pour leur soutien.
+Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux.
 
 Logo : Anna Schlaifer.
 
