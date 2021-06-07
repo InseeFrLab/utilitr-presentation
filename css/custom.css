@@ -71,6 +71,78 @@ h2 {
 .small60{
   font-size: 60%;
 }
+
+
+table {
+  margin: auto;
+  text-align: left;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* Cette option évite la coupure des tableaux sur deux tables
+  Attention: elle fait planter la compilation si un tableau est très long
+  */
+  break-inside: avoid;
+}
+table thead th {
+  border-bottom: 1px solid #ddd;
+}
+/* Centrer les titres des tableaux */
+thead {
+  text-align: center;
+  text-align-last: center;
+}
+
+td[style*="text-align:center;"] {
+  text-align:center;
+  text-align-last:center;
+}
+td[style*="text-align:left;"] {
+  text-align:left;
+  text-align-last:left;
+}
+
+td[style*="text-align:right;"] {
+  text-align:right;
+  text-align-last:right;
+}
+td[style*="text-align:justify;"] {
+  text-align:justify;
+  text-align-last:justify;
+}
+
+table td, table th {
+  padding: 3px 5px 3px 5px;
+}
+thead, tfoot, tr:nth-child(even) {
+  background: #eee;
+}
+table::first-line {
+  font-weight: 900 ;
+}
+table code {
+  background-color:   transparent;
+}
+.table th, .table td {
+  vertical-align: middle;
+  padding: 0.25rem;
+}
+/* Les marges des chunks dans les tableaux */
+table pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.5rem;
+}
+table::first-line {
+  font-weight: 900 ;
+}
+
+table caption {
+  font-weight: 900 ;
+  margin-top: 15px;
+
+  
 img {
   display: inline-block;
 }
