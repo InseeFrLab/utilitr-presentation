@@ -127,7 +127,7 @@ Axelle Chauvet et largement diffusée à l’Insee et dans le SSP, n'a pas d'éq
 Le projet `utilitR` a pour objectif de produire une documentation qui réponde à deux questions, dans le contexte des travaux de la statistique publique :
 ]
 
-- Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème ;
+- Comment (bien) travailler avec `R` et RStudio pour profiter de la richesse de cet écosystème ;
 - Comment réaliser efficacement des tâches standards avec `R`.
 
 --
@@ -143,7 +143,7 @@ Historique du projet :
 * 8-9 juin 2021 : lancement officiel d'`utilitR` ;
 
 .gray[
-* Septembre 2021 : diffusion de la version 1 de la brochure pdf.
+* Septembre 2021 : diffusion éventuelle de la dpcumentation sous forme de brochure imprimée.
 ]
 
 ---
@@ -223,7 +223,12 @@ Le projet `utilitR` présente trois particularités :
 # Spécificités du projet
 ## Une documentation adaptée aux besoins des agents
 
-La documentation formule des recommandations claires sur les outils et les _packages_ adaptés à chaque tâche, et comporte des conseils et des remarques relatifs aux bonnes pratiques et est illustrée par des exemples reproductibles utilisant des données de l'Insee.
+La documentation guide les agents dans leur usage de `R` :
+
+- Elle décrit l'usage de `R` avec RStudio ;
+- Elle formule des recommandations claires sur les outils et les _packages_ adaptés à chaque tâche ;
+- Elle comporte des conseils et des remarques relatifs aux bonnes pratiques ;
+- Elle est illustrée par des exemples reproductibles utilisant des données de l'Insee.
 
 --
 
@@ -773,10 +778,10 @@ Questions :
 
 * Importer des fichiers plats et des fichiers issus de tableurs	(`csv`, `xlsx`, `ods`) ;
 * Manipuler des tables de données avec le `tidyverse`	;
-* Faire des graphiques avec `ggplot2`	;
-* Utiliser des _packages_, choisir ses _packages_ et gérer ses dépendances ;
 * Manipuler des tables de données avec `data.table`	;
-* Travailler avec des bases de données en `R` : les fichiers détails du Recensement de la Population.
+* Travailler avec des bases de données en `R` : les fichiers détails du Recensement de la Population ;
+* Faire des graphiques avec `ggplot2`	;
+* Utiliser des _packages_, choisir ses _packages_ et gérer ses dépendances.
 
 .sauterligne[
 Tous les liens Zoom vers les ateliers sont ici : https://www.utilitr.org/conferences/decouverte-utilitr/.
