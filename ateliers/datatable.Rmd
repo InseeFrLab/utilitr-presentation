@@ -106,7 +106,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Rdatatable/data.table
     + facilite ses évolutions/
 --
 
-.center[**`data.table` n'est pas réservé aux grosses données ou aux utilisateurs avancés ! **]
+.center[**`data.table` n'est réservé ni aux données volumineuses ni aux utilisateurs avancés ! **]
 
 
 ---
@@ -152,11 +152,13 @@ dt
 # Présentation de `data.table`
 ## Tout se passe dans les crochets `[...]`
 
-* `R base`: l'opérateur crochets `df[...]` sert uniquement à sélectionner des lignes ou des colonnes;
-* `data.table`: l'opérateur crochets permet de tout faire:
+.small90[
+* Avec `R base`, l'opérateur crochets `df[...]` sert uniquement à sélectionner des lignes ou des colonnes;
+* Avec `data.table`, l'opérateur crochets permet de tout faire:
     + pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`;
     + rend les codes beaucoup plus concis, donc plus lisibles;
     + optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées.
+]
 
 --
 
@@ -211,11 +213,13 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 
 Exemple: moyenne d'une variable par groupe, puis on trie la table.
 
+.small90[
 ```{r}
 # En chaînant
 ans <- dt[ , .(moyenne = mean(y, na.rm = TRUE)), by = x][order(moyenne)]
 ans
 ```
+]
 
 ---
 # Manipuler des données avec `data.table`: principe ;
