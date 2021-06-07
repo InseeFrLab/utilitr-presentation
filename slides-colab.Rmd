@@ -14,7 +14,7 @@ output:
     - css/icones-fa.css
     - css/metropolis.css
     - css/customize-slides.css
-    - custom.css
+    - css/custom.css
     includes:
       after_body: insert-logo.html
     lib_dir: libs
@@ -262,16 +262,9 @@ knitr::include_graphics("resources/Spamomatic2.jpg")
 knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS0pRJL.jpg")
 ```
 
-<!---- PARTIE XXX ---------------->
-
-
-<!---- PARTIE XXX ---------------->
-
-
-
 
 ---
-# 5. Quelle collaboration sur Github ?
+# 4. Quelle collaboration sur Github ?
 ## Les 5 valeurs du projet `utilitR`
 
 
@@ -286,11 +279,12 @@ Ces valeurs sont exposées dans un
 exposant la philosophie du projet
 
 ---
-# 5. Quelle collaboration sur Github ?
+# 4. Quelle collaboration sur Github ?
 ## Adapter la contribution au type
 
-* Plusieurs modalités de contribution proposées pour offrir de la légèreté
-et de la flexibilité aux contributions les moins lourdes 
+* Plusieurs modalités de contribution proposées pour offrir:
+    + légèreté
+    + flexibilité
 * Les modalités les plus simples sont possibles via une interface graphique:
     + *Issues* : espace de débat et d'échanges: signaler un *bug*, proposer 
 une nouvelle fiche, un nouvel exemple, participer à un débat sur un package...
@@ -298,13 +292,12 @@ une nouvelle fiche, un nouvel exemple, participer à un débat sur un package...
 afin d'éditer la dernière version de la fiche (la source de vérité) et proposer
 un changmeent (pull request)
 * Des *pull request* pour ajouter des éléments plus substanciels (nouvelles 
-fiches, ajout de paragrpahe, évolution de la tuyauterie...)
+fiches, ajout de paragraphe, évolution de la tuyauterie...)
 
-Objectif implicite de la méthode `utilitR`: acculturer aux méthodes de l'open
-source qui renforcent la fiabilité des projets
+> ** Acculturation aux méthodes de l'open source qui renforcent la fiabilité des projets**
 
 ---
-# 5. Quelle collaboration sur Github ?
+# 4. Quelle collaboration sur Github ?
 ## L'adoption du *Github Flow* 
 
 ```{r, echo = FALSE}
@@ -316,10 +309,10 @@ Crédit: [Johnny Behague](https://www.johnnybehague.fr) à partir de la
 
 
 ---
-# 5. Quelle collaboration sur Github ?
+# 4. Quelle collaboration sur Github ?
 ## Le *Github Flow* en pratique
 
-* On a choisi le mode de travail léger ;
+* On a choisi le mode de travail le plus léger ;
 * Cependant, les seuls personnes ayant droit d'écriture sur
 [InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont Olivier Meslin et Lino Galiana
 

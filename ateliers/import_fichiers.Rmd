@@ -1,0 +1,518 @@
+---
+title : "Import de fichiers plats et tableurs"
+subtitle : "`utilitR<br>`Matinées de découverte"
+author: Pierre-Yves Berrard
+institute : "Insee"
+date : "`r format(as.Date('2021-06-08'), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+params:
+  eval: true
+---
+
+# Atelier import de fichiers
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(eval = params$eval)
+```
+
+.sauterligne3[
+## Objectif de cet atelier
+]
+
+.sauterligne2[
+Montrer comment on peut se servir de la documentation `utilitR` pour importer :
+]
+
+- des fichiers plats (.csv, .tsv, .txt)
+- des fichiers issus de tableurs (Excel, Calc)
+
+--
+
+.sauterligne3[
+.small90[
+.remarque[
+  Cette présentation n'est qu'un aperçu des principaux éléments.
+  
+  Se référer à la [documentation elle-même](https://www.utilitr.org/) pour des informations détaillées !
+  
+  _(ces 2 parties correspondent à 2 fiches distinctes)_
+]
+]
+]
+
+---
+
+# Reproduire les exemples
+
+.sauterligne3[
+### Maintenant, mais aussi plus tard
+]
+
+.sauterligne2[
+### [Lien vers service SSPCloud](https://auth.lab.sspcloud.fr/auth/realms/sspcloud/protocol/openid-connect/auth?client_id=onyxia&redirect_uri=https%3A%2F%2Fdatalab.sspcloud.fr%2Flauncher%2Finseefrlab-helm-charts-datascience%2Frstudio%3Fonyxia.friendlyName%3D%25C2%25ABrstudio-utilitr%25C2%25BB%26init.personnalInit%3D%25C2%25ABhttps%253A%252F%252Fraw.githubusercontent.com%252FInseeFrLab%252FutilitR%252Fmaster%252Fresources%252Finit_9juin.sh%25C2%25BB%26r.version%3D%25C2%25ABinseefrlab%252Futilitr%253A0.7.0%25C2%25BB&state=29ec218a-93ef-4ec3-8072-beff09879771&response_mode=query&response_type=code&scope=openid&nonce=ad6c2bf1-c186-4200-a5eb-6b7479d886d9&powerhooks_useGlobalState_lng=%5B%22fr%22%5D&powerhooks_useGlobalState_isDarkModeEnabled=%5Btrue%5D&powerhooks_useGlobalState_lastDelayedTime=%5B1622756583698%5D&powerhooks_useGlobalState_isExpanded=%5Btrue%5D) (→ discussion Zoom)
+]
+
+.sauterligne[
+### *(pas une obligation, juste une suggestion)*
+]
+
+.sauterligne2[
+### Données existant sur insee.fr
+]
+
+---
+
+# Importer des fichiers plats
+
+.sauterligne3[
+### Objectif : importer fichiers au format texte avec séparateurs de champs
+]
+
+.sauterligne2[
+Exemple :
+]
+
+```
+REG;DEP;DEPCOM;DCIRIS;AN;TYPEQU;NB_EQUIP
+84;01;01001;01001;2019;A401;2
+84;01;01001;01001;2019;A404;4
+84;01;01001;01001;2019;A405;2
+84;01;01001;01001;2019;A504;1
+84;01;01001;01001;2019;A507;1
+84;01;01001;01001;2019;B203;1
+84;01;01001;01001;2019;C104;1
+84;01;01001;01001;2019;D233;1
+84;01;01001;01001;2019;F102;1
+84;01;01001;01001;2019;F111;1
+84;01;01001;01001;2019;F113;1
+```
+
+---
+
+# Importer des fichiers plats
+
+.sauterligne3[
+
+.recommandation[
+
+.sauterligne2[
+* **données < 1 Go** <br/>→ *package* `{readr}` : fonctions `read_csv` et `read_delim`
+]
+.sauterligne2[
+* **données > 1 Go** <br/>→ *package* `{data.table}` : fonction `fread`
+]
+.sauterligne2[
+* *package* `{csvread}` et fonctions natives de **R** `read.csv` et `read.delim` déconseillés
+]
+
+]
+
+]
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+.sauterligne3[
+## Importer un fichier de taille limitée :<br>le package `{readr}`
+]
+
+### Deux manières d'utiliser ce package :
+
+- assistant d'importation RStudio
+- instructions `R` dans un script
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+.sauterligne3[
+## Assistant d'importation RStudio
+]
+
+.sauterligne2[
+Interface graphique très commode basée sur le *package* `{readr}`
+]
+
+.sauterligne[
+Affiche le code correspondant au manipulations effectuées
+]
+
+--
+
+.sauterligne2[
+.small90[
+.conseil[
+Utiliser cet assistant :
+- pour se familiariser avec `{readr}`
+- pour explorer le contenu du fichier (premières lignes, séparateurs...)
+]
+]
+]
+
+--
+
+.sauterligne2[
+→ démonstration
+]
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+.sauterligne3[
+### Les trois fonctions de `{readr}` à connaître
+]
+
+.sauterligne[
+]
+
+|Fonction   |Séparateur<br>champ |Séparateur<br>décimal |
+|:----------|:-----|:----|
+|`read_csv` |`","`   |`"."`  |
+|`read_csv2`|`";"`   |`"," ` |
+|`read_delim`|libre   |libre  |
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+.sauterligne3[
+### Principaux paramètres de `read_csv` et de `read_csv2`
+]
+
+| Argument    | Valeur par défaut | Fonction                                                       |
+|-------------|-------------------|----------------------------------------------------------------|
+| `file`      |                   | Le chemin du fichier à importer                                |
+| `col_names` | `TRUE`            | La première ligne contient-elle les noms de colonne ?          |
+| `col_types` | `NULL`            | Définir le type des variables                                  |
+| `skip`      | `0`               | Nombre de lignes à ignorer (aucune par défaut)                 |
+| `n_max`     | `Inf`             | Nombre maximum de lignes à importer (pas de limite par défaut) |
+| `locale`    |                   | Réglages locaux (encodage, fuseau horaire, langue...)          |
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+```{r, warning = FALSE}
+library(readr)
+read_csv2(
+  "../bpe19_ensemble.csv",
+  col_types = cols(REG = col_character(),
+                   NB_EQUIP = col_integer()),
+  locale = locale(encoding = "UTF-8")
+)
+```
+
+---
+
+# Importer des fichiers plats avec {readr}
+
+## Fonction `read_delim`
+
+Plus puissante, mais plus difficile à utiliser.
+
+Un argument supplémentaire important par rapport à `read_csv(2)` :
+
+- `delim` : le délimiteur de champ du fichier (par exemple `"|"`)
+
+---
+
+# Importer des fichiers plats volumineux
+
+.sauterligne2[
+## Importer un fichier de grande taille : `data.table::fread`
+]
+
+.sauterligne2[
+`{data.table}` est un package de manipulation de données
+]
+
+.sauterligne[
+  La fonction `fread` de ce *package* permet d'importer des fichiers plats
+]
+
+--
+
+.sauterligne2[
+Elle présente trois avantages :
+
+* rapidité pour les gros volumes de données
+* sélection facile des colonnes à importer (paramètre `select`)
+* grand nombre de paramètres (usages avancés)
+]
+
+---
+
+# Paramètres usuels pour `fread`
+
+| Argument    | Valeur défaut                             | Description                                    |
+|-------------|-------------------------------------------|------------------------------------------------|
+| `file`      |                                           | Chemin du fichier à importer                   |
+| `sep`       | `","` `"\t"` <code>"&#124;"</code> `";"` `":"` | Délimiteur du fichier                     |
+| `nrows`     | `Inf`                                     | Nombre maximum de lignes à importer            |
+| `skip`      | `0`                                       | Sauter les n premières lignes                  |
+| `select`    | `NULL`                                    | Colonnes à importer                            |
+| `drop`      | `NULL`                                    | Colonnes à ne pas importer                     |
+| `colClasses`| *essaie de deviner*                       | Type des variables                             |
+| `encoding`  | `"unknown"`                               | Encodage du fichier (`"UTF-8"` ou `"Latin-1"`) |
+| `dec`       | `"."`                                     | Marqueur décimal                               |
+
+---
+
+# Importer des fichiers plats volumineux
+
+```{r, warning = FALSE}
+library(data.table)
+fread(
+  "../bpe19_ensemble.csv",
+  colClasses = c(
+    REG = "character",
+    NB_EQUIP = "integer"
+  )
+)
+```
+
+---
+
+# Importer des fichiers plats volumineux
+
+```{r, warning = FALSE}
+library(data.table)
+fread(
+  "../bpe19_ensemble.csv",
+  colClasses = c(
+    REG = "character",
+    NB_EQUIP = "integer"
+  ),
+  select = c("DEPCOM", "TYPEQU", "NB_EQUIP") # colonnes gardées
+)
+```
+
+---
+
+# Importer des fichiers plats
+
+.sauterligne2[
+## Quelques bonnes pratiques :
+]
+
+.conseil[
+- Vérifier que votre machine peut charger les données
+- Tester votre code d’importation avec quelques lignes (`n_max`, `nrows`)
+- N'importer que les colonnes nécessaires
+- Avoir en tête le format en sortie :
+  * *tibble* (`{readr}`)
+  * *data.table* (`{data.table}`)
+]
+
+---
+
+# Importer des fichiers issus de tableurs
+
+.sauterligne3[
+## Même principe que pour les fichiers plats
+]
+
+## Différences notables :
+- pas de notion de séparateur
+- présence d'onglets
+- possibilité de sélectionner une "région"
+
+---
+
+# Importer des fichiers issus de tableurs
+
+.sauterligne3[
+
+.recommandation[
+
+.sauterligne[
+- fichier **xlsx** <br/> → fonction `read.xlsx` du _package_ `{openxlsx}`
+]
+.sauterligne[
+- fichier **xls** <br/> → fonction `read_excel` du _package_ `{readxl}` \*
+]
+.sauterligne[
+- fichier **ods** <br/> → fonction `read_ods` du _package_ `{readODS}`
+]
+
+.sauterligne[
+Il est déconseillé d'utiliser le _package_ `{xlsx}`.
+]
+
+]
+]
+
+--
+
+.sauterligne3[
+.small80[
+\* peut également importer des fichiers `xlsx`, mais moins rapide que `openxlsx::read.xlsx`
+]
+]
+
+---
+
+# Importer un fichier xlsx avec {openxlsx}
+
+Import du 1er onglet, en commençant à lire à la 6e ligne :
+
+```{r, warning = FALSE}
+library(openxlsx)
+deces18 <- read.xlsx(xlsxFile = "../base_deces_2018.xlsx",
+                     startRow = 6)
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+# Importer un fichier xlsx avec {openxlsx}
+
+.sauterligne3[
+.remarque[
+Pour récupérer les noms des onglets du fichier sans l'ouvrir :
+```{r}
+getSheetNames("../base_deces_2018.xlsx")
+```
+]
+]
+
+---
+
+# Importer un fichier xlsx avec {openxlsx}
+
+```{r}
+deces18 <-
+  read.xlsx(
+    xlsxFile = "../base_deces_2018.xlsx",
+    startRow = 6,
+    sheet = "ARM" # nom de l'onglet
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+  
+---
+
+# Importer un fichier xlsx avec {openxlsx}
+
+Définir une région :
+
+```{r}
+library(openxlsx)
+deces18 <-
+  read.xlsx(
+    xlsxFile = "../base_deces_2018.xlsx",
+    rows = c(6, 34250:34255),
+    cols = c(1:2, 10:16)
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+# Importer un fichier xls(x) avec {readxl}
+
+On essaie d'importer le même fichier que précédemment :
+
+```{r, warning = FALSE}
+library(readxl)
+deces18 <-
+  read_excel(
+    path = "../base_deces_2018.xlsx",
+    skip = 5,
+    n_max = 6
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+# Importer un fichier xls(x) avec {readxl}
+
+Définir une région :
+
+```{r, warning = FALSE}
+excel_sheets("../base_deces_2018.xlsx")
+deces18 <-
+  read_excel(
+    path = "../base_deces_2018.xlsx",
+    sheet = "ARM",
+    range = "B6:F10" # prend le pas sur skip et n_max
+  )
+```
+--
+```{r, echo = FALSE}
+deces18
+```
+
+---
+
+# Importer un fichier xls(x) avec {readxl}
+
+.sauterligne3[
+## Assistant d'importation RStudio
+]
+
+.sauterligne2[
+Interface graphique très commode basée sur le *package* `{readxl}`
+]
+
+.sauterligne[
+Affiche le code correspondant au manipulations effectuées
+]
+
+---
+
+# Importer un fichier ods avec {readODS}
+
+## Principale fonction `read_ods()` :
+
+| Argument            | Valeur défaut     | Fonction                                                                                   |
+|---------------------|-----------------------|--------------------------------------------------------------------------------------------|
+| `path`              |                 | Le chemin du fichier `ods` à importer                                                        |
+| `sheet`             | 1                     | Onglet à importer (nom de l'onglet ou numéro |
+| `col_names`         | `TRUE`                  | Indique si la première ligne de l'onglet contient les noms des variables               |
+| `col_types`         | `NULL`                  | `NULL` ou même syntaxe que `readr` | 
+| `na`                | `""`                    | Vecteur donnant les chaîne de caractères interprétées comme des valeurs manquantes.|
+| `skip`              | `0`                     | Le nombre de lignes du fichier de données à ignorer avant de commencer à importer les données  |
+| `range`             |  `NULL`                 | Sélection d'un rectangle à l'aide d'une plage de cellules de type Excel, comme `range = "D12:F15"` |
+
+---
+
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !

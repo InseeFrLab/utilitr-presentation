@@ -8,4 +8,9 @@ slides.html
 *.gitignore
 *.Rproj
 .Renviron
-Tidyverse.html
+*.html
+atelier_*.html
+ateliers/*.html
+ateliers/libs/*
+ateliers/css/*
+

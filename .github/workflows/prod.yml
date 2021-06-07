@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  bookdown-prod:
+  xaringan-prez:
     if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     container: inseefrlab/utilitr:latest
@@ -17,19 +17,29 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: |
-          Rscript -e "install.packages('xfun')"
-          Rscript -e "install.packages(c('xaringan'))"
-          Rscript -e "install.packages(c('fontawesome'))"
           Rscript -e "install.packages(c('remotes'))"
-          Rscript -e "remotes::install_github('hadley/emo')"
+          Rscript -e "remotes::install_deps(dependencies = TRUE)"
       - name: Render
         run: |
           mkdir -p public
-          Rscript -e 'rmarkdown::render("slides-colab.Rmd", output_file = "public/index.html")'
+          mkdir -p publicdoc
+          Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
+          Rscript -e 'rmarkdown::render("slides-doc.Rmd")'
+          mv slides-colab.html public/index.html
+          mv slides-doc.html publicdoc/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
           path: public/
+          retention-days: 3
+      - name: Les ateliers
+        run: |
+          mkdir -p atelier_out
+          Rscript -e "source('ateliers/build.R')"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Ateliers
+          path: ateliers/
           retention-days: 3
       - name: Install npm
         if: ${{ github.repository == 'inseefrlab/utilitr-presentation' }}
@@ -44,5 +54,7 @@ jobs:
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
           netlify deploy --prod --dir="public" --message "Deploy master"
+          netlify deploy --alias=mardi --dir="publicdoc" --message "Deploy prez mardi"
+          netlify deploy --alias=ateliers --dir="ateliers" --message "Deploy ateliers"
 
 

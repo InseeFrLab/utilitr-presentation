@@ -1,0 +1,32 @@
+---
+title : "Les ateliers `utilitR`"
+subtitle : "Accéder aux présentations"
+author : "Lino Galiana"
+institute : "Insee"
+date : "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+# Présentation des ateliers
+
+* [Présentation imports de fichiers plats et de tableurs](./import_fichiers.html) (script uniquement [ici](./import_fichiers.R))
+* [Présentation tidyverse](./tidyverse.html) (script uniquement [ici](./tidyverse.R))
+* [Présentation data.table](./datatable.html) (script uniquement [ici](./datatable.R))
+* [Présentation data.table](./graphiques.html) (script uniquement [ici](./graphiques.R))

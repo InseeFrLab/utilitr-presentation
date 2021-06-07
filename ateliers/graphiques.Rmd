@@ -1,0 +1,693 @@
+---
+title : "Réaliser des graphiques avec `R`"
+subtitle : "`utilitR<br>`Matinées de découverte"
+author: Olivier Meslin
+institute : "Insee"
+date : "`r format(as.Date('2021-06-08'), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+params:
+  eval: true
+---
+
+# Atelier réaliser des graphiques
+## Objectif de cet atelier
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(eval = params$eval)
+```
+
+
+<div class="inline-table"><table class="table" style="width : 70%;">
+<tr>
+<td>
+<strong><code>Base R</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>
+  <span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">y</span>,
+  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>,
+  FUN = sum) </code></pre></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong><code>dplyr</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dt</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">%&gt;%</span>
+   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(sum(y))
+</code></pre></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong><code>data.table</code></strong>
+</td>
+<td>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R">dt[x > 3, sum(y), by = z]
+</code></pre></div>
+</td>
+</tr>
+</table></div>
+
+---
+# Atelier réaliser des graphiques
+## Méthode
+
+- Je vais vous présenter les outils `esquisse` et `ggplot2`, sur le plan théorique et avec des exemples.
+- Je vais exécuter des exemples dans un service RStudio sur le SSP Cloud.
+
+--
+
+.sauterligne[Deux façons de suivre cet atelier :]
+
+- Vous pouvez vous contenter d'assister à la présentation ;
+- Vous pouvez reproduire les exemples en même temps que moi en lançant votre propre service RStudio sur le SSP Cloud => __aucune obligation__.
+
+.sauterligne[
+Le lien vers le service RStudio du SSP Cloud est disponible sur cette page : https://www.utilitr.org/conferences/decouverte-utilitr/  
+]
+
+--
+
+.remarque[
+Vous pourrez reproduire les exemples plus tard.
+]
+
+---
+# Réaliser des graphiques avec `R`
+
+.sauterligne2[
+.recommandation[
+* Il est recommandé d'utiliser le *package* `ggplot2` qui permet de réaliser et de personnaliser un grand nombre de représentations graphiques ;
+* Il est conseillé aux utilisateurs débutants d'utiliser l'*add-in* `esquisse` pour se familiariser avec `ggplot2`.
+]
+]
+
+--
+
+.sauterligne2[
+Plan de la présensation :
+]
+
+- utiliser l'_add-in_ `equisse` pour se familiariser avec `ggplot2` ;
+- utiliser directement `ggplot2`.
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+Le _package_ `esquisse` propose une interface graphique qui facilite la construction de graphiques avec `ggplot2`. L'objectif de ce *package* est de vous aider à construire rapidement un code `ggplot2` pour faire le graphique que vous voulez.
+
+--
+
+.small80[
+.remarque[
+**L'utilisation d'`esquisse` ne remplace pas l'écriture d'un code `ggplot2`, et cet _add-in_ ne doit pas être utilisé pour réaliser et exporter un graphique sans sauvegarder le code qui le produit** (sinon vous ne pourrez ni reproduire ni modifier votre graphique par la suite).
+]
+]
+
+--
+
+.small80[
+.conseil[
+L'interface graphique d'`esquisse` est assez gourmande en ressources, il est donc déconseillé de l'utiliser avec des données volumineuses (plus de 100 000 observations). Si vous êtes dans cette situation, **il est fortement conseillé d'utiliser `esquisse` sur une petite partie de vos données** (les 1 000 ou 10 000 premières lignes par exemple).
+]
+]
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+Cette section illustre l'utilisation d'`esquisse` avec la table `data_iris_paris_2017` du _package_ `doremifasolData`, qui contient des données économiques et sociales sur les iris de la ville de Paris en 2017. Il faut donc charger ces données dans `R` :
+
+.sauterligne2[
+```{r, message = FALSE}
+library(doremifasolData)
+data_iris_paris2017 <- doremifasolData::data_iris_paris_2017
+```
+]
+
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+.sauterligne2[
+Vous pouvez accéder à cet _add-in_ en cliquant sur *'ggplot2' builder* dans le menu _Addins_ de  RStudio.
+]
+
+```{r, echo = FALSE, out.width= "50%", out.extra= 'style = "position: absolute; top: 5cm; left: 2cm; padding: 0;"'}
+knitr::include_graphics("./resources/intro_graphiques/addin_rstudio.png")
+```
+
+```{r, echo = FALSE, out.width= "25%", out.extra= 'style = "position: absolute; top: 5cm; left: 15cm; padding: 0;"'}
+knitr::include_graphics("./resources/intro_graphiques/addin_rstudio2.png")
+```
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+
+Dans la première boîte de dialogue, vous devez sélectionner le `data.frame` qui contient les données que vous voulez représenter sur le graphique. Vous pouvez éventuellement sélectionner certaines variables, et modifier le type de certaines variables.
+
+```{r, echo = FALSE, out.width= "75%"}
+knitr::include_graphics("./resources/intro_graphiques/choix_dataframe.png")
+```
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+Une nouvelle boîte de dialoque s'affiche, grâce à laquelle vous pouvez contruire un graphique. Les variables présentes dans vos données sont listées en haut.
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/intro_graphiques/esquisse_vide.png")
+```
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+Vous pouvez déplacer les variables dans les différentes catégories (dans le cadre vert) : `x` pour les abscisses, `y` pour les ordonnées, `color` et `size` pour la couleur et la taille des éléments graphiques...
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/intro_graphiques/esquisse_champs.png")
+```
+
+---
+# Découvrir `ggplot2` avec `esquisse`
+
+Il est possible de modifier l'apparence du graphique (titres des axes, légende...) avec les menus en bas.
+
+```{r, echo = FALSE, out.width= "95%"}
+knitr::include_graphics("./resources/intro_graphiques/esquisse_options.png")
+```
+
+---
+# Apprendre les bases de `ggplot2`
+
+
+.sauterligne[
+Le *package* `ggplot2` présente plusieurs avantages :
+]
+
+- Il propose une approche unique pour produire quasiment toute représentation graphique de données ;
+- Il permet de personnaliser finement les graphiques ;
+- Il fait l'objet d'une documentation très riche.
+
+.sauterligne2[
+Il faut un temps d'adaptation pour bien comprendre la logique de `ggplot2`.
+]
+
+```{r, message = FALSE}
+library(ggplot2)
+library(doremifasolData)
+data_iris_paris_2017 <- doremifasolData::data_iris_paris_2017
+ggplot2::theme_set(theme_minimal())
+```
+
+---
+# Apprendre les bases de `ggplot2`
+## Les concepts clés de `ggplot2`
+
+**La fonction essentielle de `ggplot2` est `ggplot()`.** Il faut définir quatre éléments pour construire un graphique avec `ggplot()` : 
+
+- la **table de données** ;
+
+--
+
+- le ***mapping*** : on définit dans l'_aesthetic_ (ou `aes`) le lien entre les variables des données et ce que l'on veut représenter sur le graphique (quelle variable sur l'axe `x`, sur l'axe `y`, quelle variable pour définir une graduation de couleurs...) ;
+
+--
+
+- la **forme géométrique ou _geometry_ ** : on définit la représentation graphique qu'on souhaite utiliser. Les géométries ont toutes un nom qui commence par `geom_` ; par exemple, il faut utiliser la géométrie `geom_point()` pour réaliser un nuage de points ;
+
+--
+
+
+- les **paramètres** : on définit les autres paramètres qui dépendent de constantes (par exemple : je veux que toutes mes lignes soient rouges ou de taille 2 pixels).
+
+
+---
+# Apprendre les bases de `ggplot2`
+## Les concepts clés de `ggplot2`
+
+**La construction d'un graphique repose sur le principe de couches successives.** Les différentes couches graphiques se superposent et s'enchaînent grâce à l'**opérateur `+`**. Il est possible d'aller à la ligne dans une instruction `ggplot()`, il suffit que l'opérateur `+` figure à la fin de la ligne.
+
+--
+
+.sauterligne2[
+Voici un exemple de code qui crée un nuage de points (géométrie `geom_point()`) à partir des données `mes_donnees`, avec les variables `variable1` en abscisse et `variable2` en ordonnée :
+]
+.sauterligne[
+```{r, eval = FALSE}
+ggplot(data = mes_donnees) + 
+  geom_point(mapping = aes(x = variable1, y = variable2), ...)
+```
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+Le *mapping* désigne dans `ggplot2` la relation entre un **attribut graphique** de la `geometry` (abscisse, ordonnée, couleur...) et **une variable** présente dans la table de données. On déclare le *mapping* grâce à la fonction `aes()` (pour _aesthetic_), qui sert donc à identifier les variables que l'on souhaite représenter sur le graphique. 
+
+--
+
+.sauterligne[
+**Les arguments fondamentaux de `aes()` sont les variables représentées sur l'axe des abscisses et l'axe des ordonnées (`x` et `y`).** Par exemple, on écrit `aes(x = niveau_vie_median, y = taux_chomage)` si l'on souhaite représenter pour chaque iris le taux de chômage (sur l'axe `y`) en fonction du niveau de vie médian (sur l'axe `x`).
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+
+.leftcol[
+.small90[
+Ce code permet de produire un nuage de points (`geom_point`), avec le niveau de vie médian en abscisse (`x = niveau_vie_median`) et le taux de chômage en ordonnée (`y = taux_chomage`). 
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage
+    )
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage
+    )
+  )
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+.small90[
+La fonction `aes()` accepte d'autres arguments qui permettent de modifier l'apparence des attributs graphiques selon une troisième variable du jeu de données. Voici les arguments supplémentaires les plus courants :
+
+Attribut   |Description
+-----------------|------------------------------------
+**`color`**| Couleur des lignes ou des points
+**`shape`**| Forme des points
+**`size`**| Taille des points
+**`alpha`**| Transparence des points
+**`fill`**| Couleur des surfaces
+**`linetype`**| Type de ligne (continue, pointillée, ...)
+
+--
+
+.sauterligne[
+Il est également possible d'utiliser ces mêmes arguments pour modifier un attribut graphique sans le lier à une variable. En ce cas, on définit l'attribut **à l'extérieur de l'_aesthetic_** (donc à l'extérieur de `aes()`).
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+
+.leftcol[
+.small90[
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  )
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## La notion de _mapping_
+
+
+.leftcol[
+.small80[
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+    ),
+    color = "red"
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+    ),
+    color = "red"
+  )
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Les géométries
+
+La forme géométrique ou _geometry_ désigne le type de représentation graphique utilisée (nuage de points, histogrammes...). On spécifie le type de représentation que l'on souhait en utilisant une fonction dont le nom commence par **`geom_`**. 
+
+--
+
+.small90[
+_geometry_         | Description              | Arguments 
+-------------------|--------------------------|------------------------------------
+`geom_point()`     |	Nuage de points 	      | `x`, `y`, `shape`, `fill`, `size`
+`geom_line()`	     | Ligne                    | `x`, `y`, `linetype`
+`geom_bar()`       |	Diagramme en barres 	  | `x`, `fill`, `linetype`, `weight`
+`geom_histogram()` |	Histogramme 	          | `x`, `fill`, `linetype`, `weight`
+`geom_boxplot()`	 | Boîte à moustaches 	    | `x`, `y`, `fill`, `weight`
+`geom_density()`	 | Courbe de densité        |	`x`, `y`, `fill`, `color`, `linetype`
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Les géométries
+
+Voici un exemple de graphique avec `geom_bar` :
+
+.leftcol[
+.small90[
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_bar(
+    aes(
+      x = categorie_arrondissement, 
+      fill = categorie_part_cadres
+    )
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_bar(
+    aes(
+      x = categorie_arrondissement, 
+      fill = categorie_part_cadres
+    )
+  )
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique
+
+.sauterligne[
+Il est possible de personnaliser un très grand nombre d'éléments dans un graphique `ggplot2`: les axes, les titres, les graduations, le quadrillage de fond, la légende (position, ordre, taille)... Chaque nouvel élément graphique est à rajouter à l'objet `ggplot` avec l’opérateur `+`.
+]
+
+--
+
+.sauterligne[Il y a deux façons de personnaliser un graphique :]
+
+- en modifiant les options une à une (titres du graphique et des axes, graduation des axe...) ;
+- en utilisant un `theme` prédéfini ou en le définissant soi-même => une sorte de modèle de graphique.
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les thèmes
+
+
+.leftcol[
+.small80[
+```{r, warning = FALSE, fig.height=4, fig.width=5}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  ) + theme_gray()    #<<
+```
+]
+
+]
+
+--
+
+.rightcol[
+.small80[
+```{r, warning = FALSE, fig.height=4, fig.width=5}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage,
+      color = part_cadres
+    )
+  ) + theme_classic()    #<<
+```
+]
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les titres
+
+.small90[
+La fonction `labs()` permet de définir les titres : 
+
+- le titre général du graphique (`title`), 
+- le sous-titre (`subtitle`), 
+- la note de bas de graphique (`caption`), 
+- les axes (`x`, `y`)...
+]
+
+.small80[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) +
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  labs(    #<<
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres \nparmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les titres
+
+```{r, warning = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
+ggplot(data_iris_paris_2017) +
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  labs(
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres \nparmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les échelles
+
+.small90[
+Les fonctions _scales_ dans `ggplot2` permettent de modifier la manière dont un attribut graphique est relié aux valeurs d’une variable, et dont la légende correspondante va être affichée. Par exemple, pour les attributs `x` et `y`, on peut définir la nature des variables (discrètes ou continues), les graduations, l'unité des étiquettes (pourcentage, euros...), et pour l'attribut `color` on peut contrôler la palette de couleur utilisée.
+]
+
+.small80[
+```{r, warning = FALSE, eval = FALSE}
+library(scales)
+library(viridis)
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  scale_x_log10(    #<<
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = scales::dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(    #<<
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = scales::percent_format(accuracy = 1)
+  ) +
+  scale_color_viridis(labels = scales::percent)    #<<
+```
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Personnaliser un graphique : les échelles
+
+```{r, warning = FALSE, message = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
+library(scales)
+library(viridis)
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  scale_x_log10(
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = percent_format(accuracy = 1)
+  ) +
+  scale_color_viridis(labels = scales::percent)
+```
+
+---
+# Apprendre les bases de `ggplot2`
+## Un graphique complet
+
+.small80[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  scale_x_log10(
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = scales::dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = scales::percent_format(accuracy = 1)
+  ) +
+  scale_color_viridis(labels = scales::percent) +
+  labs(
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres \nparmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Un graphique complet
+
+.small80[
+```{r, warning = FALSE, echo = FALSE, fig.height = 7, fig.width = 10}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(x = niveau_vie_median, y = taux_chomage, color = part_cadres)
+  ) +
+  scale_x_log10(
+    limits = c(10000, 70000), 
+    breaks = seq(10000, 60000, 10000),
+    labels = scales::dollar_format(prefix = "", suffix = " €", 
+                           big.mark = " ", accuracy = 1)) + 
+  scale_y_continuous(
+    limits = c(0, 0.3), 
+    breaks = seq(0, 0.3, 0.05), 
+    labels = scales::percent_format(accuracy = 1)) +
+  scale_color_viridis(labels = scales::percent) +
+  labs(
+    title="Taux de chômage par iris à Paris en fonction du niveau de vie médian",
+    x="Taux de chômage",
+    y="Niveau de vie médian",
+    color = "Part de cadres \nparmi les actifs",
+    caption="Sources : Filosofi 2017, RP 2017")
+```
+]
+
+---
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !
