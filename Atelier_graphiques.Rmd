@@ -242,9 +242,49 @@ ggplot(data = mes_donnees) +
 ```
 ]
 
+---
+# Apprendre les bases de `ggplot2`
+## Les concepts clés de `ggplot2`
 
+Le *mapping* désigne dans `ggplot2` la relation entre un **attribut graphique** de la `geometry` (abscisse, ordonnée, couleur...) et **une variable** présente dans la table de données. On déclare le *mapping* grâce à la fonction `aes()` (pour _aesthetic_), qui sert donc à identifier les variables que l'on souhaite représenter sur le graphique. 
 
+--
 
+.sauterligne[
+**Les arguments fondamentaux de `aes()` sont les variables représentées sur l'axe des abscisses et l'axe des ordonnées (`x` et `y`).** Par exemple, on écrit `aes(x = niveau_vie_median, y = taux_chomage)` si l'on souhaite représenter pour chaque iris le taux de chômage (sur l'axe `y`) en fonction du niveau de vie médian (sur l'axe `x`).
+]
+
+---
+# Apprendre les bases de `ggplot2`
+## Les concepts clés de `ggplot2`
+
+.leftcol40[
+.small90[
+Ce code permet de produire un nuage de points (`geom_point`), avec le niveau de vie médian en abscisse (`x = niveau_vie_median`) et le taux de chômage en ordonnée (`y = taux_chomage`). 
+.sauterligne2[
+```{r, warning = FALSE, eval = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(
+    aes(
+      x = niveau_vie_median, 
+      y = taux_chomage
+    )
+  )
+```
+]
+]
+]
+
+--
+
+.rightcol60[
+.border[
+```{r, warning = FALSE, echo = FALSE}
+ggplot(data_iris_paris_2017) + 
+  geom_point(aes(x = niveau_vie_median, y = taux_chomage))
+```
+]
+]
 
 
 
