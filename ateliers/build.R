@@ -4,6 +4,8 @@ file.copy(here::here('resources'), here::here('ateliers'), recursive = TRUE)
 
 setwd("./ateliers")
 
+# DOREMIFASOL -------------------
+
 # Télécharger les données grâce à doremifasol
 options(doremifasol.telDir = "~")
 doremifasol::telechargerFichier("BPE_ENS")
@@ -22,6 +24,9 @@ invisible(
 
 # Supprimer les fichiers .zip
 unlink(fichiers_zip)
+
+# COMPILER RMD -------------------
+
 
 # Compiler les Rmd
 rmd <- list.files(pattern = ".Rmd")
