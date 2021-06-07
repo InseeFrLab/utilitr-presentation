@@ -1,9 +1,9 @@
 ---
-title : "Présentation d'`utilitR`"
-subtitle : "Fiche `tidyverse`"
-author : "Arthur Cazaubiel"
+title : "Titre"
+subtitle : "Sous-titre"
+author : "Daffy Duck et Bugs Bunny"
 institute : "Insee"
-date : "8 juin 2021"
+date : "`r format(Sys.time(), '%d %B %Y')`"
 output:
   xaringan::moon_reader:
     new_session: yes
@@ -24,17 +24,14 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-# Organisation générale
+# Introduction
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
 .sauterligne3[
-Le contenu de cette présentation sera : 
-
-* _semi_-applicatif : je vais alterner entre considérations générales (sur ce document), et lancer du code `R`
-* _semi_-participatif : ceux qui le souhaitent peuvent réaliser des tests sur la documentation en parallèle de mon intervention, ou 
+La boîte `.sauterligne3[]` sert à sauter trois lignes avant le contenu de la boîte. Saurez-vous deviner à quoi servent les boîtes `.sauterligne[]` `.sauterligne2[]`?
 ]
 
 --
