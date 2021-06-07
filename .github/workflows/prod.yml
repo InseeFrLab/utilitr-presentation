@@ -30,6 +30,7 @@ jobs:
           retention-days: 3
       - name: Les ateliers
         run: |
+          mkdir -p atelier_out
           Rscript -e "source('ateliers/build.R')"
       - name: Install npm
         if: ${{ github.repository == 'inseefrlab/utilitr-presentation' }}
