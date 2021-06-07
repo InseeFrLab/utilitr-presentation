@@ -48,6 +48,10 @@ Voici les recommandations de [la fiche](https://www.book.utilitr.org/datatable.h
 * Tous les exemples présentés sont reproductibles sur une instance [![SSPcloud](https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R)](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB)
 * Certains exemples de cette présentation utilisent les données disponibles dans le package `doremifasolData` ; vous ne pourrez reproduire ces exemples que si ce package est installé sur la machine sur laquelle vous travaillez (cf. [Comment utiliser la documentation utilitR](https://www.book.utilitr.org/presentation-utilitr.html#presentation-utilitr) )
 
+```{r, eval = FALSE}
+remotes::install_github("inseefrlab/doremifasoldata")
+```
+
 ---
 .sauterligne2[
 Plan de la présentation :
@@ -173,8 +177,8 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 <td>
 <div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>
-  <span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">y</span>,
-  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"x"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">z</span><span class="op">)</span>,
+  <span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"z"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">y</span>,
+  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">dt</span><span class="op">[</span><span class="va">dt</span><span class="op">[[</span><span class="st">"z"</span><span class="op">]</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>,
   FUN = sum) </code></pre></div>
 </td>
 </tr>
@@ -185,8 +189,8 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 <td>
 <div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dt</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">z</span> <span class="op">&gt;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">%&gt;%</span>
    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(sum(y))
 </code></pre></div>
 </td>
@@ -197,7 +201,7 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 </td>
 <td>
 <div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
-<code class="sourceCode R">dt[x > 3, sum(y), by = z]
+<code class="sourceCode R">dt[z > 3, sum(y), by = x]
 </code></pre></div>
 </td>
 </tr>
