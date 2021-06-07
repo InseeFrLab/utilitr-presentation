@@ -9,13 +9,13 @@ output:
     new_session: yes
     self_contained: false
     css:
-    - ../css/default.css
-    - ../css/default-fonts.css
-    - ../css/style-utilitr.css
-    - ../css/icones-fa.css
-    - ../css/metropolis.css
-    - ../css/customize-slides.css
-    - ../custom.css
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
     includes:
       after_body: ../insert-logo.html
     lib_dir: libs
@@ -29,8 +29,9 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+dir.create(here::here('ateliers/css'))
+file.copy(here::here('css'), here::here('ateliers/css'), recursive = TRUE)
 ```
-
 .sauterligne[
 Voici les recommandations de [la fiche](https://www.book.utilitr.org/datatable.html#datatable) :
 .small90[
