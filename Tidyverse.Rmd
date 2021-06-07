@@ -24,13 +24,18 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+# Avant de commencer...
+
+.sauterligne2[
+Je dois vous préciser que : 
+
+* cette présentation est enregistrée (souriez) pour pouvoir être rediffusée ;
+* vous avez des droits (RGPD) ;
+]
+
+<a href="https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB" target=_blank rel=noopener><img src="https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R" alt=SSPcloud></a>
+---
 # Organisation générale
-
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-library(dplyr)
-
-```
 
 .sauterligne2[
 Le contenu de cette présentation sera : 
@@ -441,11 +446,30 @@ ma_base_wide <-bpe_simplifiee %>%
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 ma_base_longe <-ma_base_wide %>%
-  pivot_longer(cols=c(NB_EQUIP_A,NB_EQUIP_B,NB_EQUIP_C,NB_EQUIP_D,NB_EQUIP_E,NB_EQUIP_F,NB_EQUIP_G),
+  pivot_longer(cols=c(NB_EQUIP_A,NB_EQUIP_B,NB_EQUIP_C,
+                      NB_EQUIP_D,NB_EQUIP_E,NB_EQUIP_F,NB_EQUIP_G),
                names_to="EQUIPEMENT",
                values_to="NB_EQUIPEMENT")
 ```
 
+--
+
+Ce n'est pas très pratique !
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base_longe <-ma_base_wide %>%
+  pivot_longer(cols=-c(DCIRIS,DEPCOM),
+               names_to="EQUIPEMENT",
+               values_to="NB_EQUIPEMENT")
+```
+
+---
+
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !
 
 
 ---
