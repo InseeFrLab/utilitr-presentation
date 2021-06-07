@@ -32,6 +32,11 @@ jobs:
         run: |
           mkdir -p atelier_out
           Rscript -e "source('ateliers/build.R')"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Ateliers
+          path: ateliers/
+          retention-days: 3
       - name: Install npm
         if: ${{ github.repository == 'inseefrlab/utilitr-presentation' }}
         uses: actions/setup-node@v1
