@@ -40,7 +40,7 @@ jobs:
           path: ateliers/
           retention-days: 3
       - name: Install npm
-        if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+        if: ${{ github.repository == 'inseefrlab/utilitr-presentation' }}
         uses: actions/setup-node@v2
         with:
           node-version: '12'
