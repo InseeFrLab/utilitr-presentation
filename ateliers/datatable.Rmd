@@ -747,7 +747,7 @@ head(new_variable_group(filosofi_com_2016_dt[,.SD,.SDcols = c(colnames(filosofi_
 
 > Exemple: on veut les taux moyens de pauvreté (`TP6016`) et de pauvreté des moins de 30 ans (`TP60AGE116`)  pour les communes par tranches de revenu médian de 5000 euros, par département
 
-```{r}
+```{r, eval = FALSE}
 new_variable_group <- function(data, grouping_var = c("dep","groupe_revenu"),
                                xvars = "MED16", newnames = "x"){
   
