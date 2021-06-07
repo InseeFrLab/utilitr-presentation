@@ -8,3 +8,6 @@ slides.html
 *.gitignore
 *.Rproj
 atelier_*.html
+ateliers/*.html
+ateliers/libs/*
+ateliers/css/*

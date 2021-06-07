@@ -2,9 +2,8 @@ name: Example output
 
 on:
   push:
-    branches-ignore:
+    branches:
       - master
-      - main
 
 jobs:
   bookdown-prod:
@@ -24,7 +23,7 @@ jobs:
         run: |
           mkdir -p public
           Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
-          mv slides-colab.html public/index.html
+          mv slides-colab.html public/index.html          
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
@@ -41,20 +40,17 @@ jobs:
           retention-days: 3
       - name: Install npm
         if: ${{ github.repository == 'inseefrlab/utilitr-presentation' }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12'
+        uses: actions/setup-node@v1
       - name: Deploy to Netlify
         if: ${{ github.repository == 'inseefrlab/utilitr-presentation' }}
         # NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID added in the repo's secrets
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          BRANCHE_REF: ${{ github.event.pull_request.head.ref }}
         run: |
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
-          netlify deploy --alias=${BRANCHE_REF} --dir="public" --message "Test deploy"
-          netlify deploy --alias=testateliers --dir="ateliers" --message "Deploy test ateliers"
+          netlify deploy --prod --dir="public" --message "Deploy master"
+          netlify deploy --alias=ateliers --dir="ateliers" --message "Deploy ateliers"
 
 
