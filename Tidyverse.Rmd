@@ -317,10 +317,23 @@ View(ma_base)
 **Attention** : seules les variables du `summmarize` et du `group_by` sont conservées ! (c'est logique)
 
 ---
+# `mutate()` et `summarise()`
+
+.small80[
+.remarque[ `mutate()` et `summarise()` calculent toutes les deux de nouvelles variables. Il arrive donc fréquemment qu'on les confonde, ou qu'on ne sache pas laquelle il faut utiliser. Comme indiqué précédemment, l'une, `mutate()`, conduit à l'ajout d'une variable supplémentaire, l'autre, `summarise()`, définit une procédure d'agrégation de la donnée. Voici une règle simple pour savoir quelle fonction utiliser :
+
+- Si vous voulez résumer une information contenue dans une table, il faut utiliser `summarise()`. Exemple : calculer le nombre total d'équipements pour chaque commune.
+
+- Si vous voulez ajouter une information dans une table (en conservant toutes les autres variables), il faut utiliser `mutate()`.
+]
+]
+
+---
 # Récapitulons !
 
 ## Comment calculer la part des équipements départementaux présents dans une ville donnée ?
 
+(indication : il faut connaitre le total du dép, et le total dans toute la ville)
 --
 
 ## Réponse :
