@@ -304,7 +304,7 @@ fread(
     REG = "character",
     NB_EQUIP = "integer"
   ),
-  select = c("DEPCOM", "TYPEQU", "NB_EQUIP"), # colonnes gardées
+  select = c("DEPCOM", "TYPEQU", "NB_EQUIP") # colonnes gardées
 )
 ```
 
