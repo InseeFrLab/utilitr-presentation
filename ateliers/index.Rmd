@@ -24,9 +24,13 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+# Présentation des ateliers
 
+* [Présentation manipuler des données avec le `tidyverse`](./tidyverse.html) (script uniquement [ici](./tidyverse.R))
+* [Présentation manipuler des données avec `data.table`](./datatable.html) (script uniquement [ici](./datatable.R))
+* [Présentation réaliser des graphiques avec `ggplot2`](./graphiques.html) (script uniquement [ici](./graphiques.R))
+* [Utiliser des packages, choisir ses packages et gérer ses dépendances](./atelier-dependances.html) (script uniquement [ici](./atelier-dependances.R))
 
----
-### Liste des ressources disponibles
-
-* [Présentation data.table](./datatable.html) (script uniquement [ici](./datatable.R))
+<!---
+* [Présentation imports de fichiers plats et de tableurs](./import_fichiers.html) (script uniquement [ici](./import_fichiers.R))
+---->

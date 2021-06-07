@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  bookdown-prod:
+  xaringan-prez:
     if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     container: inseefrlab/utilitr:latest
@@ -22,7 +22,13 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          Rscript -e 'rmarkdown::render("slides-colab.Rmd", output_file = "public/index.html")'
+          mkdir -p publicdoc
+          Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
+          Rscript -e 'rmarkdown::render("slides-doc.Rmd")'
+          Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
+          Rscript -e "file.copy(here::here('resources'), here::here('publicdoc'), recursive = TRUE)"
+          mv slides-colab.html public/index.html
+          mv slides-doc.html publicdoc/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
@@ -50,6 +56,7 @@ jobs:
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
           netlify deploy --prod --dir="public" --message "Deploy master"
+          netlify deploy --alias=mardi --dir="publicdoc" --message "Deploy prez mardi"
           netlify deploy --alias=ateliers --dir="ateliers" --message "Deploy ateliers"
 
 

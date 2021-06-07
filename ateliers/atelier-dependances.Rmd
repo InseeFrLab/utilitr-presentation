@@ -1,0 +1,429 @@
+---
+title : Utiliser des paquets<br/>Choisir ses paquets<br/>Gérer ses dépendances
+author : "Romain Lesur"
+institute : "Insee"
+date : "7 juin 2021"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+# Bienvenue !
+
+Cet atelier va couvrir les fiches : 
+
+.sauterligne3[
+- [Utiliser des packages R](https://www.book.utilitr.org/utiliser-packages.html) (fiche n° 9)
+- [Comment choisir un package ?](https://www.book.utilitr.org/choisir-package.html) (fiche n° 10)
+- [Gérer les dépendances](https://www.book.utilitr.org/gerer-dependances.html) (fiche n° 11)
+]
+
+---
+
+# Introduction
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+R tout seul ?  
+
+--
+
+Il sait déjà faire beaucoup de choses
+
+--
+
+Mais il peut faire bien plus grâce aux paquets (_packages_)
+
+--
+
+.sauterligne2[
+  Plan de la présentation :
+]
+
+- Partie 1: installer et gérer une bibliothèque de paquets
+- Partie 2: pourquoi utiliser des paquets et comment les choisir ?
+- Partie 3: gérer ses dépendances avec `renv` 
+- Partie 4: gérer ses dépendances avec un fichier `DESCRIPTION`
+
+---
+
+# Au fait, c'est quoi un paquet ?
+
+Du code publié par quelqu'un...
+
+--
+
+...que vous pouvez facilement installer et utiliser
+
+--
+
+## Comment est-ce que ça fonctionne en pratique ?
+
+--
+
+Le CRAN :
+
+- les auteurs envoient leurs paquets au CRAN
+- les responsables du CRAN font quelques contrôles
+- les responsables du CRAN les publient
+
+--
+
+Existe-t-il des paquets qui ne sont pas sur le CRAN ?
+
+- un auteur peut publier son paquet sur internet
+- vous l'installez à vos risques et périls...
+- ...mais nous allons voir comment nous repérer
+
+---
+
+# Installer un paquet
+
+```{r, eval=FALSE}
+install.packages("monBeauPackage")
+```
+
+
+.remarque[
+* Attention aux majuscules et minuscules
+* Cette commande installe le paquet et ses dépendances
+* Cette installation est définitive
+* Permet de mettre à jour le paquet
+]
+
+--
+
+.recommandation[
+* Ne pas mettre `install.packages()` dans ses programmes
+* Utiliser une des méthodes qui suivront pour gérer les dépendances de son projet 
+]
+
+---
+
+# Parcourir ses bibliothèques dans RStudio
+
+```{r, out.height="100%", echo=FALSE}
+knitr::include_graphics("./resources/rstudio-packages-pane.png")
+```
+
+---
+
+# Utiliser un paquet
+
+## Charger l'ensemble des fonctions proposées par un package
+
+```{r, eval=FALSE}
+library(ggplot2)
+```
+
+--
+
+## Utiliser une fonction d'un paquet sans le charger
+
+```{r, eval=FALSE}
+nommdupackage::nomdelafonction()
+```
+
+---
+
+# Comment choisir un paquet ?
+
+--
+
+## Une tache relativement difficile !
+
+--
+
+Utiliser un package permet :
+
+- **de ne pas réinventer la roue**
+- de **gagner en productivité**
+- de **simplifier son code**
+
+--
+
+Cependant, utiliser un paquet n'est pas exempt de risques :
+
+--
+
+- le paquet peut avoir des bugs (mais vos programmes aussi)
+
+--
+
+- les paquets sont vivants : ils peuvent évoluer dans le temps et votre code peut ne plus fonctionner
+
+--
+
+- le paquet peut disparaître (son auteur ne peut plus ou ne veut plus le maintenir)
+
+--
+
+.recommandation[
+* Evaluer le bénéfice apporté par un paquet ;
+* Evaluer le risque.
+]
+
+---
+
+# Les paquets : un château de cartes ?
+
+--
+
+Utiliser un paquet = ajouter une dépendance
+
+--
+
+Un paquet dépend souvent d'autres paquets...
+
+--
+
+```{r}
+tools::package_dependencies("rmarkdown", recursive = TRUE)
+```
+
+--
+
+Comment savoir si cet échafaudage peut s'écrouler ?
+
+--
+
+Il faut mener l'enquête...
+
+
+---
+
+# Les bénéfices des paquets
+
+## Eviter de (mal) coder des tâches complexes
+
+--
+
+### Exemple 1
+
+Tester si un vecteur numérique comprend des nombres pairs
+
+--
+
+- Utiliser `FSA::is_odd()` ?
+
+--
+
+- Ecrire
+
+```{r, eval=FALSE}
+is_odd <- function(x) {
+  x %% 2 == 0
+}
+```
+
+---
+# Les bénéfices des paquets
+
+
+Indice :
+
+```{r}
+tools::package_dependencies("FSA", recursive = TRUE)
+```
+
+---
+# Les bénéfices des paquets
+
+### Exemple 2 :
+
+Manipuler des données JSON ou des fichiers XML
+
+- Utiliser les paquets `jsonlite` ou `xml2` ?
+
+--
+
+- Y passer des années pour obtenir un code qui sera buggué ?
+
+--
+
+Indices :
+
+```{r}
+tools::package_dependencies("jsonlite", recursive = TRUE)
+tools::package_dependencies("xml2", recursive = TRUE)
+```
+
+---
+
+# Trouver son chemin
+
+Les CRAN Tasks Views :
+
+- <https://cran.r-project.org/web/views/>
+- <https://cran.r-project.org/view=OfficialStatistics>
+
+La liste des logiciels libres utilisés dans la statistique publique :
+
+<https://github.com/SNStatComp/awesome-official-statistics-software>
+
+---
+
+# Se rassurer
+
+La qualité de la documentation
+
+- les vignettes
+- les sites web associés
+
+--
+
+Une marque de soins
+
+--
+
+Facilité d'utilisation : à vous de juger !
+
+--
+
+.conseil[
+  Ne pas utiliser de paquet n'ayant ni vignette ni site web associé
+]
+
+--
+
+Exemple : trouver les vignettes et la documentation depuis RStudio
+
+---
+
+# Se rassurer
+
+### Popularité et communauté d'utilisateurs
+
+Les problèmes des packages confidentiels :
+
+- difficulté à obtenir de l'aide
+- présence éventuelle de bugs non détectés
+- bonne adéquation à la tâche
+
+--
+
+.conseil[
+Ne pas utiliser de package qui paraisse trop confidentiel.
+]
+
+--
+
+```{r}
+with(
+  cranlogs::cran_downloads(packages = "ggplot2", when = "last-month"), 
+  sum(count)
+)
+```
+
+--
+
+Enquêter sur internet, [StackOverflow](https://stackoverflow.com/), [GitHub](https://github.com)...
+
+--
+
+Exemple avec `ggplot2`
+
+---
+
+# Se rassurer
+
+Réactivité de la maintenance :
+- le facteur d'autobus
+
+--
+
+Qualité des développements :
+- les tests
+
+--
+
+- les badges de qualimétrie
+
+--
+
+Réputation des auteurs
+
+--
+
+Comprendre où en est le package dans son cycle de vie
+
+```{r, out.height="100px", echo=FALSE}
+knitr::include_graphics("https://lifecycle.r-lib.org/articles/figures/lifecycle.svg")
+```
+
+--
+
+Enquêter sur le site de développement (GitHub ou GitLab)
+
+--
+
+.conseil[
+Ne pas utiliser de package qui présente de nombreuses issues restées sans réponse.
+
+Se méfier très fortement des packages n’ayant qu’un seul contributeur.
+]
+
+---
+
+# Exemples 
+
+- le package [accSDA](https://cran.r-project.org/package=accSDA)
+
+- le package [rcites](https://cran.r-project.org/package=rcites)
+
+--
+
+.conseil[
+Les packages développés par une organisation privée ou publique (ROpenSci, RStudio...) présentent un risque moindre d’être abandonnés.
+]
+
+---
+
+# Gérer ses dépendances
+
+--
+
+.sauterligne3[
+.recommandation[
+- ne pas écrire `install.packages()` au début de ses programmes ;
+- toujours utiliser l’organisation par projet ;
+- déclarer les dépendances du projet.
+]
+]
+
+---
+
+# Comment déclarer les dépendances ?
+
+.sauterligne3[
+.recommandation[
+Utiliser une de ces deux méthodes
+
+- utiliser le package `renv`
+- utiliser un fichier `DESCRIPTION`
+
+Ces deux méthodes peuvent être combinées
+]
+]
+
+--
+
+Exemple : <https://github.com/InseeFrLab/lockdown-maps-R>
+
