@@ -27,11 +27,17 @@ output:
 # Avant de commencer...
 
 .sauterligne2[
-Je dois vous préciser que : 
+Quelques obligations légales :
 
 * cette présentation est enregistrée (souriez) pour pouvoir être rediffusée ;
-* vous avez des droits (RGPD) ;
+* vous avez des droits (RGPD) : [lien à copier dans le tchat](https://www.utilitr.org/conferences/decouverte-utilitr/) ;
+*
 ]
+
+.sauterligne2[
+Quelques petites questions sur vous : 
+* quel est votre niveau estimé en `R` : 1 (débutant) à 3 (fort) ?
+* qui a déjà utilisé le SSP Cloud ?
 
 Vous avez la possibilité de lancer des codes `R` facilement en cliquant ici : 
 <a href="https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB" target=_blank rel=noopener><img src="https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R" alt=SSPcloud></a>
@@ -43,7 +49,7 @@ Vous avez la possibilité de lancer des codes `R` facilement en cliquant ici :
 .sauterligne2[
 Le contenu de cette présentation sera : 
 
-* _semi_-applicatif : je vais alterner entre considérations générales (sur ce document), et lancer du code `R` via la plateforme datalab.
+* _semi_-applicatif : je vais alterner entre considérations générales (sur ce document), la documentation, et lancer du code `R` via la plateforme datalab.
 * _semi_-participatif : ceux qui le souhaitent peuvent réaliser des tests sur la documentation en parallèle de mon intervention, ou lancer *n'importe quelle partie de la documentation* !
 ]
 
@@ -482,5 +488,7 @@ background-size: 7cm
 background-position: 8.5cm 3cm
 
 # Merci !
+
+Et retour [ici](https://www.utilitr.org/conferences/decouverte-utilitr/) pour la suite de la matinée !
 
 
