@@ -410,27 +410,26 @@ Le _package_ {tidyr} propose diverses fonctions pour ranger les données. Une fo
 
 ![Transformation *long to wide*](pics/datatable/longtowide.png)
 ---
-# Pivoter avec {tidyr}
+# Détail technique
 
-Pour pivoter, il faut utiliser : `pivot_longer` et `pivot_wider` !
+On va travailler sur la BPE "simplifiée" 
 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
-base_a_pivoter <-bpe_ens_2018 %>%
+bpe_simplifiee <-bpe_ens_2018 %>%
   mutate(TYPEQU1=substr(TYPEQU,1,1)) %>%
-  group_by(DCIRIS,DEPCOM,TYPEQU1) %>%
+  group_by(DCIRIS,DEPCOM,DEP,REG,TYPEQU1) %>%
   summarise(NB_EQUIP=sum(NB_EQUIP)) %>%
   ungroup()
 
 ```
 
-* Sous quel format est cette base : _wide_ ou _long_ ?
-
---
-
+---
+# Pivoter les données 
 ```{r, echo = TRUE, warning = FALSE, eval = FALSE}
 library("tidyr")
 
-ma_base <-base_a_pivoter %>%
+ma_base_wide <-bpe_simplifiee %>%
+  select(-REG,-DEP) %>%
   pivot_wider(id_cols=c(DCIRIS,DEPCOM), #OBLIGATOIRE
               names_from=TYPEQU1, #OBLIGATOIRE
               values_from=NB_EQUIP, #OBLIGATOIRE
@@ -438,81 +437,16 @@ ma_base <-base_a_pivoter %>%
               values_fill = 0) #FACULTATIF
 ```
 
----
-# Utiliser ce modèle de présentation
-
-Les boîtes colorées sont également disponibles (et combinales avec les boîtes `smallXX[]`) :
-
-.recommandation[
-* Pour importer des données de taille réduite (jusqu'à 1 Go), il est recommandé d'utiliser les fonctions `read_csv()` et `read_delim()` du  _package_ `readr` ;
-* Pour importer des données de taille plus importante (supérieure à 1 Go), il est recommandé d'utiliser la fonction `fread()` du *package* `data.table`.
-* L'usage du *package* `csvread` est déconseillé, de même que l'utilisation des fonctions natives de `R` `read.csv()` et `read.delim()`.
-]
-
-
-.small90[
-.conseil[
-Si vous êtes complètement débutants en `R`, il est recommandé d'utiliser l'utilitaire d'importation de ` RStudio`. Une fois que les données sont correctement importées, vous pourrez copier-coller le code dans votre script `R` et vous familiariser avec les fonctions du *package* `readr`.
-]
-]
-
-
-
----
-# Utiliser ce modèle de présentation
-
-.small80[
-.remarque[
-Il est nettement plus simple de sélectionner des colonnes avec `fread()` qu'avec les fonctions du *package* `readr`. Il est donc recommandé d'utiliser `fread()` lorsque vous souhaitez sélectionner facilement les colonnes à importer.
-]
-]
-
-.small70[
-.specificite[
-Une forge interne `GitLab` est accessible depuis AUS. Son adresse, ainsi que des éléments complémentaires à cette fiche, sont disponibles dans la documentation AUS (`Y:/Documentation/AUSV3/`).
-]
-]
-
----
-# Utiliser ce modèle de présentation
-
-Voici comment afficher le code d'un chunk puis son résultat, en deux temps.
-
-```{r, echo = FALSE}
-# On augmente le nombre de lignes imprimées pour faire apparaître deux catégories
-options(tibble.print_min = 6)
-options(tibble.print_max = 6)
-options(dplyr.print_min  = 6)
-options(dplyr.print_max  = 6)
-```
-
-```{r, echo = TRUE, warning = FALSE, message = FALSE, eval = FALSE}
-library(doremifasolData)
-library(magrittr)
-library(dplyr)
-
-nombre <- doremifasolData::bpe_ens_2018 %>%
-  as_tibble() %>%
-  filter(TYPEQU == "B316") %>%
-  group_by(DEP) %>%
-  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE))
-nombre
-```
-
 --
 
-```{r, echo = FALSE, warning = FALSE, message = FALSE, eval = TRUE}
-library(doremifasolData)
-library(magrittr)
-library(dplyr)
-
-nombre <- doremifasolData::bpe_ens_2018 %>%
-  as_tibble() %>%
-  filter(TYPEQU == "B316") %>%
-  group_by(DEP) %>%
-  summarise(nombre_station_serv = sum(NB_EQUIP, na.rm = TRUE))
-nombre
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base_longe <-ma_base_wide %>%
+  pivot_longer(cols=c(NB_EQUIP_A,NB_EQUIP_B,NB_EQUIP_C,NB_EQUIP_D,NB_EQUIP_E,NB_EQUIP_F,NB_EQUIP_G),
+               names_to="EQUIPEMENT",
+               values_to="NB_EQUIPEMENT")
 ```
+
+
 
 ---
 
