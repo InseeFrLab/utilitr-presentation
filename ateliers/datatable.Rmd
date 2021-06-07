@@ -692,14 +692,10 @@ head(creation_var(filosofi_com_2016_dt,
 ```
 
 ```{r, echo = FALSE}
-filosofi_com_2016_dt <- data.table::as.data.table(doremifasolData::filosofi_com_2016)
-filosofi_com_2016_dt[,`:=`("dep" = substr(get('CODGEO'), 0, 2),
-         "groupe_revenu" = 5000*floor(get('MED16')/5000))  ]
 tempdf<- creation_var(filosofi_com_2016_dt, 
                   nom_variable = "NBMENFISC16",
                   nouveau_nom  = "nouvelle_variable")
-head(tempdf[,1:5])
-
+head(tempdf[,.(CODGEO, LIBGEO, NBMENFISC16, nouvelle_variable)])
 ```
 
 ---
