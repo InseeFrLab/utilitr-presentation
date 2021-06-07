@@ -5,13 +5,24 @@ author : "Arthur Cazaubiel"
 institute : "Insee"
 date : "8 juin 2021"
 output:
-  utilitr::utilitr_presentation:
+  xaringan::moon_reader:
     new_session: yes
-    css: custom.css
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - custom.css
     includes:
       after_body: insert-logo.html
-    self_contained: true
-    lib_dir: "public"
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 # Organisation générale
 
@@ -228,6 +239,20 @@ ma_base <- bpe_ens_2018 %>%
   filter(TYPEQU=="A206" & NB_EQUIP>2) %>%
   select(DCIRIS,NB_ETAB_POSTE=NB_EQUIP) %>%
   arrange(desc(NB_ETAB_POSTE),DCIRIS)
+
+View(ma_base)
+```
+
+
+---
+# `mutate`et `summarize`
+
+ `mutate` permet de créer de nouvelles variables.
+
+```{r, echo = TRUE, warning = FALSE, eval = FALSE}
+ma_base <- bpe_ens_2018 %>% 
+    mutate(NB_EQUIP_3PLUS = (NB_EQUIP >= 3),
+           NB_EQUIP_CUM = cumsum(NB_EQUIP))
 
 View(ma_base)
 ```
