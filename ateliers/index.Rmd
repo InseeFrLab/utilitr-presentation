@@ -27,6 +27,6 @@ output:
 # Présentation des ateliers
 
 * [Présentation imports de fichiers plats et de tableurs](./import_fichiers.html) (script uniquement [ici](./import_fichiers.R))
-* [Présentation tidyverse](./tidyverse.html) (script uniquement [ici](./tidyverse.R))
-* [Présentation data.table](./datatable.html) (script uniquement [ici](./datatable.R))
-* [Présentation data.table](./graphiques.html) (script uniquement [ici](./graphiques.R))
+* [Présentation manipuler des données avec le `tidyverse`](./tidyverse.html) (script uniquement [ici](./tidyverse.R))
+* [Présentation manipuler des données avec `data.table`](./datatable.html) (script uniquement [ici](./datatable.R))
+* [Présentation réaliser des graphiques avec `ggplot2`](./graphiques.html) (script uniquement [ici](./graphiques.R))
