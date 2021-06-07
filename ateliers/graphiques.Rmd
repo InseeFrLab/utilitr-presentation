@@ -237,7 +237,7 @@ ggplot2::theme_set(theme_minimal())
 Voici un exemple de code qui crée un nuage de points (géométrie `geom_point()`) à partir des données `mes_donnees`, avec les variables `variable1` en abscisse et `variable2` en ordonnée :
 ]
 .sauterligne[
-```{r, eval = FALSE}
+```{r, eval = FALSE, purl = FALSE}
 ggplot(data = mes_donnees) + 
   geom_point(mapping = aes(x = variable1, y = variable2), ...)
 ```
