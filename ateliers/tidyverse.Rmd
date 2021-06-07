@@ -1,6 +1,6 @@
 ---
-title : "Présentation d'`utilitR`"
-subtitle : "Fiche {tidyverse}"
+title : "Manipuler des données avec le `{tidyverse}`"
+subtitle : "Matinées de découverte d'`utilitR`"
 author : "Arthur Cazaubiel"
 institute : "Insee"
 date : "8 juin 2021"

@@ -1,6 +1,6 @@
 ---
 title : "Import de fichiers plats et tableurs"
-subtitle : "`utilitR<br>`Matinées de découverte"
+subtitle : "Matinées de découverte d'`utilitR`"
 author: Pierre-Yves Berrard
 institute : "Insee"
 date : "8 juin 2021"

@@ -1,6 +1,6 @@
 ---
-title : "Réaliser des graphiques avec `R`"
-subtitle : "`utilitR<br>`Matinées de découverte"
+title : "Réaliser des graphiques avec `ggplot2`"
+subtitle : "Matinées de découverte d'`utilitR`"
 author: Olivier Meslin
 institute : "Insee"
 date : "8 juin 2021"
