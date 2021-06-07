@@ -154,11 +154,15 @@ dt
 
 * `R base`: les crochets `df[...]` servent uniquement à sélectionner des lignes ou des colonnes
 * `data.table`: crochets permettent de tout faire
-    + pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`
     + apporte concision, donc lisibilité
     + optimisé: réduit le temps de traitement des données car ne manipule que les colonnes mentionnées
+* pas nécessaire d'utiliser le préfixe `DT$` pour se référer aux variables à l'intérieur de `[...]`
 
---
+
+---
+# Présentation de `data.table`
+## Tout se passe dans les crochets `[...]`
+
 
 Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniquement sur les observations pour lesquelles `x` est supérieur à 3
 
@@ -169,8 +173,8 @@ Exemple: on veut calculer la moyenne de `y` par groupe défini par `x`, uniqueme
 <td>
 ```{r, eval=FALSE}
 aggregate(
-  dt[dt[["x"]] > 3]$y,
-  by = list(dt[dt[["x"]] > 3]$z),
+  dt[dt[["z"]] > 3]$y,
+  by = list(dt[dt[["z"]] > 3]$x),
   FUN = sum)
 ```
 </td>
@@ -180,8 +184,8 @@ aggregate(
 <td>
 ```{r, eval=FALSE}
 dt %>%
-  dplyr::filter(x > 3) %>%
-  dplyr::group_by(z) %>%
+  dplyr::filter(z > 3) %>%
+  dplyr::group_by(x) %>%
   dplyr::summarise(sum(y))
 ```
 </td>
@@ -191,7 +195,7 @@ dt %>%
 <td>
 ```{r, eval=FALSE}
 
-dt[x > 3, sum(y), by = z]
+dt[z > 3, sum(z), by = x]
 ```
 </td>
 </tr>
