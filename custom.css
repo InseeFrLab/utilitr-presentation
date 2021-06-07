@@ -33,7 +33,10 @@ h2 {
 .title-slide {
   background-image: url('resources/logo-utilitr.png');
 }
-
+.title-slide h2 {
+  text-align: center;
+  text-align-last: center;
+}
 .indent{
   padding: 10px;
   margin-right: 1cm;
@@ -56,6 +59,9 @@ h2 {
 .small90{
   font-size: 90%;
 }
+.small90 code {
+  font-size: 14px;
+}
 .small80{
   font-size: 80%;
 }
@@ -65,7 +71,6 @@ h2 {
 .small60{
   font-size: 60%;
 }
-
 
 
 table {
@@ -136,4 +141,25 @@ table::first-line {
 table caption {
   font-weight: 900 ;
   margin-top: 15px;
+
+  
+img {
+  display: inline-block;
+}
+.red {
+  color: red;
+}
+.gray {
+  color: gray;
+  margin-top: -5px;
+}
+.gray ul {
+  margin-top: 0;
+}
+
+.extraitdoc {
+  -webkit-box-shadow: 5px 5px 15px 5px #999999 ;
+  box-shadow: 5px 5px 15px 5px #999999 ;
+  background-color: #EEF0E2;
+  padding: 10px 10px 1px 10px;
 }
