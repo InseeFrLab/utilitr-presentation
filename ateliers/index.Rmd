@@ -18,7 +18,7 @@ output:
     - css/custom.css
     includes:
       after_body: insert-logo.html
-    lib_dir: public/libs
+    lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
