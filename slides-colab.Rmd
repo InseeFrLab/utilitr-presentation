@@ -239,12 +239,12 @@ knitr::include_graphics("./resources/githubCI.png")
 # 3. Retour d'expérience
 ## Résultats
 
-* traçabilité parfaite ;
-* simplicité de mise à jour ;
-* ouverture ;
-* collaboration renforcée ;
-* fiabilité du processus de publication ;
-* projet plus pérenne
+* Traçabilité parfaite ;
+* Simplicité de mise à jour ;
+* Ouverture ;
+* Collaboration renforcée ;
+* Fiabilité du processus de publication ;
+* Projet plus pérenne.
 
 <br>
 __On peut faire des trucs de fou avec Rmardown associé à Git `r fontawesome::fa("fab fa-git-alt")` + Github `r fontawesome::fa("fab fa-github")` (ou Gitlab `r fontawesome::fa("fab fa-gitlab")`) : un site web et un livre de 350 pages avec les mêmes fichiers sources__
@@ -253,12 +253,13 @@ __On peut faire des trucs de fou avec Rmardown associé à Git `r fontawesome::f
 # 3. Retour d'expérience
 ## Une "petite" bourde lors de la transition de Gitlab à Github (décembre 2020)
 
+* Transition vers [Github `r fontawesome::fa("fab fa-github")`](https://github.com/InseeFrLab/utilitR) pour donner plus de visibilité que sur Gitlab `r fontawesome::fa("fab fa-gitlab")`
+
 * Volonté de ne pas perdre l'historique du dépôt (commits, issues, pull request)
+    + Utilisation d'un super outil:  [node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github) ;
+    + récupère *issues* et *pull request*
 
-* Utilisation d'un super outil:  [node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github)
-    + fait le lien entre les comptes Gitlab et Github
-
-* Problème: *oublié* de désactiver la notification mail
+* Problème: *oubli* désactivation notification mail
 * Résultat: Olivier a reçu 2700 mails `r emo::ji("sweat_smile")`
 
 ```{r, echo = FALSE, out.width="50%", fig.show="hold"}
@@ -301,13 +302,19 @@ exposant la philosophie du projet
 * Les modalités les plus simples sont possibles via une interface graphique:
     + *Issues* : espace de débat et d'échanges: signaler un *bug*, proposer 
 une nouvelle fiche, un nouvel exemple, participer à un débat sur un package...
-    + Un bouton *Edit source files* pour utiliser l'interface visuelle Github
+    + Un bouton *Edit this page* pour utiliser l'interface visuelle Github
 afin d'éditer la dernière version de la fiche (la source de vérité) et proposer
 un changmeent (pull request)
 * Des *pull request* pour ajouter des éléments plus substanciels (nouvelles 
 fiches, ajout de paragraphe, évolution de la tuyauterie...)
 
 > ** Acculturation aux méthodes de l'open source qui renforcent la fiabilité des projets**
+
+---
+# 4. Quelle collaboration sur Github ?
+
+<br><br><br><br>
+**[Démonstration !](https://github.com/InseeFrLab/utilitR-website)**
 
 ---
 # 4. Quelle collaboration sur Github ?
@@ -349,11 +356,9 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 
 <!---
 Sources :
+`https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
+`https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
 
-* `https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
-* `https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
-
---
 ---->
 
 L'automatisation des processus présente de multiples avantages :
