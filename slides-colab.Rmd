@@ -167,22 +167,22 @@ La documentation est diffusée sous trois formes :
 <br><br>
 **Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
 
----
-# 2. Fonctionnement du projet
-## Organisation du projet
+<!----  --->
+<!-- # 2. Fonctionnement du projet -->
+<!-- ## Organisation du projet -->
 
-<table>
-   <tr>
-      <td>Les contributeurs</td>
+<!-- <table> -->
+<!--    <tr> -->
+<!--       <td>Les contributeurs</td> -->
 
-      <td>Le comité de parrainage</td>
-  </tr>
-  <tr>
-    <td> <img src="https://c.files.bbci.co.uk/D635/production/_87373845_stormtroopers_getty976b.jpg"  alt="1" width = 360px height = 360px ></td>
+<!--       <td>Le comité de parrainage</td> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td> <img src="https://c.files.bbci.co.uk/D635/production/_87373845_stormtroopers_getty976b.jpg"  alt="1" width = 360px height = 360px ></td> -->
 
-    <td><img src="https://static.wikia.nocookie.net/villains-fr/images/f/f3/B5f3dfc780d9ebd09b58c8dbf3c4c623.jpg/revision/latest?cb=20200714190423&path-prefix=fr" alt="2" width = 360px height = 360px></td>
-   </tr> 
-</table>
+<!--     <td><img src="https://static.wikia.nocookie.net/villains-fr/images/f/f3/B5f3dfc780d9ebd09b58c8dbf3c4c623.jpg/revision/latest?cb=20200714190423&path-prefix=fr" alt="2" width = 360px height = 360px></td> -->
+<!--    </tr>  -->
+<!-- </table> -->
 
 
 ---
@@ -345,7 +345,7 @@ knitr::include_graphics("resources/git-tree.png")
 <br> __Ce mode de travail est exportable à un environnement interne `Gitlab` `r fontawesome::fa("fab fa-gitlab")`__
 
 ---
-# 6. Intégration continue
+# 5. Intégration continue
 
 ## Pourquoi faire de l'intégration continue ?
 
@@ -367,6 +367,9 @@ L'automatisation des processus présente de multiples avantages :
 + elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
 + elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de se concentrer uniquement sur le fond.
 
+--
+
+* Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation
 
 ---
 # 6. Intégration continue
