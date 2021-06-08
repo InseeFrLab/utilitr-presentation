@@ -163,3 +163,45 @@ img {
   background-color: #EEF0E2;
   padding: 10px 10px 1px 10px;
 }
+
+
+img[alt="SSPcloud"] {
+  padding: 0;
+}
+img[class = "lol"] {
+  padding: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column1 {
+  float: center;
+  width: 30%;
+  padding: 5px;
+}
+.column {
+  float: left;
+  width: 30%;
+  padding: 0px 5px 0 5px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.column img {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  overflow: hidden;
+}
+.tablelol {
+  margin-left: 2cm;
+  margin-right: auto;
+}

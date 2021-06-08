@@ -41,9 +41,9 @@ Plan de la présentation :
 ]
 
 - Présentation du projet ;
-- Fonctionnement du projet: panorama ;
+- Fonctionnement du projet `utilitR` ;
 - Notre retour d'expérience ;
-- Pourquoi mettre en place ce type d'approche ?;
+- Pourquoi mettre en place ce type d'approche ?
 - Fonctionnement collaboratif d'utilitR ;
 
 <!----
@@ -56,8 +56,8 @@ Plan de la présentation :
 ## Une démarche collaborative et _open source_
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) :
-    + licence ouverte, permissive (`Licence Ouverte 2.0`) ;
-    + un manifeste exprimant un certain nombre de valeurs dont la transparence.
+    + licence ouverte et peu contraignante (`Licence Ouverte 2.0`) ;
+    + un manifeste exprimant un certain nombre de prncipes dont la transparence.
 * Démarche collaborative impliquant __plus de 25 contributeurs__ :
     + dispersés dans toute la France ;
     + issus de plusieurs institutions du SSP.
@@ -171,17 +171,28 @@ La documentation est diffusée sous trois formes :
 # 2. Fonctionnement du projet
 ## Organisation du projet
 
-<table>
-   <tr>
-      <td>Les contributeurs</td>
-
-      <td>Le comité de parrainage</td>
-  </tr>
+<table class = "tablelol">
   <tr>
-    <td> <img src="https://c.files.bbci.co.uk/D635/production/_87373845_stormtroopers_getty976b.jpg"  alt="1" width = 360px height = 360px ></td>
-
-    <td><img src="https://static.wikia.nocookie.net/villains-fr/images/f/f3/B5f3dfc780d9ebd09b58c8dbf3c4c623.jpg/revision/latest?cb=20200714190423&path-prefix=fr" alt="2" width = 360px height = 360px></td>
-   </tr> 
+    <td style = "width: 35%;">Le comité de parrainage</td>
+    <!-- <td><img src="https://imperialtalker.files.wordpress.com/2015/08/the-council.jpeg" alt="2" style = "width: 75%;" class = "lol"></td> -->
+    <td>
+<div class="row">
+  <div class="column">
+    <img src="https://static.wikia.nocookie.net/frstarwars/images/5/5f/Yoda.png/revision/latest?cb=20161009183018" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://media.vogue.fr/photos/606dca7e47f477da2ff11fcf/2:3/w_2560%2Cc_limit/010_A7A08C89_416.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://static.wikia.nocookie.net/frstarwars/images/f/fc/Mace_Windu.jpg/revision/latest?cb=20170702145737" alt="Mountains" style="width:100%">
+  </div>
+</div>
+        </td>
+     </tr> 
+     <tr>
+      <td>Les contributeurs</td>
+<td> <img src="https://lumiere-a.akamaihd.net/v1/images/databank_ewok_01_169_747db03a.jpeg?region=0%2C0%2C1560%2C878&width=768"  alt="1" style = "width: 90%;" class = "lol" ></td>
+  </tr>
 </table>
 
 
