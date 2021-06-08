@@ -57,11 +57,15 @@ Plan de la présentation :
 
 * Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) :
     + licence ouverte et peu contraignante (`Licence Ouverte 2.0`) ;
-    + un manifeste exprimant un certain nombre de prncipes dont la transparence.
+    + un manifeste exprimant un certain nombre de principes dont la transparence.
+
+--
 * Démarche collaborative impliquant __plus de 25 contributeurs__ :
     + dispersés dans toute la France ;
     + issus de plusieurs institutions du SSP.
     + Un immense merci à eux ! `r emo::ji("applause")`
+
+--
 * Organisation horizontale, sur le modèle de `Wikipedia` :
     + relecture par les pairs ;
     + validation collégiale ;
