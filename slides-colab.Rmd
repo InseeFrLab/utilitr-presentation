@@ -43,11 +43,13 @@ Plan de la présentation :
 - Présentation du projet ;
 - Fonctionnement du projet: panorama ;
 - Notre retour d'expérience ;
-- Pourquoi mettre en place ce type d'approche ;
+- Pourquoi mettre en place ce type d'approche ?;
 - Fonctionnement collaboratif d'utilitR ;
+
+<!----
     + Git & Github
     + CI/CD
-
+----->
 
 ---
 # 1. Présentation du projet
@@ -64,6 +66,8 @@ Plan de la présentation :
     + relecture par les pairs ;
     + validation collégiale ;
     + discussions publiques, toutes contributions bienvenues. 
+
+__Tout le monde peut contribuer à `utilitR` !__
 
 ---
 # 1. Présentation du projet
@@ -106,6 +110,8 @@ __Le projet `utilitR` est un laboratoire qui préfigure les évolutions des mét
 knitr::include_graphics("https://i2.wp.com/akramsideas.com/wp-content/uploads/2013/07/minions.jpg")
 ```
 
+__Rejoignez l'aventure `utilitR` !__
+
 ---
 # 1. Présentation du projet
 ## Méthode de travail : reproductibilité et qualité
@@ -129,8 +135,9 @@ La documentation est diffusée sous trois formes :
 - `r fontawesome::fa("fas fa-print")` chaque fiche est disponible en format A4 sur le site internet ;
 - `r fontawesome::fa("fas fa-file-pdf")` l'intégralité de la documentation en format pdf. 
 
-<br> Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée.
+<br> Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée (mais produite de manière automatique).
 
+<br> `utilitR` est en évolution constante, venez proposer vos idées ou donner un coup de main !
 
 
 <!---- PARTIE 2 ---------------->
@@ -157,7 +164,7 @@ La documentation est diffusée sous trois formes :
 * La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
 
 --
-<br>
+<br><br>
 **Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
 
 ---
@@ -245,7 +252,7 @@ __On peut faire des trucs de fou avec Rmardown associé à Git + Github/Gitlab :
 * Utilisation d'un super outil:  [node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github)
     + fait le lien entre les comptes Gitlab et Github
 
-* problème: j'ai oublié de désactiver la notification mail
+* problème: *oublié* de désactiver la notification mail
 * Résultat: Olivier a reçu 2700 mails `r emo::ji("sweat_smile")`
 
 ```{r, echo = FALSE, out.width="50%", fig.show="hold"}
