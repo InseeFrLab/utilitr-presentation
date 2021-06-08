@@ -67,7 +67,7 @@ Plan de la présentation :
     + validation collégiale ;
     + discussions publiques, toutes contributions bienvenues. 
 
-__Tout le monde peut contribuer à `utilitR` !__
+<br> __Tout le monde peut contribuer à `utilitR` !__
 
 ---
 # 1. Présentation du projet
@@ -104,7 +104,7 @@ __Le projet `utilitR` est un laboratoire qui préfigure les évolutions des mét
 
 ---
 # 1. Présentation du projet
-## Une démarche collaborative et _open source_
+## La communauté des contributeurs
 
 ```{r, echo = FALSE}
 knitr::include_graphics("https://i2.wp.com/akramsideas.com/wp-content/uploads/2013/07/minions.jpg")
@@ -201,19 +201,25 @@ knitr::include_graphics("./resources/githubCI.png")
 # 3. Retour d'expérience
 ## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: un **écosystème efficace**
 
-* une __unique source de vérité__ avec au même endroit:
+* Une __unique source de vérité__ avec au même endroit:
     + le contenu validé ;
     + le contenu en cours de rédaction ;
-* **pas de mail** pour s'échanger des fichiers ou des informations ;
-* organiser le travail collaboratif de façon **ouverte** et **transparente** :
+* **Pas de mail** pour s'échanger des fichiers ou des informations ;
+    + Informations importantes à archiver directement dans le projet, pas dans une boîte mail
+
+--
+
+* Organiser le travail collaboratif de façon **ouverte** et **transparente** :
     + tout le monde peut proposer des modifications (correction coquille, rédaction fiche, etc.) ;
     + tout le monde peut donner son avis.
+
+--
 
 * **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif
     + Besoin d'un ou deux facilitateurs ou coach `Git` ;
     + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
     + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
-    + Informations importantes à archiver directement dans le projet, pas dans une boîte mail
+
 
 ---
 # 3. Retour d'expérience
@@ -241,7 +247,7 @@ knitr::include_graphics("./resources/githubCI.png")
 * projet plus pérenne
 
 <br>
-__On peut faire des trucs de fou avec Rmardown associé à Git + Github/Gitlab : un site web et un livre de 350 pages avec les mêmes fichiers sources__
+__On peut faire des trucs de fou avec Rmardown associé à Git `r fontawesome::fa("fab fa-git-alt")` + Github `r fontawesome::fa("fab fa-github")` (ou Gitlab `r fontawesome::fa("fab fa-gitlab")`) : un site web et un livre de 350 pages avec les mêmes fichiers sources__
 
 ---
 # 3. Retour d'expérience
@@ -252,7 +258,7 @@ __On peut faire des trucs de fou avec Rmardown associé à Git + Github/Gitlab :
 * Utilisation d'un super outil:  [node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github)
     + fait le lien entre les comptes Gitlab et Github
 
-* problème: *oublié* de désactiver la notification mail
+* Problème: *oublié* de désactiver la notification mail
 * Résultat: Olivier a reçu 2700 mails `r emo::ji("sweat_smile")`
 
 ```{r, echo = FALSE, out.width="50%", fig.show="hold"}
@@ -287,7 +293,7 @@ exposant la philosophie du projet
 
 ---
 # 4. Quelle collaboration sur Github ?
-## Adapter la contribution au type
+## Permettre à tous de contribuer
 
 * Plusieurs modalités de contribution proposées pour offrir:
     + légèreté
@@ -329,26 +335,28 @@ knitr::include_graphics("resources/git-tree.png")
 
 * Les contributeurs utilisent des `forks` (des copies du dépôt principal) et soumettent les changements à partir de ces copies
 
-
+<br> __Ce mode de travail est exportable à un environnement interne `Gitlab` `r fontawesome::fa("fab fa-gitlab")`__
 
 ---
 # 6. Intégration continue
 
 ## Pourquoi faire de l'intégration continue ?
 
-```{r, echo = FALSE, out.width="50%", fig.show="hold"}
+```{r, eval = FALSE, echo = FALSE, out.width="50%", fig.show="hold"}
 knitr::include_graphics("https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg")
 knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
 ```
 
+<!---
 Sources :
 
 * `https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
 * `https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
 
 --
+---->
 
-L'automatisation de ces processus présente de multiples avantages :
+L'automatisation des processus présente de multiples avantages :
 
 + elle allège le travail des coordinateurs et des contributeurs ;
 + elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
@@ -374,11 +382,14 @@ L'automatisation de ces processus présente de multiples avantages :
 
 --
 
-<br>
-* Avantages :
-    + le livre et le site web sont générés à partir des mêmes codes sources ;
-    + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
-    + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
+* Objectif: utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...)
+
+---
+# 6. Intégration continue: avantages
+
+* Le livre et le site web sont générés à partir des mêmes codes sources ;
+* Reproductibilité dans de multiples environnements en contrôlant les dépendances ; 
+* Contributeurs peuvent se concentrer sur le fond ;
 
 
 
@@ -391,21 +402,13 @@ L'automatisation de ces processus présente de multiples avantages :
 
 * Un point d'entrée: <https://www.utilitr.org>
 
----
-# 3. Quelques termes utilisés dans la présentation
-## Définitions
+--
 
-|                        |  |
-|------------------------|--|
-| Git                    |  |
-| Github                 |  |
-| Branches               |  |
-| Pull request           |  |
-| Github Flow            |  |
-| Conteneur              |  |
-| Intégration continue   |  |
-| CI/CD                  |  |
-| devops                 |  |
+* Besoin de nouveaux contributeurs pour aller plus loin:
+    + Ajouter de nouveaux contenus ;
+    + Mettre à jour certains contenus ;
+    + Continuer le chemin tracé (`utilython` ?)
+    
 
 ---
 # Remerciements
