@@ -384,7 +384,7 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 --
 
 <br>
-Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...)
+Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...).
 
 
 ---
@@ -411,7 +411,7 @@ Utiliser les outils les plus appropriés pour réaliser une tâche donnée (comp
 * **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif :
     + Besoin d'un ou deux facilitateurs ou coach `Git` ;
     + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
-    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
+    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément.
 
 
 ---
