@@ -98,8 +98,8 @@ Plan de la présentation :
     + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
     + `Github` `r fontawesome::fa("fab fa-github")`.
 
-* Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
-    + Amélioration du _package_ `pagedown` pour produire la brochure pdf;
+* La résolution des défis techniques ont permis des évolutions de l'écosystème `R Markdown` :
+    + Amélioration du _package_ `pagedown` pour produire la brochure pdf ;
     + Correction d'un bug dans le _package_ `rmarkdown` pour produire le site internet.
 
 <br>
@@ -242,7 +242,7 @@ knitr::include_graphics("./resources/githubCI.png")
 
 --
 
-* **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif
+* **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif :
     + Besoin d'un ou deux facilitateurs ou coach `Git` ;
     + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
     + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
@@ -264,7 +264,7 @@ knitr::include_graphics("./resources/githubCI.png")
     
 ---
 # 3. Retour d'expérience
-## Résultats
+## Avantages
 
 * Traçabilité élevée des modifications ;
 * Simplicité de mise à jour des outputs ;
@@ -273,8 +273,16 @@ knitr::include_graphics("./resources/githubCI.png")
 * Fiabilité du processus de publication ;
 * Projet plus pérenne.
 
-<br>
-__On peut faire des trucs de fou avec Rmardown associé à Git `r fontawesome::fa("fab fa-git-alt")` + Github `r fontawesome::fa("fab fa-github")` (ou Gitlab `r fontawesome::fa("fab fa-gitlab")`) : un site web et un livre de 350 pages avec les mêmes fichiers sources__
+---
+# 3. Retour d'expérience
+## Défis
+
+* Capacité à se coordonner et à s'écouter ;
+* Nécessité de hiérarchiser les objectifs ;
+* Il faut apprendre à maîtriser les outils ;
+* Il faut trouver du temps pour contribuer ;
+* Importance d'avoir quelques contributeurs expérimentés.
+
 
 ---
 # 3. Retour d'expérience
