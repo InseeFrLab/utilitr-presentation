@@ -211,6 +211,21 @@ La documentation est diffusée sous trois formes :
 
 ---
 # 2. Fonctionnement du projet
+## Les 5 principes du projet `utilitR`
+
+
+* __Transparence__: l'ensemble du projet est librement accessible sur le dépôt Github, sous licence libre;
+* __Ouverture__: toute personne qui le souhaite peut rejoindre le projet à tout moment. Les modalités de contribution peuvent prendre différentes formes, détaillées dans le guide des contributeurs;
+* __Bienveillance__: toutes les idées, initiatives et propositions sont les bienvenues, et les contributeurs veillent à se soutenir les uns les autres;
+* __Exigence__: les modifications de la documentation sont systématiquement soumises à une revue par les contributeurs du projet et ne sont acceptées que lorsqu'elles rencontrent une large approbation;
+* __Reproductibilité__: les exemples développés dans la documentation doivent être reproductibles.
+
+Ces valeurs sont exposées dans un
+[Manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md)
+exposant la philosophie du projet
+
+---
+# 2. Fonctionnement du projet
 ## Méthode de travail: vision d'ensemble du processus
 
 Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de l'art :
@@ -314,22 +329,7 @@ knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS
 
 ---
 # 4. Quelle collaboration sur Github ?
-## Les 5 valeurs du projet `utilitR`
-
-
-* __Transparence__: l'ensemble du projet est librement accessible sur le dépôt Github, sous licence libre;
-* __Ouverture__: toute personne qui le souhaite peut rejoindre le projet à tout moment. Les modalités de contribution peuvent prendre différentes formes, détaillées dans le guide des contributeurs;
-* __Bienveillance__: toutes les idées, initiatives et propositions sont les bienvenues, et les contributeurs veillent à se soutenir les uns les autres;
-* __Exigence__: les modifications de la documentation sont systématiquement soumises à une revue par les contributeurs du projet et ne sont acceptées que lorsqu'elles rencontrent une large approbation;
-* __Reproductibilité__: les exemples développés dans la documentation doivent être reproductibles.
-
-Ces valeurs sont exposées dans un
-[Manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md)
-exposant la philosophie du projet
-
----
-# 4. Quelle collaboration sur Github ?
-## Permettre à tous de contribuer
+## Objectif: permettre à tous de contribuer
 
 * __Plusieurs modalités de contribution__ proposées pour offrir:
     + légèreté ;
@@ -342,9 +342,9 @@ exposant la philosophie du projet
 une nouvelle fiche, un nouvel exemple, participer à un débat sur un *package*...
     + Un bouton *Edit this page* `r fontawesome::fa("fab fa-github")` pour utiliser l'interface visuelle `Github` ;
 afin d'éditer la dernière version de la fiche (la source de vérité) et proposer
-un changement (*pull request* automatiquement créée).
-* Des *pull request* pour ajouter des éléments plus substanciels (nouvelles 
-fiches, ajout de paragraphe, évolution de la tuyauterie...)
+un changement (*pull request* automatiquement créée) ;
+* Des *pull request* pour ajouter des éléments plus substantiels (nouvelles 
+fiches, ajout de paragraphe, évolution de la tuyauterie...).
 
 > ** Acculturation aux méthodes de l'open source qui renforcent la fiabilité des projets**
 
