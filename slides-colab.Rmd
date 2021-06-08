@@ -41,9 +41,9 @@ Plan de la présentation :
 ]
 
 - Présentation du projet ;
-- Fonctionnement du projet `utilitR` ;
 - Fonctionnement collaboratif d'`utilitR` ;
-- Pourquoi mettre en place l'intégration continue ?
+- Collaboration sur `Github` ;
+- Le rôle de l'intégration continue pour se concentrer sur le contenu ;
 - Notre retour d'expérience ;
 
 <!----
@@ -116,28 +116,6 @@ knitr::include_graphics("https://i2.wp.com/akramsideas.com/wp-content/uploads/20
 
 __Rejoignez l'aventure `utilitR` !__
 
----
-# 1. Présentation du projet
-## Méthode de travail : reproductibilité et qualité
-
-Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) propose :
-
-* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
-
---
-
-* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
-
---
-
-* Des scripts de __déploiement continu__ qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
-
---
-
-* Un **site de prévisualisation** `r fontawesome::fa("fab fa-firefox")` (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
-
-[![Docker Pulls](https://img.shields.io/docker/pulls/inseefrlab/utilitr)](https://hub.docker.com/repository/docker/inseefrlab/utilitr/general)
-[![build-doc Actions Status](https://github.com/InseeFrLab/utilitR/workflows/Production%20de%20la%20documentation/badge.svg)](https://github.com/InseeFrLab/utilitR/actions)
 
 ---
 # 1. Présentation du projet
@@ -268,6 +246,28 @@ knitr::include_graphics("./resources/graphCI/githubCI_3.png")
 knitr::include_graphics("./resources/graphCI/githubCI_complete.png")
 ```
 
+---
+# 2. Fonctionnement du projet
+## Une approche au service de la reproductibilité et de la qualité
+
+Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) propose :
+
+* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
+
+--
+
+* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+
+--
+
+* Des scripts de __déploiement continu__ qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
+
+--
+
+* Un **site de prévisualisation** `r fontawesome::fa("fab fa-firefox")` (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/inseefrlab/utilitr)](https://hub.docker.com/repository/docker/inseefrlab/utilitr/general)
+[![build-doc Actions Status](https://github.com/InseeFrLab/utilitR/workflows/Production%20de%20la%20documentation/badge.svg)](https://github.com/InseeFrLab/utilitR/actions)
 
 
 ---
@@ -332,7 +332,7 @@ knitr::include_graphics("resources/git-tree.png")
 ---
 # 4. Intégration continue
 
-## Pourquoi faire de l'intégration continue ?
+## Avantages de l'automatisation des processus :
 
 ```{r, eval = FALSE, echo = FALSE, out.width="50%", fig.show="hold"}
 knitr::include_graphics("https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg")
@@ -346,17 +346,17 @@ Sources :
 
 ---->
 
-L'automatisation des processus présente de multiples avantages :
+Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation:
 
-+ elle **allège le travail** des coordinateurs et des contributeurs ;
-+ elle assure un **environnement plus reproductible**
-+ elle **facilite le repérage des erreurs** ;
-+ elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de **se concentrer uniquement sur le fond**.
++ **allège le travail** des coordinateurs et des contributeurs ;
++ assure un **environnement plus reproductible** ;
++ assure la **cohérence entre les différents formats** ;
++ **facilite le repérage des erreurs** ;
++ permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de **se concentrer uniquement sur le fond**.
 
---
-
-<br> Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation.
-
+```{r, echo = FALSE, out.width="50%", fig.show="hold", fig.align='center'}
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
 
 ---
 # 4. Intégration continue
@@ -383,21 +383,6 @@ L'automatisation des processus présente de multiples avantages :
 <br>
 Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...)
 
----
-# 4. Intégration continue: avantages
-
-<br>
-
-* Le livre et le site web sont générés à partir des mêmes codes sources ;
-* Reproductibilité dans de multiples environnements en contrôlant les dépendances ; 
-* Contributeurs peuvent se concentrer sur le fond ;
-* Détection précoce des problèmes.
-
-<br> 
-
-```{r, echo = FALSE, out.width="60%", fig.show="hold", fig.align='center'}
-knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
-```
 
 ---
 # 5. Retour d'expérience
@@ -422,8 +407,8 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 
 * **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif :
     + Besoin d'un ou deux facilitateurs ou coach `Git` ;
-    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
     + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
+    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
 
 
 ---
