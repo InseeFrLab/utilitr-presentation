@@ -175,7 +175,7 @@ La documentation est diffusée sous trois formes :
     <img src="https://media.vogue.fr/photos/606dca7e47f477da2ff11fcf/2:3/w_2560%2Cc_limit/010_A7A08C89_416.jpg" alt="Forest" style="width:100%">
   </div>
   <div class="column">
-    <img src="https://static.wikia.nocookie.net/frstarwars/images/f/fc/Mace_Windu.jpg/revision/latest?cb=20170702145737" alt="Mountains" style="width:100%">
+    <img src="https://static.wikia.nocookie.net/frstarwars/images/f/fc/Mace_Windu.jpg/revision/latest?cb=20170702145737.jpg" alt="Mountains" style="width:100%">
   </div>
 </div>
         </td>
