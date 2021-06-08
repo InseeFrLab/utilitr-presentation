@@ -169,7 +169,7 @@ La documentation est diffusée sous trois formes :
     <td>
 <div class="row">
   <div class="column">
-    <img src="https://static.wikia.nocookie.net/frstarwars/images/5/5f/Yoda.png/revision/latest?cb=20161009183018" alt="Snow" style="width:100%">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/71MA6epP0WL._AC_SL1500_.jpg" alt="Snow" style="width:100%">
   </div>
   <div class="column">
     <img src="https://media.vogue.fr/photos/606dca7e47f477da2ff11fcf/2:3/w_2560%2Cc_limit/010_A7A08C89_416.jpg" alt="Forest" style="width:100%">
