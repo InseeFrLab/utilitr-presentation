@@ -406,7 +406,9 @@ L'automatisation des processus présente de multiples avantages :
 * Contributeurs peuvent se concentrer sur le fond ;
 * Détection précoce des problèmes.
 
-
+```{r, echo = FALSE, out.width="50%", fig.show="hold", fig.align='center'}
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
 
 ---
 # Où en est le projet aujourd'hui ?
@@ -422,7 +424,7 @@ L'automatisation des processus présente de multiples avantages :
 * Besoin de nouveaux contributeurs pour aller plus loin:
     + Ajouter de nouveaux contenus ;
     + Mettre à jour certains contenus ;
-    + Continuer le chemin tracé (`utilython` ?)
+    + Après `utilitR` `r fontawesome::fa("fab fa-r-project")`, `r `fontawesome::fa("fab fa-python")` ?)
     
 
 ---
