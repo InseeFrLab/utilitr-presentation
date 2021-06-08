@@ -55,10 +55,9 @@ Plan de la présentation :
 # 1. Présentation du projet
 ## Une démarche collaborative et _open source_
 
-* Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) :
-    + licence ouverte et peu contraignante (`Licence Ouverte 2.0`) ;
-    + un manifeste exprimant un certain nombre de principes dont la transparence.
-
+* Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) :
+    + Tous les codes sources sont disponibles sur Github ;
+    + licence ouverte et peu contraignante (`Licence Ouverte 2.0`).
 --
 * Démarche collaborative impliquant __plus de 25 contributeurs__ :
     + dispersés dans toute la France ;
@@ -146,7 +145,7 @@ La documentation est diffusée sous trois formes :
 --
 
 * Organisation sans hiérarchie :
-    * Un _groupe de contributeurs_ `r emo::ji("black_nib")` (environ 25), parmi lesquels deux coordinateurs (Lino Galiana et Olivier Meslin) ;
+    * Un _groupe de contributeurs_ `r emo::ji("black_nib")` (environ 25), parmi lesquels deux coordinateurs ;
     * Un _comité de parrainage_ composé de managers  `r emo::ji("angel")`: Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
 --
 
@@ -192,13 +191,13 @@ La documentation est diffusée sous trois formes :
 ## Les 5 principes du projet `utilitR`
 
 
-* __Transparence__: l'ensemble du projet est librement accessible sur le dépôt Github, sous licence libre;
-* __Ouverture__: toute personne qui le souhaite peut rejoindre le projet à tout moment. Les modalités de contribution peuvent prendre différentes formes, détaillées dans le guide des contributeurs;
-* __Bienveillance__: toutes les idées, initiatives et propositions sont les bienvenues, et les contributeurs veillent à se soutenir les uns les autres;
-* __Exigence__: les modifications de la documentation sont systématiquement soumises à une revue par les contributeurs du projet et ne sont acceptées que lorsqu'elles rencontrent une large approbation;
-* __Reproductibilité__: les exemples développés dans la documentation doivent être reproductibles.
+* __Transparence__ : l'ensemble du projet est librement accessible sur le dépôt Github, sous licence libre ;
+* __Ouverture__ : toute personne qui le souhaite peut rejoindre le projet à tout moment. Les modalités de contribution peuvent prendre différentes formes, détaillées dans le guide des contributeurs ;
+* __Bienveillance__ : toutes les idées, initiatives et propositions sont les bienvenues, et les contributeurs veillent à se soutenir les uns les autres ;
+* __Exigence__ : les modifications de la documentation sont systématiquement soumises à une revue par les contributeurs du projet et ne sont acceptées que lorsqu'elles rencontrent une large approbation ;
+* __Reproductibilité__ : les exemples développés dans la documentation doivent être reproductibles.
 
-Ces valeurs sont exposées dans un
+Ces principes sont exposées dans un
 [Manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md)
 exposant la philosophie du projet
 
@@ -206,7 +205,7 @@ exposant la philosophie du projet
 # 2. Fonctionnement du projet
 ## L'architecture du projet
 
-* Les contributeurs collaborent à travers le dépôt `Github`
+* Les contributeurs collaborent par l'intermédiaire du dépôt `Github` du projet (www.github.com/inseefrlab/utilitr).
 
 ```{r, echo = FALSE, out.width="85%", fig.align="center"}
 knitr::include_graphics("./resources/graphCI/githubCI_1.png")
@@ -216,7 +215,7 @@ knitr::include_graphics("./resources/graphCI/githubCI_1.png")
 # 2. Fonctionnement du projet
 ## L'architecture du projet
 
-* Arrière plan: scripts automatiques pour créer l'environnement de reproductibilité de la documentation
+* Des scripts automatiques créent l'environnement informatique de production de la documentation et vérifient que les codes sources ne contiennent pas de bug.
 
 
 ```{r, echo = FALSE, out.width="85%", fig.align="center"}
@@ -227,8 +226,8 @@ knitr::include_graphics("./resources/graphCI/githubCI_2.png")
 # 2. Fonctionnement du projet
 ## L'architecture du projet
 
-* Documentation automatiquement déployée en plusieurs formats
-* Mais besoin de tester des évolutions...
+* La documentation est déployée automatiquement en plusieurs formats ;
+* Mais il est nécessaire de tester les évolutions avant leur déploiement.
 
 ```{r, echo = FALSE, out.width="85%", fig.align="center"}
 knitr::include_graphics("./resources/graphCI/githubCI_3.png")
@@ -239,10 +238,10 @@ knitr::include_graphics("./resources/graphCI/githubCI_3.png")
 # 2. Fonctionnement du projet
 ## L'architecture du projet
 
-* Un site temporaire est associé à chaque contribution
-* Seule la version validée sera sur [www.book.utilitr.org](https://www.book.utilitr.org)
+* Chaque contribution est déployée sur un site temporaire pour vérification ;
+* Seule la version validée sera sur [www.book.utilitr.org](https://www.book.utilitr.org).
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
 knitr::include_graphics("./resources/graphCI/githubCI_complete.png")
 ```
 
@@ -250,17 +249,17 @@ knitr::include_graphics("./resources/graphCI/githubCI_complete.png")
 # 2. Fonctionnement du projet
 ## Une approche au service de la reproductibilité et de la qualité
 
-Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) propose :
+Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) propose :
 
-* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
-
---
-
-* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
 
 --
 
-* Des scripts de __déploiement continu__ qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
+* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+
+--
+
+* Des scripts de __déploiement continu__ qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
 
 --
 
@@ -272,28 +271,28 @@ Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://g
 
 ---
 # 3. Quelle collaboration sur Github ?
-## Objectif: permettre à tous de contribuer
+## Objectif : permettre à tous de contribuer
 
-* __Plusieurs modalités de contribution__ proposées pour offrir:
-    + légèreté ;
-    + flexibilité
-
---
-
-* Les modalités les plus simples sont possibles via une interface graphique ;
+* __Plusieurs modalités de contribution__ proposées pour offrir :
+    + légèreté ;
+    + flexibilité ;
 
 --
 
-* Un bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur [www.book.utilitr.org](https://www.book.utilitr.org) pour utiliser l'interface visuelle `Github` :
-    + éditer la dernière version de la fiche (la source de vérité) ;
+* Les modalités les plus simples sont possibles via une interface graphique ;
+
+--
+
+* Un bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur [www.book.utilitr.org](https://www.book.utilitr.org) pour utiliser l'interface visuelle `Github` :
+    + éditer la dernière version de la fiche (la source de vérité) ;
     + proposer le changement (*pull request* automatiquement créée).
 
 
 ---
-# 3. Quelle collaboration sur Github ?
-## Objectif: permettre à tous de contribuer
+# 3. Quelle collaboration sur Github ?
+## Objectif : permettre à tous de contribuer
 
-* _Issues_ : espace de débats et d'échanges:
+* _Issues_ : espace de débats et d'échanges :
     + signaler un *bug*, proposer une nouvelle fiche, un nouvel exemple, participer à un débat sur un *package*...
 
 
