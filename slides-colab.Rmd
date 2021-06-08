@@ -42,9 +42,9 @@ Plan de la présentation :
 
 - Présentation du projet ;
 - Fonctionnement du projet `utilitR` ;
+- Fonctionnement collaboratif d'`utilitR` ;
+- Pourquoi mettre en place l'intégration continue ?
 - Notre retour d'expérience ;
-- Pourquoi mettre en place ce type d'approche ?
-- Fonctionnement collaboratif d'utilitR ;
 
 <!----
     + Git & Github
@@ -237,98 +237,7 @@ knitr::include_graphics("./resources/githubCI.png")
 
 
 ---
-# 3. Retour d'expérience
-## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: un **écosystème efficace**
-
-* Une __unique source de vérité__ avec au même endroit:
-    + le contenu validé ;
-    + le contenu en cours de rédaction ;
-
---
-
-* **Pas de mail** pour s'échanger des fichiers ou des informations ;
-    + Informations importantes à archiver directement dans le projet, pas dans une boîte mail
-
---
-
-* Organiser le travail collaboratif de façon **ouverte** et **transparente** :
-    + tout le monde peut proposer des modifications (correction coquille, rédaction fiche, etc.) ;
-    + tout le monde peut donner son avis.
-
---
-
-* **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif :
-    + Besoin d'un ou deux facilitateurs ou coach `Git` ;
-    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
-    + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
-
-
----
-# 3. Retour d'expérience
-## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: **ce n'est pas suffisant**
-
-* Il faut de la **communication** `r emo::ji("comment")`.
-* Il est important d'avoir un outil de communication collaboratif en parallèle du dépôt Github :
-    + Tchap
-* Cet outil permet de se coordonner et de faire circuler l'information :
-    + publication nouvelle fiche ;
-    + besoin relecteur ou rédacteur ;
-    + *debug* ;
-    + blagues...
-
-    
----
-# 3. Retour d'expérience
-## Avantages
-
-* Traçabilité élevée des modifications ;
-* Simplicité de mise à jour des outputs ;
-* Ouverture des codes ;
-* Collaboration renforcée ;
-* Fiabilité du processus de publication ;
-* Projet plus pérenne.
-
----
-# 3. Retour d'expérience
-## Défis
-
-* Capacité à se coordonner et à s'écouter ;
-* Nécessité de hiérarchiser les objectifs ;
-* Il faut apprendre à maîtriser les outils ;
-* Il faut trouver du temps pour contribuer ;
-* Importance d'avoir quelques contributeurs expérimentés.
-
-
----
-# 3. Retour d'expérience
-## Une "petite" bourde lors de la transition de Gitlab à Github (décembre 2020)
-
-* Transition vers [Github `r fontawesome::fa("fab fa-github")`](https://github.com/InseeFrLab/utilitR) pour donner plus de visibilité que sur Gitlab `r fontawesome::fa("fab fa-gitlab")`
-
-* Volonté de ne pas perdre l'historique du dépôt (commits, issues, pull request)
-    + Utilisation d'un super outil:  [node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github) ;
-    + récupère *issues* et *pull request*
-
-* Problème: *oubli* désactivation notification mail
-* Résultat: Olivier a reçu 2700 mails `r emo::ji("sweat_smile")`
-
-```{r, echo = FALSE, out.width="50%", fig.show="hold"}
-knitr::include_graphics("resources/Spamomatic.jpg")
-knitr::include_graphics("resources/Spamomatic2.jpg")
-```
-
-
----
-# 3. Retour d'expérience
-## Les coordinateurs du projet
-
-```{r, echo = FALSE, out.width="45%", fig.align='center'}
-knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS0pRJL.jpg")
-```
-
-
----
-# 4. Quelle collaboration sur Github ?
+# 3. Quelle collaboration sur Github ?
 ## Objectif: permettre à tous de contribuer
 
 * __Plusieurs modalités de contribution__ proposées pour offrir:
@@ -343,36 +252,39 @@ une nouvelle fiche, un nouvel exemple, participer à un débat sur un *package*.
     + Un bouton *Edit this page* `r fontawesome::fa("fab fa-github")` pour utiliser l'interface visuelle `Github` ;
 afin d'éditer la dernière version de la fiche (la source de vérité) et proposer
 un changement (*pull request* automatiquement créée) ;
+
+--
+
 * Des *pull request* pour ajouter des éléments plus substantiels (nouvelles 
 fiches, ajout de paragraphe, évolution de la tuyauterie...).
 
 > ** Acculturation aux méthodes de l'open source qui renforcent la fiabilité des projets**
 
 ---
-# 4. Quelle collaboration sur Github ?
+# 3. Quelle collaboration sur Github ?
 
 <br><br><br><br>
 **[Démonstration !](https://github.com/InseeFrLab/utilitR-website)**
 
+<!------ ---  ----->
+<!-- # 3. Quelle collaboration sur Github ? -->
+<!-- ## L'adoption du *Github Flow*  -->
+
+<!-- ```{r, echo = FALSE} -->
+<!-- knitr::include_graphics("https://www.johnnybehague.fr/wp-content/uploads/2018/09/githubflow.png") -->
+<!-- ``` -->
+
+<!-- Crédit: [Johnny Behague](https://www.johnnybehague.fr) à partir de la -->
+<!-- [documentation Github](https://guides.github.com/introduction/flow/) -->
+
+
 ---
-# 4. Quelle collaboration sur Github ?
-## L'adoption du *Github Flow* 
+# 3. Quelle collaboration sur Github ?
+## Méthode de travail
 
-```{r, echo = FALSE}
-knitr::include_graphics("https://www.johnnybehague.fr/wp-content/uploads/2018/09/githubflow.png")
-```
-
-Crédit: [Johnny Behague](https://www.johnnybehague.fr) à partir de la
-[documentation Github](https://guides.github.com/introduction/flow/)
-
-
----
-# 4. Quelle collaboration sur Github ?
-## Le *Github Flow* en pratique
-
-* On a choisi le mode de travail le plus léger ;
+* On a choisi le mode de travail le plus léger (*Github Flow*) ;
 * Cependant, les seuls personnes ayant droit d'écriture sur
-[InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont Olivier Meslin et Lino Galiana
+[InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont les coordinateurs (Olivier Meslin et Lino Galiana)
 
 ```{r, echo = FALSE}
 knitr::include_graphics("resources/git-tree.png")
@@ -383,7 +295,7 @@ knitr::include_graphics("resources/git-tree.png")
 <br> __Ce mode de travail est exportable à un environnement interne `Gitlab` `r fontawesome::fa("fab fa-gitlab")`__
 
 ---
-# 5. Intégration continue
+# 4. Intégration continue
 
 ## Pourquoi faire de l'intégration continue ?
 
@@ -411,7 +323,7 @@ L'automatisation des processus présente de multiples avantages :
 
 
 ---
-# 6. Intégration continue
+# 4. Intégration continue
 ## `R Markdown`, *un langage pour les gouverner tous*
 
 <!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
@@ -435,7 +347,7 @@ L'automatisation des processus présente de multiples avantages :
 * Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...)
 
 ---
-# 6. Intégration continue: avantages
+# 4. Intégration continue: avantages
 
 <br>
 
@@ -449,7 +361,99 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 ```
 
 ---
-# Où en est le projet aujourd'hui ?
+# 5. Retour d'expérience
+## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: un **écosystème efficace**
+
+* Une __unique source de vérité__ avec au même endroit:
+    + le contenu validé ;
+    + le contenu en cours de rédaction ;
+
+--
+
+* **Pas de mail** pour s'échanger des fichiers ou des informations ;
+    + Informations importantes à archiver directement dans le projet, pas dans une boîte mail
+
+--
+
+* Organiser le travail collaboratif de façon **ouverte** et **transparente** :
+    + tout le monde peut proposer des modifications (correction coquille, rédaction fiche, etc.) ;
+    + tout le monde peut donner son avis.
+
+--
+
+* **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif :
+    + Besoin d'un ou deux facilitateurs ou coach `Git` ;
+    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément ;
+    + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
+
+
+---
+# 5. Retour d'expérience
+## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: **ce n'est pas suffisant**
+
+* Il faut de la **communication** `r emo::ji("comment")`.
+* Il est important d'avoir un outil de communication collaboratif en parallèle du dépôt Github :
+    + Tchap
+* Cet outil permet de se coordonner et de faire circuler l'information :
+    + publication nouvelle fiche ;
+    + besoin relecteur ou rédacteur ;
+    + *debug* ;
+    + blagues...
+
+    
+---
+# 5. Retour d'expérience
+## Avantages
+
+* Traçabilité élevée des modifications ;
+* Simplicité de mise à jour des outputs ;
+* Ouverture des codes ;
+* Collaboration renforcée ;
+* Fiabilité du processus de publication ;
+* Projet plus pérenne.
+
+---
+# 5. Retour d'expérience
+## Défis
+
+* Capacité à se coordonner et à s'écouter ;
+* Nécessité de hiérarchiser les objectifs ;
+* Il faut apprendre à maîtriser les outils ;
+* Il faut trouver du temps pour contribuer ;
+* Importance d'avoir quelques contributeurs expérimentés.
+
+
+---
+# 5. Retour d'expérience
+## Une "petite" bourde lors de la transition de Gitlab à Github (décembre 2020)
+
+* Transition vers [Github `r fontawesome::fa("fab fa-github")`](https://github.com/InseeFrLab/utilitR) pour donner plus de visibilité que sur Gitlab `r fontawesome::fa("fab fa-gitlab")`
+
+* Volonté de ne pas perdre l'historique du dépôt (commits, issues, pull request)
+    + Utilisation d'un super outil:  [node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github) ;
+    + récupère *issues* et *pull request*
+
+* Problème: *oubli* désactivation notification mail
+* Résultat: Olivier a reçu 2700 mails `r emo::ji("sweat_smile")`
+
+```{r, echo = FALSE, out.width="50%", fig.show="hold"}
+knitr::include_graphics("resources/Spamomatic.jpg")
+knitr::include_graphics("resources/Spamomatic2.jpg")
+```
+
+
+---
+# 5. Retour d'expérience
+## Les coordinateurs du projet
+
+```{r, echo = FALSE, out.width="45%", fig.align='center'}
+knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS0pRJL.jpg")
+```
+
+
+---
+# 5. Retour d'expérience
+## Le projet aujourd'hui et demain
 
 * Un portail d'accès sous forme de site *web* :
     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
@@ -459,10 +463,12 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 
 --
 
+<br>
+
 * Besoin de nouveaux contributeurs pour aller plus loin:
     + Ajouter de nouveaux contenus ;
     + Mettre à jour certains contenus ;
-    + Après `utilitR` `r fontawesome::fa("fab fa-r-project")`, `r `fontawesome::fa("fab fa-python")` ?)
+    + Après `utilitR` `r fontawesome::fa("fab fa-r-project")`, `utilython` `r fontawesome::fa("fab fa-python")` ?
     
 
 ---
