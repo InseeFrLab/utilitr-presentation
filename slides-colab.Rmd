@@ -99,8 +99,8 @@ Plan de la présentation :
     + `Github` `r fontawesome::fa("fab fa-github")`.
 
 * Défis techniques surmontés ont permis des évolutions de l'écosystème `R Markdown` :
-    + Solutions bénéficiant à l'ensemble de la communauté `r fontawesome::fa("fab fa-r-project")`.
-    + Sur `r fontawesome::fa("fab fa-github")`: [rstudio/rmarkdown#2146](https://github.com/rstudio/rmarkdown/pull/2146), [rstudio/rmarkdown#2145](https://github.com/rstudio/rmarkdown/issues/2145), [rstudio/bookdown#1101](https://github.com/rstudio/bookdown/issues/1101), [rstudio/bookdown#1117](https://github.com/rstudio/bookdown/issues/1117), [rstudio/pagedown#217](https://github.com/rstudio/pagedown/issues/217), [rstudio/pagedown#217](https://github.com/rstudio/pagedown/issues/218), [rstudio/pagedown#224](https://github.com/rstudio/pagedown/pull/224)
+    + Amélioration du _package_ `pagedown` pour produire la brochure pdf;
+    + Correction d'un bug dans le _package_ `rmarkdown` pour produire le site internet.
 
 <br>
 
@@ -253,12 +253,12 @@ knitr::include_graphics("./resources/githubCI.png")
 ## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: **ce n'est pas suffisant**
 
 * Il faut de la **communication** `r emo::ji("comment")`.
-* Besoin d'un outil de communication collaboratif en parallèle
+* Il est important d'avoir un outil de communication collaboratif en parallèle du dépôt Github :
     + Tchap
-* Permet de faire circuler l'information :
-    + publication nouvelle fiche
-    + besoin relecteur ou rédacteur
-    + *debug*
+* Cet outil permet de se coordonner et de faire circuler l'information :
+    + publication nouvelle fiche ;
+    + besoin relecteur ou rédacteur ;
+    + *debug* ;
     + blagues...
 
     
@@ -266,9 +266,9 @@ knitr::include_graphics("./resources/githubCI.png")
 # 3. Retour d'expérience
 ## Résultats
 
-* Traçabilité parfaite ;
-* Simplicité de mise à jour ;
-* Ouverture ;
+* Traçabilité élevée des modifications ;
+* Simplicité de mise à jour des outputs ;
+* Ouverture des codes ;
 * Collaboration renforcée ;
 * Fiabilité du processus de publication ;
 * Projet plus pérenne.
