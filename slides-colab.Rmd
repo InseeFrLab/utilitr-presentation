@@ -167,9 +167,9 @@ La documentation est diffusée sous trois formes :
 <br><br>
 **Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
 
-<!----  --->
-<!-- # 2. Fonctionnement du projet -->
-<!-- ## Organisation du projet -->
+---
+# 2. Fonctionnement du projet
+## Organisation du projet
 
 <table class = "tablelol">
   <tr>
