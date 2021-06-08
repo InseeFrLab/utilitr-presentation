@@ -226,12 +226,46 @@ exposant la philosophie du projet
 
 ---
 # 2. Fonctionnement du projet
-## Méthode de travail: vision d'ensemble du processus
+## L'architecture du projet
 
-Le projet `utilitR` utilise des méthodes d'intégration continue à l'état de l'art :
+* Les contributeurs collaborent à travers le dépôt `Github`
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_1.png")
+```
+
+---
+# 2. Fonctionnement du projet
+## L'architecture du projet
+
+* Arrière plan: scripts automatiques pour créer l'environnement de reproductibilité de la documentation
+
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_2.png")
+```
+
+---
+# 2. Fonctionnement du projet
+## L'architecture du projet
+
+* Documentation automatiquement déployée en plusieurs formats
+* Mais besoin de tester des évolutions...
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_3.png")
+```
+
+
+---
+# 2. Fonctionnement du projet
+## L'architecture du projet
+
+* Un site temporaire est associé à chaque contribution
+* Seule la version validée sera sur [www.book.utilitr.org](https://www.book.utilitr.org)
 
 ```{r, echo = FALSE}
-knitr::include_graphics("./resources/githubCI.png")
+knitr::include_graphics("./resources/graphCI/githubCI_complete.png")
 ```
 
 
@@ -246,12 +280,22 @@ knitr::include_graphics("./resources/githubCI.png")
 
 --
 
-* Les modalités les plus simples sont possibles via une interface graphique:
-    + *Issues* : espace de débat et d'échanges: signaler un *bug*, proposer 
-une nouvelle fiche, un nouvel exemple, participer à un débat sur un *package*...
-    + Un bouton *Edit this page* `r fontawesome::fa("fab fa-github")` pour utiliser l'interface visuelle `Github` ;
-afin d'éditer la dernière version de la fiche (la source de vérité) et proposer
-un changement (*pull request* automatiquement créée) ;
+* Les modalités les plus simples sont possibles via une interface graphique ;
+
+--
+
+* Un bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur [www.book.utilitr.org](https://www.book.utilitr.org) pour utiliser l'interface visuelle `Github` :
+    + éditer la dernière version de la fiche (la source de vérité) ;
+    + proposer le changement (*pull request* automatiquement créée).
+
+
+---
+# 3. Quelle collaboration sur Github ?
+## Objectif: permettre à tous de contribuer
+
+* _Issues_ : espace de débats et d'échanges:
+    + signaler un *bug*, proposer une nouvelle fiche, un nouvel exemple, participer à un débat sur un *package*...
+
 
 --
 
@@ -262,20 +306,11 @@ fiches, ajout de paragraphe, évolution de la tuyauterie...).
 
 ---
 # 3. Quelle collaboration sur Github ?
+## Démonstration
 
 <br><br><br><br>
 **[Démonstration !](https://github.com/InseeFrLab/utilitR-website)**
 
-<!------ ---  ----->
-<!-- # 3. Quelle collaboration sur Github ? -->
-<!-- ## L'adoption du *Github Flow*  -->
-
-<!-- ```{r, echo = FALSE} -->
-<!-- knitr::include_graphics("https://www.johnnybehague.fr/wp-content/uploads/2018/09/githubflow.png") -->
-<!-- ``` -->
-
-<!-- Crédit: [Johnny Behague](https://www.johnnybehague.fr) à partir de la -->
-<!-- [documentation Github](https://guides.github.com/introduction/flow/) -->
 
 
 ---
@@ -313,13 +348,14 @@ Sources :
 
 L'automatisation des processus présente de multiples avantages :
 
-+ elle allège le travail des coordinateurs et des contributeurs ;
-+ elle assure un environnement plus reproductible et facilite le repérage des erreurs ;
-+ elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de se concentrer uniquement sur le fond.
++ elle **allège le travail** des coordinateurs et des contributeurs ;
++ elle assure un **environnement plus reproductible**
++ elle **facilite le repérage des erreurs** ;
++ elle permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de **se concentrer uniquement sur le fond**.
 
 --
 
-<br> Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation:
+<br> Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation.
 
 
 ---
@@ -344,7 +380,8 @@ L'automatisation des processus présente de multiples avantages :
 
 --
 
-* Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...)
+<br>
+Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...)
 
 ---
 # 4. Intégration continue: avantages
@@ -356,7 +393,9 @@ L'automatisation des processus présente de multiples avantages :
 * Contributeurs peuvent se concentrer sur le fond ;
 * Détection précoce des problèmes.
 
-```{r, echo = FALSE, out.width="50%", fig.show="hold", fig.align='center'}
+<br> 
+
+```{r, echo = FALSE, out.width="60%", fig.show="hold", fig.align='center'}
 knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
 ```
 
@@ -371,7 +410,7 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 --
 
 * **Pas de mail** pour s'échanger des fichiers ou des informations ;
-    + Informations importantes à archiver directement dans le projet, pas dans une boîte mail
+    + Informations importantes archivées directement dans le projet, pas dans une boîte mail
 
 --
 
@@ -430,8 +469,7 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 * Transition vers [Github `r fontawesome::fa("fab fa-github")`](https://github.com/InseeFrLab/utilitR) pour donner plus de visibilité que sur Gitlab `r fontawesome::fa("fab fa-gitlab")`
 
 * Volonté de ne pas perdre l'historique du dépôt (commits, issues, pull request)
-    + Utilisation d'un super outil:  [node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github) ;
-    + récupère *issues* et *pull request*
+    + Utilisation d'un outil ([node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github)) pour récupérer *issues* et *pull request*
 
 * Problème: *oubli* désactivation notification mail
 * Résultat: Olivier a reçu 2700 mails `r emo::ji("sweat_smile")`
@@ -469,7 +507,11 @@ knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS
     + Ajouter de nouveaux contenus ;
     + Mettre à jour certains contenus ;
     + Après `utilitR` `r fontawesome::fa("fab fa-r-project")`, `utilython` `r fontawesome::fa("fab fa-python")` ?
-    
+
+--
+
+<br>
+__`utilitR` est une documentation vivante qui a besoin de vous !__
 
 ---
 # Remerciements
