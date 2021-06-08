@@ -249,7 +249,7 @@ knitr::include_graphics("./resources/graphCI/githubCI_complete.png")
 # 2. Fonctionnement du projet
 ## Une approche au service de la reproductibilité et de la qualité
 
-Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) propose :
+C'est le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) qui centralise tout le fonctionnement du projet. Il propose :
 
 * Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
 
@@ -273,35 +273,39 @@ Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://g
 # 3. Quelle collaboration sur Github ?
 ## Objectif : permettre à tous de contribuer
 
-* __Plusieurs modalités de contribution__ proposées pour offrir :
-    + légèreté ;
-    + flexibilité ;
+* __Plusieurs modalités de contribution__ proposées pour offrir légèreté, flexibilité et simplicité ;
 
 --
 
-* Les modalités les plus simples sont possibles via une interface graphique ;
+* Les contributions les plus simples sont possibles _via_ une interface graphique ;
 
 --
 
-* Un bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur [www.book.utilitr.org](https://www.book.utilitr.org) pour utiliser l'interface visuelle `Github` :
-    + éditer la dernière version de la fiche (la source de vérité) ;
-    + proposer le changement (*pull request* automatiquement créée).
+    * Le bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur [www.book.utilitr.org](https://www.book.utilitr.org) permet d'utiliser l'interface visuelle `Github` pour proposer une modification d'une fiche (*pull request* automatiquement créée).
 
+    * Les _issues_ sont des fils de discussion qui permettent des débats et échanges sur tous les sujets :
+      + signaler un *bug*, 
+      + proposer une nouvelle fiche, 
+      + proposer un nouvel exemple, 
+      + participer à un débat sur un *package*...
 
 ---
 # 3. Quelle collaboration sur Github ?
 ## Objectif : permettre à tous de contribuer
 
-* _Issues_ : espace de débats et d'échanges :
-    + signaler un *bug*, proposer une nouvelle fiche, un nouvel exemple, participer à un débat sur un *package*...
 
+* Pour ajouter des éléments plus substantiels (nouvelles 
+fiches, ajout de paragraphe, évolution de la tuyauterie...), il est possible d'ouvrir des *pull requests*.
+* Les contributeurs s'entraident pour acquérir la maîtrise des outils.
 
 --
 
-* Des *pull request* pour ajouter des éléments plus substantiels (nouvelles 
-fiches, ajout de paragraphe, évolution de la tuyauterie...).
+.sauterligne2[
+Deux points à retenir :
+]
 
-> ** Acculturation aux méthodes de l'open source qui renforcent la fiabilité des projets**
+- __Il n'est pas nécessaire de bien connaître Git et Github pour contribuer au projet ;__
+- __Contribuer au projet permet de se familiariser avec les méthodes de l'_open source_ qui renforcent la fiabilité des projets.__
 
 ---
 # 3. Quelle collaboration sur Github ?
@@ -316,15 +320,15 @@ fiches, ajout de paragraphe, évolution de la tuyauterie...).
 # 3. Quelle collaboration sur Github ?
 ## Méthode de travail
 
-* On a choisi le mode de travail le plus léger (*Github Flow*) ;
+* On a choisi le mode de travail le plus léger (*Github Flow*) ;
 * Cependant, les seuls personnes ayant droit d'écriture sur
-[InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont les coordinateurs (Olivier Meslin et Lino Galiana)
+[InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont les coordinateurs (mainteneurs) ;
+* Les contributeurs travaillent sur des copies du dépôt principal (`forks`) et soumettent les changements à partir de ces copies ;
+* Lorsqu'une modification proposée par un contributeur est validée par les autres contributeurs, elle est intégrée au dépôt principal par les coordinateurs.
 
 ```{r, echo = FALSE}
 knitr::include_graphics("resources/git-tree.png")
 ```
-
-* Les contributeurs utilisent des `forks` (des copies du dépôt principal) et soumettent les changements à partir de ces copies
 
 <br> __Ce mode de travail est exportable à un environnement interne `Gitlab` `r fontawesome::fa("fab fa-gitlab")`__
 
@@ -387,19 +391,19 @@ Utiliser les outils les plus appropriés pour réaliser une tâche donnée (comp
 # 5. Retour d'expérience
 ## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: un **écosystème efficace**
 
-* Une __unique source de vérité__ avec au même endroit:
-    + le contenu validé ;
-    + le contenu en cours de rédaction ;
+* Une __unique source de vérité__ avec au même endroit :
+    + le contenu validé ;
+    + le contenu en cours de rédaction ;
 
 --
 
-* **Pas de mail** pour s'échanger des fichiers ou des informations ;
-    + Informations importantes archivées directement dans le projet, pas dans une boîte mail
+* **Pas de mail** pour s'échanger des fichiers ou des informations ;
+    + Les informations importantes sont archivées directement dans le projet, pas dans une boîte mail ;
 
 --
 
 * Organiser le travail collaboratif de façon **ouverte** et **transparente** :
-    + tout le monde peut proposer des modifications (correction coquille, rédaction fiche, etc.) ;
+    + tout le monde peut proposer des modifications (correction coquille, rédaction fiche, etc.) ;
     + tout le monde peut donner son avis.
 
 --
@@ -415,12 +419,11 @@ Utiliser les outils les plus appropriés pour réaliser une tâche donnée (comp
 ## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: **ce n'est pas suffisant**
 
 * Il faut de la **communication** `r emo::ji("comment")`.
-* Il est important d'avoir un outil de communication collaboratif en parallèle du dépôt Github :
-    + Tchap
-* Cet outil permet de se coordonner et de faire circuler l'information :
-    + publication nouvelle fiche ;
-    + besoin relecteur ou rédacteur ;
-    + *debug* ;
+* Il est important d'avoir un outil de communication collaboratif en parallèle du dépôt Github : (Tchap dans le cas d'`utilitR`) ;
+* Cet outil permet de se coordonner et de faire circuler l'information :
+    + publication nouvelle fiche ;
+    + besoin relecteur ou rédacteur ;
+    + *debug* ;
     + blagues...
 
     
@@ -435,8 +438,8 @@ Utiliser les outils les plus appropriés pour réaliser une tâche donnée (comp
 * Fiabilité du processus de publication ;
 * Projet plus pérenne.
 
----
-# 5. Retour d'expérience
+--
+
 ## Défis
 
 * Capacité à se coordonner et à s'écouter ;
@@ -477,11 +480,12 @@ knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS
 # 5. Retour d'expérience
 ## Le projet aujourd'hui et demain
 
-* Un portail d'accès sous forme de site *web* :
-    + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
+* Un portail d'accès sous forme de site *web* :
+    + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
     + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
 
-* Un point d'entrée: <https://www.utilitr.org>
+* Un point d'entrée : <https://www.utilitr.org> ;
+* Un mail de contact : utilitr-contact@insee.fr.
 
 --
 
@@ -492,6 +496,9 @@ knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS
     + Mettre à jour certains contenus ;
     + Après `utilitR` `r fontawesome::fa("fab fa-r-project")`, `utilython` `r fontawesome::fa("fab fa-python")` ?
 
+--
+      + Lino est fou `r emo::ji("fear")` !
+      
 --
 
 <br>
