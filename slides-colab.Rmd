@@ -123,12 +123,22 @@ __Rejoignez l'aventure `utilitR` !__
 Le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) propose :
 
 * Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
+
+--
+
 * Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+
+--
+
 * Des scripts de __déploiement continu__ qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
+
+--
+
 * Un **site de prévisualisation** `r fontawesome::fa("fab fa-firefox")` (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/inseefrlab/utilitr)](https://hub.docker.com/repository/docker/inseefrlab/utilitr/general)
 [![build-doc Actions Status](https://github.com/InseeFrLab/utilitR/workflows/Production%20de%20la%20documentation/badge.svg)](https://github.com/InseeFrLab/utilitR/actions)
+
 ---
 # 1. Présentation du projet
 ## Diffusion de la documentation
@@ -218,6 +228,9 @@ knitr::include_graphics("./resources/githubCI.png")
 * Une __unique source de vérité__ avec au même endroit:
     + le contenu validé ;
     + le contenu en cours de rédaction ;
+
+--
+
 * **Pas de mail** pour s'échanger des fichiers ou des informations ;
     + Informations importantes à archiver directement dans le projet, pas dans une boîte mail
 
@@ -286,7 +299,7 @@ knitr::include_graphics("resources/Spamomatic2.jpg")
 # 3. Retour d'expérience
 ## Les mainteneurs du projet
 
-```{r, echo = FALSE, out.width="45%"}
+```{r, echo = FALSE, out.width="45%", fig.align='center'}
 knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS0pRJL.jpg")
 ```
 
