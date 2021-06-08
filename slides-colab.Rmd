@@ -297,7 +297,7 @@ knitr::include_graphics("resources/Spamomatic2.jpg")
 
 ---
 # 3. Retour d'expérience
-## Les mainteneurs du projet
+## Les coordinateurs du projet
 
 ```{r, echo = FALSE, out.width="45%", fig.align='center'}
 knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS0pRJL.jpg")
