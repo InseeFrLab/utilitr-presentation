@@ -1,6 +1,6 @@
 ---
 title : "__`utilitR`__"
-subtitle : "Une documentation collaborative sur `R`"
+subtitle : "Présentation de la démarche collaborative `utilitR`"
 author : "Lino Galiana"
 date : "9 juin 2021"
 output:
