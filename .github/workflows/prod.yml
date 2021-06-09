@@ -22,28 +22,18 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          mkdir -p publicdoc
+          Rscript -e 'rmarkdown::render("index.Rmd")'
           Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
           Rscript -e 'rmarkdown::render("slides-doc.Rmd")'
           Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
           Rscript -e "file.copy(here::here('css'), here::here('public'), recursive = TRUE)"
-          Rscript -e "file.copy(here::here('resources'), here::here('publicdoc'), recursive = TRUE)"
-          Rscript -e "file.copy(here::here('css'), here::here('publicdoc'), recursive = TRUE)"
-          mv slides-colab.html public/index.html
-          mv slides-doc.html publicdoc/index.html
+          mv index.html public/colaboration.html
+          mv slides-colab.html public/colaboration.html
+          mv slides-doc.html public/documentation.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
           path: public/
-          retention-days: 3
-      - name: Les ateliers
-        run: |
-          mkdir -p atelier_out
-          Rscript -e "source('ateliers/build.R')"
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Ateliers
-          path: ateliers/
           retention-days: 3
       - name: Install npm
         if: ${{ github.repository == 'inseefrlab/utilitr-presentation' }}
@@ -57,8 +47,6 @@ jobs:
         run: |
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
-          netlify deploy --alias=mercredi --dir="public" --message "Deploy master"
-          netlify deploy --alias=mardi --dir="publicdoc" --message "Deploy prez mardi"
-          netlify deploy --alias=ateliers --dir="ateliers" --message "Deploy ateliers"
+          netlify deploy --prod --dir="public" --message "Deploy master"
 
 
