@@ -23,15 +23,13 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          mkdir -p publicdoc
+          Rscript -e 'rmarkdown::render("index.Rmd")'
           Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
           Rscript -e 'rmarkdown::render("slides-doc.Rmd")'
           Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
           Rscript -e "file.copy(here::here('css'), here::here('public'), recursive = TRUE)"
-          Rscript -e "file.copy(here::here('resources'), here::here('publicdoc'), recursive = TRUE)"
-          Rscript -e "file.copy(here::here('css'), here::here('publicdoc'), recursive = TRUE)"
-          mv slides-colab.html public/index.html
-          mv slides-doc.html publicdoc/index.html
+          mv slides-colab.html public/colaboration.html
+          mv slides-doc.html publicdoc/documentation.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
@@ -58,8 +56,8 @@ jobs:
         run: |
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
-          netlify deploy --alias=mercredi --dir="public" --message "Deploy master"
-          netlify deploy --alias=mardi --dir="publicdoc" --message "Deploy prez mardi"
+          netlify deploy --alias=matinees-mercredi --dir="public" --message "Deploy master"
+          netlify deploy --alias=matinees-mardi --dir="publicdoc" --message "Deploy prez mardi"
           netlify deploy --alias=ateliers --dir="ateliers" --message "Deploy ateliers"
 
 
