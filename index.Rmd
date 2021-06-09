@@ -1,0 +1,39 @@
+---
+title : "Matinées de découverte `utilitR`"
+subtitle : "Accéder aux présentations"
+author : "Lino Galiana et Olivier Meslin"
+institute : "Insee"
+date : "8-9 juin 2021"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+# Présentation des ateliers
+
+* Présentations d'`utilitR`:
+    + [Présentation de la documentation `utilitR`](./documentation.Rmd)
+    + [Présentation de l'approche collaborative](./colaboration.Rmd)
+
+* [Ateliers de découverte](https://ateliers--ecstatic-minsky-96c002.netlify.app/)
+
+<!---
+* [Présentation imports de fichiers plats et de tableurs](./import_fichiers.html) (script uniquement [ici](./import_fichiers.R))
+---->
