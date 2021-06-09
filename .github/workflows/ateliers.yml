@@ -57,8 +57,7 @@ jobs:
         run: |
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
-          netlify deploy --alias=matinees-mercredi --dir="public" --message "Deploy master"
-          netlify deploy --alias=matinees-mardi --dir="publicdoc" --message "Deploy prez mardi"
-          netlify deploy --alias=ateliers --dir="ateliers" --message "Deploy ateliers"
+          netlify deploy --alias=matinees --dir="public" --message "Deploy master"
+          netlify deploy --alias=matinees-ateliers --dir="ateliers" --message "Deploy ateliers"
 
 
