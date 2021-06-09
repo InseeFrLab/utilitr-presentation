@@ -27,7 +27,7 @@ jobs:
           Rscript -e 'rmarkdown::render("slides-doc.Rmd")'
           Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
           Rscript -e "file.copy(here::here('css'), here::here('public'), recursive = TRUE)"
-          mv index.html public/colaboration.html
+          mv index.html public/index.html
           mv slides-colab.html public/colaboration.html
           mv slides-doc.html public/documentation.html
       - uses: actions/upload-artifact@v2
