@@ -1,9 +1,9 @@
-name: Slides des ateliers
+name: Slides des matinées
 
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'v*.*.matinees'
 
 
 jobs:
