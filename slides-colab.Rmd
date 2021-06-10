@@ -1,6 +1,6 @@
 ---
 title : "__`utilitR`__"
-subtitle : "Une documentation collaborative sur `R`"
+subtitle : "Présentation de la démarche collaborative `utilitR`"
 author : "Lino Galiana"
 date : "9 juin 2021"
 output:
@@ -205,7 +205,8 @@ exposant la philosophie du projet
 # 2. Fonctionnement du projet
 ## L'architecture du projet
 
-* Les contributeurs collaborent par l'intermédiaire du dépôt `Github` du projet (www.github.com/inseefrlab/utilitr).
+* Les contributeurs collaborent par l'intermédiaire du dépôt `Github` du projet
+[https://www.github.com/inseefrlab/utilitr](https://www.github.com/inseefrlab/utilitr).
 
 ```{r, echo = FALSE, out.width="85%", fig.align="center"}
 knitr::include_graphics("./resources/graphCI/githubCI_1.png")
