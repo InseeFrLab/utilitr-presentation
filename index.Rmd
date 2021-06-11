@@ -30,7 +30,7 @@ output:
 
 <br> Présentations d'`utilitR` (dernière version) :
 - [Présentation de la documentation `utilitR`](./documentation.html)
-- [Présentation de l'approche collaborative](./colaboration.html)
+- [Présentation de l'approche collaborative](./colaboratif.html)
 
 <br> Présentations passées
 
@@ -39,7 +39,7 @@ output:
 
 * Matinées de découverte `utilitR` [2021-06-08] :
   * [Présentation de la documentation `utilitR`](./archives/matinees2021/documentation.html)
-  * [Présentation de l'approche collaborative](./archives/matinees2021/colaboration.html)
+  * [Présentation de l'approche collaborative](./archives/matinees2021/colaboratif.html)
   * [Ateliers de découverte](./ateliers/index.html)
 
 <!---
