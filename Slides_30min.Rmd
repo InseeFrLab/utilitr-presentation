@@ -346,28 +346,34 @@ Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
 ---
 # Fonctionnement du projet
-## Méthode de travail : structuration du projet
+## L'intégration continue pour produire plus de contenu
 
-<!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
-<!-- liens entre fiches, etc.) -->
+## Avantages de l'automatisation des processus :
 
-<!-- (`.Rmd` ➜ `.md` ➜ `.html`) ; -->
-<!-- (`.md` ➜ `.html` ➜ `.pdf`) ; -->
+```{r, eval = FALSE, echo = FALSE, out.width="50%", fig.show="hold"}
+knitr::include_graphics("https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg")
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
 
-* Les codes sources de la documentation prennent la forme de fichiers `R Markdown`, qui rassemblent les textes et les exemples de codes ;
-* `R` compile ces codes sources de deux manières :
-    + Production d'un site internet grâce au _package_ `blogdown` ;
-    + Production d'une brochure pdf en format A4 grâce au _package_ `pagedown` ;
-    + De plus, l'utilisation de `paged.js` permet de transformer chaque page du site internet en un chapitre paginé prêt à être imprimé.
-* Les modèles de document reposent sur les technologies Web standards (CSS et Javascript) et sont organisés sous la forme d'un _package_.
+<!---
+Sources :
+`https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
+`https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
 
---
+---->
 
-<br>
-* Avantages :
-    + Le site web et la brochure sont générés à partir des mêmes codes sources ;
-    + L'utilisation des outils technologies Web permet de ne pas utiliser `LaTeX` ;
-    + Le projet `utilitR` a induit des évolutions de l'écosystème `R Markdown` qui bénéficient à de nombreux utilisateurs.
+Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation:
+
++ **allège le travail** des coordinateurs et des contributeurs ;
++ assure un **environnement plus reproductible** ;
++ assure la **cohérence entre les différents formats** ;
++ **facilite le repérage des erreurs** ;
++ permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de **se concentrer uniquement sur le fond**.
+
+```{r, echo = FALSE, out.width="50%", fig.show="hold", fig.align='center'}
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
+
 
 ---
 # Fonctionnement du projet
