@@ -5,7 +5,7 @@ setwd(here::here())
 # CREATION INDENTATION -----------------------
 
 dir.create("public/archives")
-dir.create("public/matinees")
+dir.create("public/matinees2021")
 dir.create("public/ateliers")
 dir.create("public/archives/matinees2021")
 
