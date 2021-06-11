@@ -11,7 +11,8 @@ slides.html
 *.html
 
 ateliers/*
-!archives/build.R
+!ateliers/*.Rmd
+
 
 public/*
 
@@ -22,7 +23,8 @@ archives/css/*
 archives/**/resources
 archives/**/css
 archives/**/libs
-!archives/*.Rmd
-!archives/matinees2021/*.Rmd
+#!archives/build.R
+#!archives/*.Rmd
+#!archives/matinees2021/*.Rmd
 
 soumissions/*.pdf
