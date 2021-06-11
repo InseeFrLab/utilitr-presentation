@@ -22,16 +22,7 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          Rscript -e 'rmarkdown::render("index.Rmd")'
-          Rscript -e 'rmarkdown::render("slides-colab.Rmd")'
-          Rscript -e 'rmarkdown::render("slides-doc.Rmd")'
-          Rscript -e 'rmarkdown::render("Slides_30min.Rmd")'
-          Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
-          Rscript -e "file.copy(here::here('css'), here::here('public'), recursive = TRUE)"
-          mv index.html public/index.html
-          mv slides-colab.html public/colaboration.html
-          mv slides-doc.html public/documentation.html
-          mv Slides_30min.html public/gitissp.html
+          Rscript -e 'source("build/build.R")'
       - uses: actions/upload-artifact@v2
         with:
           name: Slides

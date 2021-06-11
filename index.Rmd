@@ -26,13 +26,21 @@ output:
 ---
 
 
-# Présentation des ateliers
+# Liste des présentations `utilitR`
 
-* Présentations d'`utilitR`:
-    + [Présentation de la documentation `utilitR`](./documentation.html)
-    + [Présentation de l'approche collaborative](./colaboration.html)
+<br> Présentations d'`utilitR` (dernière version) :
+- [Présentation de la documentation `utilitR`](./documentation.html)
+- [Présentation de l'approche collaborative](./colaboratif.html)
 
-* [Ateliers de découverte](https://ateliers--ecstatic-minsky-96c002.netlify.app/)
+<br> Présentations passées
+
+* [GitiSSP [2021-06-11]](./archives/gitissp.html)
+
+
+* Matinées de découverte `utilitR` [2021-06-08] :
+  * [Présentation de la documentation `utilitR`](./archives/matinees2021/documentation.html)
+  * [Présentation de l'approche collaborative](./archives/matinees2021/colaboratif.html)
+  * [Ateliers de découverte](./ateliers/index.html)
 
 <!---
 * [Présentation imports de fichiers plats et de tableurs](./import_fichiers.html) (script uniquement [ici](./import_fichiers.R))
