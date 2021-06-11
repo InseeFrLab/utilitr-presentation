@@ -29,8 +29,8 @@ output:
 # Présentation des ateliers
 
 * Présentations d'`utilitR`:
-    + [Présentation de la documentation `utilitR`](./documentation.Rmd)
-    + [Présentation de l'approche collaborative](./colaboration.Rmd)
+    + [Présentation de la documentation `utilitR`](./documentation.html)
+    + [Présentation de l'approche collaborative](./colaboration.html)
 
 * [Ateliers de découverte](https://ateliers--ecstatic-minsky-96c002.netlify.app/)
 
