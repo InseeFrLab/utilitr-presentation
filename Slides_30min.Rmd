@@ -383,6 +383,26 @@ Chaque action sur `Github` déclenche des scripts pour construire, tester et dé
 knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
 ```
 
+---
+# Conclusion : retour d'expérience
+## Avantages
+
+* Traçabilité élevée des modifications ;
+* Simplicité de mise à jour des outputs ;
+* Ouverture des codes ;
+* Collaboration renforcée ;
+* Fiabilité du processus de publication ;
+* Projet plus pérenne.
+
+--
+
+## Défis
+
+* Capacité à se coordonner et à s'écouter ;
+* Nécessité de hiérarchiser les objectifs ;
+* Il faut apprendre à maîtriser les outils ;
+* Il faut trouver du temps pour contribuer ;
+* Importance d'avoir quelques contributeurs expérimentés.
 
 ---
 # Où en est le projet aujourd'hui ?
