@@ -18,3 +18,5 @@ public/*
 
 archives/*
 !archives/*.Rmd
+
+soumissions/*.pdf
