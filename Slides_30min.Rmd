@@ -1,8 +1,8 @@
 ---
 title : "__`utilitR`__"
 subtitle : "Une documentation collaborative sur `R` pour les agents du service statistique public"
-author : "Olivier Meslin"
-date : "8 juin 2021"
+author : "Lino Galiana et Olivier Meslin"
+date : "11 juin 2021"
 output:
   xaringan::moon_reader:
     new_session: yes
@@ -32,6 +32,8 @@ options(htmltools.dir.version = FALSE)
 .sauterligne3[
 Le projet `utilitR` vise à produire une documentation collaborative sur `R` et l'écosystème associé (RStudio, Git, Gitlab).
 ]
+
+--
 
 .sauterligne2[
 Cette documentation est :
@@ -167,7 +169,11 @@ Le projet `utilitR` présente trois particularités :
 
 - Une démarche collaborative et _open source_ ;
 - Une publication entièrement reproductible ;
-- Une documentation adaptée aux besoins des agents.
+    + [![SSPcloud](https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R)](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB)
+- Une documentation adaptée aux besoins des agents:
+    + Exemples sur données [insee.fr](https://www.insee.fr) ;
+    + Bonnes pratiques issues de l'expérience  ;
+    + Rédaction par des utilisateurs de données.
 
 
 ---
@@ -801,7 +807,7 @@ exposant la philosophie du projet.
 Le projet `utilitR` est entièrement développé avec des outils collaboratifs :
 
 - Tous les codes du projet sont stockés sur un dépôt Github ([https://github.com/InseeFrLab/utilitR](lien)) et disponibles sous licence libre (Licence Ouverte 2.0) ;
-- Les contributeurs collaborent par l'intermédiaire du dépôt `Github` du projet (www.github.com/inseefrlab/utilitr) ;
+- Les contributeurs collaborent par l'intermédiaire du dépôt `Github` du projet [www.github.com/inseefrlab/utilitr](https://www.github.com/inseefrlab/utilitr) ;
 - Les travaux sont menés selon les méthodes de développement logiciel (_pull requests_, _issues_) ;
 - Toutes les contributions sont soumises à une relecture par les pairs et validées collégialement (sur le modèle de Wikipedia).
 
@@ -866,6 +872,10 @@ L'automatisation de ces processus présente de multiples avantages :
     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
     + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
 
+* Un point d'entrée : <https://www.utilitr.org> ;
+* Un mail de contact : utilitr-contact@insee.fr.
+
+
 --
 
 * Prochaines étapes :
@@ -873,6 +883,10 @@ L'automatisation de ces processus présente de multiples avantages :
     + 8 juin 2021 : lancement officiel d'`utilitR` ;
     + Septembre 2021 : diffusion de la version 1 de la brochure pdf.
 
+* `utilitR` d'ici un an:
+    + Ajouter de nouveaux contenus ;
+    + Mettre à jour certains contenus ;
+    + Après `utilitR` `r fontawesome::fa("fab fa-r-project")`, `utilython` `r fontawesome::fa("fab fa-python")` ?
 
 
 
