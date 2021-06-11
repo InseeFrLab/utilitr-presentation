@@ -38,6 +38,7 @@ Quelques obligations légales :
 Quelques petites questions sur vous : 
 * quel est votre niveau estimé en `R` : 1 (débutant) à 3 (fort) ?
 * qui a déjà utilisé le SSP Cloud ?
+]
 
 Vous avez la possibilité de lancer des codes `R` facilement en cliquant ici : 
 <a href="https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB" target=_blank rel=noopener><img src="https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R" alt=SSPcloud></a>
