@@ -28,7 +28,7 @@ jobs:
           Rscript -e 'rmarkdown::render("Slides_30min.Rmd")'
           Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
           Rscript -e "file.copy(here::here('css'), here::here('public'), recursive = TRUE)"
-          mv Slides_30min.html public/gitissp-2021-06-11.html
+          mv Slides_30min.html public/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
