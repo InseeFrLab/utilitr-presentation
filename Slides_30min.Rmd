@@ -405,6 +405,19 @@ knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world
 * Importance d'avoir quelques contributeurs expérimentés.
 
 ---
+# Conclusion : retour d'expérience
+## Perspectives
+
+* Participez à la diffusion d'`utilitR` !
+    + Diffusez dans vos institutions [www.utilitr.org](https://www.utilitr.org)
+    + On peut venir présenter `utilitR` dans vos institutions
+* Participez au contenu d'`utilitR` !
+    + Venez sur le dépôt [Github](https://www.github.com/InseeFrLab/utilitr.org) participer aux débats, proposer des modifications de la doc...
+* Aidez à la mise en place de l'approche devOPS/dataOPS sur d'autres projets de la stat publique !
+    + Convaincante pour les statisticiens qui s'acculturent
+    + Projets plus fiables et pérennes
+
+---
 # Où en est le projet aujourd'hui ?
 
 * Un portail d'accès sous forme de site *web* :
