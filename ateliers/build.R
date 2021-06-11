@@ -1,15 +1,18 @@
 file.copy("insert-logo.html", "ateliers/insert-logo.html")
 file.copy(here::here('resources'), here::here('ateliers'), recursive = TRUE)
 
-
-setwd("./ateliers")
+setwd(here::here("ateliers"))
 
 # DOREMIFASOL -------------------
 
 # Télécharger les données grâce à doremifasol
 options(doremifasol.telDir = "~")
 doremifasol::telechargerFichier("BPE_ENS")
-doremifasol::telechargerFichier("DECES_COM_0918")
+
+doremifasol::telechargerFichier("DECES_COM_0918", telDir = ".")
+doremifasol::telechargerFichier("BPE_ENS", telDir = ".")
+
+
 
 fichiers_zip <- list.files(pattern = "\\.zip$", full.names = TRUE)
 
@@ -30,7 +33,6 @@ unlink(fichiers_zip)
 
 # Compiler les Rmd
 rmd <- list.files(pattern = ".Rmd")
-rmd <- rmd[rmd != "import_fichiers.Rmd"]
 lapply(rmd, rmarkdown::render)
 
 lapply(rmd[rmd != "index.Rmd"], knitr::purl)
