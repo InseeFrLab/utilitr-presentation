@@ -9,8 +9,12 @@ slides.html
 *.Rproj
 .Renviron
 *.html
-atelier_*.html
-ateliers/*.html
-ateliers/libs/*
-ateliers/css/*
+
+ateliers/*
+!archives/*.Rmd
+!archives/build.R
+
 public/*
+
+archives/*
+!archives/*.Rmd
