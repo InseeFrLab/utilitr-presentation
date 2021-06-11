@@ -54,7 +54,7 @@ lapply(list.files(pattern = "*.Rmd", recursive = FALSE), function(flname){
   rmarkdown::render(flname)
   flname_html <- gsub(".Rmd", ".html", flname)
   file.copy(gsub(".Rmd", ".html", flname),
-            paste0(here::here("public","archives", flname_html))
+            paste0(here::here("public","archives","matinees2021", flname_html))
   )
   file.remove(flname_html)
 })
