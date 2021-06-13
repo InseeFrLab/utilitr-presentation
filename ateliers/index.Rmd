@@ -31,7 +31,7 @@ output:
 * [Présentation réaliser des graphiques avec `ggplot2`](./graphiques.html) (script uniquement [ici](./graphiques.R))
 * [Utiliser des packages, choisir ses packages et gérer ses dépendances](./atelier-dependances.html) (script uniquement [ici](./atelier-dependances.R))
 * [Import de fichiers plats et tableurs](./import-fichiers.html) (script uniquement [ici](./import-fichiers.R))
-* [Travailler avec des bases de données en R](https://tuto-bdd.lab.sspcloud.fr) (coe source du projet [ici](https://git.lab.sspcloud.fr/pierrelamarche/tutoriel-postgres-with-r))
+* [Travailler avec des bases de données en R](https://tuto-bdd.lab.sspcloud.fr) (code source du projet [ici](https://git.lab.sspcloud.fr/pierrelamarche/tutoriel-postgres-with-r))
 
 <!---
 * [Présentation imports de fichiers plats et de tableurs](./import_fichiers.html) (script uniquement [ici](./import_fichiers.R))
