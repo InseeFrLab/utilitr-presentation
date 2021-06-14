@@ -1,6 +1,6 @@
 ---
-title : "Matinées de découverte `utilitR`"
-subtitle : "Accéder aux présentations"
+title : "Présentations `utilitR`"
+subtitle : "Un site archivant toutes les présentations `utilitR`"
 author : "Lino Galiana et Olivier Meslin"
 institute : "Insee"
 date : "8-9 juin 2021"
