@@ -205,3 +205,126 @@ img[class = "lol"] {
   margin-left: 2cm;
   margin-right: auto;
 }
+
+/*--- COLUMN LAYOUTS ---*/
+
+.cols3 {
+  width: 32%;
+  float: left;
+  text-align: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.leftcol {
+  float: left;
+  width: 49%;
+}
+.rightcol {
+  float: right;
+  width: 49%;
+}
+.leftcol55 {
+  float: left;
+  width: 54%;
+}
+.rightcol45 {
+  float: right;
+  width: 44%;
+}
+.leftcol45 {
+  float: left;
+  width: 44%;
+}
+.rightcol55 {
+  float: right;
+  width: 54%;
+}
+.leftcol60 {
+  float: left;
+  width: 59%;
+}
+.rightcol40 {
+  float: right;
+  width: 39%;
+}
+.leftcol40 {
+  float: left;
+  width: 39%;
+}
+.rightcol60 {
+  float: right;
+  width: 59%;
+}
+.leftcol65 {
+  float: left;
+  width: 64%;
+}
+.rightcol35 {
+  float: right;
+  width: 34%;
+}
+.leftcol35 {
+  float: left;
+  width: 34%;
+}
+.rightcol65 {
+  float: right;
+  width: 64%;
+}
+.leftcol70 {
+  float: left;
+  width: 69%;
+}
+.rightcol30 {
+  float: right;
+  width: 29%;
+}
+.leftcol30 {
+  float: left;
+  width: 29%;
+}
+.rightcol70 {
+  float: right;
+  width: 69%;
+}
+.leftcol75 {
+  float: left;
+  width: 74%;
+}
+.rightcol25 {
+  float: right;
+  width: 25%;
+}
+.leftcol25 {
+  float: left;
+  width: 25%;
+}
+.rightcol75 {
+  float: right;
+  width: 74%;
+}
+.leftcol80 {
+  float: left;
+  width: 79%;
+}
+.rightcol20 {
+  float: right;
+  width: 19%;
+}
+.leftcol20 {
+  float: left;
+  width: 19%;
+}
+.rightcol80 {
+  float: right;
+  width: 79%;
+}
+
+/* Background color for highlighted code */
+.remark-code-line-highlighted {
+  background-color: rgb(206, 233, 255);  /*light blue*/
+}
+
+pre {
+  margin: 0.5em 0;
+}
