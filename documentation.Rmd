@@ -232,11 +232,9 @@ La documentation guide les agents dans leur usage de `R` :
 
 --
 
-.sauterligne[
-La documentation comprend quatre types d'informations mis en évidence dans des encadrés colorés.
-]
+La documentation comprend quatre types d'informations isolées dans des encadrés colorés.
 
-.sauterligne2[
+.sauterligne[
 .small80[
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(magrittr)

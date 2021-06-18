@@ -1,9 +1,12 @@
-name: Example output
+name: Slides des matinées
 
 on:
   push:
+    tags:
+      - 'v*.*.gitissp'
     branches:
-      - master
+      - gitissp
+
 
 jobs:
   xaringan-presentations:
@@ -22,7 +25,10 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          Rscript -e 'source("build/build.R")'
+          Rscript -e 'rmarkdown::render("Slides_30min.Rmd")'
+          Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
+          Rscript -e "file.copy(here::here('css'), here::here('public'), recursive = TRUE)"
+          mv Slides_30min.html public/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
@@ -40,6 +46,6 @@ jobs:
         run: |
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
-          netlify deploy --prod --dir="public" --message "Deploy master"
+          netlify deploy --alias=gitissp --dir="public" --message "Deploy gitissp"
 
 

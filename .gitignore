@@ -9,8 +9,22 @@ slides.html
 *.Rproj
 .Renviron
 *.html
-atelier_*.html
-ateliers/*.html
-ateliers/libs/*
-ateliers/css/*
 
+ateliers/*
+!ateliers/*.Rmd
+
+
+public/*
+
+# archives/*
+archives/resources/*
+archives/libs/*
+archives/css/*
+archives/**/resources
+archives/**/css
+archives/**/libs
+#!archives/build.R
+#!archives/*.Rmd
+#!archives/matinees2021/*.Rmd
+
+soumissions/*.pdf

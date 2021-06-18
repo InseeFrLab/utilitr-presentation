@@ -1,0 +1,47 @@
+---
+title : "Présentations `utilitR`"
+subtitle : "Un site archivant toutes les présentations `utilitR`"
+author : "Lino Galiana et Olivier Meslin"
+institute : "Insee"
+date : "8-9 juin 2021"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+# Liste des présentations `utilitR`
+
+<br> Présentations d'`utilitR` (dernière version) :
+- [Présentation de la documentation `utilitR`](./documentation.html)
+- [Présentation de l'approche collaborative](./colaboratif.html)
+
+<br> Présentations passées
+
+* [GitiSSP [2021-06-11]](./archives/gitissp.html)
+
+
+* Matinées de découverte `utilitR` [2021-06-08] :
+  * [Présentation de la documentation `utilitR`](./archives/matinees2021/documentation.html)
+  * [Présentation de l'approche collaborative](./archives/matinees2021/colaboratif.html)
+  * [Ateliers de découverte](./ateliers/index.html)
+
+<!---
+* [Présentation imports de fichiers plats et de tableurs](./import_fichiers.html) (script uniquement [ici](./import_fichiers.R))
+---->

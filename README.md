@@ -9,5 +9,5 @@ Dépôt des présentations du projet `utilitR`
 Les slides sont visualisables aux adresses temporaires suivantes:
 * Ateliers: https://ateliers--ecstatic-minsky-96c002.netlify.app/
 * Présentation de la documentation: https://mardi--ecstatic-minsky-96c002.netlify.app/
-* Présentation de l'approche collaborative: https://ecstatic-minsky-96c002.netlify.app
+* Présentation de l'approche collaborative: https://mercredi--ecstatic-minsky-96c002.netlify.app
 
