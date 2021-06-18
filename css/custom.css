@@ -31,7 +31,7 @@ h2 {
 }
 
 .title-slide {
-  background-image: url('../resources/logo-utilitr.png');
+  background-image: url('logo-utilitr.png');
 }
 .title-slide h2 {
   text-align: center;
@@ -65,8 +65,14 @@ h2 {
 .small80{
   font-size: 80%;
 }
+.small80 code {
+  font-size: 13px;
+}
 .small70{
   font-size: 70%;
+}
+.small70 code {
+  font-size: 11px;
 }
 .small60{
   font-size: 60%;
