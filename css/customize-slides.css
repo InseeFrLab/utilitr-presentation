@@ -13,6 +13,8 @@ h1, h1 + * {
 }
 .title-slide h1, .title-slide h1 + * {
   margin-right: 0cm;
+  text-align: center;
+  text-align-last: center;
 }
 
 /* Taille des codes inline dans le texte  */
