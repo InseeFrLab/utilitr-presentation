@@ -32,8 +32,10 @@ output:
 - [Présentation de la documentation `utilitR`](./documentation.html)
 - [Présentation de l'approche collaborative](./colaboratif.html)
 
-<br> Présentations passées
+<br> Présentations passées:
 
+* [Rencontres R 2021 [2021-07-13]](./archives/rencontresR2021.html)
+* [Cutii [2021-06-30]](./archives/cutii2021.html)
 * [GitiSSP [2021-06-11]](./archives/gitissp.html)
 
 
