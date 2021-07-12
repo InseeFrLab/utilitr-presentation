@@ -1,0 +1,717 @@
+---
+title : "__`utilitR`__"
+subtitle : "Présentation de la démarche collaborative `utilitR`"
+author : "Lino Galiana"
+date : "9 juin 2021"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Introduction
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+.sauterligne3[
+Le projet `utilitR` vise à produire une documentation collaborative sur `R` et l'écosystème associé (RStudio, Git, Gitlab).
+]
+
+.sauterligne2[
+Cette documentation est :
+
+- un guide pratique, pas une introduction théorique à `R` ;
+- principalement destinée aux agents du Service statistique public (mais pas uniquement);
+- issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia.
+]
+
+
+```{r, echo = FALSE, warning = FALSE, eval = FALSE}
+library(knitr)
+library(kableExtra)
+library(data.table)
+description_appariement <- 
+  as.data.table(
+    data.frame(
+      etape = c(
+        rep('Utiliser `R` à l’Insee', 5),
+        rep("Mener un projet statistique avec `R`", 5),
+        rep("Importer des données", 3),
+        rep("Manipuler des données", 3),
+        rep("Produire des _outputs_", 3)
+        ),
+      filtres_validation = 
+        c(
+          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
+          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
+          "Configurer Git et Gitlab",
+          "Personnaliser la configuration de `R`",
+          "Gérer les ressources informatiques avec `R`",
+          "Utiliser les projets RStudio",
+          "Utiliser Git avec RStudio",
+          "Installer des packages et gérer les dépendances",
+          "Choisir des packages",
+          "Demander de l'aide et se documenter",
+          "Importer des données (SAS, csv, txt, odt, xlsx...)",
+          "Utiliser une API",
+          "Utiliser des bases de données",
+          "Manipuler des données avec `data.table`",
+    # + Manipuler des données (table des données, données textuelles, données spatiales) ;
+    # + Utiliser des bases de données PostgreSQL et Oracle ;
+    # + Faire des graphiques ;
+    # + Rédiger des documents avec `R Markdown` ;
+    # + Produire des rapports automatisés avec `R Markdown`.
+          "BBB",
+          "AAA",
+          "BBB",
+          "AAA",
+          "BBB"
+        )
+    )
+  )
+
+kbl(description_appariement, align = "cll",
+    col.names = c("Partie", 
+                  "Fiches")
+) %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(0, align = 'c') %>%
+  column_spec(1, bold = TRUE, width = "6cm") %>%
+  column_spec(2, width = "12cm") %>% 
+  collapse_rows(columns = 1, 
+                valign = "middle", 
+                longtable_clean_cut = TRUE)
+```
+
+---
+# Introduction
+
+.sauterligne2[
+Le projet `utilitR` a pour objectif de produire une documentation qui réponde à deux questions, dans le contexte des travaux de la statistique publique 
+(mais pas que) :
+]
+
+- Comment (bien) travailler avec `R` et RStudio pour profiter de la richesse de cet écosystème ;
+- Comment réaliser efficacement des tâches standards avec `R`.
+
+--
+
+.sauterligne2[
+Historique du projet :
+]
+
+* Fin 2019 : premières évocations d'une documentation sur `R` ;
+* Mars 2020 : lancement du projet ;
+* Octobre 2020 : mise en ligne du site :
+* Mai 2021 : finalisation des contenus ;
+* 8-9 juin 2021 : lancement officiel d'`utilitR` ;
+
+.gray[
+* Septembre 2021 : diffusion éventuelle de la documentation sous forme de brochure imprimée.
+]
+
+
+---
+# Introduction
+
+.sauterligne2[
+Plan de la présentation :
+]
+
+- Présentation du projet ;
+- Fonctionnement collaboratif d'`utilitR` ;
+- Collaboration sur `Github` ;
+- Le rôle de l'intégration continue pour se concentrer sur le contenu ;
+- Notre retour d'expérience ;
+
+
+<!----
+    + Git & Github
+    + CI/CD
+----->
+
+---
+# 1. Présentation d'`utilitR`
+## Une documentation adaptée aux besoins des agents
+
+La documentation guide les agents dans leur usage de `R` :
+
+- Elle décrit l'usage de `R` avec RStudio ;
+- Elle formule des recommandations claires sur les outils et les _packages_ adaptés à chaque tâche ;
+- Elle comporte des conseils et des remarques relatifs aux bonnes pratiques ;
+- Elle est illustrée par des exemples reproductibles utilisant des données de l'Insee.
+
+--
+
+La documentation comprend quatre types d'informations isolées dans des encadrés colorés.
+
+.sauterligne[
+.small80[
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(magrittr)
+library(fontawesome)
+texte_recommandation <- "Ce paragraphe présente succinctement les outils et les approches les plus adaptés à la tâche concernée. Chaque fiche ne comprend qu'un seul paragraphe de ce type, au début de la fiche."
+texte_conseil        <- "Ce paragraphe détaille les bonnes pratiques à adopter."
+texte_remarque       <- "Ce paragraphe donne des informations supplémentaires ou formule une mise en garde."
+texte_specificite    <- "Ce paragraphe porte sur une spécificité de l'Insee qui a un impact sur l'usage de <code>R</code>."
+
+symb <-
+  c(fa("hand-point-right", fill = "rgba(220, 53, 69, 1)", height = "30px"),
+    fa("lightbulb", fill = "rgba(255, 193, 7, 1)", height = "30px"),
+    fa("info-circle", fill = "rgba(0, 123, 255, 1)", height = "30px"),
+    fa("home", fill = "rgba(81, 81, 81, 1)", height = "30px"))
+
+dt <- 
+  as.data.frame(list(
+    Nom = c("Recommandation", 
+            "Conseil", 
+            "Remarque",
+            "Spécificité Insee"), 
+    Symbole = symb,
+    Signification = c(texte_recommandation, 
+                      texte_conseil, 
+                      texte_remarque,
+                      texte_specificite)
+  )
+  )
+
+
+output <- 
+  dt %>% 
+  knitr::kable(escape = F, position = "center", full_width = F, align="ccl") %>%
+  kableExtra::column_spec(1, width = "3cm", bold = TRUE) %>%
+  kableExtra::column_spec(2, width = "2cm") %>% 
+  kableExtra::column_spec(3, width = "12cm") %>% 
+  kableExtra::row_spec(0,bold=TRUE, align = "c")
+output
+```
+]
+]
+
+---
+# 1. Présentation d'`utilitR`
+## Et quand on utilise `R` ailleurs qu'à l'Insee?
+
+.sauterligne2[
+Les éléments spécifiques à l'Insee sont bien isolés du reste de la documentation, de façon à ce que les autres utilisateurs de `R` puissent se l'approprier aisément.
+]
+
+.sauterligne2[
+.small90[
+.specificite[
+Les spécificités informatique de l'Insee sont signalées dans des boîtes colorées.
+]
+]
+]
+
+
+
+
+
+---
+# 1. Présentation du projet
+## Une démarche collaborative et _open source_
+
+* Projet entièrement _open source_ (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) :
+    + Tous les codes sources sont disponibles sur Github ;
+    + licence ouverte et peu contraignante (`Licence Ouverte 2.0`).
+--
+* Démarche collaborative impliquant __plus de 25 contributeurs__ :
+    + dispersés dans toute la France ;
+    + issus de plusieurs institutions du SSP.
+    + Un immense merci à eux ! `r emo::ji("applause")`
+
+--
+* Organisation horizontale, sur le modèle de `Wikipedia` :
+    + relecture par les pairs ;
+    + validation collégiale ;
+    + discussions publiques, toutes contributions bienvenues. 
+
+<br> `r emo::ji("point_right")` __Tout le monde peut contribuer à `utilitR` : rejoignez le groupe des contributeurs !__
+
+---
+# 1. Présentation du projet
+## Des choix techniques au service de la qualité
+
+* Une documentation pensée pour le statisticien :
+    + Recommandations adaptées au contexte de travail des agents du service statistique public ;
+    + Exemples sur [données réelles Insee](https://www.insee.fr) (grâce au _package_ [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)) ;
+    + Documentation entièrement reproductible
+[![SSPcloud](https://img.shields.io/badge/SSPcloud-Tester%20via%20SSP--cloud-informational?logo=R)](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?onyxia.friendlyName=%C2%ABrstudio-utilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FutilitR%2Fmaster%2Fresources%2Finit_9juin.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB)
+
+<!---    + Insee: exemples mobilisables dans AUS. ---->
+
+* Processus de publication à l'état de l'art :
+    + Plusieurs _outputs_ (site web `r fontawesome::fa("fab fa-firefox")`, livre PDF `r fontawesome::fa("fas fa-file-pdf")`) avec les mêmes codes sources ;
+    + Publication automatique à chaque modification des fichiers sources.
+
+    
+---
+# 1. Présentation du projet
+## Une démarche collaborative et _open source_
+
+* Acculturation à des outils favorisant la **reproductibilité** et la **pérennité**, au-delà de l'usage de `r fontawesome::fa("fab fa-r-project")` :
+    + `Docker` `r fontawesome::fa("fab fa-docker")` ;
+    + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
+    + `Github` `r fontawesome::fa("fab fa-github")`.
+
+* La résolution des défis techniques ont permis des évolutions de l'écosystème `R Markdown` :
+    + Amélioration du _package_ `pagedown` pour produire la brochure pdf ;
+    + Correction d'un bug dans le _package_ `rmarkdown` pour produire le site internet.
+
+<br>
+
+__Le projet `utilitR` est un laboratoire qui préfigure les évolutions des méthodes de travail des statisticiens.__
+
+---
+# 1. Présentation du projet
+## La communauté des contributeurs
+
+```{r, echo = FALSE}
+knitr::include_graphics("https://i2.wp.com/akramsideas.com/wp-content/uploads/2013/07/minions.jpg")
+```
+
+__Rejoignez l'aventure `utilitR` !__
+
+
+---
+# 1. Présentation d'`utilitR`
+## Diffusion de la documentation
+
+La documentation est diffusée sous trois formes :
+
+- `r fontawesome::fa("fab fa-firefox")` un site internet ([www.utilitr.org](https://www.utilitr.org)) ;
+    + Documentation principale sur [www.book.utilitr.org](www.book.utilitr.org) ;
+    + Guide des bonnes pratiques en `R` sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org) ;
+- `r fontawesome::fa("fas fa-print")` chaque fiche est disponible en format A4 sur le site internet ;
+- `r fontawesome::fa("fas fa-file-pdf")` l'intégralité de la documentation en format pdf. 
+
+<br> Il est envisagé que le site internet soit actualisé en continu, tandis que la brochure pdf serait publiée de façon ponctuelle et millésimée. 
+
+.sauterligne2[
+Pour faciliter le travail de publication, les *templates* sont encapsulés dans un `r emo::ji("package")` disponible sur [`r fontawesome::fa("fab fa-github")` InseeFrLab/utilitR-template](https://github.com/InseeFrLab/utilitR-template)
+]
+
+
+--
+<br> `r emo::ji("point_right")` **Participez à la diffusion en faisant connaître `utilitR` dans vos institutions**
+
+
+<!---- PARTIE 2 ---------------->
+
+---
+# 2. Fonctionnement du projet
+## Organisation du projet
+
+**Le projet `utilitR` est un projet collaboratif, horizontal, _open source_ et ouvert à tous, auquel tous les agents peuvent contribuer.**
+
+--
+* Cinq principes détaillés dans le [manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparence, ouverture, bienveillance, exigence et reproductibilité.
+
+--
+
+* Organisation sans hiérarchie :
+    * Un _groupe de contributeurs_ `r emo::ji("black_nib")` (environ 25), parmi lesquels deux coordinateurs ;
+    * Un _comité de parrainage_ composé de managers  `r emo::ji("angel")`: Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
+--
+
+* Les travaux sont menés selon les méthodes de développement logiciel (_pull requests_, _issues_) ;
+--
+
+* La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
+
+--
+<br><br>
+**Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
+
+---
+# 2. Fonctionnement du projet
+## Organisation du projet
+
+<table class = "tablelol">
+  <tr>
+    <td style = "width: 35%;">Le comité de parrainage</td>
+    <!-- <td><img src="https://imperialtalker.files.wordpress.com/2015/08/the-council.jpeg" alt="2" style = "width: 75%;" class = "lol"></td> -->
+    <td>
+<div class="row">
+  <div class="column">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/71MA6epP0WL._AC_SL1500_.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://media.vogue.fr/photos/606dca7e47f477da2ff11fcf/2:3/w_2560%2Cc_limit/010_A7A08C89_416.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/Princess_Leia%27s_characteristic_hairstyle.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
+        </td>
+     </tr> 
+     <tr>
+      <td>Les contributeurs</td>
+<td> <img src="https://lumiere-a.akamaihd.net/v1/images/databank_ewok_01_169_747db03a.jpeg?region=0%2C0%2C1560%2C878&width=768"  alt="1" style = "width: 90%;" class = "lol" ></td>
+  </tr>
+</table>
+
+<!-- --- -->
+<!-- # 2. Fonctionnement du projet -->
+<!-- ## Les 5 principes du projet `utilitR` -->
+
+
+<!-- * __Transparence__ : l'ensemble du projet est librement accessible sur le dépôt Github, sous licence libre ; -->
+<!-- * __Ouverture__ : toute personne qui le souhaite peut rejoindre le projet à tout moment. Les modalités de contribution peuvent prendre différentes formes, détaillées dans le guide des contributeurs ; -->
+<!-- * __Bienveillance__ : toutes les idées, initiatives et propositions sont les bienvenues, et les contributeurs veillent à se soutenir les uns les autres ; -->
+<!-- * __Exigence__ : les modifications de la documentation sont systématiquement soumises à une revue par les contributeurs du projet et ne sont acceptées que lorsqu'elles rencontrent une large approbation ; -->
+<!-- * __Reproductibilité__ : les exemples développés dans la documentation doivent être reproductibles. -->
+
+<!-- Ces principes sont exposées dans un -->
+<!-- [Manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) -->
+<!-- exposant la philosophie du projet -->
+
+---
+# 2. Fonctionnement du projet
+## L'architecture du projet
+
+* Les contributeurs collaborent par l'intermédiaire du dépôt `Github` du projet
+[https://www.github.com/inseefrlab/utilitr](https://www.github.com/inseefrlab/utilitr).
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_1.png")
+```
+
+---
+# 2. Fonctionnement du projet
+## L'architecture du projet
+
+* Des scripts automatiques créent l'environnement informatique de production de la documentation et vérifient que les codes sources ne contiennent pas de bug.
+
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_2.png")
+```
+
+---
+# 2. Fonctionnement du projet
+## L'architecture du projet
+
+* La documentation est déployée automatiquement en plusieurs formats ;
+* Mais il est nécessaire de tester les évolutions avant leur déploiement.
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_3.png")
+```
+
+
+---
+# 2. Fonctionnement du projet
+## L'architecture du projet
+
+* Chaque contribution est déployée sur un site temporaire pour vérification ;
+* Seule la version validée sera sur [www.book.utilitr.org](https://www.book.utilitr.org).
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_complete.png")
+```
+
+---
+# 2. Fonctionnement du projet
+## Une approche au service de la reproductibilité et de la qualité
+
+C'est le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) qui centralise tout le fonctionnement du projet. Il propose :
+
+* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
+
+--
+
+* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+
+--
+
+* Des scripts de __déploiement continu__ qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
+
+--
+
+* Un **site de prévisualisation** `r fontawesome::fa("fab fa-firefox")` (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/inseefrlab/utilitr)](https://hub.docker.com/repository/docker/inseefrlab/utilitr/general)
+[![build-doc Actions Status](https://github.com/InseeFrLab/utilitR/workflows/Production%20de%20la%20documentation/badge.svg)](https://github.com/InseeFrLab/utilitR/actions)
+
+
+---
+# 3. Quelle collaboration sur Github ?
+## Objectif : permettre à tous de contribuer
+
+* __Plusieurs modalités de contribution__ proposées pour offrir légèreté, flexibilité et simplicité ;
+
+--
+
+* Les contributions les plus simples sont possibles _via_ une interface graphique ;
+
+--
+
+    * Le bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur [www.book.utilitr.org](https://www.book.utilitr.org) permet d'utiliser l'interface visuelle `Github` pour proposer une modification d'une fiche (*pull request* automatiquement créée).
+
+    * Les _issues_ sont des fils de discussion qui permettent des débats et échanges sur tous les sujets :
+      + signaler un *bug*, 
+      + proposer une nouvelle fiche, 
+      + proposer un nouvel exemple, 
+      + participer à un débat sur un *package*...
+
+---
+# 3. Quelle collaboration sur Github ?
+## Objectif : permettre à tous de contribuer
+
+
+* Pour ajouter des éléments plus substantiels (nouvelles 
+fiches, ajout de paragraphe, évolution de la tuyauterie...), il est possible d'ouvrir des *pull requests*.
+* Les contributeurs s'entraident pour acquérir la maîtrise des outils.
+
+--
+
+.sauterligne2[
+Deux points à retenir :
+]
+
+- __Il n'est pas nécessaire de bien connaître Git et Github pour contribuer au projet ;__
+- __Contribuer au projet permet de se familiariser avec les méthodes de l'_open source_ qui renforcent la fiabilité des projets.__
+
+---
+# 3. Quelle collaboration sur Github ?
+## Démonstration
+
+<br><br><br><br>
+**[Démonstration !](https://github.com/InseeFrLab/utilitR-website)**
+
+
+
+---
+# 3. Quelle collaboration sur Github ?
+## Méthode de travail
+
+* On a choisi le mode de travail le plus léger (*Github Flow*) ;
+* Cependant, les seuls personnes ayant droit d'écriture sur
+[InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont les coordinateurs (mainteneurs) ;
+* Les contributeurs travaillent sur des copies du dépôt principal (`forks`) et soumettent les changements à partir de ces copies ;
+* Lorsqu'une modification proposée par un contributeur est validée par les autres contributeurs, elle est intégrée au dépôt principal par les coordinateurs.
+
+```{r, echo = FALSE}
+knitr::include_graphics("resources/git-tree.png")
+```
+
+<br> __Ce mode de travail est exportable à un environnement interne `Gitlab` `r fontawesome::fa("fab fa-gitlab")`__
+
+---
+# 4. Intégration continue
+
+## Avantages de l'automatisation des processus :
+
+```{r, eval = FALSE, echo = FALSE, out.width="50%", fig.show="hold"}
+knitr::include_graphics("https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg")
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
+
+<!---
+Sources :
+`https://crowdspotsimages.s3-us-west-2.amazonaws.com/user-content/LcYPp_4UQjuu44T_RXp8qg.jpeg`
+`https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg`
+
+---->
+
+Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation:
+
++ **allège le travail** des coordinateurs et des contributeurs ;
++ assure un **environnement plus reproductible** ;
++ assure la **cohérence entre les différents formats** ;
++ **facilite le repérage des erreurs** ;
++ permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de **se concentrer uniquement sur le fond**.
+
+```{r, echo = FALSE, out.width="50%", fig.show="hold", fig.align='center'}
+knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
+```
+
+---
+# 4. Intégration continue
+## `R Markdown`, *un langage pour les gouverner tous*
+
+<!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
+<!-- liens entre fiches, etc.) -->
+
+<!-- (`.Rmd` ➜ `.md` ➜ `.html`) ; -->
+<!-- (`.md` ➜ `.html` ➜ `.pdf`) ; -->
+
+* Les codes sources de la documentation prennent la forme de fichiers `R Markdown`, qui rassemblent les textes et les exemples de codes ;
+* `R` compile ces codes sources de deux manières :
+    + Production d'un site internet grâce au _package_ `blogdown` ;
+    + Production d'un livre en format A4 grâce au _package_ `pagedown` ;
+    + De plus, l'utilisation de `paged.js` permet de transformer chaque page du site internet en un chapitre paginé prêt à être imprimé.
+    
+--
+
+* Les modèles de document reposent sur les technologies Web standards (CSS et Javascript) et sont organisés sous la forme d'un _package_ `r emo::ji("package")` .
+
+--
+
+<br>
+Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...).
+
+
+---
+# 5. Retour d'expérience
+## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: un **écosystème efficace**
+
+* Une __unique source de vérité__ avec au même endroit :
+    + le contenu validé ;
+    + le contenu en cours de rédaction ;
+
+--
+
+* **Pas de mail** pour s'échanger des fichiers ou des informations ;
+    + Les informations importantes sont archivées directement dans le projet, pas dans une boîte mail ;
+
+--
+
+* Organiser le travail collaboratif de façon **ouverte** et **transparente** :
+    + tout le monde peut proposer des modifications (correction coquille, rédaction fiche, etc.) ;
+    + tout le monde peut donner son avis.
+
+--
+
+* **Pas besoin d'être un expert `Git`** pour contribuer à un projet collaboratif :
+    + Besoin d'un ou deux facilitateurs ou coach `Git` ;
+    + Proposer des modalités de contribution facilitées (bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur le site)
+    + Intérêt d'avoir une messagerie instantanée `r fontawesome::fa("fas fa-comment")` en complément.
+
+
+---
+# 5. Retour d'expérience
+## Git `r fontawesome::fa("fab fa-git-alt")` et Github `r fontawesome::fa("fab fa-github")`: **ce n'est pas suffisant**
+
+* Il faut de la **communication** `r emo::ji("comment")`.
+* Il est important d'avoir un outil de communication collaboratif en parallèle du dépôt Github : (Tchap dans le cas d'`utilitR`) ;
+* Cet outil permet de se coordonner et de faire circuler l'information :
+    + publication nouvelle fiche ;
+    + besoin relecteur ou rédacteur ;
+    + *debug* ;
+    + blagues...
+
+    
+---
+# 5. Retour d'expérience
+## Avantages
+
+* Traçabilité élevée des modifications ;
+* Simplicité de mise à jour des outputs ;
+* Ouverture des codes ;
+* Collaboration renforcée ;
+* Fiabilité du processus de publication ;
+* Projet plus pérenne.
+
+--
+
+## Défis
+
+* Capacité à se coordonner et à s'écouter ;
+* Nécessité de hiérarchiser les objectifs ;
+* Il faut apprendre à maîtriser les outils ;
+* Il faut trouver du temps pour contribuer ;
+* Importance d'avoir quelques contributeurs expérimentés.
+
+
+---
+# 5. Retour d'expérience
+## Une "petite" bourde lors de la transition de Gitlab à Github (décembre 2020)
+
+* Transition vers [Github `r fontawesome::fa("fab fa-github")`](https://github.com/InseeFrLab/utilitR) pour donner plus de visibilité que sur Gitlab `r fontawesome::fa("fab fa-gitlab")`
+
+* Volonté de ne pas perdre l'historique du dépôt (commits, issues, pull request)
+    + Utilisation d'un outil ([node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github)) pour récupérer *issues* et *pull request*
+
+* Problème: *oubli* désactivation notification mail
+* Résultat: Olivier a reçu 2700 mails `r emo::ji("sweat_smile")`
+
+```{r, echo = FALSE, out.width="50%", fig.show="hold"}
+knitr::include_graphics("resources/Spamomatic.jpg")
+knitr::include_graphics("resources/Spamomatic2.jpg")
+```
+
+
+---
+# 5. Retour d'expérience
+## Les coordinateurs du projet
+
+```{r, echo = FALSE, out.width="45%", fig.align='center'}
+knitr::include_graphics("https://images-na.ssl-images-amazon.com/images/I/91CJLS0pRJL.jpg")
+```
+
+
+---
+# 5. Retour d'expérience
+## Le projet aujourd'hui et demain
+
+* Un portail d'accès sous forme de site *web* :
+    + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ;
+    + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org).
+
+* Un point d'entrée : <https://www.utilitr.org> ;
+* Un mail de contact : utilitr-contact@insee.fr.
+
+--
+
+<br>
+
+* Besoin de nouveaux contributeurs pour aller plus loin:
+    + Ajouter de nouveaux contenus ;
+    + Mettre à jour certains contenus ;
+    + Après `utilitR` `r fontawesome::fa("fab fa-r-project")`, `utilython` `r fontawesome::fa("fab fa-python")` ?
+
+--
+      + Lino est fou `r emo::ji("fear")` !
+      
+--
+
+<br>
+__ `r emo::ji("point_right")` `utilitR` est une documentation vivante qui a besoin de vous !__
+
+---
+# Remerciements
+
+<!-- Le projet `utilitR` est un projet collaboratif qui a bénéficié des contributions de :  -->
+<!-- r paste0(paste(format(Filter(function(x) !("cph" %in% x$role), desc::desc_get_authors()), include = c("given", "family")), collapse = ", "), ".") -->
+
+.small90[
+.auteurs[
+
+Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel Cacheux, Arthur Cazaubiel, Frédérique Cornuau, Sylvain Daubrée, Aurélien d'Isanto, Arlindo Dos Santos, Alexis Eidelman, Marie-Emmanuelle Faure, Gilles Fidani, Lino Galiana, Gaëlle Genin, Pierre Lamarche, Claire Legroux, Romain Lesur, Jean-Daniel Lomenède, Pascal Mercier, Olivier Meslin, Violaine Poirot, Géraldine Rochambeau, Clément Rousset, Milena Suarez Castillo, Cédric Tassart.
+
+Coordination : Lino Galiana et Olivier Meslin.
+
+Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux.
+
+Logo : Anna Schlaifer.
+
+Les contributeurs remercient Julien Taquet et Marc Hufschmitt pour leur aide précieuse sur la mise en forme du site et de la brochure.
+]
+]
+
+---
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !
