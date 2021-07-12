@@ -33,6 +33,7 @@ unlink(fichiers_zip)
 
 # Compiler les Rmd
 rmd <- list.files(pattern = ".Rmd")
+rmd <- rmd[rmd != "import-fichiers.Rmd"]
 lapply(rmd, rmarkdown::render)
 
 lapply(rmd[rmd != "index.Rmd"], knitr::purl)
