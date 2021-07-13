@@ -2,7 +2,7 @@
 title : "__`utilitR`__"
 subtitle : "Présentation de la démarche collaborative `utilitR`"
 author : "Lino Galiana"
-date : "9 juin 2021"
+date : "13 juillet 2021"
 output:
   xaringan::moon_reader:
     new_session: yes
