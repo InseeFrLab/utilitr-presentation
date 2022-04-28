@@ -267,50 +267,35 @@ output
 ]
 
 ---
-# Fonctionnement du projet
-## Organisation du projet
+# Project organization
+## Principles
 
-**Le projet `utilitR` est un projet collaboratif, horizontal, _open source_ et ouvert à tous, auquel tous les agents peuvent contribuer.**
-
---
-* Cinq principes détaillés dans le [manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparence, ouverture, bienveillance, exigence et reproductibilité.
+**`utilitR` is a collaborative, horizontal, _open source_ and open to all projects.**
 
 --
+* 5 principles presented in a [manifesto](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparency, openness, kindness, high standards and reproducibility
 
-* Organisation sans hiérarchie :
-    * Un _groupe de contributeurs_ `r emo::ji("black_nib")` (environ 25), parmi lesquels deux coordinateurs ;
-    * Un _comité de parrainage_ composé de managers  `r emo::ji("angel")`: Benoît Rouppert, Arnaud Degorre, Patrick Sillard, Sébastien Roux.
 --
 
-* Les travaux sont menés selon les méthodes de développement logiciel (_pull requests_, _issues_) ;
+* Bottom up approach :
+    * _Contributors_ `r emo::ji("black_nib")` (around 30), among them 3 coordinateurs ;
+    * _Sponsor committee_ with some managers  `r emo::ji("angel")`.
 --
 
-* La marche à suivre pour contribuer est détaillée dans le [guide de contribution](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
+* We follow the standards of open source community (_pull requests_, _issues_) ;
+--
+
+* Everything presented in a [contributing guide](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
 
 --
 <br><br>
-**Vous pouvez rejoindre l'équipe de contributeurs à tout moment.**
+**You can join the contributors team whenever you want !**
 
 ---
-# Fonctionnement du projet
-## Les 5 principes du projet `utilitR`
+# Project organization
+## What happens behind the stage ?
 
-
-* __Transparence__ : l'ensemble du projet est librement accessible sur le dépôt Github, sous licence libre ;
-* __Ouverture__ : toute personne qui le souhaite peut rejoindre le projet à tout moment. Les modalités de contribution peuvent prendre différentes formes, détaillées dans le guide des contributeurs ;
-* __Bienveillance__ : toutes les idées, initiatives et propositions sont les bienvenues, et les contributeurs veillent à se soutenir les uns les autres ;
-* __Exigence__ : les modifications de la documentation sont systématiquement soumises à une revue par les contributeurs du projet et ne sont acceptées que lorsqu'elles rencontrent une large approbation ;
-* __Reproductibilité__ : les exemples développés dans la documentation doivent être reproductibles.
-
-Ces principes sont exposées dans un
-[Manifeste](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md)
-exposant la philosophie du projet
-
----
-# Fonctionnement du projet
-## L'architecture du projet
-
-* Les contributeurs collaborent par l'intermédiaire du dépôt `Github` du projet
+* Contributions by the means of the `Github` repository
 [https://www.github.com/inseefrlab/utilitr](https://www.github.com/inseefrlab/utilitr).
 
 ```{r, echo = FALSE, out.width="85%", fig.align="center"}
@@ -318,22 +303,12 @@ knitr::include_graphics("./resources/graphCI/githubCI_1.png")
 ```
 
 ---
-# Fonctionnement du projet
-## L'architecture du projet
+# Project organization
+## What happens behind the stage ?
 
-* Des scripts automatiques créent l'environnement informatique de production de la documentation et vérifient que les codes sources ne contiennent pas de bug.
+* Automatic scripts run behind the stage to ensure no bug have been introduced
+* Everything is automatically exported on the internet (preview or official website)
 
-
-```{r, echo = FALSE, out.width="85%", fig.align="center"}
-knitr::include_graphics("./resources/graphCI/githubCI_2.png")
-```
-
----
-# Fonctionnement du projet
-## L'architecture du projet
-
-* La documentation est déployée automatiquement en plusieurs formats ;
-* Mais il est nécessaire de tester les évolutions avant leur déploiement.
 
 ```{r, echo = FALSE, out.width="85%", fig.align="center"}
 knitr::include_graphics("./resources/graphCI/githubCI_3.png")
@@ -341,148 +316,35 @@ knitr::include_graphics("./resources/graphCI/githubCI_3.png")
 
 
 ---
-# Fonctionnement du projet
-## L'architecture du projet
+# Project organization
+## How to collaborate ?
 
-* Chaque contribution est déployée sur un site temporaire pour vérification ;
-* Seule la version validée sera sur [www.book.utilitr.org](https://www.book.utilitr.org).
-
-```{r, echo = FALSE, out.width="85%", fig.align="center"}
-knitr::include_graphics("./resources/graphCI/githubCI_complete.png")
-```
-
----
-# Fonctionnement du projet
-## Une approche au service de la reproductibilité et de la qualité
-
-C'est le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](https://github.com/InseeFrLab/utilitR) qui centralise tout le fonctionnement du projet. Il propose :
-
-* Un __environnement informatique complet et reproductible__ pour produire la documentation (image `Docker` `r fontawesome::fa("fab fa-docker")`) ;
-
---
-
-* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
-
---
-
-* Des scripts de __déploiement continu__ qui compilent la documentation et déploient le site internet à chaque modification de la branche `master` ;
-
---
-
-* Un **site de prévisualisation** `r fontawesome::fa("fab fa-firefox")` (via `Netlify`) sur lequel les contributeurs peuvent voir les modifications qu'ils apportent au site, sans que le site public ne soit modifié.
-
-[![Docker Pulls](https://img.shields.io/docker/pulls/inseefrlab/utilitr)](https://hub.docker.com/repository/docker/inseefrlab/utilitr/general)
-[![build-doc Actions Status](https://github.com/InseeFrLab/utilitR/workflows/Production%20de%20la%20documentation/badge.svg)](https://github.com/InseeFrLab/utilitR/actions)
-
-
----
-# Fonctionnement du projet
-## Collaborer avec Github
-
-* __Plusieurs modalités de contribution__ proposées pour offrir légèreté, flexibilité et simplicité ;
-
---
-
-* Les contributions les plus simples sont possibles _via_ une interface graphique ;
-
---
-
-    * Le bouton *Edit this page* `r fontawesome::fa("fab fa-github")` sur [www.book.utilitr.org](https://www.book.utilitr.org) permet d'utiliser l'interface visuelle `Github` pour proposer une modification d'une fiche (*pull request* automatiquement créée).
-
-    * Les _issues_ sont des fils de discussion qui permettent des débats et échanges sur tous les sujets :
-      + signaler un *bug*, 
-      + proposer une nouvelle fiche, 
-      + proposer un nouvel exemple, 
-      + participer à un débat sur un *package*...
-
----
-# Fonctionnement du projet
-## Collaborer avec Github
-
-* Pour ajouter des éléments plus substantiels (nouvelles 
-fiches, ajout de paragraphe, évolution de la tuyauterie...), il est possible d'ouvrir des *pull requests*.
-* Les contributeurs s'entraident pour acquérir la maîtrise des outils.
+* __Several ways to contributed__ to ensure flexibility and simplicity ;
+    * *Edit this page* button `r fontawesome::fa("fab fa-github")` on [www.book.utilitr.org](https://www.book.utilitr.org) to use `Github` visual interface (*pull request* is automatic).
+    * More substanticial elements: use RStudio to write content and propose a pull request ! 
+    
+* Contributors help themselves !
 
 --
 
 .sauterligne2[
-Deux points à retenir :
+Two key points:
 ]
 
-- __Il n'est pas nécessaire de bien connaître Git et Github pour contribuer au projet ;__
-- __Contribuer au projet permet de se familiariser avec les méthodes de l'_open source_ qui renforcent la fiabilité des projets.__
+- __No need to be Git or Github fluent to contribute ;__
+- __Contributing help people to discover opensource standards that bring more reliable projects.__
+
 
 ---
-# Fonctionnement du projet
-## Collaborer avec Github
+# What about `utilitR` tomorrow ?
 
-* On a choisi le mode de travail le plus léger (*Github Flow*) ;
-* Cependant, les seuls personnes ayant droit d'écriture sur
-[InseeFrLab/utilitR](https://github.com/InseeFrLab/utilitR) sont les coordinateurs (mainteneurs) ;
-* Les contributeurs travaillent sur des copies du dépôt principal (`forks`) et soumettent les changements à partir de ces copies ;
-* Lorsqu'une modification proposée par un contributeur est validée par les autres contributeurs, elle est intégrée au dépôt principal par les coordinateurs.
-
-```{r, echo = FALSE}
-knitr::include_graphics("resources/git-tree.png")
-```
-
-<br> __Ce mode de travail est exportable à un environnement interne `Gitlab` `r fontawesome::fa("fab fa-gitlab")`__
-
----
-# Fonctionnement du projet
-## Avantages de l'intégration continue
-
-Chaque action sur `Github` déclenche des scripts pour construire, tester et déployer la mise à jour de la documentation:
-
-+ **allège le travail** des coordinateurs et des contributeurs ;
-+ assure un **environnement plus reproductible** ;
-+ assure la **cohérence entre les différents formats** ;
-+ **facilite le repérage des erreurs** ;
-+ permet aux contributeurs d'ignorer les détails techniques de la production de la documentation et de **se concentrer uniquement sur le fond**.
-
-```{r, echo = FALSE, out.width="50%", fig.show="hold", fig.align='center'}
-knitr::include_graphics("https://flexagon.com/wp-content/uploads/2020/04/a-world-without-ci.cd-meme.jpg")
-```
-
----
-# Fonctionnement du projet
-## `R Markdown`, *un langage pour les gouverner tous*
-
-<!-- en un site web ou un PDF cohérent (gestion des numéros de chapitre, des -->
-<!-- liens entre fiches, etc.) -->
-
-<!-- (`.Rmd` ➜ `.md` ➜ `.html`) ; -->
-<!-- (`.md` ➜ `.html` ➜ `.pdf`) ; -->
-
-* Les codes sources de la documentation prennent la forme de fichiers `R Markdown`, qui rassemblent les textes et les exemples de codes ;
-* `R` compile ces codes sources de deux manières :
-    + Production d'un site internet grâce au _package_ `blogdown` ;
-    + Production d'un livre en format A4 grâce au _package_ `pagedown` ;
-    + De plus, l'utilisation de `paged.js` permet de transformer chaque page du site internet en un chapitre paginé prêt à être imprimé.
-    
---
-
-* Les modèles de document reposent sur les technologies Web standards (CSS et Javascript) et sont organisés sous la forme d'un _package_.
-
---
-
-<br>
-Utiliser les outils les plus appropriés pour réaliser une tâche donnée (compilation en site web, en PDF...).
-
-
-<!-- --- -->
-<!-- # Où en est le projet aujourd'hui ? -->
-
-<!-- * Un portail d'accès sous forme de site *web* : -->
-<!--     + La documentation principale est disponible sur [www.book.utilitr.org](www.book.utilitr.org) ; -->
-<!--     + Guide des bonnes pratiques en `R` disponible sur [www.pratiques.utilitr.org](www.pratiques.utilitr.org). -->
-
-<!-- -- -->
-
-<!-- * Prochaines étapes : -->
-<!--     + Mai 2021 : finalisation des contenus ; -->
-<!--     + 8-9 juin 2021 : lancement officiel d'`utilitR` ; -->
-<!--     + Septembre 2021 : diffusion de la version 1 de la brochure pdf. -->
+- `utilitR` keeps being updated to catch up latest `R` evolutions ;
+- There are still some missing parts in `utilitR` :
+    + How to make nice maps with `R` ?
+    + `shiny`
+- We need to go further in the harmonization of practices in `R`:
+    + A guide of good practices needs to be updated
+    + Adapt my latest course on this subject with `Python` (https://ensae-reproductibilite.netlify.app/) to `R` context
 
 ---
 # Remerciements
