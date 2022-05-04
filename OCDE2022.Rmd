@@ -24,21 +24,35 @@ output:
       countIncrementalSlides: false
 ---
 
-# Introduction
-
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
+# Summary
+
+
 .sauterligne3[
-`utilitR` projets aims to propose a collaborative documentation on the `R` ecosystem (R, RStudio, Git, Gitlab).
+__Summary__ :
+]
+
+- .gray[Introducing `utilitR` ;]
+- Why is `utilitR` special ;
+- Project organization.
+
+---
+# Introducing `utilitR`
+
+.sauterligne3[
+`utilitR` projets aims to propose a collaborative documentation
+regarding `r fontawesome::fa("fab fa-r-project")` ecosystem
+(`R`, `RStudio`, `Git`, `Gitlab`).
 ]
 
 .sauterligne2[
 This documentation is:
 
 - a practical guide, not a course on `R` ;
-- mostly written by French civil servants but interest audience goes beyond ;
+- mostly written by French civil servants but interested audience goes beyond ;
 - based on a collaborative approach (not a top-down philosophy).
 ]
 
@@ -101,14 +115,15 @@ kbl(description_appariement, align = "cll",
 ```
 
 ---
-# Introduction
+# Introducing `utilitR`
 
-.sauterligne2[
-`utilitR` is a practical guide that aims to answer the following questions in a work environment that corresponds to organizations that adopted `R` as the main tools for statistical analysis  :  
-]
+<br><br>
 
-- How to benefit from the exceptional ecosystem provided by `R` and `RStudio` ? 
-- How to be efficient in `R` with standard statistical tasks ?
+- `utilitR` is a practical guide that aims answer the following questions  :  
+    + How to benefit from the exceptional ecosystem provided by `R` and `RStudio` ? 
+    + How to be efficient in `R` with standard statistical tasks ?
+- ... in a work environment that corresponds to organizations
+that adopted `r fontawesome::fa("fab fa-r-project")` as the main tool for statistical analysis (production and studies)
 
 --
 
@@ -119,7 +134,8 @@ Project history :
 * End 2019 : started to talk about it ;
 * Mars 2020 : launch `r emo::ji("rocket")`;
 * Mai 2021 : first release ;
-* 8-9 juin 2021 : communication (inside and outside Insee) ;
+* 8-9 juin 2021 : communication (inside and outside Insee), see videos [here](https://www.utilitr.org/conferences/decouverte-utilitr/)
+(sorry, in French `r emo::ji("france")` `r emo::ji("baguette")` `r emo::ji("croissant")`) ;
 
 .gray[
 * 2022 : starting to work with OECD on good practices ?
@@ -127,34 +143,23 @@ Project history :
 
 
 ---
-# Introduction
+# Introducing `utilitR`
 
 .sauterligne2[
 `utilitR` started from two standpoints : 
 ]
 
-1. **People moving to `R` from `SAS` or `Excel` face obstacles** :
+1. **People moving to `r fontawesome::fa("fab fa-r-project")` from `SAS` or `Excel` face obstacles** :
     + Many _packages_ help doing the same task with heterogeneous quality ;
     + Some people have difficulties with English speaking documentation ;
-    + People inside large organizations can use `R` for very different reasons and might be tempted not to follow the same practice ;
+    + People inside large organizations can use `r fontawesome::fa("fab fa-r-project")` for very different reasons and might be tempted not to follow the same practice ;
     
 --
 
-2. **There is no reference documentation oriented to official statistical users** :
-    + Lots of documentation on `R`...
+2. **There is no reference documentation oriented to official statistical users and economists** :
+    + Lots of documentation on `r fontawesome::fa("fab fa-r-project")`...
     + ... But not that much based on real datasets that are close to what people do every day (data cleaning, engineering...)
 
-
----
-# Introduction
-
-.sauterligne[
-Plan de la présentation :
-]
-
-- Introducing `utilitR` ;
-- Why is `utilitR` special ;
-- Project organization.
 
 ---
 # Introducing `utilitR`
@@ -164,29 +169,43 @@ Three main output :
 
 - `r fontawesome::fa("fab fa-firefox")` Website ([www.utilitr.org](https://www.utilitr.org)) ;
     + Main documentation [www.book.utilitr.org](www.book.utilitr.org) ;
-    + Guide of good practice [www.pratiques.utilitr.org](www.pratiques.utilitr.org) (should be updated) ;
+    + Good practice guide [www.pratiques.utilitr.org](www.pratiques.utilitr.org) (should be updated) ;
 - `r fontawesome::fa("fas fa-print")` each chapter available can be saved as A4 page PDF ;
-- `r fontawesome::fa("fas fa-file-pdf")` whole documentation (350+ pages) can be downloaded. 
+- `r fontawesome::fa("fas fa-file-pdf")` whole documentation (350+ pages) can be downloaded in PDF. 
 
 --
 
-<br> **Please talk to `utilitR` to every potential `R` users !**
+<br> **Please talk to `utilitR` to every potential `r fontawesome::fa("fab fa-r-project")` users !**
+
+
+---
+# Introduction
+
+.sauterligne3[
+__Summary__ :
+]
+
+- Introducing `utilitR` ;
+- .gray[Why is `utilitR` special ;]
+- Project organization.
+
 
 
 ---
 # Why is `utilitR` special ?
 
+<br><br>
 
-- Everything is collaborative and _open source_ ;
-- Everything is reproducible ;
-- Everything is adapted to statistician needs.
+- Everything is __collaborative__ and __open source__ ;
+- Everything is __reproducible__ ;
+- Everything is __adapted__ to statistician needs.
 
 
 ---
 # Why is `utilitR` special ?
-## Everything is collaborative and _open source_ (1/3)
+## 1. Everything is __collaborative__ and __open source__
 
-* _Open source_ from day 1 (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
+* _Open source_ since day 1 (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
 * Around 30 contributors :
     + not all from Paris ;
     + not all from Insee.
@@ -198,23 +217,25 @@ Three main output :
     + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
     + `Github` `r fontawesome::fa("fab fa-github")`.
 
-**You are welcome to contribute to `utilitR` (sorry in French `r emo::ji("france")` `r emo::ji("baguette")`)**
+**You are welcome to contribute to `utilitR`** !
+**(sorry, in French `r emo::ji("france")` `r emo::ji("baguette")` `r emo::ji("croissant")`)**
 
 ---
 # Why is `utilitR` special ?
-## Everything is reproducible
+## 2. Everything is __reproducible__
 
 * Everything built with `R Markdown` ;
 * State of the art tools :
-    + Several _output_ (site web `r fontawesome::fa("fab fa-firefox")`, livre PDF `r fontawesome::fa("fas fa-file-pdf")`) with the same source code ;
+    + Several _output_ (website `r fontawesome::fa("fab fa-firefox")`, PDF book `r fontawesome::fa("fas fa-file-pdf")`) with the same source code ;
     + Automatic publication when changing text or examples ;
     + Everything is reproducible.
 
 ---
 # Why is `utilitR` special ?
-## Everything is adapted to statistician needs.
+## 3. Everything is __adapted__ to statistician needs.
 
-A practical guide for `R` users written by `R` users :
+A practical guide for `r fontawesome::fa("fab fa-r-project")` users written
+by `r fontawesome::fa("fab fa-r-project")` users :
 
 - Recommandations or advices regarding packages or how to solve a given problem ; 
 - Based on _open data_ that are heavily used by academics, journalists, etc.
@@ -320,8 +341,8 @@ knitr::include_graphics("./resources/graphCI/githubCI_3.png")
 ## How to collaborate ?
 
 * __Several ways to contributed__ to ensure flexibility and simplicity ;
-    * *Edit this page* button `r fontawesome::fa("fab fa-github")` on [www.book.utilitr.org](https://www.book.utilitr.org) to use `Github` visual interface (*pull request* is automatic).
-    * More substanticial elements: use RStudio to write content and propose a pull request ! 
+    * *Edit this page* `r fontawesome::fa("fab fa-github")` button on [www.book.utilitr.org](https://www.book.utilitr.org) to use `Github` visual interface (*pull request* is automatic).
+    * More substanticial elements: use `RStudio` to write content and propose a pull request ! 
     
 * Contributors help themselves !
 
@@ -331,20 +352,23 @@ knitr::include_graphics("./resources/graphCI/githubCI_3.png")
 Two key points:
 ]
 
-- __No need to be Git or Github fluent to contribute ;__
-- __Contributing help people to discover opensource standards that bring more reliable projects.__
-
+- __No need to be a `Git` `r fontawesome::fa("fab fa-git-alt")` or `Github` `r fontawesome::fa("fab fa-github")` rockstar to contribute ;__
+- __Contributing help people to discover open source standards that help build more reliable projects.__
 
 ---
 # What about `utilitR` tomorrow ?
 
-- `utilitR` keeps being updated to catch up latest `R` evolutions ;
+<br>
+- `utilitR` keeps being updated to catch up latest `r fontawesome::fa("fab fa-r-project")` evolutions ; <br>
 - There are still some missing parts in `utilitR` :
-    + How to make nice maps with `R` ?
-    + `shiny`
-- We need to go further in the harmonization of practices in `R`:
-    + A guide of good practices needs to be updated
-    + Adapt my latest course on this subject with `Python` (https://ensae-reproductibilite.netlify.app/) to `R` context
+    + How to make nice maps with `R` `r fontawesome::fa("fa-r-project")` ?
+    + `Shiny` <br>
+
+--
+- We need to go further in the harmonization of practices in `r fontawesome::fa("fab fa-r-project")`:
+    + Our good practices guide needs to be updated
+    + Start the equivalent documentation with `Python` `r fontawesome::fa("fab fa-python")`
+(starting point: some `r fontawesome::fa("fab fa-python")` courses I give at the ENSAE)
 
 ---
 # Remerciements
