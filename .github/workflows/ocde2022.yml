@@ -1,11 +1,11 @@
-name: Slides des rencontres R 2021
+name: Slides de la présentation à l'OCDE
 
 on:
   push:
     tags:
-      - 'v*.*.rencontresR2021'
+      - 'v*.*.OCDE2022'
     branches:
-      - rencontresR2021
+      - OCDE2022
 
 
 jobs:
@@ -27,10 +27,10 @@ jobs:
       - name: Render
         run: |
           mkdir -p public
-          Rscript -e 'rmarkdown::render("cutii2021.Rmd")'
+          Rscript -e 'rmarkdown::render("OCDE2022.Rmd")'
           Rscript -e "file.copy(here::here('resources'), here::here('public'), recursive = TRUE)"
           Rscript -e "file.copy(here::here('css'), here::here('public'), recursive = TRUE)"
-          mv cutii2021.html public/index.html
+          mv OCDE2022.html public/index.html
       - uses: actions/upload-artifact@v2
         with:
           name: Slides
@@ -50,6 +50,6 @@ jobs:
         run: |
           npm install --unsafe-perm=true netlify-cli -g
           netlify init
-          netlify deploy --alias=cutii2021 --dir="public" --message "Deploy cutii 2021"
+          netlify deploy --alias=ocde2022 --dir="public" --message "Deploy ocde 2022"
 
 

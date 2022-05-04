@@ -1,0 +1,401 @@
+---
+title : "__`utilitR`__"
+subtitle : "Contributive practical guide for `R` users"
+author : "Lino Galiana"
+date : "04 mai 2022"
+output:
+  xaringan::moon_reader:
+    new_session: yes
+    self_contained: false
+    css:
+    - css/default.css
+    - css/default-fonts.css
+    - css/style-utilitr.css
+    - css/icones-fa.css
+    - css/metropolis.css
+    - css/customize-slides.css
+    - css/custom.css
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Summary
+
+
+.sauterligne3[
+__Summary__ :
+]
+
+- .gray[Introducing `utilitR` ;]
+- Why is `utilitR` special ;
+- Project organization.
+
+---
+# Introducing `utilitR`
+
+.sauterligne3[
+`utilitR` projets aims to propose a collaborative documentation
+regarding `r fontawesome::fa("fab fa-r-project")` ecosystem
+(`R`, `RStudio`, `Git`, `Gitlab`).
+]
+
+.sauterligne2[
+This documentation is:
+
+- a practical guide, not a course on `R` ;
+- mostly written by French civil servants but interested audience goes beyond ;
+- based on a collaborative approach (not a top-down philosophy).
+]
+
+
+```{r, echo = FALSE, warning = FALSE, eval = FALSE}
+library(knitr)
+library(kableExtra)
+library(data.table)
+description_appariement <- 
+  as.data.table(
+    data.frame(
+      etape = c(
+        rep('Utiliser `R` à l’Insee', 5),
+        rep("Mener un projet statistique avec `R`", 5),
+        rep("Importer des données", 3),
+        rep("Manipuler des données", 3),
+        rep("Produire des _outputs_", 3)
+        ),
+      filtres_validation = 
+        c(
+          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
+          "Les environnements de travail avec `R` à l'Insee : AUSv3 et SSP Cloud", 
+          "Configurer Git et Gitlab",
+          "Personnaliser la configuration de `R`",
+          "Gérer les ressources informatiques avec `R`",
+          "Utiliser les projets RStudio",
+          "Utiliser Git avec RStudio",
+          "Installer des packages et gérer les dépendances",
+          "Choisir des packages",
+          "Demander de l'aide et se documenter",
+          "Importer des données (SAS, csv, txt, odt, xlsx...)",
+          "Utiliser une API",
+          "Utiliser des bases de données",
+          "Manipuler des données avec `data.table`",
+    # + Manipuler des données (table des données, données textuelles, données spatiales) ;
+    # + Utiliser des bases de données PostgreSQL et Oracle ;
+    # + Faire des graphiques ;
+    # + Rédiger des documents avec `R Markdown` ;
+    # + Produire des rapports automatisés avec `R Markdown`.
+          "BBB",
+          "AAA",
+          "BBB",
+          "AAA",
+          "BBB"
+        )
+    )
+  )
+
+kbl(description_appariement, align = "cll",
+    col.names = c("Partie", 
+                  "Fiches")
+) %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(0, align = 'c') %>%
+  column_spec(1, bold = TRUE, width = "6cm") %>%
+  column_spec(2, width = "12cm") %>% 
+  collapse_rows(columns = 1, 
+                valign = "middle", 
+                longtable_clean_cut = TRUE)
+```
+
+---
+# Introducing `utilitR`
+
+<br><br>
+
+- `utilitR` is a practical guide that aims answer the following questions  :  
+    + How to benefit from the exceptional ecosystem provided by `R` and `RStudio` ? 
+    + How to be efficient in `R` with standard statistical tasks ?
+- ... in a work environment that corresponds to organizations
+that adopted `r fontawesome::fa("fab fa-r-project")` as the main tool for statistical analysis (production and studies)
+
+--
+
+.sauterligne2[
+Project history :
+]
+
+* End 2019 : started to talk about it ;
+* Mars 2020 : launch `r emo::ji("rocket")`;
+* Mai 2021 : first release ;
+* 8-9 juin 2021 : communication (inside and outside Insee), see videos [here](https://www.utilitr.org/conferences/decouverte-utilitr/)
+(sorry, in French `r emo::ji("france")` `r emo::ji("baguette")` `r emo::ji("croissant")`) ;
+
+.gray[
+* 2022 : starting to work with OECD on good practices ?
+]
+
+
+---
+# Introducing `utilitR`
+
+.sauterligne2[
+`utilitR` started from two standpoints : 
+]
+
+1. **People moving to `r fontawesome::fa("fab fa-r-project")` from `SAS` or `Excel` face obstacles** :
+    + Many _packages_ help doing the same task with heterogeneous quality ;
+    + Some people have difficulties with English speaking documentation ;
+    + People inside large organizations can use `r fontawesome::fa("fab fa-r-project")` for very different reasons and might be tempted not to follow the same practice ;
+    
+--
+
+2. **There is no reference documentation oriented to official statistical users and economists** :
+    + Lots of documentation on `r fontawesome::fa("fab fa-r-project")`...
+    + ... But not that much based on real datasets that are close to what people do every day (data cleaning, engineering...)
+
+
+---
+# Introducing `utilitR`
+## Where and how to find `utilitR` ?
+
+Three main output :
+
+- `r fontawesome::fa("fab fa-firefox")` Website ([www.utilitr.org](https://www.utilitr.org)) ;
+    + Main documentation [www.book.utilitr.org](www.book.utilitr.org) ;
+    + Good practice guide [www.pratiques.utilitr.org](www.pratiques.utilitr.org) (should be updated) ;
+- `r fontawesome::fa("fas fa-print")` each chapter available can be saved as A4 page PDF ;
+- `r fontawesome::fa("fas fa-file-pdf")` whole documentation (350+ pages) can be downloaded in PDF. 
+
+--
+
+<br> **Please talk to `utilitR` to every potential `r fontawesome::fa("fab fa-r-project")` users !**
+
+
+---
+# Introduction
+
+.sauterligne3[
+__Summary__ :
+]
+
+- Introducing `utilitR` ;
+- .gray[Why is `utilitR` special ;]
+- Project organization.
+
+
+
+---
+# Why is `utilitR` special ?
+
+<br><br>
+
+- Everything is __collaborative__ and __open source__ ;
+- Everything is __reproducible__ ;
+- Everything is __adapted__ to statistician needs.
+
+
+---
+# Why is `utilitR` special ?
+## 1. Everything is __collaborative__ and __open source__
+
+* _Open source_ since day 1 (`r fontawesome::fa("fab fa-github")` [`InseeFrLab`](https://github.com/InseeFrLab/utilitR)) ;
+* Around 30 contributors :
+    + not all from Paris ;
+    + not all from Insee.
+* Horizontal organization (`Wikipedia` model) :
+    + peer reviewed ;
+    + community approval ;
+* Help discover tools for *reproducibility* beyond `r fontawesome::fa("fab fa-r-project")` :
+    + `Docker` `r fontawesome::fa("fab fa-docker")` ;
+    + `Git` `r fontawesome::fa("fab fa-git-alt")` ;
+    + `Github` `r fontawesome::fa("fab fa-github")`.
+
+**You are welcome to contribute to `utilitR`** !
+**(sorry, in French `r emo::ji("france")` `r emo::ji("baguette")` `r emo::ji("croissant")`)**
+
+---
+# Why is `utilitR` special ?
+## 2. Everything is __reproducible__
+
+* Everything built with `R Markdown` ;
+* State of the art tools :
+    + Several _output_ (website `r fontawesome::fa("fab fa-firefox")`, PDF book `r fontawesome::fa("fas fa-file-pdf")`) with the same source code ;
+    + Automatic publication when changing text or examples ;
+    + Everything is reproducible.
+
+---
+# Why is `utilitR` special ?
+## 3. Everything is __adapted__ to statistician needs.
+
+A practical guide for `r fontawesome::fa("fab fa-r-project")` users written
+by `r fontawesome::fa("fab fa-r-project")` users :
+
+- Recommandations or advices regarding packages or how to solve a given problem ; 
+- Based on _open data_ that are heavily used by academics, journalists, etc.
+
+--
+
+4 types of isolated information to emphasize some point or give extra details:
+
+.sauterligne[
+.small80[
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(magrittr)
+library(fontawesome)
+texte_recommandation <- "Ce paragraphe présente succinctement les outils et les approches les plus adaptés à la tâche concernée. Chaque fiche ne comprend qu'un seul paragraphe de ce type, au début de la fiche."
+texte_conseil        <- "Ce paragraphe détaille les bonnes pratiques à adopter."
+texte_remarque       <- "Ce paragraphe donne des informations supplémentaires ou formule une mise en garde."
+texte_specificite    <- "Ce paragraphe porte sur une spécificité de l'Insee qui a un impact sur l'usage de <code>R</code>."
+
+symb <-
+  c(fa("hand-point-right", fill = "rgba(220, 53, 69, 1)", height = "30px"),
+    fa("lightbulb", fill = "rgba(255, 193, 7, 1)", height = "30px"),
+    fa("info-circle", fill = "rgba(0, 123, 255, 1)", height = "30px"),
+    fa("home", fill = "rgba(81, 81, 81, 1)", height = "30px"))
+
+dt <- 
+  as.data.frame(list(
+    Nom = c("Recommandation", 
+            "Conseil", 
+            "Remarque",
+            "Spécificité Insee"), 
+    Symbole = symb,
+    Signification = c(texte_recommandation, 
+                      texte_conseil, 
+                      texte_remarque,
+                      texte_specificite)
+  )
+  )
+
+
+output <- 
+  dt %>% 
+  knitr::kable(escape = F, position = "center", full_width = F, align="ccl") %>%
+  kableExtra::column_spec(1, width = "3cm", bold = TRUE) %>%
+  kableExtra::column_spec(2, width = "2cm") %>% 
+  kableExtra::column_spec(3, width = "12cm") %>% 
+  kableExtra::row_spec(0,bold=TRUE, align = "c")
+output
+```
+]
+]
+
+---
+# Project organization
+## Principles
+
+**`utilitR` is a collaborative, horizontal, _open source_ and open to all projects.**
+
+--
+* 5 principles presented in a [manifesto](https://github.com/InseeFrLab/utilitR/blob/master/Manifeste.md) : transparency, openness, kindness, high standards and reproducibility
+
+--
+
+* Bottom up approach :
+    * _Contributors_ `r emo::ji("black_nib")` (around 30), among them 3 coordinateurs ;
+    * _Sponsor committee_ with some managers  `r emo::ji("angel")`.
+--
+
+* We follow the standards of open source community (_pull requests_, _issues_) ;
+--
+
+* Everything presented in a [contributing guide](https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md).
+
+--
+<br><br>
+**You can join the contributors team whenever you want !**
+
+---
+# Project organization
+## What happens behind the stage ?
+
+* Contributions by the means of the `Github` repository
+[https://www.github.com/inseefrlab/utilitr](https://www.github.com/inseefrlab/utilitr).
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_1.png")
+```
+
+---
+# Project organization
+## What happens behind the stage ?
+
+* Automatic scripts run behind the stage to ensure no bug have been introduced
+* Everything is automatically exported on the internet (preview or official website)
+
+
+```{r, echo = FALSE, out.width="85%", fig.align="center"}
+knitr::include_graphics("./resources/graphCI/githubCI_3.png")
+```
+
+
+---
+# Project organization
+## How to collaborate ?
+
+* __Several ways to contributed__ to ensure flexibility and simplicity ;
+    * *Edit this page* `r fontawesome::fa("fab fa-github")` button on [www.book.utilitr.org](https://www.book.utilitr.org) to use `Github` visual interface (*pull request* is automatic).
+    * More substanticial elements: use `RStudio` to write content and propose a pull request ! 
+    
+* Contributors help themselves !
+
+--
+
+.sauterligne2[
+Two key points:
+]
+
+- __No need to be a `Git` `r fontawesome::fa("fab fa-git-alt")` or `Github` `r fontawesome::fa("fab fa-github")` rockstar to contribute ;__
+- __Contributing help people to discover open source standards that help build more reliable projects.__
+
+---
+# What about `utilitR` tomorrow ?
+
+<br>
+- `utilitR` keeps being updated to catch up latest `r fontawesome::fa("fab fa-r-project")` evolutions ; <br>
+- There are still some missing parts in `utilitR` :
+    + How to make nice maps with `R` `r fontawesome::fa("fab fa-r-project")` ?
+    + `Shiny` <br>
+
+--
+- We need to go further in the harmonization of practices in `r fontawesome::fa("fab fa-r-project")`:
+    + Our good practices guide needs to be updated
+    + Start the equivalent documentation with `Python` `r fontawesome::fa("fab fa-python")`
+(starting point: some `r fontawesome::fa("fab fa-python")` courses I give at the ENSAE)
+
+---
+# Remerciements
+
+<!-- Le projet `utilitR` est un projet collaboratif qui a bénéficié des contributions de :  -->
+<!-- r paste0(paste(format(Filter(function(x) !("cph" %in% x$role), desc::desc_get_authors()), include = c("given", "family")), collapse = ", "), ".") -->
+
+.small90[
+.auteurs[
+
+Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel Cacheux, Arthur Cazaubiel, Frédérique Cornuau, Sylvain Daubrée, Aurélien d'Isanto, Arlindo Dos Santos, Alexis Eidelman, Marie-Emmanuelle Faure, Gilles Fidani, Lino Galiana, Gaëlle Genin, Pierre Lamarche, Claire Legroux, Romain Lesur, Jean-Daniel Lomenède, Pascal Mercier, Olivier Meslin, Violaine Poirot, Géraldine Rochambeau, Clément Rousset, Milena Suarez Castillo, Cédric Tassart.
+
+Coordination : Lino Galiana et Olivier Meslin.
+
+Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux.
+
+Logo : Anna Schlaifer.
+
+Les contributeurs remercient Julien Taquet et Marc Hufschmitt pour leur aide précieuse sur la mise en forme du site et de la brochure.
+]
+]
+
+---
+background-image: url('resources/logo-utilitr.png')
+background-size: 7cm
+background-position: 8.5cm 3cm
+
+# Merci !
+
+
