@@ -361,7 +361,7 @@ Two key points:
 <br>
 - `utilitR` keeps being updated to catch up latest `r fontawesome::fa("fab fa-r-project")` evolutions ; <br>
 - There are still some missing parts in `utilitR` :
-    + How to make nice maps with `R` `r fontawesome::fa("fa-r-project")` ?
+    + How to make nice maps with `R` `r fontawesome::fa("fab fa-r-project")` ?
     + `Shiny` <br>
 
 --
