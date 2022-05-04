@@ -13,11 +13,11 @@ jobs:
     steps:
       - name: Checkout Repository
         env:
-          GITHUB_PAT: ${{ secrets.PAT }}
+          GITHUB_PAT: ${{ secrets.PAT_GITHUB }}
         uses: actions/checkout@master
       - name: Install Dependencies
         env:
-          GITHUB_PAT: ${{ secrets.PAT }}
+          GITHUB_PAT: ${{ secrets.PAT_GITHUB }}
         run: |
           Rscript -e "install.packages(c('remotes'))"
           Rscript -e "remotes::install_deps(dependencies = TRUE)"
