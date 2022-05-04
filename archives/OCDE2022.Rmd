@@ -43,7 +43,7 @@ __Summary__ :
 # Introducing `utilitR`
 
 .sauterligne3[
-`utilitR` projets aims to propose a collaborative documentation
+`utilitR` project aims to propose a collaborative documentation
 regarding `r fontawesome::fa("fab fa-r-project")` ecosystem
 (`R`, `RStudio`, `Git`, `Gitlab`).
 ]
@@ -119,7 +119,7 @@ kbl(description_appariement, align = "cll",
 
 <br><br>
 
-- `utilitR` is a practical guide that aims answer the following questions  :  
+- `utilitR` is a practical guide that aims answering the following questions  :  
     + How to benefit from the exceptional ecosystem provided by `R` and `RStudio` ? 
     + How to be efficient in `R` with standard statistical tasks ?
 - ... in a work environment that corresponds to organizations
