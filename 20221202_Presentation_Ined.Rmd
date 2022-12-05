@@ -938,7 +938,7 @@ C'est le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](htt
 
 --
 
-* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-gears")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
 
 --
 
