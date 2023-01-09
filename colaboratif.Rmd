@@ -256,7 +256,7 @@ C'est le dépôt [`Github` `r fontawesome::fa("fab fa-github")` d'`utilitR`](htt
 
 --
 
-* Des scripts d' __intégration continue__ `r fontawesome::fa("fas fa-cogs")` qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
+* Des scripts d' __intégration continue__ qui vérifient que les contributions ne comportent pas d'erreur de programmation, et que les exemples sont bien reproductibles ;
 
 --
 
@@ -516,7 +516,7 @@ __`utilitR` est une documentation vivante qui a besoin de vous !__
 
 Contributeurs : Raphaële Adjerad, Mathias André, Pierre-Yves Berrard, Lionel Cacheux, Arthur Cazaubiel, Frédérique Cornuau, Sylvain Daubrée, Aurélien d'Isanto, Arlindo Dos Santos, Alexis Eidelman, Marie-Emmanuelle Faure, Gilles Fidani, Lino Galiana, Gaëlle Genin, Pierre Lamarche, Claire Legroux, Romain Lesur, Jean-Daniel Lomenède, Pascal Mercier, Olivier Meslin, Violaine Poirot, Géraldine Rochambeau, Clément Rousset, Milena Suarez Castillo, Cédric Tassart.
 
-Coordination : Lino Galiana et Olivier Meslin.
+Coordination : Pierre-Yves Berrard, Lino Galiana et Olivier Meslin.
 
 Comité de parrainage : Arnaud Degorre, Benoît Rouppert, Patrick Sillard et Sébastien Roux.
 

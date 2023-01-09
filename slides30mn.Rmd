@@ -258,7 +258,7 @@ La documentation comprend quatre types d'informations isolées dans des encadré
 
 .sauterligne[
 .small80[
-```{r echo = FALSE, message = FALSE, warning = FALSE}
+```{r echo = FALSE, message = FALSE, eval = FALSE}
 library(magrittr)
 library(fontawesome)
 texte_recommandation <- "Ce paragraphe présente succinctement les outils et les approches les plus adaptés à la tâche concernée. Chaque fiche ne comprend qu'un seul paragraphe de ce type, au début de la fiche."
