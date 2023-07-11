@@ -2,7 +2,7 @@
 title : "__`utilitR`__"
 subtitle : "Une documentation collaborative sur `R` pour les agents du service statistique public"
 author : "Lino Galiana"
-date : "10 juillet 2023"
+date : "11 juillet 2023"
 output:
   xaringan::moon_reader:
     new_session: yes
@@ -30,15 +30,20 @@ options(htmltools.dir.version = FALSE)
 ```
 
 .sauterligne3[
-Le projet `utilitR` vise à produire une documentation collaborative sur `R` et l'écosystème associé (RStudio, Git, Gitlab).
+Le projet `utilitR` vise à produire une documentation __collaborative__ sur `R` et l'écosystème associé (`RStudio`, `Git`, `Gitlab`).
 ]
 
 .sauterligne2[
 Cette documentation est :
 
-- un guide pratique, pas une introduction théorique à `R` ;
+- un __guide pratique__, pas une introduction théorique à `R` ;
 - principalement destinée aux agents du Service statistique public (mais pas uniquement);
 - issue de la mise en commun des connaissances des agents du SSP sur `R` dans une approche collaborative, sur le modèle de Wikipedia.
+]
+
+.sauterligne2[
+Elle vise aussi à promouvoir les __bonnes pratiques__ pour améliorer la qualité
+des projets statistiques
 ]
 
 
@@ -141,7 +146,8 @@ Historique du projet :
 * Octobre 2020 : mise en ligne du site :
 * Mai 2021 : finalisation des contenus ;
 * 8-9 juin 2021 : lancement officiel d'`utilitR` ;
-* 2022 : enrichissement progressif de la documentation.
+* 2022 : passage à `Quarto` & ajout d'une partie sur les bonnes pratiques ;
+* 2023: projet d'exercices associés à chaque fiche.
 
 ---
 # Introduction
@@ -239,13 +245,16 @@ output
 
 ---
 # Contenu de la documentation
-## Une documentation en deux grandes parties
+## Une documentation en trois grandes parties
 
-La documentation `utilitR` vise à répondre à deux grandes questions :
+La documentation `utilitR` vise à répondre à trois grandes questions :
+
+<br>
 
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème :
-  - Utiliser `R` à l'Insee ;
+  - Utiliser `R` à l'Insee (mais pas qu'à l'Insee !) ;
   - Mener un projet statistique avec `R` ;
+
 
 --
 
@@ -254,11 +263,19 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
   - Manipuler des données avec `R` ;
   - Produire des sorties avec `R`.
 
+
+--
+
+- Comment améliorer la qualité des projets utilisant `R` ;
+  - Guide compagnon de la [formation sur le sujet](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/)
+
 ---
 # Contenu de la documentation
 ## Une documentation en deux grandes parties
 
-La documentation `utilitR` vise à répondre à deux grandes questions :
+La documentation `utilitR` vise à répondre à trois grandes questions :
+
+<br>
 
 .red[
 - Comment (bien) travailler avec `R` pour profiter de la richesse de son écosystème :
@@ -272,12 +289,15 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
   - Produire des sorties avec `R`.
 
 
-
+- Comment améliorer la qualité des projets utilisant `R` ;
+  - Guide compagnon de la [formation sur le sujet](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/)
+  
+  
 ---
 # Comment (bien) travailler avec `R`
 
 .sauterligne3[
-La première partie de la documentation présente non seulement l'usage de `R` et de RStudio, mais également tout l'écosystème informatique autour de l'usage de `R` à l'Insee, afin d'aider les agents à être autonomes.
+La première partie présente tout l'écosystème informatique autour de l'usage de `R`, afin d'aider les agents à être autonomes.
 ]
 
 --
@@ -292,8 +312,8 @@ La première partie de la documentation présente non seulement l'usage de `R` e
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="5"> Utiliser <code class="remark-inline-code">R</code> à l’Insee </td>
-   <td style="text-align:left;width: 12cm; "> Utiliser <code class="remark-inline-code">R</code> sur les serveurs AUSv3 </td>
+   <td style="text-align:center;width: 6cm; font-weight: bold;vertical-align: middle !important;" rowspan="5"> Utiliser <code class="remark-inline-code">R</code></td>
+   <td style="text-align:left;width: 12cm; "> Utiliser <code class="remark-inline-code">R</code> sur les serveurs AUSv3 [spécifique Insee] </td>
   </tr>
   <tr>
    <td style="text-align:left;width: 12cm; "> Utiliser <code class="remark-inline-code">R</code> sur le SSP Cloud </td>
@@ -353,11 +373,15 @@ La documentation s'ouvre par une présentation de l'environnement informatique d
 Des captures d'écran guident les agents à toutes les étapes de l'utilisation des serveurs.
 ]
 
+.sauterligne2[
+Pensée en priorité pour les agents Insee, cette partie peut intéresser au-delà de nos murs
+]
+
 ---
 # Comment (bien) travailler avec `R`
 
 .sauterligne[
-Comment lancer un service RStudio sur le SSP Cloud
+Comment lancer un service `RStudio` sur le SSP Cloud
 ]
 
 ```{r, echo = FALSE, out.width= "95%"}
@@ -367,9 +391,8 @@ knitr::include_graphics("./resources/01_catalogue_services.png")
 ---
 # Comment (bien) travailler avec `R` à l'Insee
 
-.sauterligne[
-Comment configurer un service RStudio sur le SSP Cloud
-]
+Comment configurer un service `RStudio` sur le SSP Cloud
+
 
 ```{r, echo = FALSE, out.width= "95%"}
 knitr::include_graphics("./resources/02b_lancer_rstudio_options.png")
@@ -377,9 +400,8 @@ knitr::include_graphics("./resources/02b_lancer_rstudio_options.png")
 ---
 # Comment (bien) travailler avec `R
 
-.sauterligne[
 Comment configurer un _token_ sur Gitlab
-]
+
 
 ```{r, echo = FALSE, out.width= "78%"}
 knitr::include_graphics("./resources/config_pat_gitlab3.png")
