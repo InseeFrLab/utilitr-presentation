@@ -274,7 +274,7 @@ La documentation `utilitR` vise à répondre à deux grandes questions :
 
 
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R`
 
 .sauterligne3[
 La première partie de la documentation présente non seulement l'usage de `R` et de RStudio, mais également tout l'écosystème informatique autour de l'usage de `R` à l'Insee, afin d'aider les agents à être autonomes.
@@ -340,7 +340,7 @@ La première partie de la documentation présente non seulement l'usage de `R` e
 
 
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R`
 ## Utiliser `R` à l'Insee
 
 La documentation s'ouvre par une présentation de l'environnement informatique de travail :
@@ -354,7 +354,7 @@ Des captures d'écran guident les agents à toutes les étapes de l'utilisation 
 ]
 
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R`
 
 .sauterligne[
 Comment lancer un service RStudio sur le SSP Cloud
@@ -375,7 +375,7 @@ Comment configurer un service RStudio sur le SSP Cloud
 knitr::include_graphics("./resources/02b_lancer_rstudio_options.png")
 ```
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R
 
 .sauterligne[
 Comment configurer un _token_ sur Gitlab
@@ -385,7 +385,7 @@ Comment configurer un _token_ sur Gitlab
 knitr::include_graphics("./resources/config_pat_gitlab3.png")
 ```
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R`
 ## Mener un projet statistique avec `R`
 
 La documentation décrit les outils et les méthodes permettant de mener efficacement des projets statistiques avec `R` :
@@ -399,7 +399,7 @@ La documentation décrit les outils et les méthodes permettant de mener efficac
   - comment chercher de l'aide et se documenter sur `R`.
 
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R`
 
 .sauterligne[
 Des captures d'écran sont là pour guider les agents.
@@ -420,7 +420,7 @@ knitr::include_graphics("./resources/onglet_git8.png")
 ```
 
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R`
 ## Et quand on utilise `R` ailleurs qu'à l'Insee?
 
 --
