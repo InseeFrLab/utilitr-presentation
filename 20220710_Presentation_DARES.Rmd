@@ -389,7 +389,7 @@ knitr::include_graphics("./resources/01_catalogue_services.png")
 ```
 
 ---
-# Comment (bien) travailler avec `R` à l'Insee
+# Comment (bien) travailler avec `R`
 
 Comment configurer un service `RStudio` sur le SSP Cloud
 
@@ -398,7 +398,7 @@ Comment configurer un service `RStudio` sur le SSP Cloud
 knitr::include_graphics("./resources/02b_lancer_rstudio_options.png")
 ```
 ---
-# Comment (bien) travailler avec `R
+# Comment (bien) travailler avec `R`
 
 Comment configurer un _token_ sur Gitlab
 
